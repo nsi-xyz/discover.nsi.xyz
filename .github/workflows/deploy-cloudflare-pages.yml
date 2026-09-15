@@ -1,0 +1,39 @@
+name: Déploiement Cloudflare Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Le site est 100 % statique, mais Gemini est publié depuis son build.
+      # On assemble le dossier à publier : Astra à la racine, DeepSeek et Gemini
+      # dans leurs sous-dossiers.
+      - name: Assembler le site à publier
+        run: |
+          set -e
+          mkdir -p _site/gemini
+          cp index.html styles.css app.js .nojekyll _redirects _site/
+          cp -a deepseek _site/
+          cp gemini/index.html gemini/favicon.ico _site/gemini/
+          cp gemini/main-*.js gemini/styles-*.css _site/gemini/
+          echo "Fichiers publiés :"; find _site -type f | sort
+
+      - name: Publier sur Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy _site --project-name=discover-nsi-xyz --branch=main
