@@ -1,0 +1,150 @@
+/* ============================================================================
+   40-EFFECTS.CSS — Transition entre directions artistiques, révélations,
+   décors, impression. Rien ici n'est indispensable à la lisibilité : tout
+   est enveloppé dans les garde-fous « mouvement réduit » et « sans JS ».
+   ========================================================================= */
+
+/* ══════════════ 1. LA MÉTAMORPHOSE ══════════════════════════════════════
+   Le navigateur « photographie » l'ancienne page et la nouvelle, puis on
+   révèle la seconde par un masque circulaire qui part du bouton cliqué.
+   C'est la View Transitions API : native, fluide, sans bibliothèque. */
+@view-transition{ navigation: none; }
+
+::view-transition-old(root),
+::view-transition-new(root){
+  animation-duration: 620ms;
+  animation-timing-function: cubic-bezier(.22,.61,.36,1);
+  mix-blend-mode: normal;
+}
+::view-transition-old(root){ animation-name: vt-fade-out; }
+::view-transition-new(root){ animation-name: vt-reveal; }
+
+@keyframes vt-fade-out{ to{ opacity:1; } }
+@keyframes vt-reveal{
+  from{ clip-path: circle(0% at var(--vt-x, 50%) var(--vt-y, 0%)); }
+  to{ clip-path: circle(150% at var(--vt-x, 50%) var(--vt-y, 0%)); }
+}
+
+/* Repli sans View Transitions : un fondu court, jamais un flash blanc. */
+.theme-fade{ animation: theme-fade var(--t-slow) var(--ease) both; }
+@keyframes theme-fade{
+  0%{ opacity:1; } 45%{ opacity:.32; } 100%{ opacity:1; }
+}
+
+/* Pendant la bascule, on gèle les transitions de couleur pour éviter que
+   chaque élément « rame » séparément. */
+html.is-morphing *{
+  transition-duration: 0s !important;
+  animation-duration: 0s !important;
+}
+
+@media (prefers-reduced-motion: reduce){
+  ::view-transition-old(root),
+  ::view-transition-new(root){ animation:none; }
+}
+
+/* ══════════════ 2. RÉVÉLATION AU DÉFILEMENT ════════════════════════════ */
+html.has-js [data-reveal]{
+  opacity:0; transform: translateY(18px);
+  transition: opacity 620ms var(--ease-soft), transform 620ms var(--ease-soft);
+  transition-delay: calc(var(--stagger, 0) * 70ms);
+  will-change: opacity, transform;
+}
+html.has-js [data-reveal].is-in{ opacity:1; transform:none; }
+/* Le hero n'attend pas le défilement : il se révèle à l'ouverture. */
+html.has-js .hero [data-reveal]{ transition-delay: calc(var(--stagger, 0) * 90ms + 60ms); }
+
+@media (prefers-reduced-motion: reduce){
+  html.has-js [data-reveal]{ opacity:1; transform:none; transition:none; }
+}
+@media print{
+  html.has-js [data-reveal]{ opacity:1 !important; transform:none !important; }
+}
+
+/* ══════════════ 3. DÉCORS DE FOND ══════════════════════════════════════
+   Trois calques réutilisables. Chaque thème choisit lesquels afficher
+   (voir 30-themes.css) : trame, pointillés, anneaux concentriques. */
+.deco{
+  position:absolute; inset:0; z-index:0; pointer-events:none;
+  overflow:clip; opacity:var(--orn-op);
+  transition: opacity var(--t-slow) var(--ease);
+}
+.deco > *{ position:absolute; }
+[data-theme] main,
+[data-theme] .site-header,
+[data-theme] .site-footer{ position:relative; z-index:1; }
+
+.deco-grid{
+  inset:0;
+  background-image:
+    linear-gradient(to right, var(--grid-line, rgba(0,0,0,.05)) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line, rgba(0,0,0,.05)) 1px, transparent 1px);
+  background-size: clamp(28px, 4vw, 64px) clamp(28px, 4vw, 64px);
+  mask-image: radial-gradient(120% 90% at 50% 0%, #000 20%, transparent 78%);
+}
+.deco-dots{
+  inset:0;
+  background-image: radial-gradient(currentColor 1.35px, transparent 1.4px);
+  background-size: 22px 22px;
+  color: var(--c-ink);
+  opacity:.16;
+}
+.deco-rings span{
+  border:1px solid currentColor; border-radius:50%;
+  aspect-ratio:1; color: var(--c-primary); opacity:.16;
+}
+.deco-rings span:nth-child(1){ width:min(58vw,42rem); top:-16rem; right:-14rem; }
+.deco-rings span:nth-child(2){ width:min(40vw,28rem); top:-8rem; right:-8rem; opacity:.12; }
+.deco-rings span:nth-child(3){ width:min(72vw,54rem); bottom:-28rem; left:-24rem; opacity:.10; }
+.deco-rings span:nth-child(4){ width:min(28vw,20rem); bottom:-10rem; left:-8rem; opacity:.14; }
+
+/* ══════════════ 4. MICRO-INTERACTIONS ══════════════════════════════════ */
+/* Les neuf pastilles clignotent brièvement selon leur propre teinte :
+   c'est le seul endroit où les neuf palettes coexistent à l'écran. */
+:root[data-ornaments="chaos"] .picker-btn .pt{ animation: swatch-pulse 1.6s var(--ease) infinite; }
+@keyframes swatch-pulse{ 50%{ transform:scale(1.35); } }
+
+/* Survol des liens de navigation : soulignement qui « pousse » */
+.link-arrow span{ display:inline-block; transition: transform var(--t-fast) var(--ease); }
+.link-arrow:hover span{ transform: translate(2px,-2px); }
+
+/* La barre de progression se teinte de l'accent du thème */
+.scroll-progress span{ background: linear-gradient(90deg, var(--c-primary), var(--c-accent)); }
+
+/* ══════════════ 5. ÉTATS TRANSITOIRES ══════════════════════════════════ */
+.toast.is-leaving{ opacity:0; transform: translate(-50%, 10px); transition: all var(--t-mid) var(--ease); }
+
+/* ══════════════ 6. IMPRESSION ══════════════════════════════════════════ */
+@media print{
+  .site-header, .picker-shell, .fab, .toast, .modal, .scroll-progress, .deco{ display:none !important; }
+  body{ background:#FFF; color:#000; }
+  .band, .band--alt, .hero, .finale, .site-footer{ background:#FFF !important; color:#000 !important; }
+  .lite, .module, .project, .path, .tl-item, .qa, .callout, .figures{ box-shadow:none !important; border:1px solid #CCC !important; }
+  .qa{ break-inside: avoid; }
+  .qa[open] .qa-a{ display:block; }
+  a[href^="http"]::after{ content:" (" attr(href) ")"; font-size:.75em; color:#555; }
+}
+
+/* ═══ Bandeau inter-versions (coût, crédits, liens croisés) ═══ */
+.xnav{margin-bottom:clamp(1.4rem,3vw,2.4rem);padding-bottom:clamp(1.4rem,3vw,2.2rem);
+  border-bottom:1px solid color-mix(in srgb,var(--c-ink-2) 32%,transparent);
+  font-family:var(--f-display, inherit);color:var(--c-ink)}
+.xnav__grid{display:grid;gap:.15rem .6rem;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));
+  max-width:60rem;margin:.9rem 0 0;padding:0;list-style:none}
+.xnav__item{display:flex;align-items:center;justify-content:space-between;gap:.8rem;
+  padding:.65rem .85rem;text-decoration:none;color:inherit;border-radius:var(--radius-sm, 8px);
+  border:1px solid color-mix(in srgb,var(--c-line) 80%,transparent);transition:background-color .2s ease}
+.xnav__item:hover{background:color-mix(in srgb,var(--c-primary) 12%,transparent)}
+.xnav__item[aria-current="page"]{background:color-mix(in srgb,var(--c-primary) 16%,transparent);
+  border-color:var(--c-primary);cursor:default}
+.xnav__name{font-weight:700;font-size:.9rem;white-space:nowrap}
+.xnav__name::before{content:"";display:inline-block;width:.55rem;height:.55rem;border-radius:50%;
+  margin-right:.45rem;vertical-align:.06em;background:var(--x-accent,var(--c-primary))}
+.xnav__cost{font-family:var(--f-mono, monospace);font-size:.75rem;color:var(--c-ink-2);white-space:nowrap}
+.xnav__self{font-size:.72rem;color:var(--c-ink-2);font-family:var(--f-mono, monospace)}
+.xnav__credit{display:block;margin-top:1rem;font-size:.72rem;line-height:1.6;
+  color:var(--c-ink-2);max-width:74rem}
+.xnav__credit a{color:inherit}
+.xnav__exergue{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--c-ink-2);margin:0}
+.xnav__exergue b{color:var(--c-primary)}

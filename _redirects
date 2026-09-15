@@ -1,0 +1,3 @@
+# La version Gemini est publiée depuis son dossier de build (Cloudflare Pages).
+/gemini/     /gemini/dist/index.html    200
+/gemini/*    /gemini/dist/:splat        200

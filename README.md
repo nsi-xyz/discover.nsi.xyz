@@ -1,33 +1,77 @@
-# Discover NSI
+# discover.nsi.xyz — un contenu, quatre versions
 
-Landing page en français consacrée à la spécialité Numérique et Sciences Informatiques au lycée. Un document unique se transforme entre neuf directions artistiques : Flat Design, Material Design, skeuomorphisme, neumorphisme, glassmorphisme, brutalisme, minimalisme, maximalisme et typographique.
+Page de découverte de la spécialité **NSI** (Numérique et Sciences Informatiques)
+au lycée, déclinée par quatre modèles, chacune réinterprétant le même contenu en
+**neuf directions artistiques** : Flat, Material, skeuomorphisme, neumorphisme,
+glassmorphisme, brutalisme, minimalisme, maximalisme et typographique.
 
-## Aperçu local
+Le site publié est la version **Astra**. Les autres versions restent
+consultables depuis le pied de page de chacune.
 
-Avec Node.js installé, lancer `npm run dev`, puis ouvrir `http://127.0.0.1:4173/`. Aucune dépendance à installer, aucune compilation nécessaire. La variable `PORT` permet de changer le port.
+| Version | Modèle | Prompteur | Coût | Jetons | Durée | Emplacement |
+|---|---|---|---|---|---|---|
+| **Astra** | GPT 6 | @ClovisReye | 13 € | 8 M | 37 min | racine (`dist/`) |
+| DeepSeek | DeepSeek 4.1 Flash | @nsi_xyz | 0,13 € | 42 M | 42 min | `deepseek/` |
+| Gemini | Gemini 3.8 Flash | @nsi_xyz | 0 € | 50 k | 4 min | `gemini/` (sources) |
 
-## Fichiers à publier
+> Idée : [@nsi_xyz](https://twitter.com/nsi_xyz), prompté sur Gemini 3.8 Flash et
+> DeepSeek 4.1 Flash par @nsi_xyz, prompté sur Astra (GPT 6) : @ClovisReye.
 
-Le dossier `dist/` contient tout le site :
+---
 
-- `index.html` : contenu, navigation, métadonnées et sources officielles.
-- `styles.css` : styles communs, neuf directions et adaptations aux écrans.
-- `app.js` : sélecteur, annonce accessible, préférence locale et conservation du passage lu.
+## Arborescence
 
-Ces trois fichiers fonctionnent sur tout hébergement statique. Le contenu reste disponible sans JavaScript. Les polices viennent de Google Fonts, avec des polices système de remplacement. Aucun traceur, formulaire ni serveur applicatif.
+```
+dist/            site Astra publié : index.html, styles.css, app.js (100 % statique)
+deepseek/        version DeepSeek, autonome (index.html + styles/ + scripts/ + assets/)
+gemini/          sources Angular de la version Gemini (à compiler, voir plus bas)
+preview.mjs      serveur local du site Astra  →  npm run dev  →  127.0.0.1:4173
+CNAME            discover.nsi.xyz
+.nojekyll        empêche Jekyll d'ignorer les dossiers commençant par un souligné
+```
 
-## Interactions et accessibilité
+## Déploiement Cloudflare (100 % statique)
 
-Le sélecteur fixe donne un accès direct aux neuf styles sur ordinateur. Sur mobile, le nom du style ouvre un panneau de choix et la flèche passe au style suivant. Les boutons fonctionnent au clavier, le panneau modal gère le focus et se ferme avec Échap. La préférence est enregistrée uniquement dans le navigateur. Le changement de style conserve le passage en cours de lecture.
+- **Build command** : *(aucune)*
+- **Output directory** : `dist`
+- **Domaine** : `discover.nsi.xyz` (fichier `CNAME` fourni)
 
-Un lien d’évitement, une structure de titres, des annonces de changement de style et la préférence de réduction des animations sont pris en charge. Le document utilise `lang="fr"`.
+Aucun Worker, aucune fonction serveur : le site Astra est du HTML/CSS/JS pur.
 
-## Contenu et vérifications
+La version Gemini est une application Angular livrée **en sources** ; pour la
+mettre en ligne, la compiler puis publier son `dist/app/browser` :
 
-Les origines, les horaires, la démarche de projet et le programme ont été vérifiés avec les sources du ministère et d’Éduscol. Les parcours après le bac renvoient vers Onisep. Les six cartes de programme sont une synthèse des deux années, pas une reproduction des rubriques officielles. Les projets présentés sont des possibilités, selon les choix pédagogiques et l’équipement du lycée.
+```bash
+cd gemini
+npm install
+npm run build
+# sortie : gemini/dist/app/browser/
+```
 
-Vérifications effectuées dans le navigateur : neuf styles, tailles de 320 à 1440 pixels, absence de débordement horizontal, contenu identique, un seul style sélectionné, fermeture au clavier et retour du focus. Relecture indépendante du code et des contrastes des palettes ; corrections des problèmes observés. Il ne s’agit pas d’une certification WCAG complète.
+## Liens entre les versions
 
-## Hébergement
+Chaque version affiche dans son pied de page un bandeau **« Un contenu, quatre
+versions »** : son propre coût, puis un lien vers les autres. Les liens sont
+**relatifs** (`../`, `../deepseek/`, `../gemini/`), donc fonctionnels en local
+comme en ligne, y compris depuis un sous-dossier.
 
-La configuration Sites figure dans `.openai/hosting.json`. Domaine cible : `discover.nsi.xyz`. Le raccordement du domaine dépend de sa configuration DNS ; un aperçu hébergé ne modifie pas ces enregistrements.
+## Ajouter une version plus tard
+
+1. Déposer la nouvelle version dans un sous-dossier (`ma-version/`).
+2. Copier le bloc `<div class="xnav">…</div>` d'un pied de page existant et
+   l'adapter : nom, coût, et liens `../…` vers les autres versions.
+3. Ajouter son bloc CSS `.xnav…` (structurellement identique ; seuls les jetons
+   de couleur changent selon les variables de la version hôte).
+4. Ajouter la ligne correspondante au tableau ci-dessus.
+
+Le bandeau ne dépend d'aucun script : HTML et CSS seulement, rien à maintenir
+côté JavaScript.
+
+## Vérifier en local
+
+```bash
+npm run dev                  # site Astra sur http://127.0.0.1:4173/
+python3 -m http.server 8000  # ou tout serveur statique à la racine du dépôt
+```
+
+Puis `http://127.0.0.1:8000/dist/`, `…/deepseek/`, `…/gemini/`.
