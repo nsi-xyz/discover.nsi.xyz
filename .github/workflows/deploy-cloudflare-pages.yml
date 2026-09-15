@@ -1,4 +1,4 @@
-name: Déploiement Cloudflare Pages
+name: Déploiement Cloudflare
 
 on:
   push:
@@ -9,7 +9,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: pages-deploy
+  group: deploy
   cancel-in-progress: true
 
 jobs:
@@ -18,22 +18,27 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Le site est 100 % statique, mais Gemini est publié depuis son build.
-      # On assemble le dossier à publier : Astra à la racine, DeepSeek et Gemini
-      # dans leurs sous-dossiers.
-      - name: Assembler le site à publier
-        run: |
-          set -e
-          mkdir -p _site/gemini
-          cp index.html styles.css app.js .nojekyll _redirects _site/
-          cp -a deepseek _site/
-          cp gemini/index.html gemini/favicon.ico _site/gemini/
-          cp gemini/main-*.js gemini/styles-*.css _site/gemini/
-          echo "Fichiers publiés :"; find _site -type f | sort
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
 
-      - name: Publier sur Cloudflare Pages
+      # Assemble worker/site : Astra à la racine, DeepSeek et Gemini en sous-dossiers.
+      - name: Assembler le site
+        run: node scripts/build-site.mjs
+
+      # Le domaine discover.nsi.xyz est servi par ce Worker (assets statiques).
+      # La route discover.nsi.xyz/* est prioritaire sur l'enregistrement *.nsi.xyz.
+      - name: Déployer le Worker
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy _site --project-name=discover-nsi-xyz --branch=main
+          command: deploy --config worker/wrangler.json
+
+      # Même contenu publié aussi sur Cloudflare Pages (environnement de préversion).
+      - name: Déployer sur Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy worker/site --project-name=discover-nsi-xyz --branch=main

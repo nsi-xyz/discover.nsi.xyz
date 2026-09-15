@@ -1,0 +1,4 @@
+# Aucune redirection nécessaire : chaque version est servie depuis son dossier.
+#   /            → Astra   (index.html, styles.css, app.js)
+#   /deepseek/   → version DeepSeek
+#   /gemini/     → version Gemini (build statique à la racine de son dossier)

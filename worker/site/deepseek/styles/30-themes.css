@@ -1,0 +1,933 @@
+/* ============================================================================
+   30-THEMES.CSS — NEUF INTERPRÉTATIONS, UN SEUL CONTENU
+   ----------------------------------------------------------------------------
+   Chaque bloc redéfinit des jetons sémantiques, puis surcharge finement
+   quelques composants. Règle d'or tenue partout : le texte de lecture garde
+   un contraste ≥ 4,5:1, vérifiable en direct via le panneau « Contrastes ».
+
+   Ordre du sélecteur (parcours voulu, du plus sage au plus excessif) :
+     1 flat · 2 material · 3 skeuomorphisme · 4 neumorphisme
+     5 glassmorphisme · 6 brutalisme · 7 minimalisme · 8 maximalisme
+     9 typographique
+   ========================================================================= */
+
+/* Trames de fond décoratives, activées par les thèmes qui en veulent.
+   Leur visibilité est pilotée par --orn-op (voir 00-tokens.css). */
+.deco-grid, .deco-dots, .deco-rings{ display:none; }
+:root[data-theme="flat"] .deco-grid,
+:root[data-theme="flat"] .deco-dots,
+:root[data-theme="neumorphisme"] .deco-grid,
+:root[data-theme="neumorphisme"] .deco-rings,
+:root[data-theme="skeuomorphisme"] .deco-dots,
+:root[data-theme="glassmorphisme"] .deco-grid,
+:root[data-theme="glassmorphisme"] .deco-rings,
+:root[data-theme="brutalisme"] .deco-grid,
+:root[data-theme="maximalisme"] .deco-grid,
+:root[data-theme="maximalisme"] .deco-rings,
+:root[data-theme="minimalisme"] .deco-rings,
+:root[data-theme="typographique"] .deco-grid{ display:block; }
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   1. FLAT DESIGN — la couleur dit tout, la profondeur ne dit rien
+   Aplats francs, angles nets, aucune ombre portée : la hiérarchie repose
+   uniquement sur la teinte, l'échelle et la graisse.
+   ══════════════════════════════════════════════════════════════════════════ */
+:root[data-theme="flat"]{
+  --c-canvas:#F1F4FA;
+  --c-bg:#F1F4FA; --c-bg-2:#FFFFFF;
+  --c-surface:#FFFFFF; --c-surface-2:#E8EFFC;
+  --c-ink:#0B1526; --c-ink-2:#3E4C66; --c-ink-3:#55637C;
+  --c-primary:#1450D6; --c-primary-ink:#FFFFFF;
+  --c-accent:#0A7A5E; --c-accent-ink:#FFFFFF;
+  --c-line:#D3DCF0; --c-line-strong:#B3BFDA;
+  --c-focus:#123FB0;
+
+  --f-display:"Inter Tight","Inter","Noto Sans",Arial,sans-serif;
+  --fw-display:800; --ls-display:-.028em;
+  --radius:10px; --radius-sm:6px;
+  --border-w:2px;
+
+  --shadow-1:none; --shadow-2:none; --shadow-3:0 24px 48px -28px rgba(11,21,38,.28);
+  --card-shadow:none; --card-border:2px solid var(--c-line);
+  --card-tf-hover:translateY(-4px);
+  --btn-shadow:none; --btn-shadow-act:none;
+  --btn-tf-hover:translateY(-2px); --btn-tf-act:translateY(0);
+  --fig-bg:#E8EFFC; --fig-radius:8px;
+  --chip-bg:#FFFFFF; --chip-border:2px solid var(--c-primary); --chip-ink:var(--c-primary);
+  --chip-radius:6px;
+  --tt-display:none;
+  --grid-line:rgba(20,80,214,.05);
+}
+:root[data-theme="flat"] .brand-mark{ border-radius:6px; }
+:root[data-theme="flat"] .lite h3,
+:root[data-theme="flat"] .module h3{ color:var(--c-primary); }
+:root[data-theme="flat"] .path--main{ background:#E3EBFF; border-color:var(--c-primary); }
+:root[data-theme="flat"] .qa summary{ background:var(--c-surface-2); }
+:root[data-theme="flat"] .eyebrow{ color:var(--c-accent); }
+:root[data-theme="flat"] .band--alt{ border-top:2px solid var(--c-line); }
+:root[data-theme="flat"] .tl-year{ }
+:root[data-theme="flat"] .hero h1 .line--accent{ color:var(--c-primary); }
+:root[data-theme="flat"] .finale{ background:var(--c-primary); color:var(--c-primary-ink); }
+:root[data-theme="flat"] .finale .eyebrow,
+:root[data-theme="flat"] .finale-note{ color:#D8E2FA; }
+:root[data-theme="flat"] .finale .eyebrow::after{ background:#D8E2FA; opacity:.5; }
+:root[data-theme="flat"] .finale-t .hl{ color:#FFD84D; }
+:root[data-theme="flat"] .finale .cta{ background:#FFFFFF; color:var(--c-primary); }
+:root[data-theme="flat"] .finale .cta--ghost{ background:transparent; color:#FFFFFF; border-color:#FFFFFF; }
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   2. MATERIAL DESIGN — la profondeur est une information
+   Trois niveaux d'élévation, surfaces teintées, formes douces, accent
+   secondaire, ondulation au clic : rien n'est décoratif, tout situe l'objet.
+   ══════════════════════════════════════════════════════════════════════════ */
+:root[data-theme="material"]{
+  --c-canvas:#F5F7FC;
+  --c-bg:#F5F7FC; --c-bg-2:#EDF1F9;
+  --c-surface:#FFFFFF; --c-surface-2:#E7EEFB;
+  --c-ink:#111820; --c-ink-2:#3F4A57; --c-ink-3:#4E5A6B;
+  --c-primary:#0B57D0; --c-primary-ink:#FFFFFF;
+  --c-accent:#00639B; --c-accent-ink:#FFFFFF;
+  --c-line:#DDE3EC; --c-line-strong:#B9C2D0;
+  --c-focus:#0B57D0;
+  --sw-material:#0B57D0;
+
+  --f-display:"Inter","Noto Sans",sans-serif;
+  --fw-display:700; --ls-display:-.012em;
+  --radius:24px; --radius-sm:12px;
+  --border-w:1px;
+  --shadow-1:0 1px 2px rgba(16,24,40,.16), 0 1px 3px 1px rgba(16,24,40,.09);
+  --shadow-2:0 2px 3px rgba(16,24,40,.14), 0 6px 14px 2px rgba(16,24,40,.13);
+  --shadow-3:0 8px 12px rgba(16,24,40,.14), 0 22px 46px 6px rgba(16,24,40,.16);
+  --card-shadow:var(--shadow-1); --card-border:1px solid var(--c-line);
+  --card-tf-hover:translateY(-3px);
+  --btn-shadow:var(--shadow-1); --btn-shadow-act:var(--shadow-1);
+  --btn-tf-hover:translateY(-1px);
+  --fig-bg:#E7EEFB; --fig-radius:16px;
+  --chip-bg:#E7EEFB; --chip-border:1px solid #D2DEF5; --chip-radius:8px;
+  --card-inset:none;
+}
+:root[data-theme="material"] .lite h3,
+:root[data-theme="material"] .module h3{ font-weight:600; letter-spacing:0; }
+:root[data-theme="material"] .lite:hover,
+:root[data-theme="material"] .module:hover,
+:root[data-theme="material"] .project:hover,
+:root[data-theme="material"] .path:hover,
+:root[data-theme="material"] .tl-item:hover{ box-shadow:var(--shadow-2) var(--card-inset); }
+:root[data-theme="material"] .year-tab{ border-radius:var(--radius-pill); }
+:root[data-theme="material"] .year-tab.is-active{ box-shadow:var(--shadow-2); }
+:root[data-theme="material"] .eyebrow{ color:var(--c-accent); }
+:root[data-theme="material"] .brand-mark{ border-radius:50%; }
+:root[data-theme="material"] .cta{ border-radius:var(--radius-pill); position:relative; overflow:clip; }
+:root[data-theme="material"] .cta::after{
+  content:""; position:absolute; left:50%; top:50%; width:8px; height:8px;
+  border-radius:50%; background:currentColor; opacity:0; transform:translate(-50%,-50%) scale(1);
+}
+:root[data-theme="material"] .cta:hover::after{ animation: ripple .62s var(--ease); }
+@keyframes ripple{
+  0%{ opacity:.30; transform:translate(-50%,-50%) scale(1); }
+  100%{ opacity:0; transform:translate(-50%,-50%) scale(26); }
+}
+:root[data-theme="material"] .finale{ background:#0B57D0; color:#FFFFFF; }
+:root[data-theme="material"] .finale .eyebrow,
+:root[data-theme="material"] .finale-note{ color:#DCE8FD; }
+:root[data-theme="material"] .finale-t .hl{ color:#C9E7FF; }
+:root[data-theme="material"] .finale .cta{ background:#FFFFFF; color:#0B57D0; }
+:root[data-theme="material"] .finale .cta--ghost{ background:transparent; color:#FFFFFF; border:1px solid #FFFFFF; }
+:root[data-theme="material"] .site-header::before{
+  content:""; display:block; height:4px;
+  background:linear-gradient(90deg,#0B57D0,#00639B,#7A5BD6,#0B57D0);
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   3. SKEUOMORPHISME — le pixel imite la matière
+   Cuir, papier, cuivre, verre bombé : dégradés superposés, liserés clairs,
+   ombres internes. Chaque élément doit ressembler à un objet qu'on pourrait
+   prendre en main.
+   ══════════════════════════════════════════════════════════════════════════ */
+:root[data-theme="skeuomorphisme"]{
+  --c-canvas:#F1E8D5;
+  --c-bg:#EFE6D3; --c-bg-2:#F7F0DF;
+  --c-surface:#FFFDF5; --c-surface-2:#F2E9D5;
+  --c-ink:#241A10; --c-ink-2:#463626; --c-ink-3:#5A4A35;
+  --c-primary:#7C4E12; --c-primary-ink:#FFF9EC;
+  --c-accent:#0F5C46; --c-accent-ink:#F4FFF8;
+  --c-line:#D6C6A6; --c-line-strong:#B9A47D;
+  --c-focus:#8A5A1E;
+
+  --f-display:"Playfair Display","Linux Libertine O","Noto Serif",Georgia,serif;
+  --f-text:"IBM Plex Serif","Linux Libertine O","Noto Serif",Georgia,serif;
+  --f-mono:"Courier New","Liberation Mono",monospace;
+  --fw-display:700; --ls-display:-.01em; --lh-body:1.68;
+  --radius:10px; --radius-sm:7px;
+  --border-w:1px;
+  --shadow-1:0 1px 0 rgba(255,255,255,.9) inset, 0 2px 4px rgba(60,40,15,.20);
+  --shadow-2:0 1px 0 rgba(255,255,255,.85) inset, 0 8px 18px -6px rgba(60,40,15,.34);
+  --shadow-3:0 14px 40px -12px rgba(40,25,8,.45);
+  --card-bg:#FFFDF5; --card-bg-2:#F7EEDC;
+  --card-shadow:0 1px 0 rgba(255,255,255,.95) inset, 0 0 0 1px rgba(160,135,95,.35), 0 10px 22px -12px rgba(60,40,15,.5);
+  --card-inset:inset 0 1px 0 rgba(255,255,255,.9), inset 0 -1px 0 rgba(120,95,60,.12);
+  --card-border:1px solid #D9C9A8;
+  --card-tf:none; --card-tf-hover:translateY(-2px) rotate(-.25deg);
+  --btn-shadow:0 2px 0 #6D4614, 0 5px 12px -3px rgba(60,40,15,.55), inset 0 1px 0 rgba(255,255,255,.55);
+  --btn-shadow-act:0 1px 0 #6D4614, 0 2px 5px -1px rgba(60,40,15,.45), inset 0 2px 5px rgba(60,40,15,.35);
+  --btn-tf-hover:translateY(-1px); --btn-tf-act:translateY(1px);
+  --fig-bg:linear-gradient(#F7EEDC,#EFE3C9); --fig-radius:8px;
+  --chip-bg:linear-gradient(#FFFDF5,#F4EAD5); --chip-border:1px solid #D0BE9A; --chip-ink:#3A2C1B;
+  --card-blur:none;
+  --grid-line:rgba(138,90,30,.05);
+}
+/* Cuir de l'en-tête : dégradés radiaux superposés pour la « peau » */
+:root[data-theme="skeuomorphisme"] .site-header{
+  background:
+    radial-gradient(120% 180% at 12% 0%, rgba(255,255,255,.10), transparent 55%),
+    radial-gradient(80% 140% at 88% 120%, rgba(0,0,0,.35), transparent 60%),
+    radial-gradient(60% 100% at 50% -20%, rgba(255,220,170,.16), transparent 70%),
+    linear-gradient(#4A3524,#2E2115);
+  border-bottom:4px solid #1D150D;
+  box-shadow:0 6px 16px -6px rgba(30,20,8,.6), inset 0 -1px 0 rgba(255,220,170,.18);
+  color:#FBEFD9;
+}
+:root[data-theme="skeuomorphisme"] .site-header .brand-txt em{ color:#F3E4C8; }
+:root[data-theme="skeuomorphisme"] .site-header .ghost-btn{
+  background:#3B2A1C;
+  color:#FBEFD9; border:1px solid #241A10;
+  box-shadow:0 1px 0 rgba(255,220,170,.28) inset, 0 -1px 0 rgba(0,0,0,.4) inset, 0 2px 4px rgba(20,12,4,.45);
+}
+:root[data-theme="skeuomorphisme"] .picker-shell{
+  background:linear-gradient(#EFE3C9,#E4D5B6);
+  border-top:1px solid rgba(255,255,255,.6);
+  border-bottom:1px solid rgba(120,95,60,.35);
+}
+:root[data-theme="skeuomorphisme"] .picker-label{ color:#5A4A35; }
+/* Liens : un bronze assez dense pour rester lisible sur le papier clair */
+:root[data-theme="skeuomorphisme"] .link-arrow{ color:#7C4E12; }
+:root[data-theme="skeuomorphisme"] .picker-btn{
+  background:linear-gradient(#FFFDF5,#F1E6CE);
+  border:1px solid #C9B48D;
+  box-shadow:0 1px 0 #fff inset, 0 2px 3px rgba(80,55,20,.28);
+  color:#4A3826;
+}
+:root[data-theme="skeuomorphisme"] .picker-btn[aria-selected="true"]{
+  background:#4E3209;
+  border-color:#332006; color:#FFFAF0;
+  box-shadow:0 1px 0 rgba(255,255,255,.35) inset, 0 2px 4px rgba(50,30,8,.5);
+}
+:root[data-theme="skeuomorphisme"] .band{ background:var(--c-bg); }
+:root[data-theme="skeuomorphisme"] .band--alt{ background:var(--c-bg-2); border-top:1px solid rgba(150,125,85,.35); }
+:root[data-theme="skeuomorphisme"] .hero{
+  background:
+    radial-gradient(90% 120% at 8% 0%, #FFFCF1, transparent 60%),
+    linear-gradient(#F6EFDE,#EDE2CA);
+}
+:root[data-theme="skeuomorphisme"] .hero::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background-image:radial-gradient(rgba(120,95,60,.14) 1px, transparent 1px);
+  background-size:6px 6px; opacity:.5; mix-blend-mode:multiply;
+}
+:root[data-theme="skeuomorphisme"] .brand-mark{
+  background:radial-gradient(120% 120% at 30% 20%, #F0C97E, #A9712C 55%, #6D4614);
+  color:#2E2115; border-radius:50%;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.7), inset 0 -3px 6px rgba(60,35,5,.5), 0 2px 4px rgba(40,25,8,.45);
+}
+:root[data-theme="skeuomorphisme"] .tl-year{
+  background:linear-gradient(#F5EAD3,#E7D9BA);
+  border:1px solid #C6B189; border-radius:5px;
+  box-shadow:inset 0 1px 0 #fff, 0 1px 2px rgba(80,55,20,.25);
+  padding:.15rem .5rem; justify-self:start; color:#6D4614;
+}
+:root[data-theme="skeuomorphisme"] .figures li b{
+  text-shadow:0 1px 0 rgba(255,255,255,.9);
+  color:#7A4E16;
+}
+:root[data-theme="skeuomorphisme"] .meta b{ color:#7A4E16; }
+:root[data-theme="skeuomorphisme"] .module h3{ font-family:"Playfair Display",Georgia,serif; font-weight:700; }
+:root[data-theme="skeuomorphisme"] .qa-x{
+  background:linear-gradient(#FFFDF5,#EDE1C7); border-color:#C6B189;
+  box-shadow:inset 0 1px 0 #fff;
+}
+:root[data-theme="skeuomorphisme"] .finale{
+  background:#33241A;
+  border-top:3px solid #1D150D;
+  box-shadow:inset 0 1px 0 rgba(255,220,170,.18);
+  color:#FBEFD9;
+}
+:root[data-theme="skeuomorphisme"] .finale .eyebrow,
+:root[data-theme="skeuomorphisme"] .finale-note{ color:#E8D6B6; }
+:root[data-theme="skeuomorphisme"] .finale-t .hl{ color:#E5B96A; }
+:root[data-theme="skeuomorphisme"] .finale .cta{ background:linear-gradient(#D9A757,#B9822F); color:#241A10; }
+:root[data-theme="skeuomorphisme"] .finale .cta--ghost{ background:transparent; color:#F0DDBB; border:1px solid #B99C6E; }
+:root[data-theme="skeuomorphisme"] .site-footer{ background:linear-gradient(#F7F0DF,#EADFC6); }
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   4. NEUMORPHISME — sculpter la lumière, effacer les contours
+   Une seule couleur de fond, deux sources lumineuses opposées, des formes
+   très arrondies. Interaction clé : l'élément passe de « bombé » à « creusé ».
+   ══════════════════════════════════════════════════════════════════════════ */
+:root[data-theme="neumorphisme"]{
+  --c-canvas:#E5EAF3;
+  --c-bg:#E5EAF3; --c-bg-2:#E5EAF3;
+  --c-surface:#E9EEF7; --c-surface-2:#DFE6F1;
+  --c-ink:#232C42; --c-ink-2:#3D4A66; --c-ink-3:#4C5876;
+  --c-primary:#2F4BC7; --c-primary-ink:#FFFFFF;
+  --c-accent:#0A6E7A; --c-accent-ink:#FFFFFF;
+  --c-line:rgba(35,44,66,.10); --c-line-strong:rgba(35,44,66,.22);
+  --c-focus:#2F4BC7;
+  --sw-neumo:#2F4BC7;
+
+  --f-display:"Inter","Noto Sans",sans-serif;
+  --fw-display:600; --ls-display:-.02em;
+  --radius:28px; --radius-sm:16px; --figure-radius:50%;
+  --border-w:0px;
+  --shadow-1:6px 6px 14px rgba(163,177,198,.75), -6px -6px 14px rgba(255,255,255,.95);
+  --shadow-2:10px 10px 24px rgba(163,177,198,.8), -10px -10px 24px rgba(255,255,255,1);
+  --shadow-3:18px 18px 46px rgba(150,165,190,.75), -14px -14px 38px rgba(255,255,255,1);
+  --card-shadow:var(--shadow-1);
+  --card-inset:inset 1px 1px 2px rgba(255,255,255,.9), inset -1px -1px 2px rgba(163,177,198,.35);
+  --card-border:0 solid transparent;
+  --card-bg:#E9EEF7; --card-bg-2:#E9EEF7;
+  --card-tf-hover:translateY(-2px);
+  --btn-shadow:var(--shadow-1); --btn-shadow-act:inset 6px 6px 12px rgba(163,177,198,.85), inset -6px -6px 12px rgba(255,255,255,1);
+  --btn-tf-hover:translateY(-1px); --btn-tf-act:translateY(1px);
+  --fig-bg:#E9EEF7; --fig-radius:20px;
+  --chip-bg:#E9EEF7; --chip-border:0 solid transparent; --chip-radius:var(--radius-pill);
+  --grid-line:rgba(47,75,199,.05);
+}
+:root[data-theme="neumorphisme"] .site-header{ box-shadow:var(--shadow-1); border-bottom:0; }
+:root[data-theme="neumorphisme"] .brand-mark{
+  border-radius:50%; background:#E9EEF7; color:var(--c-primary);
+  box-shadow:4px 4px 10px rgba(163,177,198,.8), -4px -4px 10px #FFF;
+}
+:root[data-theme="neumorphisme"] .picker-shell{ border-top:0; background:var(--c-bg); }
+:root[data-theme="neumorphisme"] .picker-btn{ box-shadow:var(--shadow-1); border:0; }
+:root[data-theme="neumorphisme"] .picker-btn[aria-selected="true"]{
+  box-shadow:var(--btn-shadow-act); color:var(--c-primary); background:#E9EEF7; border:0;
+}
+:root[data-theme="neumorphisme"] .picker-btn[aria-selected="true"] .pt{ box-shadow:0 0 0 2px #E9EEF7, inset 0 0 0 1px rgba(0,0,0,.2); }
+:root[data-theme="neumorphisme"] .cta--ghost{ background:#E9EEF7; box-shadow:var(--shadow-1); border:0; }
+:root[data-theme="neumorphisme"] .ghost-btn{ background:#E9EEF7; border:0; box-shadow:6px 6px 12px rgba(163,177,198,.7), -6px -6px 12px #FFF; }
+:root[data-theme="neumorphisme"] .meta,
+:root[data-theme="neumorphisme"] .truth{ box-shadow:var(--card-inset); border:0; }
+:root[data-theme="neumorphisme"] .qa-x{ border:0; background:#E9EEF7; box-shadow:var(--card-inset); }
+:root[data-theme="neumorphisme"] .chips li{ box-shadow:var(--card-inset); }
+:root[data-theme="neumorphisme"] .tl-item{ border-left:0; }
+:root[data-theme="neumorphisme"] .tl-year{ color:var(--c-primary); }
+:root[data-theme="neumorphisme"] .files,
+:root[data-theme="neumorphisme"] .figures{ }
+:root[data-theme="neumorphisme"] .hero-aside .figures{ box-shadow:var(--shadow-2); }
+:root[data-theme="neumorphisme"] .finale{
+  background:#E5EAF3; color:var(--c-ink);
+  box-shadow:inset 12px 12px 30px rgba(163,177,198,.6), inset -12px -12px 30px #FFF;
+}
+:root[data-theme="neumorphisme"] .finale-t .hl{ color:var(--c-primary); }
+:root[data-theme="neumorphisme"] .finale .cta--ghost{ background:#E9EEF7; }
+:root[data-theme="neumorphisme"] .site-footer{ background:#E5EAF3; border-top:0; box-shadow:inset 0 10px 24px -18px rgba(35,44,66,.5); }
+:root[data-theme="neumorphisme"] .audit-table thead th{ background:#DFE6F1; }
+:root[data-theme="neumorphisme"] .modal-box{ box-shadow:var(--shadow-3); border:0; }
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   5. GLASSMORPHISME — la profondeur vient de la lumière traversante
+   Fond profond, halos colorés, panneaux de verre dépoli, filets lumineux.
+   Le contraste du texte est obtenu par un voile opaque sous le verre.
+   ══════════════════════════════════════════════════════════════════════════ */
+:root[data-theme="glassmorphisme"]{
+  --c-canvas:#0A1326;
+  --c-bg:#050A19; --c-bg-2:#080E22;
+  --c-surface:rgba(255,255,255,.93); --c-surface-2:rgba(255,255,255,.14);
+  --c-ink:#0A1A24; --c-ink-2:#283B4B; --c-ink-3:#38505F;
+  --c-primary:#0E4EA8; --c-primary-ink:#FFFFFF;
+  --c-accent:#0A6478; --c-accent-ink:#FFFFFF;
+  --c-line:rgba(255,255,255,.34); --c-line-strong:rgba(255,255,255,.55);
+  --c-focus:#7FE3FF;
+  --sw-glass:#7FE3FF;
+  --overlay:rgba(3,6,16,.72);
+  color-scheme:dark;
+
+  --f-display:"Space Grotesk","Inter",sans-serif;
+  --f-text:"Inter","Noto Sans",sans-serif;
+  --f-mono:"Space Mono","DejaVu Sans Mono",monospace;
+  --fw-display:600; --ls-display:-.02em;
+  --radius:22px; --radius-sm:14px;
+
+  --shadow-1:0 8px 32px -8px rgba(2,6,20,.55);
+  --shadow-2:0 20px 50px -14px rgba(2,6,20,.62);
+  --shadow-3:0 40px 90px -24px rgba(2,6,20,.75);
+  --card-bg:rgba(255,255,255,.93);
+  --card-bg-2:rgba(255,255,255,.12);
+  --card-shadow:0 8px 32px -8px rgba(2,6,20,.45), inset 0 1px 0 rgba(255,255,255,.75);
+  --card-border:1px solid rgba(255,255,255,.55);
+  --card-blur:blur(18px) saturate(1.6);
+  --card-tf-hover:translateY(-3px);
+  --btn-shadow:0 6px 18px -6px rgba(2,6,20,.5);
+  --btn-tf-hover:translateY(-1px);
+  --fig-bg:rgba(255,255,255,.16); --fig-radius:16px;
+  --chip-bg:rgba(255,255,255,.16); --chip-border:1px solid rgba(255,255,255,.42); --chip-ink:#E8F6FF;
+  --chip-radius:var(--radius-pill);
+  --grid-line:rgba(127,227,255,.045);
+  --head-blur:blur(16px) saturate(1.4);
+}
+:root[data-theme="glassmorphisme"] body{
+  background:
+    radial-gradient(48% 52% at 12% 0%, rgba(64,190,255,.30), transparent 64%),
+    radial-gradient(44% 50% at 90% 4%, rgba(186,96,255,.22), transparent 66%),
+    radial-gradient(58% 58% at 50% 106%, rgba(0,232,196,.14), transparent 64%),
+    linear-gradient(180deg,#04081A,#060C1E);
+  background-attachment: fixed;
+}
+:root[data-theme="glassmorphisme"] .site-header{
+  background:rgba(6,12,28,.55);
+  border-bottom:1px solid rgba(255,255,255,.18);
+  color:#EAF6FF;
+}
+:root[data-theme="glassmorphisme"] .site-header .brand-txt em{ color:#B9D6EA; }
+:root[data-theme="glassmorphisme"] .brand-mark{
+  background:linear-gradient(140deg, rgba(127,227,255,.95), rgba(122,91,214,.95));
+  color:#04121C; border-radius:14px;
+  box-shadow:0 8px 24px -8px rgba(127,227,255,.7), inset 0 1px 0 rgba(255,255,255,.7);
+}
+:root[data-theme="glassmorphisme"] .ghost-btn{
+  background:rgba(14,78,168,.92); border:1px solid rgba(190,226,255,.7); color:#FFFFFF;
+  backdrop-filter:blur(10px);
+  box-shadow:0 6px 20px -8px rgba(2,6,20,.7), inset 0 1px 0 rgba(255,255,255,.35);
+}
+:root[data-theme="glassmorphisme"] .picker-shell{
+  background:rgba(6,12,28,.42); border-top:1px solid rgba(255,255,255,.14);
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+:root[data-theme="glassmorphisme"] .picker-label,
+:root[data-theme="glassmorphisme"] .picker-status{ color:#B9D6EA; }
+:root[data-theme="glassmorphisme"] .picker-status b{ color:#EAF6FF; }
+:root[data-theme="glassmorphisme"] .picker-btn{
+  background:rgba(255,255,255,.09); border:1px solid rgba(255,255,255,.24); color:#DCEBF8;
+  backdrop-filter:blur(10px);
+}
+:root[data-theme="glassmorphisme"] .picker-btn:hover{ background:rgba(255,255,255,.18); color:#FFF; }
+:root[data-theme="glassmorphisme"] .picker-btn[aria-selected="true"]{
+  background:rgba(255,255,255,.97); color:#0A1A24; border-color:rgba(255,255,255,.92);
+  box-shadow:0 8px 26px -10px rgba(127,227,255,.85);
+}
+:root[data-theme="glassmorphisme"] .picker-btn[aria-selected="true"] .pt{ box-shadow:0 0 0 2px #FFF, inset 0 0 0 1px rgba(0,0,0,.2); }
+:root[data-theme="glassmorphisme"] .band,
+:root[data-theme="glassmorphisme"] .band--alt,
+:root[data-theme="glassmorphisme"] .hero{ background:transparent; }
+:root[data-theme="glassmorphisme"] .eyebrow{ color:#9FE8FF; }
+:root[data-theme="glassmorphisme"] .hero h1{ color:#FFFFFF; text-shadow:0 2px 30px rgba(0,0,0,.4); }
+:root[data-theme="glassmorphisme"] .hero h1 .line--accent{
+  background:linear-gradient(100deg,#7FE3FF,#B58CFF 55%,#7CFFD4);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+:root[data-theme="glassmorphisme"] .hero .lede{ color:#CFE4F2; }
+:root[data-theme="glassmorphisme"] .hero .lede strong{ color:#FFFFFF; }
+:root[data-theme="glassmorphisme"] .hero-kicker{ color:#8FB2C9; }
+:root[data-theme="glassmorphisme"] .aside-note{ color:#CFE4F2; border-left-color:#7FE3FF; }
+:root[data-theme="glassmorphisme"] .figures{ color:#EAF6FF; }
+:root[data-theme="glassmorphisme"] .figures b{ color:#7FE3FF; }
+:root[data-theme="glassmorphisme"] .figures span{ color:#D9E9F5; }
+:root[data-theme="glassmorphisme"] .figures li{ border-bottom-color:rgba(255,255,255,.2); }
+:root[data-theme="glassmorphisme"] .callout{
+  background:rgba(255,255,255,.86); color:var(--c-ink);
+  border:1px solid rgba(255,255,255,.5);
+  box-shadow:0 10px 34px -12px rgba(2,6,20,.5), inset 0 1px 0 rgba(255,255,255,.8);
+}
+:root[data-theme="glassmorphisme"] .callout-f{ color:var(--c-ink-2); }
+:root[data-theme="glassmorphisme"] .callout strong{ color:var(--c-ink); }
+:root[data-theme="glassmorphisme"] .h-lg{ color:#FFFFFF; }
+:root[data-theme="glassmorphisme"] .lede{ color:#CFE4F2; }
+:root[data-theme="glassmorphisme"] .lede strong{ color:#FFFFFF; }
+:root[data-theme="glassmorphisme"] .after-note{ color:#FFFFFF; }
+:root[data-theme="glassmorphisme"] .finale{ background:transparent; }
+:root[data-theme="glassmorphisme"] .finale-t{ color:#FFFFFF; }
+:root[data-theme="glassmorphisme"] .finale-t .hl{
+  background:linear-gradient(100deg,#7FE3FF,#B58CFF);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+:root[data-theme="glassmorphisme"] .finale-note{ color:#CFE4F2; }
+:root[data-theme="glassmorphisme"] .cta--ghost{ color:#7FE3FF; border-color:#7FE3FF; }
+:root[data-theme="glassmorphisme"] .site-footer{
+  background:rgba(4,9,20,.6); border-top:1px solid rgba(255,255,255,.16); color:#CFE4F2;
+  backdrop-filter:blur(14px);
+}
+:root[data-theme="glassmorphisme"] .site-footer .f-col h3{ color:#FFFFFF; }
+:root[data-theme="glassmorphisme"] .f-brand{ color:#7FE3FF; }
+:root[data-theme="glassmorphisme"] .f-nav a{ color:#CFE4F2; }
+:root[data-theme="glassmorphisme"] .f-nav a:hover{ color:#7FE3FF; }
+:root[data-theme="glassmorphisme"] .f-keys kbd{ background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.24); }
+:root[data-theme="glassmorphisme"] .f-bottom{ color:#A8C4D6; }
+:root[data-theme="glassmorphisme"] .link-arrow{ color:#9FE8FF; }
+:root[data-theme="glassmorphisme"] .qa summary:hover{ background:rgba(255,255,255,.1); }
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   6. BRUTALISME — l'interface refuse de séduire
+   Aucune ombre, aucune transition douce, angles vifs, contours noirs épais,
+   contrastes maximaux et typographie qui crie. La structure est le décor.
+   ══════════════════════════════════════════════════════════════════════════ */
+:root[data-theme="brutalisme"]{
+  --c-canvas:#FFFFFF;
+  --c-bg:#FFFFFF; --c-bg-2:#EFEFEF;
+  --c-surface:#FFFFFF; --c-surface-2:#FFE619;
+  --c-ink:#000000; --c-ink-2:#101010; --c-ink-3:#1C1C1C;
+  --c-primary:#000000; --c-primary-ink:#FFE619;
+  --c-accent:#B8000F; --c-accent-ink:#FFFFFF;
+  --c-line:#000000; --c-line-strong:#000000;
+  --c-focus:#B8000F;
+  --sw-brutal:#FFE619;
+
+  --f-display:"Archivo Black","Inter Black","Liberation Sans",Impact,sans-serif;
+  --f-text:"Liberation Sans","Noto Sans",Arial,sans-serif;
+  --f-mono:"DejaVu Sans Mono","Liberation Mono",monospace;
+  --fw-display:900; --fw-strong:700;
+  --ls-display:-.03em; --lh-body:1.5; --lh-display:.94;
+  --tt-display:uppercase;
+  --radius:0px; --radius-sm:0px; --radius-pill:0px;
+  --border-w:3px;
+  --shadow-1:none; --shadow-2:none; --shadow-3:none;
+  --card-shadow:6px 6px 0 var(--c-ink); --card-border:3px solid var(--c-ink);
+  --card-radius:0px;
+  --card-tf-hover:translate(-3px,-3px) ;
+  --btn-shadow:5px 5px 0 var(--c-ink);
+  --btn-shadow-act:1px 1px 0 var(--c-ink);
+  --btn-outline:3px solid var(--c-ink);
+  --btn-tf-hover:translate(-2px,-2px); --btn-tf-act:translate(3px,3px);
+  --fig-bg:#FFFFFF; --fig-radius:0px;
+  --chip-bg:#FFE619; --chip-ink:#000000; --chip-border:3px solid #000; --chip-radius:0px;
+  --card-inset:none;
+  --link-deco-style:solid;
+  --grid-line:rgba(0,0,0,.06);
+}
+:root[data-theme="brutalisme"] .cta,
+:root[data-theme="brutalisme"] .quick,
+:root[data-theme="brutalisme"] .ghost-btn{ text-transform:uppercase; letter-spacing:.02em; }
+:root[data-theme="brutalisme"] .cta{ font-weight:900; }
+:root[data-theme="brutalisme"] .cta:hover{ box-shadow:8px 8px 0 var(--c-ink); }
+:root[data-theme="brutalisme"] .cta--ghost{ background:#FFE619; color:#000; box-shadow:5px 5px 0 var(--c-ink); }
+:root[data-theme="brutalisme"] .module,
+:root[data-theme="brutalisme"] .lite,
+:root[data-theme="brutalisme"] .project,
+:root[data-theme="brutalisme"] .path,
+:root[data-theme="brutalisme"] .figures,
+:root[data-theme="brutalisme"] .tl-item,
+:root[data-theme="brutalisme"] .callout,
+:root[data-theme="brutalisme"] .qa{ transition:none; }
+:root[data-theme="brutalisme"] .lite:hover,
+:root[data-theme="brutalisme"] .module:hover,
+:root[data-theme="brutalisme"] .project:hover,
+:root[data-theme="brutalisme"] .path:hover{ box-shadow:10px 10px 0 var(--c-ink); }
+:root[data-theme="brutalisme"] .tl-item{ border-left-width:10px; border-left-color:#000; }
+:root[data-theme="brutalisme"] .tl-item--now{ background:#FFE619; }
+:root[data-theme="brutalisme"] .h-lg,
+:root[data-theme="brutalisme"] .finale-t{
+  text-shadow:4px 4px 0 #FFE619;
+}
+:root[data-theme="brutalisme"] .hl{ color:#B8000F; }
+:root[data-theme="brutalisme"] .site-header{ background:#000; color:#FFF; border-bottom:0; }
+:root[data-theme="brutalisme"] .site-header .brand-txt strong{ color:#FFE619; }
+:root[data-theme="brutalisme"] .site-header .brand-txt em{ color:#FFF; }
+:root[data-theme="brutalisme"] .brand-mark{ background:#FFE619; color:#000; border-radius:0; border:3px solid #FFF; }
+:root[data-theme="brutalisme"] .site-header .ghost-btn{ background:#FFE619; color:#000; border:3px solid #FFF; }
+:root[data-theme="brutalisme"] .picker-shell{ background:#EFEFEF; border-top:4px solid #000; border-bottom:4px solid #000; }
+:root[data-theme="brutalisme"] .picker-label{ color:#000; }
+:root[data-theme="brutalisme"] .picker-btn{
+  border:3px solid #000; border-radius:0; background:#FFF; color:#000; font-weight:700;
+  text-transform:uppercase; font-size:.72rem; letter-spacing:.04em;
+}
+:root[data-theme="brutalisme"] .picker-btn[aria-selected="true"]{
+  background:#000; color:#FFE619; box-shadow:3px 3px 0 #B8000F;
+}
+:root[data-theme="brutalisme"] .picker-btn[aria-selected="true"] .pt{ box-shadow:0 0 0 2px #000; }
+:root[data-theme="brutalisme"] .eyebrow{ color:#000; background:#FFE619; padding:.2rem .5rem; border:3px solid #000; display:inline-flex; }
+:root[data-theme="brutalisme"] .eyebrow::after{ display:none; }
+:root[data-theme="brutalisme"] .band{ border-top:4px solid #000; }
+:root[data-theme="brutalisme"] .band--alt{ background:#EFEFEF; }
+:root[data-theme="brutalisme"] .meta,
+:root[data-theme="brutalisme"] .truth{ border:3px solid #000; background:#FFF; }
+:root[data-theme="brutalisme"] .year-tab{ border:3px solid #000; box-shadow:4px 4px 0 #000; }
+:root[data-theme="brutalisme"] .year-tab.is-active{ background:#FFE619; color:#000; }
+:root[data-theme="brutalisme"] .year-tab.is-active .yt-tag,
+:root[data-theme="brutalisme"] .year-tab.is-active .yt-h{ color:#000; }
+:root[data-theme="brutalisme"] .qa-x{ border:3px solid #000; background:#FFE619; }
+:root[data-theme="brutalisme"] .qa-x::before,
+:root[data-theme="brutalisme"] .qa-x::after{ background:#000; }
+:root[data-theme="brutalisme"] .finale{ background:#FFE619; color:#000; border-top:4px solid #000; }
+:root[data-theme="brutalisme"] .finale .eyebrow{ background:#000; color:#FFE619; border-color:#000; }
+:root[data-theme="brutalisme"] .finale .cta{ background:#000; color:#FFE619; box-shadow:6px 6px 0 #B8000F; }
+:root[data-theme="brutalisme"] .finale .cta--ghost{ background:#FFF; color:#000; box-shadow:6px 6px 0 #000; }
+:root[data-theme="brutalisme"] .modal-box{ border:4px solid #000; box-shadow:10px 10px 0 #000; }
+:root[data-theme="brutalisme"] .toast{ background:#FFE619; color:#000; border:3px solid #000; border-radius:0; }
+:root[data-theme="brutalisme"] .fab{ background:#FFE619; color:#000; border:3px solid #000; border-radius:0; }
+:root[data-theme="brutalisme"] .site-footer{ border-top:4px solid #000; background:#EFEFEF; }
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   7. MINIMALISME — retirer jusqu'à ce que seul l'essentiel résiste
+   Presque pas de couleur, presque pas de matière. Le vide, l'alignement et
+   la typographie portent toute la hiérarchie. Les cartes deviennent des
+   blocs de texte séparés par un filet d'un pixel.
+   ══════════════════════════════════════════════════════════════════════════ */
+:root[data-theme="minimalisme"]{
+  --c-canvas:#FFFFFF;
+  --c-bg:#FFFFFF; --c-bg-2:#FFFFFF;
+  --c-surface:#FFFFFF; --c-surface-2:#F5F5F4;
+  --c-ink:#141414; --c-ink-2:#3A3A3A; --c-ink-3:#4A4A4A;
+  --c-primary:#141414; --c-primary-ink:#FFFFFF;
+  --c-accent:#B2401C; --c-accent-ink:#FFFFFF;
+  --c-line:#E4E4E1; --c-line-strong:#C9C9C5;
+  --c-focus:#B2401C;
+  --sw-minimal:#141414;
+
+  --f-display:"Inter Tight","Inter","Noto Sans",Helvetica,sans-serif;
+  --f-text:"Inter","Noto Sans",Helvetica,sans-serif;
+  --f-mono:"Inter","Noto Sans",sans-serif;
+  --fw-display:500; --fw-strong:600; --ls-display:-.035em;
+  --lh-body:1.72; --lh-display:1.02;
+  --radius:2px; --radius-sm:2px; --radius-pill:2px;
+  --border-w:1px;
+  --shadow-1:none; --shadow-2:none; --shadow-3:0 30px 60px -40px rgba(0,0,0,.35);
+  --card-shadow:none; --card-border:1px solid var(--c-line);
+  --card-tf-hover:none;
+  --btn-shadow:none; --btn-shadow-act:none;
+  --btn-outline:1px solid var(--c-ink);
+  --btn-tf-hover:none; --btn-tf-act:none;
+  --fig-bg:transparent; --fig-radius:2px;
+  --chip-bg:transparent; --chip-ink:var(--c-ink-2); --chip-border:1px solid var(--c-line); --chip-radius:2px;
+  --wrap:1140px;
+  --grid-line:rgba(0,0,0,.04);
+  --card-inset:none;
+}
+:root[data-theme="minimalisme"] .lite,
+:root[data-theme="minimalisme"] .module,
+:root[data-theme="minimalisme"] .project,
+:root[data-theme="minimalisme"] .path,
+:root[data-theme="minimalisme"] .tl-item,
+:root[data-theme="minimalisme"] .figures{
+  border:0; border-top:1px solid var(--c-line); border-radius:0; padding-inline:0;
+}
+:root[data-theme="minimalisme"] .grid-3,
+:root[data-theme="minimalisme"] .grid-4,
+:root[data-theme="minimalisme"] .modules{ gap:clamp(1.6rem,3vw,2.4rem); }
+:root[data-theme="minimalisme"] .cta{
+  background:transparent; color:var(--c-ink); border:1px solid var(--c-ink);
+}
+:root[data-theme="minimalisme"] .cta:hover{ background:var(--c-ink); color:#FFF; }
+:root[data-theme="minimalisme"] .cta--xl{ padding:.7rem 0; border:0; border-bottom:2px solid var(--c-ink); }
+:root[data-theme="minimalisme"] .cta--ghost{ border:0; border-bottom:1px solid var(--c-line-strong); color:var(--c-ink-2); }
+:root[data-theme="minimalisme"] .ghost-btn{ background:transparent; border-color:var(--c-line); }
+:root[data-theme="minimalisme"] .site-header{ background:#FFF; border-bottom:1px solid var(--c-line); }
+:root[data-theme="minimalisme"] .brand-mark{ background:transparent; color:var(--c-ink); border-radius:0; }
+:root[data-theme="minimalisme"] .picker-shell{ border-top:1px solid var(--c-line); }
+:root[data-theme="minimalisme"] .picker-btn{ border:0; padding-inline:.5rem; color:var(--c-ink-2); }
+:root[data-theme="minimalisme"] .picker-btn .pt{ width:.5rem; height:.5rem; box-shadow:none; opacity:.8; }
+:root[data-theme="minimalisme"] .picker-btn:hover{ transform:none; color:var(--c-ink); }
+:root[data-theme="minimalisme"] .picker-btn[aria-selected="true"]{
+  background:transparent; color:var(--c-ink); box-shadow:none;
+  border-bottom:2px solid var(--c-ink); border-radius:0;
+}
+:root[data-theme="minimalisme"] .picker-btn[aria-selected="true"] .pt{ box-shadow:0 0 0 1px currentColor; opacity:1; }
+:root[data-theme="minimalisme"] .brand-txt strong{ font-weight:600; letter-spacing:-.02em; }
+:root[data-theme="minimalisme"] .h-lg{ max-width:20ch; }
+:root[data-theme="minimalisme"] .eyebrow{ color:var(--c-ink-3); letter-spacing:.2em; }
+:root[data-theme="minimalisme"] .eyebrow::after{ display:none; }
+:root[data-theme="minimalisme"] .hero h1 .line--accent{ color:var(--c-ink); font-style:italic; }
+:root[data-theme="minimalisme"] .figures{ padding:0; }
+:root[data-theme="minimalisme"] .figures li{ border-bottom:1px solid var(--c-line); }
+:root[data-theme="minimalisme"] .figures b{ color:var(--c-ink); font-weight:600; }
+:root[data-theme="minimalisme"] .meta b{ color:var(--c-ink); font-weight:600; }
+:root[data-theme="minimalisme"] .meta,
+:root[data-theme="minimalisme"] .truth{ border:0; border-top:1px solid var(--c-line); border-radius:0; padding-inline:0; }
+:root[data-theme="minimalisme"] .year-tab{ box-shadow:none; border-color:var(--c-line); }
+:root[data-theme="minimalisme"] .year-tab.is-active{ background:var(--c-ink); color:#FFF; }
+:root[data-theme="minimalisme"] .year-tab.is-active .yt-tag,
+:root[data-theme="minimalisme"] .year-tab.is-active .yt-h{ color:#E8E8E8; }
+:root[data-theme="minimalisme"] .qa{ border:1px solid var(--c-line); border-radius:0; }
+:root[data-theme="minimalisme"] .qa summary{ background:transparent; }
+:root[data-theme="minimalisme"] .qa summary:hover{ background:transparent; color:var(--c-accent); }
+:root[data-theme="minimalisme"] .qa-x{ border-radius:0; border-color:var(--c-line); background:transparent; }
+:root[data-theme="minimalisme"] .finale{ background:#FFF; border-top:1px solid var(--c-line); }
+:root[data-theme="minimalisme"] .finale-t{ font-weight:500; }
+:root[data-theme="minimalisme"] .finale-t .hl{ color:var(--c-accent); font-style:italic; }
+:root[data-theme="minimalisme"] .site-footer{ background:#FFF; border-top:1px solid var(--c-line); }
+:root[data-theme="minimalisme"] .f-brand{ color:var(--c-ink); font-weight:500; }
+:root[data-theme="minimalisme"] .modal-box{ border-radius:0; }
+:root[data-theme="minimalisme"] .toast{ border-radius:2px; }
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   8. MAXIMALISME — trop n'est jamais assez
+   Tout est motif, dégradé, bordure, inclinaison et volume. Les cartes
+   claquent, les titres débordent de matière, rien n'est discret.
+   ══════════════════════════════════════════════════════════════════════════ */
+:root[data-theme="maximalisme"]{
+  --c-canvas:#FFF3E4;
+  --c-bg:#FFF6E9; --c-bg-2:#FFEAF6;
+  --c-surface:#FFFFFF; --c-surface-2:#FFE8F4;
+  --c-ink:#160B24; --c-ink-2:#3B2352; --c-ink-3:#4A2C63;
+  --c-primary:#7311A8; --c-primary-ink:#FFFFFF;
+  --c-accent:#A61055; --c-accent-ink:#FFFFFF;
+  --c-line:#160B24; --c-line-strong:#7311A8;
+  --c-focus:#A61055;
+  --c-sel-bg:#E5167E; --c-sel-ink:#FFFFFF;
+  --sw-maximal:#E5167E;
+
+  --f-display:"Archivo Black","Inter Black",Impact,"Liberation Sans",sans-serif;
+  --f-text:"Inter","Noto Sans",sans-serif;
+  --f-mono:"Space Mono","DejaVu Sans Mono",monospace;
+  --fw-display:900; --ls-display:-.02em; --lh-body:1.66;
+  --radius:18px; --radius-sm:10px;
+  --border-w:3px;
+  --shadow-1:6px 6px 0 var(--c-ink); --shadow-2:10px 10px 0 var(--c-ink); --shadow-3:16px 16px 0 var(--c-ink);
+  --card-shadow:6px 6px 0 var(--c-ink); --card-border:3px solid var(--c-ink);
+  --card-tf-hover:translate(-4px,-4px) rotate(-.6deg);
+  --btn-shadow:5px 5px 0 var(--c-ink); --btn-shadow-act:2px 2px 0 var(--c-ink);
+  --btn-outline:3px solid var(--c-ink);
+  --btn-tf-hover:translate(-2px,-2px); --btn-tf-act:translate(2px,2px);
+  --fig-bg:linear-gradient(135deg,#FFE8F4,#FFF3C4); --fig-radius:14px;
+  --chip-bg:#FFE619; --chip-ink:#160B24; --chip-border:2px solid #160B24; --chip-radius:999px;
+  --grid-line:rgba(229,22,126,.10);
+  --card-inset:none;
+}
+:root[data-theme="maximalisme"] body{
+  background-color:#FFF6E9;
+  background-image:
+    radial-gradient(circle at 12% 8%, rgba(229,22,126,.11), transparent 44%),
+    radial-gradient(circle at 88% 4%, rgba(115,17,168,.13), transparent 42%),
+    radial-gradient(circle at 50% 100%, rgba(255,196,0,.20), transparent 46%),
+    repeating-linear-gradient(45deg, rgba(115,17,168,.045) 0 12px, transparent 12px 24px);
+  background-attachment:fixed;
+}
+:root[data-theme="maximalisme"] .band,
+:root[data-theme="maximalisme"] .band--alt,
+:root[data-theme="maximalisme"] .hero,
+:root[data-theme="maximalisme"] .finale,
+:root[data-theme="maximalisme"] .site-footer{ background:transparent; }
+:root[data-theme="maximalisme"] .h-lg,
+:root[data-theme="maximalisme"] .hero h1{ text-shadow:4px 4px 0 #FFE619, 8px 8px 0 rgba(229,22,126,.35); }
+:root[data-theme="maximalisme"] .hero h1 .line--accent{
+  background:linear-gradient(96deg,#E5167E,#7311A8 50%,#0EA5A0);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  text-shadow:none; filter:drop-shadow(3px 3px 0 #FFE619);
+}
+:root[data-theme="maximalisme"] .eyebrow{
+  background:#160B24; color:#FFE619; padding:.22rem .7rem; border-radius:999px;
+  display:inline-flex; border:2px solid #160B24;
+}
+:root[data-theme="maximalisme"] .eyebrow::after{ display:none; }
+:root[data-theme="maximalisme"] .lite,
+:root[data-theme="maximalisme"] .module,
+:root[data-theme="maximalisme"] .project,
+:root[data-theme="maximalisme"] .path,
+:root[data-theme="maximalisme"] .tl-item,
+:root[data-theme="maximalisme"] .figures,
+:root[data-theme="maximalisme"] .callout,
+:root[data-theme="maximalisme"] .qa{ overflow:visible; }
+:root[data-theme="maximalisme"] .lite:nth-child(3n+2),
+:root[data-theme="maximalisme"] .project:nth-child(3n),
+:root[data-theme="maximalisme"] .module:nth-child(4n+3){ transform:rotate(.5deg); }
+:root[data-theme="maximalisme"] .lite:nth-child(3n+2):hover,
+:root[data-theme="maximalisme"] .project:nth-child(3n):hover,
+:root[data-theme="maximalisme"] .module:nth-child(4n+3):hover{ transform:translate(-4px,-4px) rotate(.8deg); }
+:root[data-theme="maximalisme"] .module h3,
+:root[data-theme="maximalisme"] .project h3,
+:root[data-theme="maximalisme"] .path h3{ letter-spacing:-.03em; }
+:root[data-theme="maximalisme"] .module .mod-n,
+:root[data-theme="maximalisme"] .p-tag{ background:#FFE619; border:2px solid #160B24; padding:.12rem .5rem; border-radius:6px; display:inline-block; color:#160B24; }
+:root[data-theme="maximalisme"] .site-header{
+  background:
+    repeating-linear-gradient(135deg, rgba(255,230,25,.9) 0 14px, rgba(229,22,126,.9) 14px 28px);
+  border-bottom:4px solid #160B24;
+}
+:root[data-theme="maximalisme"] .brand-txt strong{ color:#160B24; text-shadow:2px 2px 0 #FFF; }
+:root[data-theme="maximalisme"] .brand-txt em{ color:#160B24; }
+:root[data-theme="maximalisme"] .brand-mark{ background:#160B24; color:#FFE619; border-radius:12px; border:3px solid #FFF; }
+:root[data-theme="maximalisme"] .site-header .ghost-btn{ background:#FFF; border:3px solid #160B24; }
+:root[data-theme="maximalisme"] .picker-shell{ background:#FFE619; border-top:4px solid #160B24; border-bottom:4px solid #160B24; }
+:root[data-theme="maximalisme"] .picker-label{ color:#160B24; }
+:root[data-theme="maximalisme"] .picker-btn{ background:#FFF; border:2px solid #160B24; font-weight:700; }
+:root[data-theme="maximalisme"] .picker-btn[aria-selected="true"]{ background:#160B24; color:#FFE619; box-shadow:3px 3px 0 #E5167E; }
+:root[data-theme="maximalisme"] .picker-btn[aria-selected="true"] .pt{ box-shadow:0 0 0 2px #160B24; }
+:root[data-theme="maximalisme"] .year-tab.is-active{ background:#7311A8; color:#FFF; border-color:#160B24; box-shadow:5px 5px 0 #160B24; }
+:root[data-theme="maximalisme"] .meta,
+:root[data-theme="maximalisme"] .truth{ border:3px solid #160B24; background:#FFF; box-shadow:4px 4px 0 rgba(22,11,36,.9); }
+:root[data-theme="maximalisme"] .finale{ padding-block:clamp(3rem,7vw,6rem); }
+:root[data-theme="maximalisme"] .finale-t{ text-shadow:5px 5px 0 #FFE619, 10px 10px 0 rgba(229,22,126,.4); }
+:root[data-theme="maximalisme"] .finale-t .hl{ background:linear-gradient(96deg,#E5167E,#7311A8); -webkit-background-clip:text; background-clip:text; color:transparent; }
+:root[data-theme="maximalisme"] .cta{ font-weight:900; }
+:root[data-theme="maximalisme"] .modal-box{ border:4px solid #160B24; box-shadow:14px 14px 0 #160B24; }
+:root[data-theme="maximalisme"] .toast{ background:#7311A8; color:#FFF; border:3px solid #160B24; }
+:root[data-theme="maximalisme"] .fab{ background:#E5167E; color:#FFF; border:3px solid #160B24; }
+:root[data-theme="maximalisme"] .site-footer{ border-top:4px solid #160B24; background:rgba(255,255,255,.6); }
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   9. TYPOGRAPHIQUE — la lettre EST l'interface
+   Plus de cartes, plus de blocs colorés : des filets, des capitales, des
+   chiffres géants et du vide. La hiérarchie repose sur le corps, la graisse,
+   la casse, l'interlettrage et l'alignement.
+   ══════════════════════════════════════════════════════════════════════════ */
+:root[data-theme="typographique"]{
+  --c-canvas:#FCFBF7;
+  --c-bg:#FCFBF7; --c-bg-2:#FCFBF7;
+  --c-surface:transparent; --c-surface-2:#F1EEE5;
+  --c-ink:#101010; --c-ink-2:#3E3A33; --c-ink-3:#54504A;
+  --c-primary:#101010; --c-primary-ink:#FCFBF7;
+  --c-accent:#D6301A; --c-accent-ink:#FFFFFF;
+  --c-line:#DAD5C8; --c-line-strong:#A8A296;
+  --c-focus:#D6301A;
+  --sw-typo:#D6301A;
+
+  --f-display:"Playfair Display","Linux Libertine O","Noto Serif",Georgia,serif;
+  --f-text:"Inter","Noto Sans",Helvetica,sans-serif;
+  --f-quote:"Playfair Display",Georgia,serif;
+  --f-mono:"JetBrains Mono","DejaVu Sans Mono",monospace;
+  --fw-display:900; --ls-display:-.04em;
+  --fs-display:clamp(2.9rem,8.4vw,7.4rem);
+  --fs-h2:clamp(2rem,4.6vw,4rem);
+  --lh-display:.92; --lh-body:1.7;
+  --radius:0px; --radius-sm:0px; --radius-pill:0px;
+  --border-w:1px;
+  --shadow-1:none; --shadow-2:none; --shadow-3:0 40px 80px -50px rgba(0,0,0,.4);
+  --card-shadow:none; --card-border:0 solid transparent;
+  --card-tf-hover:none;
+  --btn-shadow:none; --btn-shadow-act:none;
+  --btn-outline:2px solid var(--c-ink);
+  --btn-tf-hover:none; --btn-tf-act:none;
+  --fig-bg:transparent; --fig-radius:0px;
+  --chip-bg:transparent; --chip-border:0; --chip-ink:var(--c-ink-2); --chip-radius:0;
+  --wrap:1200px;
+  --card-inset:none;
+}
+/* Les cartes disparaissent : il ne reste que le texte et un filet. */
+:root[data-theme="typographique"] .lite,
+:root[data-theme="typographique"] .module,
+:root[data-theme="typographique"] .project,
+:root[data-theme="typographique"] .path,
+:root[data-theme="typographique"] .figures,
+:root[data-theme="typographique"] .callout,
+:root[data-theme="typographique"] .qa,
+:root[data-theme="typographique"] .tl-item,
+:root[data-theme="typographique"] .meta,
+:root[data-theme="typographique"] .truth{
+  background:transparent; border:0; border-radius:0; box-shadow:none; padding-inline:0;
+}
+:root[data-theme="typographique"] .grid-3,
+:root[data-theme="typographique"] .grid-4,
+:root[data-theme="typographique"] .grid-5,
+:root[data-theme="typographique"] .modules{ gap:clamp(1.8rem,3.4vw,3rem); }
+:root[data-theme="typographique"] .h-lg{
+  line-height:.98; letter-spacing:-.035em; max-width:26ch;
+  border-bottom:3px solid var(--c-ink); padding-bottom:.5rem;
+}
+:root[data-theme="typographique"] .hero h1{ font-style:italic; }
+:root[data-theme="typographique"] .hero h1 .line--accent{
+  color:var(--c-accent); font-style:normal;
+}
+:root[data-theme="typographique"] .hero h1 .line{ display:block; }
+:root[data-theme="typographique"] .hero h1 .line:nth-child(odd){ padding-left:.06em; }
+:root[data-theme="typographique"] .eyebrow{
+  color:var(--c-accent); letter-spacing:.32em; font-size:.7rem;
+}
+:root[data-theme="typographique"] .eyebrow::after{ background:var(--c-accent); opacity:.5; }
+:root[data-theme="typographique"] .brand-txt strong{ font-family:var(--f-display); font-size:1.35rem; }
+:root[data-theme="typographique"] .brand-mark{ background:transparent; color:var(--c-ink); border-radius:0; }
+:root[data-theme="typographique"] .site-header{ background:#FCFBF7; border-bottom:2px solid var(--c-ink); }
+:root[data-theme="typographique"] .picker-shell{ border-top:0; border-bottom:1px solid var(--c-line); }
+:root[data-theme="typographique"] .picker-label{ color:var(--c-ink-3); }
+:root[data-theme="typographique"] .picker-btn{
+  border:0; border-radius:0; color:var(--c-ink-3); padding-inline:.45rem;
+  font-family:var(--f-mono); text-transform:uppercase; letter-spacing:.08em; font-size:.66rem;
+}
+:root[data-theme="typographique"] .picker-btn .pt{ border-radius:0; width:.5rem; height:.5rem; box-shadow:none; }
+:root[data-theme="typographique"] .picker-btn[aria-selected="true"]{
+  background:transparent; color:var(--c-ink); border-bottom:2px solid var(--c-accent); box-shadow:none;
+}
+:root[data-theme="typographique"] .picker-btn[aria-selected="true"] .pt{ box-shadow:none; }
+/* Chiffres géants : les « figures » deviennent des numéros éditoriaux. */
+:root[data-theme="typographique"] .figures b{ font-size:clamp(2.4rem,4.6vw,3.6rem); color:var(--c-ink); font-weight:900; }
+:root[data-theme="typographique"] .figures li{ border-bottom:1px solid var(--c-line); }
+:root[data-theme="typographique"] .meta b,
+:root[data-theme="typographique"] .tl-year{ color:var(--c-accent); }
+:root[data-theme="typographique"] .meta{ border-top:1px solid var(--c-line); padding-top:.7rem; }
+:root[data-theme="typographique"] .module{ border-top:2px solid var(--c-ink); padding-top:.9rem; }
+:root[data-theme="typographique"] .module .mod-n{ color:var(--c-accent); }
+:root[data-theme="typographique"] .module h3{ font-family:var(--f-text); font-weight:800; letter-spacing:-.02em; }
+:root[data-theme="typographique"] .project{ border-top:2px solid var(--c-ink); padding-top:.9rem; }
+:root[data-theme="typographique"] .project h3,
+:root[data-theme="typographique"] .path h3,
+:root[data-theme="typographique"] .lite h3,
+:root[data-theme="typographique"] .truth b{
+  font-family:var(--f-text); font-weight:800; letter-spacing:-.025em;
+}
+:root[data-theme="typographique"] .p-tech li,
+:root[data-theme="typographique"] .chips li{
+  font-size:.62rem; text-transform:uppercase; letter-spacing:.12em;
+  color:var(--c-ink-3); padding:0; margin-right:.6rem;
+}
+:root[data-theme="typographique"] .p-tech li::before{ content:"— "; }
+:root[data-theme="typographique"] .cta{
+  background:transparent; color:var(--c-ink); border:2px solid var(--c-ink);
+  font-family:var(--f-display); font-weight:700;
+}
+:root[data-theme="typographique"] .cta:hover{ background:var(--c-ink); color:var(--c-bg); }
+:root[data-theme="typographique"] .cta--xl{
+  border:0; border-bottom:3px solid var(--c-accent); padding-inline:0; font-size:clamp(1.3rem,2.4vw,2rem);
+}
+:root[data-theme="typographique"] .cta--xl:hover{ background:transparent; color:var(--c-accent); }
+:root[data-theme="typographique"] .year-tab{ background:transparent; border:0; box-shadow:none; border-bottom:1px solid var(--c-line); border-radius:0; }
+:root[data-theme="typographique"] .year-tab.is-active{ background:transparent; color:var(--c-ink); border-bottom:3px solid var(--c-accent); }
+:root[data-theme="typographique"] .year-tab.is-active .yt-tag{ color:var(--c-accent); }
+:root[data-theme="typographique"] .year-tab.is-active .yt-h{ color:var(--c-ink-2); }
+:root[data-theme="typographique"] .qa{ border-top:1px solid var(--c-ink); }
+:root[data-theme="typographique"] .qa summary{ font-family:var(--f-quote); font-weight:700; font-size:clamp(1.05rem,1.6vw,1.35rem); padding-inline:0; }
+:root[data-theme="typographique"] .qa summary:hover{ background:transparent; color:var(--c-accent); }
+:root[data-theme="typographique"] .qa-a{ padding-inline:0; border-top:0; }
+:root[data-theme="typographique"] .qa-x{ background:transparent; border:0; border-radius:0; }
+:root[data-theme="typographique"] .qa-x::before,
+:root[data-theme="typographique"] .qa-x::after{ background:var(--c-accent); }
+:root[data-theme="typographique"] .callout--exam{ border-top:3px solid var(--c-ink); padding-top:1.1rem; }
+:root[data-theme="typographique"] .after-note{ font-family:var(--f-quote); font-style:italic; font-size:clamp(1.2rem,2.2vw,1.7rem); }
+:root[data-theme="typographique"] .finale{ border-top:2px solid var(--c-ink); }
+:root[data-theme="typographique"] .finale-t{ font-size:clamp(2.2rem,6vw,5.4rem); }
+:root[data-theme="typographique"] .finale-t .hl{ color:var(--c-accent); font-style:italic; }
+:root[data-theme="typographique"] .site-footer{ border-top:2px solid var(--c-ink); background:#FCFBF7; }
+:root[data-theme="typographique"] .f-brand{ font-family:var(--f-display); color:var(--c-ink); }
+:root[data-theme="typographique"] .ghost-btn{ background:transparent; border-color:var(--c-line); }
+:root[data-theme="typographique"] .toast{ border-radius:0; }
+
+/* --- Ajustements de lisibilité transverses ----------------------------- */
+:root[data-theme="typographique"] .lede,
+:root[data-theme="typographique"] .tl-txt,
+:root[data-theme="typographique"] .module p,
+:root[data-theme="typographique"] .project p,
+:root[data-theme="typographique"] .path p,
+:root[data-theme="typographique"] .qa-a{ font-size:max(var(--fs-small), .92rem); }
+:root[data-theme="minimalisme"] .lede,
+:root[data-theme="minimalisme"] .tl-txt,
+:root[data-theme="minimalisme"] .module p{ font-size:max(var(--fs-small), .93rem); }
+:root[data-theme="glassmorphisme"] .figures b{ font-weight:700; color:#0E4EA8; }
+/* Sur le verre clair, les textes secondaires doivent gagner en densité :
+   l'accent cyan reste réservé aux fonds sombres (hero, finale, en-tête). */
+:root[data-theme="glassmorphisme"] .p-tech li{ color:#1D3446; }
+:root[data-theme="glassmorphisme"] .figures span{ color:#2E4A5C; }
+:root[data-theme="maximalisme"] .lede,
+:root[data-theme="maximalisme"] .tl-txt,
+:root[data-theme="maximalisme"] .module p,
+:root[data-theme="maximalisme"] .project p,
+:root[data-theme="maximalisme"] .path p{ font-size:max(var(--fs-small), .93rem); }
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   FONDS COMPOSITES — déclaration honnête de la couleur de fond effective.
+   Les sections qui peignent un grand dégradé surchargent --c-canvas : c'est
+   ce que lit l'audit de contraste, et c'est aussi ce que perçoit l'œil.
+   ══════════════════════════════════════════════════════════════════════════ */
+:root[data-theme="material"] .finale{ --c-canvas:#0B57D0; }
+:root[data-theme="skeuomorphisme"] .finale{ --c-canvas:#3A2A1B; }
+:root[data-theme="skeuomorphisme"] .site-footer{ --c-canvas:#F7F0DF; }
+:root[data-theme="glassmorphisme"] .finale{ --c-canvas:#070D1E; }
+:root[data-theme="glassmorphisme"] .site-footer{ --c-canvas:#080F22; }
+:root[data-theme="glassmorphisme"] .hero,
+:root[data-theme="glassmorphisme"] .band{ --c-canvas:#0A1326; }
+:root[data-theme="maximalisme"] .finale{ --c-canvas:#FFE9D6; }

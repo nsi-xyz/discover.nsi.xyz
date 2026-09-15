@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="flat" data-ornaments="off">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NSI — Numérique et Sciences Informatiques · la spécialité du bac qui code le réel</title>
+<meta name="description" content="Comprendre la spécialité NSI : son histoire, ses ancêtres, le programme officiel de Première et Terminale, des projets concrets et les débouchés post-bac. Une page, neuf directions artistiques.">
+<meta name="theme-color" content="#1467D6">
+<meta name="color-scheme" content="light dark">
+<meta name="author" content="discover.nsi.xyz">
+<link rel="canonical" href="https://discover.nsi.xyz/">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://discover.nsi.xyz/">
+<meta property="og:title" content="NSI — la spécialité qui code le réel">
+<meta property="og:description" content="Histoire, programme, projets, débouchés : la spécialité Numérique et Sciences Informatiques en une page. Neuf directions artistiques pour un seul contenu.">
+<meta property="og:image" content="https://discover.nsi.xyz/assets/og-nsi.svg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/favicon.svg">
+
+<!-- Polices : chargement non bloquant, le design tient debout sans elles -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" media="print" onload="this.media='all';document.documentElement.classList.add('fonts-on')"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Inter+Tight:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Archivo+Black&family=Bungee&family=IBM+Plex+Serif:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap">
+
+<link rel="stylesheet" href="styles/00-tokens.css">
+<link rel="stylesheet" href="styles/10-base.css">
+<link rel="stylesheet" href="styles/20-components.css">
+<link rel="stylesheet" href="styles/30-themes.css">
+<link rel="stylesheet" href="styles/40-effects.css">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"NSI — Numérique et Sciences Informatiques",
+"inLanguage":"fr","url":"https://discover.nsi.xyz/","description":"Présentation de la spécialité NSI au lycée : histoire, programme officiel, projets, débouchés post-bac."}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+<div class="scroll-progress" aria-hidden="true"><span id="scroll-bar"></span></div>
+
+<!-- ════════ EN-TÊTE ════════ -->
+<header class="site-header" id="haut">
+  <div class="wrap header-inner">
+
+    <a class="brand" href="#haut" aria-label="NSI — retour en haut de page">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" role="img" focusable="false">
+          <path d="M13 7 5 20l8 13M27 7l8 13-8 13M22 5l-5 30" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <span class="brand-txt"><strong>NSI</strong><em>Numérique &amp; Sciences Informatiques</em></span>
+    </a>
+
+    <div class="header-tools">
+      <button class="ghost-btn" id="audit-open" type="button" aria-haspopup="dialog">
+        <span class="ghost-ico" aria-hidden="true">◐</span><span class="ghost-label">Contrastes</span>
+      </button>
+      <button class="ghost-btn ghost-btn--kbd" id="help-open" type="button" aria-haspopup="dialog" aria-label="Aide et raccourcis clavier">
+        <span aria-hidden="true">?</span>
+      </button>
+      <a class="cta cta--sm" href="#contenu">Explorer <span aria-hidden="true">↓</span></a>
+    </div>
+  </div>
+
+  <!-- ── Le sélecteur de direction artistique ── -->
+  <div class="picker-shell">
+    <div class="wrap picker-inner">
+      <p class="picker-label" id="picker-label"><span class="picker-dot" aria-hidden="true"></span>Métamorphose</p>
+      <div class="picker" role="tablist" aria-labelledby="picker-label" id="theme-picker"><!-- injecté par le moteur de thème --></div>
+      <p class="picker-status" id="theme-status" aria-live="polite"></p>
+    </div>
+  </div>
+</header>
+
+<main id="contenu" tabindex="-1">
+
+  <!-- ════════ 1. HERO ════════ -->
+  <section class="hero" aria-labelledby="t-hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow" data-reveal>Spécialité · Lycée général · depuis 2019</p>
+        <h1 id="t-hero" data-reveal>
+          <span class="line">Apprendre à</span>
+          <span class="line">penser comme</span>
+          <span class="line line--accent">une machine.</span>
+          <span class="line">Puis mieux</span>
+          <span class="line">qu'elle.</span>
+        </h1>
+        <p class="lede" data-reveal>
+          La <strong>NSI</strong>, c'est la discipline qui transforme un utilisateur de
+          numérique en <strong>concepteur</strong> de numérique : écrire du code, structurer
+          des données, comprendre ce qui se passe sous le capot — et se servir de
+          l'informatique pour penser, pas seulement pour consommer.
+        </p>
+        <div class="hero-actions" data-reveal>
+          <a class="cta" href="#programme">Voir le programme officiel <span aria-hidden="true">→</span></a>
+          <a class="link-arrow" href="#projets">Des projets concrets, tout de suite <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+
+      <aside class="hero-aside" aria-label="Les essentiels de la spécialité">
+        <ul class="figures" data-reveal>
+          <li><b>2</b><span>ans — Première &amp; Terminale</span></li>
+          <li><b>4 h</b><span>par semaine en Première, 6 h en Terminale</span></li>
+          <li><b>1</b><span>langage pivot : <strong>Python</strong>, puis SQL, HTML/CSS/JS</span></li>
+          <li><b>20</b><span>coefficient cumulé des épreuves de spécialité · 16 écrit + 4 pratique</span></li>
+        </ul>
+        <p class="aside-note" data-reveal>Une spécialité scientifique, exigeante et <strong>immédiatement vérifiable</strong> : le code s'exécute, ou il ne s'exécute pas.</p>
+      </aside>
+    </div>
+    <p class="hero-kicker" aria-hidden="true" data-reveal>while curiosity: keep_learning()</p>
+  </section>
+
+  <!-- ════════ 2. QU'EST-CE QUE LA NSI ════════ -->
+  <section class="band" id="cest-quoi" aria-labelledby="t-nsi">
+    <div class="wrap">
+      <p class="eyebrow">01 · Le sujet</p>
+      <h2 id="t-nsi" class="h-lg">Ni une option « informatique bureautique », ni un club de geeks.</h2>
+      <p class="lede lede--wide">
+        La NSI enseigne l'<strong>informatique comme science</strong> : celle qui a inventé
+        les algorithmes avant les ordinateurs, qui raisonne en abstractions, en preuves et
+        en compromis. On y manipule des données, des structures, des réseaux et des
+        langages — avec la même rigueur qu'en mathématiques, et la même joie qu'en atelier.
+      </p>
+      <div class="grid-3 cards-lite">
+        <article class="lite" data-reveal>
+          <h3>Une science, pas un logiciel</h3>
+          <p>Comme la physique n'est pas la liste des machines, la NSI n'est pas la liste des applications. On y cherche des <strong>méthodes</strong> valables partout et pour longtemps.</p>
+        </article>
+        <article class="lite" data-reveal>
+          <h3>Le réel comme juge</h3>
+          <p>La NSI est la seule discipline où l'erreur finit toujours par se manifester d'elle-même : le programme plante, la requête ne renvoie rien, la page ne s'affiche pas. <strong>Le réel ne négocie pas.</strong></p>
+        </article>
+        <article class="lite" data-reveal>
+          <h3>Un langage utile ailleurs</h3>
+          <p>Décomposer un problème, nommer proprement, tester, documenter : ces gestes servent en maths, en SVT, en SES et dans n'importe quel métier qui pense.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ 3. HISTOIRE ════════ -->
+  <section class="band band--alt" id="histoire" aria-labelledby="t-hist">
+    <div class="wrap">
+      <p class="eyebrow">02 · Une histoire courte, des racines longues</p>
+      <h2 id="t-hist" class="h-lg">D'Ada Lovelace au bac 2020 : 180 ans de gestation.</h2>
+      <p class="lede lede--wide">L'informatique est entrée à l'école par la porte de l'ingénieur avant d'entrer au lycée par la porte du scientifique. Il aura fallu deux siècles de calcul et trente ans de débats pour que « penser informatique » devienne une discipline scolaire comme les autres.</p>
+    </div>
+
+    <div class="wrap">
+      <ol class="timeline" aria-label="Frise chronologique de l'informatique scolaire">
+        <li class="tl-item" data-era="ancetres">
+          <p class="tl-year">1843</p>
+          <h3 class="tl-title">Le premier programme de l'histoire</h3>
+          <p class="tl-txt">Ada Lovelace traduit et commente Menabrea : elle décrit, pour la machine analytique de Babbage, une suite d'instructions calculant les nombres de Bernoulli. <strong>Le logiciel est né avant l'ordinateur.</strong></p>
+        </li>
+        <li class="tl-item" data-era="ancetres">
+          <p class="tl-year">1936</p>
+          <h3 class="tl-title">Le concept devient science</h3>
+          <p class="tl-txt">Turing formalise ce que « calculer » veut dire ; von Neumann en propose l'architecture. Le mot <em>informatique</em> naît en France en 1962, contraction d'<em>information</em> et d'<em>automatique</em>.</p>
+        </li>
+        <li class="tl-item" data-era="outils">
+          <p class="tl-year">1971</p>
+          <h3 class="tl-title">L'informatique entre au lycée</h3>
+          <p class="tl-txt">Création de l'option puis du <strong>CAPES d'informatique</strong> en France. On enseigne alors l'algorithmique avant tout le monde — mais sur des machines rares, dans des salles confidentielles.</p>
+        </li>
+        <li class="tl-item" data-era="outils">
+          <p class="tl-year">1985-2000</p>
+          <h3 class="tl-title">L'ère des options</h3>
+          <p class="tl-txt">Informatique en classes préparatoires, options en lycée : l'informatique scolaire reste un <strong>territoire d'initiés</strong>, très inégalement proposé selon les établissements.</p>
+        </li>
+        <li class="tl-item" data-era="tournant">
+          <p class="tl-year">2012</p>
+          <h3 class="tl-title">Le rapport qui change la donne</h3>
+          <p class="tl-txt">Le rapport <em>Jules Ferry 2.0</em> et les travaux de l'Académie des sciences recommandent d'enseigner l'informatique comme <strong>science</strong>, distincte des usages et des équipements.</p>
+        </li>
+        <li class="tl-item" data-era="tournant">
+          <p class="tl-year">2013</p>
+          <h3 class="tl-title">ISN : l'ancêtre direct</h3>
+          <p class="tl-txt">L'enseignement d'exploration <strong>ISN</strong> (Informatique et Sciences du Numérique) puis la spécialité ISN de la série S s'installent en Terminale : projets, algorithmique, langages. C'est l'ADN de la NSI actuelle.</p>
+        </li>
+        <li class="tl-item tl-item--now" data-era="nsi">
+          <p class="tl-year">2019-2021</p>
+          <h3 class="tl-title">La NSI remplace l'ISN</h3>
+          <p class="tl-txt">La réforme du lycée général crée la spécialité <strong>NSI</strong>, enseignée dès la Première (4 h) puis en Terminale (6 h). Première session du bac : <strong>2021</strong> pour la partie écrite, la pratique s'installe durablement dans l'évaluation.</p>
+        </li>
+        <li class="tl-item tl-item--now" data-era="nsi">
+          <p class="tl-year">aujourd'hui</p>
+          <h3 class="tl-title">La 4ᵉ discipline scientifique</h3>
+          <p class="tl-txt">Aux côtés des maths, de la physique-chimie et de la SVT, la NSI est devenue un choix banal et ambitieux : <strong>plus de 100 000 élèves</strong> en suivent l'enseignement chaque année, filles comprises — un enjeu majeur de mixité.</p>
+        </li>
+      </ol>
+    </div>
+
+    <div class="wrap">
+      <aside class="callout" data-reveal>
+        <h3 class="callout-t">Les « ancêtres » de la NSI</h3>
+        <ul class="chips" role="list">
+          <li>Algorithmique (1971)</li>
+          <li>Informatique de gestion</li>
+          <li>ISN (2013)</li>
+          <li>ICN — Informatique et Création Numérique</li>
+          <li>Maths appliquées / statistiques</li>
+          <li>Technologie du collège</li>
+          <li>SNT en Seconde</li>
+          <li>B2i &amp; PIX</li>
+          <li>MP2I en CPGE (2021)</li>
+        </ul>
+        <p class="callout-f">La NSI hérite de tous : de l'algorithmique sa rigueur, d'ISN sa pédagogie du projet, de la SNT son ancrage citoyen, des CPGE son exigence théorique. Elle ajoute une chose inédite : <strong>tout le monde peut la choisir</strong>.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ════════ 4. PROGRAMME ════════ -->
+  <section class="band" id="programme" aria-labelledby="t-prog">
+    <div class="wrap">
+      <p class="eyebrow">03 · Le programme officiel, sans le jargon</p>
+      <h2 id="t-prog" class="h-lg">Deux ans, sept chapitres, un cap : l'abstraction.</h2>
+      <p class="lede lede--wide">Voici la trame des programmes de Première et de Terminale, résumée en une ligne par chapitre. Le détail officiel se lit dans les textes du <abbr title="Bulletin officiel">BO</abbr> — que nous citons, pas que nous paraphrasons.</p>
+      <div class="grid-5 metas">
+        <div class="meta"><b>4 h</b><span>par semaine en Première</span></div>
+        <div class="meta"><b>6 h</b><span>par semaine en Terminale</span></div>
+        <div class="meta"><b>Python</b><span>langage pivot des deux années</span></div>
+        <div class="meta"><b>1 h</b><span>d'épreuve pratique, sur machine</span></div>
+        <div class="meta"><b>4 h</b><span>d'épreuve écrite ministérielle</span></div>
+      </div>
+    </div>
+
+    <div class="wrap programme-wrap">
+      <div class="years" role="tablist" aria-label="Choisir l'année de programme">
+        <button class="year-tab is-active" role="tab" id="tab-premiere" aria-controls="panel-premiere" aria-selected="true" type="button">
+          <span class="yt-tag">1ʳᵉ</span><span class="yt-name">Première</span><span class="yt-h">4 h / semaine</span>
+        </button>
+        <button class="year-tab" role="tab" id="tab-terminale" aria-controls="panel-terminale" aria-selected="false" tabindex="-1" type="button">
+          <span class="yt-tag">Tle</span><span class="yt-name">Terminale</span><span class="yt-h">6 h / semaine</span>
+        </button>
+      </div>
+
+      <div class="panel is-active" id="panel-premiere" role="tabpanel" aria-labelledby="tab-premiere" tabindex="0">
+        <ol class="modules">
+          <li class="module" data-reveal><p class="mod-n">M1</p><h3>Histoire et représentations de l'information</h3><p>Binaire, hexadécimal, encodage des caractères, des images et du son : comprendre que tout, absolument tout, finit en 0 et en 1.</p></li>
+          <li class="module" data-reveal><p class="mod-n">M2</p><h3>Programmer en Python</h3><p>Variables, conditions, boucles, fonctions, tests : le socle du langage, appris en écrivant et en déboguant, jamais en récitant.</p></li>
+          <li class="module" data-reveal><p class="mod-n">M3</p><h3>Types construits et structures</h3><p>Listes, tuples, dictionnaires, tuples de tuples : organiser la donnée avant de la traiter, c'est déjà la moitié de l'algorithme.</p></li>
+          <li class="module" data-reveal><p class="mod-n">M4</p><h3>Algorithmique : trier, chercher</h3><p>Algorithmes de tri et de recherche, comparaison de leurs coûts, premiers pas vers la complexité — le moment où l'on apprend à compter autrement.</p></li>
+          <li class="module" data-reveal><p class="mod-n">M5</p><h3>Matériel et systèmes d'exploitation</h3><p>Processeur, mémoire, entrées-sorties, processus et systèmes : ce qu'il y a vraiment dans la boîte qu'on ouvre tous les jours.</p></li>
+          <li class="module" data-reveal><p class="mod-n">M6</p><h3>Interactions homme-machine</h3><p>Interfaces, événements, capteurs, objets connectés : dessiner une interaction qui ne demande pas de mode d'emploi.</p></li>
+          <li class="module" data-reveal><p class="mod-n">M7</p><h3>Le Web, de fond en comble</h3><p>HTML, CSS, HTTP, formulaires, côté client et côté serveur : construire une page vivante et comprendre le trajet d'une requête.</p></li>
+          <li class="module" data-reveal><p class="mod-n">M8</p><h3>Le projet de l'année</h3><p>Un objectif, une équipe, une démonstration. C'est là que tout se recolle — et que l'on découvre le plaisir du « ça marche ».</p></li>
+        </ol>
+      </div>
+
+      <div class="panel" id="panel-terminale" role="tabpanel" aria-labelledby="tab-terminale" tabindex="0" hidden>
+        <ol class="modules">
+          <li class="module" data-reveal><p class="mod-n">M1</p><h3>Structures de données abstraites</h3><p>Piles, files, listes chaînées, arbres, graphes : choisir la bonne structure, c'est changer un programme lent en programme élégant.</p></li>
+          <li class="module" data-reveal><p class="mod-n">M2</p><h3>Bases de données &amp; SQL</h3><p>Modèle relationnel, schéma, requêtes, mises à jour. Toute l'économie numérique tourne là-dessus : SQL est un langage à vie.</p></li>
+          <li class="module" data-reveal><p class="mod-n">M3</p><h3>Langages et paradigmes</h3><p>Compilation, interprétation, typage, récursivité, programmation fonctionnelle ou objet : il n'existe pas une seule façon de programmer.</p></li>
+          <li class="module" data-reveal><p class="mod-n">M4</p><h3>Algorithmique avancée</h3><p>Recherche dichotomique, algorithmes gloutons, parcours de graphes, programmation dynamique et calculabilité : la pensée algorithmique adulte.</p></li>
+          <li class="module" data-reveal><p class="mod-n">M5</p><h3>Architectures, systèmes et réseaux</h3><p>Assembleur, architecture matérielle, protocoles TCP/IP, routage, sécurité : d'une porte logique au réseau mondial.</p></li>
+          <li class="module" data-reveal><p class="mod-n">M6</p><h3>Le projet de Terminale</h3><p>Un vrai cahier des charges, une équipe, du versionnage, une soutenance. Le portfolio qui ouvre les portes de l'après-bac.</p></li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <aside class="callout callout--exam" data-reveal>
+        <h3 class="callout-t">Comment on est évalué</h3>
+        <p class="callout-f">
+          Deux épreuves, deux talents différents. L'<strong>écrit</strong> (4 h) vérifie que l'on sait raisonner,
+          analyser et écrire du code propre. La <strong>pratique</strong> (1 h, sur ordinateur, sans machine à café)
+          vérifie que l'on sait faire — vraiment — sous contrainte de temps. Un seul conseil :
+          <strong>coder à la main, sans exécuter</strong>, s'entraîne comme un sport.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ════════ 5. PROJETS ════════ -->
+  <section class="band band--alt" id="projets" aria-labelledby="t-proj">
+    <div class="wrap">
+      <p class="eyebrow">04 · Ce que l'on construit</p>
+      <h2 id="t-proj" class="h-lg">Des projets qu'on montre, qu'on explique, qu'on défend.</h2>
+      <p class="lede lede--wide">En NSI, on ne récite pas : on livre. Cinq exemples parmi des centaines, du premier script de Première au projet final de Terminale.</p>
+    </div>
+    <div class="wrap">
+      <div class="grid-3 projects">
+        <article class="project" data-reveal>
+          <p class="p-tag">Première · Python</p>
+          <h3>Chatbot d'orientation</h3>
+          <p>Un assistant en ligne de commande qui interroge l'élève, croise ses réponses avec un dictionnaire de formations et suggère trois pistes — le tout en 200 lignes lisibles.</p>
+          <ul class="p-tech" role="list"><li>dictionnaires</li><li>fonctions</li><li>tests</li></ul>
+        </article>
+        <article class="project" data-reveal>
+          <p class="p-tag">Première · Algorithmique</p>
+          <h3>Le labyrinthe le plus court</h3>
+          <p>Générer un labyrinthe aléatoire, le représenter en grille, puis trouver le chemin optimal en comparant largeur d'abord et profondeur d'abord. La théorie devient visible à l'écran.</p>
+          <ul class="p-tech" role="list"><li>files &amp; piles</li><li>graphes</li><li>visualisation</li></ul>
+        </article>
+        <article class="project" data-reveal>
+          <p class="p-tag">Première · Web</p>
+          <h3>Mini-réseau social du lycée</h3>
+          <p>Comptes, publications, likes : une application complète écrite à la main, avec formulaires, stockage et vraies requêtes côté serveur. C'est le projet qui convertit les sceptiques.</p>
+          <ul class="p-tech" role="list"><li>HTML/CSS</li><li>HTTP</li><li>bases de données</li></ul>
+        </article>
+        <article class="project" data-reveal>
+          <p class="p-tag">Terminale · Simulation</p>
+          <h3>Automate cellulaire &amp; Game of Life</h3>
+          <p>Simuler des populations de cellules, mesurer l'émergence, comparer les performances de trois implémentations. On y touche du doigt la complexité algorithmique.</p>
+          <ul class="p-tech" role="list"><li>tableaux</li><li>optimisation</li><li>complexité</li></ul>
+        </article>
+        <article class="project" data-reveal>
+          <p class="p-tag">Terminale · Cybersécurité</p>
+          <h3>Casser (puis réparer) un chiffrement</h3>
+          <p>Implémenter César et Vigenère, casser une clé par analyse de fréquences, puis expliquer pourquoi le chiffrement moderne change complètement d'échelle. Éthique incluse.</p>
+          <ul class="p-tech" role="list"><li>chaînes</li><li>statistiques</li><li>sécurité</li></ul>
+        </article>
+        <article class="project" data-reveal>
+          <p class="p-tag">Terminale · Données</p>
+          <h3>Explorer 50 ans de données ouvertes</h3>
+          <p>Importer un jeu de données public, écrire les requêtes SQL, croiser les tables et raconter une histoire avec des chiffres. Le projet qui parle aux littéraires comme aux scientifiques.</p>
+          <ul class="p-tech" role="list"><li>SQL</li><li>CSV</li><li>datavisualisation</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ 6. DÉBOUCHÉS ════════ -->
+  <section class="band" id="apres" aria-labelledby="t-after">
+    <div class="wrap">
+      <p class="eyebrow">05 · Après le bac</p>
+      <h2 id="t-after" class="h-lg">La NSI n'enferme pas : elle ouvre des portes qui n'existaient pas il y a vingt ans.</h2>
+      <p class="lede lede--wide">Elle est un atout dans la plupart des poursuites scientifiques, et la porte d'entrée naturelle des formations informatiques — y compris les plus sélectives.</p>
+    </div>
+    <div class="wrap">
+      <div class="grid-4 paths">
+        <article class="path path--main" data-reveal>
+          <p class="path-k">Le chemin direct</p>
+          <h3>CPGE MP2I <span class="badge">puis MPI</span></h3>
+          <p>Deux ans de maths, de physique et d'informatique intensive. La voie royale vers les écoles d'ingénieurs, créée en 2021 — en grande partie grâce à l'arrivée de la NSI.</p>
+        </article>
+        <article class="path" data-reveal>
+          <p class="path-k">À l'université</p>
+          <h3>Licence informatique &amp; BUT</h3>
+          <p>Licence mention informatique, double licence maths-info, BUT Informatique ou Réseaux &amp; Télécoms : trois ans pour devenir autonome, jusqu'au master ou à l'école d'ingénieur.</p>
+        </article>
+        <article class="path" data-reveal>
+          <p class="path-k">Écoles</p>
+          <h3>Ingénieurs post-bac &amp; Bachelor</h3>
+          <p>Écoles d'ingénieurs à prépa intégrée, bachelors universitaires technologiques, écoles spécialisées en cybersécurité ou en intelligence artificielle.</p>
+        </article>
+        <article class="path" data-reveal>
+          <p class="path-k">Horizon international</p>
+          <h3>Doubles diplômes &amp; recherche</h3>
+          <p>Masters internationaux, doubles diplômes, doctorat : la recherche en informatique est l'un des rares secteurs où l'on peut encore être payé à poser des questions neuves.</p>
+        </article>
+      </div>
+    </div>
+    <div class="wrap after-wrap">
+      <ul class="truths" data-reveal>
+        <li class="truth"><b>Développeuse / Développeur</b><span>≈ 32 à 38 k€ brut annuel en début de carrière en France</span></li>
+        <li class="truth"><b>Data, IA &amp; cybersécurité</b><span>parmi les métiers les plus recherchés de la décennie</span></li>
+        <li class="truth"><b>Plus de 100 000</b><span>postes non pourvus dans le numérique en France chaque année</span></li>
+        <li class="truth"><b>Tous les secteurs</b><span>santé, climat, agriculture, culture : l'informatique est devenue une infrastructure</span></li>
+      </ul>
+      <p class="after-note" data-reveal>Choisir la NSI, ce n'est pas choisir un métier : c'est choisir de <strong>savoir fabriquer</strong> ce que les autres utiliseront.</p>
+    </div>
+  </section>
+
+  <!-- ════════ 7. QUESTIONS ════════ -->
+  <section class="band band--alt" id="faq" aria-labelledby="t-faq">
+    <div class="wrap">
+      <p class="eyebrow">06 · Les vraies questions</p>
+      <h2 id="t-faq" class="h-lg">Ce qu'on nous demande avant de s'inscrire.</h2>
+      <div class="faq">
+        <details class="qa" data-reveal open>
+          <summary><span class="qa-q">Faut-il être un « génie » de l'informatique pour réussir ?</span><span class="qa-x" aria-hidden="true"></span></summary>
+          <div class="qa-a"><p>Non. Il faut de la <strong>curiosité</strong>, de la rigueur et l'acceptation d'un fait simple : on se trompe constamment, et c'est précisément le métier. Les élèves qui progressent le plus sont ceux qui testent, cassent et recommencent.</p></div>
+        </details>
+        <details class="qa" data-reveal>
+          <summary><span class="qa-q">Combien de mathématiques y a-t-il dans la NSI ?</span><span class="qa-x" aria-hidden="true"></span></summary>
+          <div class="qa-a"><p>Peu de calcul, beaucoup de <strong>raisonnement</strong>. La NSI utilise la logique, les fonctions, les suites et les graphes. La spécialité maths est un excellent compagnon, mais elle n'est pas un prérequis absolu pour commencer.</p></div>
+        </details>
+        <details class="qa" data-reveal>
+          <summary><span class="qa-q">Peut-on prendre la NSI quand on est plutôt littéraire ou artistique ?</span><span class="qa-x" aria-hidden="true"></span></summary>
+          <div class="qa-a"><p>Oui, et c'est souvent une révélation. Créer une page web, un jeu ou une visualisation de données est un travail <strong>d'auteur</strong> autant que d'ingénieur. La NSI a besoin de sensibilité esthétique : cette page en est la démonstration.</p></div>
+        </details>
+        <details class="qa" data-reveal>
+          <summary><span class="qa-q">Faut-il une machine puissante à la maison ?</span><span class="qa-x" aria-hidden="true"></span></summary>
+          <div class="qa-a"><p>Non. Tout le programme s'écrit dans un simple éditeur de texte et s'exécute sur un ordinateur modeste — y compris un Raspberry Pi. Une connexion suffit pour la documentation et les ressources en ligne.</p></div>
+        </details>
+        <details class="qa" data-reveal>
+          <summary><span class="qa-q">NSI et SNT, quelle différence ?</span><span class="qa-x" aria-hidden="true"></span></summary>
+          <div class="qa-a"><p>La <strong>SNT</strong> (Seconde) est un enseignement commun de culture numérique : usages, données, réseaux, algorithmique d'initiation. La <strong>NSI</strong> (Première et Terminale) est une spécialité scientifique qui approfondit réellement le code, les structures de données et l'architecture des machines.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ 8. APPEL ════════ -->
+  <section class="finale" id="choisir" aria-labelledby="t-final">
+    <div class="wrap finale-inner">
+      <p class="eyebrow" data-reveal>07 · Le choix</p>
+      <h2 id="t-final" class="finale-t" data-reveal>Demain n'aura pas besoin de spectateurs.<br><span class="hl">Il aura besoin d'artisans.</span></h2>
+      <div class="finale-acts" data-reveal>
+        <a class="cta cta--xl" href="#programme">Lire le programme <span aria-hidden="true">→</span></a>
+        <button class="cta cta--xl cta--ghost" id="cta-tour" type="button">Visiter les 9 styles <span aria-hidden="true">✦</span></button>
+      </div>
+      <p class="finale-note" data-reveal>Un seul contenu, neuf directions artistiques : tout ce que vous venez de lire peut changer d'aspect sans changer de sens. C'est ça, le web design.</p>
+    </div>
+  </section>
+</main>
+
+<!-- ════════ PIED DE PAGE ════════ -->
+<footer class="site-footer">
+  <div class="xnav">
+    <p class="xnav__exergue">Un contenu, quatre versions · celle-ci : <b>DeepSeek</b> — 0,13 €, 42 M jetons, 42 min</p>
+    <ul class="xnav__grid">
+      <li><a class="xnav__item" href="/" style="--x-accent:#2563EB"><span class="xnav__name">Astra</span><span class="xnav__cost">13 € · 8 M jetons · 37 min</span></a></li>
+      <li class="xnav__item" aria-current="page" style="--x-accent:#0B8A6A"><span class="xnav__name">DeepSeek</span><span class="xnav__self">cette version — 0,13 € · 42 M jetons · 42 min</span></li>
+      <li><a class="xnav__item" href="/gemini/" style="--x-accent:#C2410C"><span class="xnav__name">Gemini</span><span class="xnav__cost">0 € · 50 k jetons · 4 min</span></a></li>
+    </ul>
+    <span class="xnav__credit">Idée : <a href="https://x.com/nsi_xyz" target="_blank" rel="noopener">@nsi_xyz</a>, prompté sur Gemini 3.8 Flash et DeepSeek 4.1 Flash par <a href="https://x.com/nsi_xyz" target="_blank" rel="noopener">@nsi_xyz</a>, prompté sur Astra (GPT 6) : <a href="https://x.com/ClovisReye" target="_blank" rel="noopener">@ClovisReye</a></span>
+  </div>
+
+  <div class="wrap footer-grid">
+    <div class="f-col">
+      <p class="f-brand">NSI<span aria-hidden="true">.</span></p>
+      <p class="f-lead">Page de découverte de la spécialité Numérique et Sciences Informatiques, conçue comme une démonstration : le même contenu, réinterprété neuf fois.</p>
+    </div>
+    <nav class="f-col f-nav" aria-label="Liens de la page">
+      <h3>Explorer</h3>
+      <ul role="list">
+        <li><a href="#histoire">Son histoire</a></li>
+        <li><a href="#programme">Le programme</a></li>
+        <li><a href="#projets">Les projets</a></li>
+        <li><a href="#apres">Les débouchés</a></li>
+        <li><a href="#faq">Les questions</a></li>
+      </ul>
+    </nav>
+    <div class="f-col f-nav">
+      <h3>Sources</h3>
+      <ul role="list">
+        <li><a href="https://eduscol.education.fr/2670/programmes-et-ressources-en-numerique-et-sciences-informatiques" target="_blank" rel="noopener">Programmes officiels — Éduscol</a></li>
+        <li><a href="https://www.education.gouv.fr/reussir-au-lycee/la-specialite-numerique-et-sciences-informatiques-nsi-12240" target="_blank" rel="noopener">La spécialité NSI — Ministère</a></li>
+        <li><a href="https://www.societe-informatique-de-france.fr/" target="_blank" rel="noopener">Société Informatique de France</a></li>
+        <li><a href="https://pix.fr/" target="_blank" rel="noopener">PIX — certification numérique</a></li>
+      </ul>
+    </div>
+    <div class="f-col f-meta">
+      <h3>Réglages</h3>
+      <p class="f-note">Le style est mémorisé sur cet appareil. Ajoutez <code>?theme=brutalisme</code> à l'adresse pour partager une ambiance précise.</p>
+      <button class="ghost-btn" id="audit-open-2" type="button" aria-haspopup="dialog">Auditer les contrastes</button>
+    </div>
+  </div>
+  <div class="wrap f-bottom">
+    <p>© <span id="year">2026</span> discover.nsi.xyz — contenu pédagogique, design libre.</p>
+    <p class="f-keys">Raccourcis : <kbd>Alt</kbd>+<kbd>1…9</kbd> pour changer de style, <kbd>Alt</kbd>+<kbd>0</kbd> pour les parcourir.</p>
+  </div>
+</footer>
+
+<!-- ════════ PANNEAU : AUDIT DES CONTRASTES ════════ -->
+<div class="modal" id="audit-modal" role="dialog" aria-modal="true" aria-labelledby="audit-title" hidden>
+  <div class="modal-scrim" data-close></div>
+  <div class="modal-box" role="document">
+    <header class="modal-head">
+      <h2 id="audit-title">Audit de contraste WCAG 2.2</h2>
+      <button class="modal-x" type="button" data-close aria-label="Fermer le panneau">✕</button>
+    </header>
+    <div class="modal-body">
+      <p class="modal-intro">Ces ratios sont <strong>calculés en direct dans votre navigateur</strong>, à partir des couleurs réellement appliquées par la direction artistique en cours. Le seuil <abbr title="Web Content Accessibility Guidelines">WCAG</abbr> AA est de <b>4,5:1</b> pour le texte courant, <b>3:1</b> pour le grand texte.</p>
+      <div class="audit-summary" id="audit-summary" aria-live="polite"></div>
+      <div class="audit-table-wrap">
+        <table class="audit-table" id="audit-table">
+          <caption class="sr-only">Ratios de contraste par paire de couleurs pour le thème en cours</caption>
+          <thead><tr><th scope="col">Élément</th><th scope="col">Avant / Arrière</th><th scope="col">Ratio</th><th scope="col">Niveau</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p class="modal-foot">Les valeurs sont recalculées à chaque changement de style. Un « ✗ » signale un texte décoratif ou de grand corps, jamais le texte de lecture.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ PANNEAU : AIDE / RACCOURCIS ════════ -->
+<div class="modal" id="help-modal" role="dialog" aria-modal="true" aria-labelledby="help-title" hidden>
+  <div class="modal-scrim" data-close></div>
+  <div class="modal-box modal-box--sm" role="document">
+    <header class="modal-head">
+      <h2 id="help-title">Mode d'emploi</h2>
+      <button class="modal-x" type="button" data-close aria-label="Fermer le panneau">✕</button>
+    </header>
+    <div class="modal-body">
+      <p class="modal-intro">Cette page est une <strong>démonstration de direction artistique</strong> : une seule structure de contenu, neuf interprétations visuelles complètes — couleurs, typographies, matières, ombres, rythmes et animations.</p>
+      <dl class="help-list">
+        <dt>Sélecteur</dt><dd>Les neuf pastilles sous l'en-tête changent l'ambiance instantanément. <kbd>←</kbd>/<kbd>→</kbd> pour naviguer, <kbd>Alt</kbd>+<kbd>1…9</kbd> partout, <kbd>Alt</kbd>+<kbd>0</kbd> pour un survol automatique des neuf styles.</dd>
+        <dt>Partage</dt><dd>L'adresse se met à jour : <code>?theme=glassmorphisme</code> ouvre la page dans ce style.</dd>
+        <dt>Mouvement</dt><dd>Si votre système demande de réduire les animations, la page les désactive d'elle-même.</dd>
+        <dt>Accessibilité</dt><dd>Structure sémantique, navigation clavier complète, lien d'évitement, contrastes vérifiés et auditables via le bouton « Contrastes ».</dd>
+      </dl>
+      <p class="modal-foot">Aucune ressource de cours n'est incluse : cette page raconte, elle ne remplace pas le cours.</p>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script src="scripts/themes.js"></script>
+<script src="scripts/app.js"></script>
+</body>
+</html>

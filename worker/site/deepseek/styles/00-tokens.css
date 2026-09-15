@@ -1,0 +1,156 @@
+/* ============================================================================
+   00-TOKENS.CSS — Le contrat de design
+   ----------------------------------------------------------------------------
+   Toute la page est pilotée par des variables CSS sémantiques. Une « direction
+   artistique » n'est rien d'autre qu'un jeu de valeurs pour ces variables,
+   plus quelques surcharges structurelles ciblées (voir 30-themes.css).
+
+   Aucune couleur, aucune ombre, aucun rayon n'est écrit en dur dans les
+   composants : c'est ce qui rend la métamorphose instantanée et sans
+   duplication de balisage.
+   ========================================================================= */
+
+:root{
+  /* ---- Couleurs : rôles sémantiques -------------------------------------
+     Les valeurs ci-dessous constituent la direction artistique « flat »,
+     utilisée aussi comme socle de secours (noscript, navigateurs anciens). */
+  --c-bg:          #F4F6FB;  /* fond général de la page            */
+  --c-bg-2:        #FFFFFF;  /* fond des bandes alternées          */
+  --c-surface:     #FFFFFF;  /* cartes, panneaux                   */
+  --c-surface-2:   #EEF2F8;  /* surface secondaire / en-têtes      */
+  --c-ink:         #0C1524;  /* texte de lecture                   */
+  --c-ink-2:       #44506B;  /* texte secondaire                   */
+  --c-ink-3:       #647089;  /* texte tertiaire (grands corps)     */
+  --c-primary:     #1450D6;  /* couleur de marque                  */
+  --c-primary-ink: #FFFFFF;  /* texte posé sur --c-primary         */
+  --c-accent:      #0B8A6A;  /* accent, accents de titres          */
+  --c-accent-ink:  #FFFFFF;
+  --c-canvas:      #F4F6FB;  /* fond effectif (dégradés compris) : sert
+                                de référence aux mesures de contraste */
+  --c-line:        #D5DCEA;  /* filets, bordures                   */
+  --c-line-strong: #A9B4CC;
+  --c-focus:       #B6431C;  /* anneau de focus : toujours visible */
+  --c-sel-bg:      #1450D6;
+  --c-sel-ink:     #FFFFFF;
+
+  /* Couleurs des 9 pastilles : elles ne changent jamais, ce sont les
+     repères visuels du sélecteur (un « nuancier » de la démonstration). */
+  --sw-flat:     #1467D6;
+  --sw-material: #7A5BD6;
+  --sw-skeuo:    #B4671E;
+  --sw-neumo:    #52607E;
+  --sw-glass:    #6FD3F2;
+  --sw-brutal:   #D9F02B;
+  --sw-minimal:  #12161E;
+  --sw-maximal:  #E5167E;
+  --sw-typo:     #E2311F;
+
+  /* ---- Typographie ------------------------------------------------------ */
+  --f-display: "Inter Tight", "Inter", "Noto Sans", "Helvetica Neue", Arial, sans-serif;
+  --f-text:    "Inter", "Noto Sans", "Liberation Sans", system-ui, sans-serif;
+  --f-quote:   "Playfair Display", "Linux Libertine O", "Noto Serif", Georgia, serif;
+  --f-mono:    "Space Mono", "DejaVu Sans Mono", "Liberation Mono", ui-monospace, monospace;
+
+  --fs-display: clamp(2.6rem, 6.6vw, 5.4rem);  /* H1                    */
+  --fs-h2:      clamp(1.85rem, 3.6vw, 3.1rem); /* titres de section     */
+  --fs-h3:      clamp(1.08rem, 1.5vw, 1.4rem); /* titres de carte       */
+  --fs-lede:    clamp(1.05rem, 1.35vw, 1.32rem);
+  --fs-body:    1rem;
+  --fs-small:   0.86rem;
+  --fs-micro:   0.73rem;
+
+  --lh-display: 0.98;
+  --lh-body:    1.62;
+  --ls-display: -0.03em;   /* interlettrage des grands titres */
+  --ls-eyebrow: 0.16em;    /* capitales espacées              */
+  --fw-display: 800;
+  --fw-body:    400;
+  --fw-strong:  700;
+  --tt-display: none;      /* uppercase éventuel              */
+
+  /* ---- Géométrie -------------------------------------------------------- */
+  --radius:      14px;
+  --radius-sm:   8px;
+  --radius-pill: 999px;
+  --border-w:    1px;
+  --wrap:        1240px;
+  --gutter:      clamp(1.15rem, 4vw, 4rem);
+  --gap:         clamp(1rem, 1.8vw, 1.6rem);
+  --sec-y:       clamp(3.6rem, 8vw, 8rem);
+  --band-y:      clamp(2.6rem, 6vw, 6rem);
+
+  /* ---- Profondeur, matières, effets ------------------------------------ */
+  --shadow-1: 0 1px 2px rgba(12,21,36,.10);
+  --shadow-2: 0 10px 30px -12px rgba(12,21,36,.22);
+  --shadow-3: 0 30px 60px -30px rgba(12,21,36,.30);
+  --card-bg:        var(--c-surface);
+  --card-bg-2:      var(--c-surface-2);
+  --card-shadow:    var(--shadow-1);
+  --card-border:    var(--border-w) solid var(--c-line);
+  --card-radius:    var(--radius);
+  --card-outline:   none;
+  --card-blur:      none;      /* backdrop-filter éventuel      */
+  --card-inset:     none;      /* relief interne (skeuo/neumo)  */
+  --card-tf:        none;      /* transformation au survol      */
+  --card-tf-hover:  translateY(-2px);
+  --btn-shadow:     var(--shadow-1);
+  --btn-shadow-act: inset 0 1px 3px rgba(0,0,0,.18);
+  --btn-tf-hover:   translateY(-1px);
+  --btn-tf-act:     translateY(0);
+  --btn-outline:    none;
+  --title-deco:     none;      /* soulignements, barres, surlignages */
+  --title-case:     none;
+  --section-rule:   none;
+  --fig-bg:         var(--c-surface-2);
+  --fig-radius:     var(--radius-sm);
+  --chip-bg:        var(--c-surface-2);
+  --chip-ink:       var(--c-ink);
+  --chip-border:    1px solid var(--c-line);
+  --chip-radius:    var(--radius-pill);
+  --link-deco:      underline;
+  --link-deco-style: solid;
+  --grid-line:      rgba(20,80,214,.055); /* trame de fond décorative */
+  --overlay:        rgba(10,16,28,.55);
+
+  /* ---- Mouvement -------------------------------------------------------- */
+  --t-fast: 140ms;
+  --t-mid:  260ms;
+  --t-slow: 520ms;
+  --ease:      cubic-bezier(.22,.61,.36,1);
+  --ease-soft: cubic-bezier(.33,1,.68,1);
+
+  /* ---- Échelle de z-index ---------------------------------------------- */
+  --z-deco: 0;
+  --z-base: 1;
+  --z-sticky: 40;
+  --z-modal: 80;
+  --z-toast: 95;
+
+  color-scheme: light;
+}
+
+/* --- Ornements : interrupteur global piloté par le thème ----------------
+   off   → épuré ; on → dégradés, halos, trames ; chaos → superposition. */
+:root[data-ornaments="off"]   { --orn-op: 0;    --orn-blur: 0px;  --orn-scale: 0; }
+:root[data-ornaments="on"]    { --orn-op: .85;  --orn-blur: 0px;  --orn-scale: 1; }
+:root[data-ornaments="chaos"] { --orn-op: 1;    --orn-blur: 6px;  --orn-scale: 1.35; }
+
+/* --- Respect des préférences système ------------------------------------ */
+@media (prefers-reduced-motion: reduce){
+  :root{
+    --t-fast: 1ms; --t-mid: 1ms; --t-slow: 1ms;
+    --card-tf: none; --card-tf-hover: none;
+    --btn-tf-hover: none; --btn-tf-act: none;
+  }
+}
+
+/* --- Confort visuel (option d'accessibilité) ---------------------------- */
+:root[data-contrast="high"]{
+  --c-ink-2: var(--c-ink);
+  --c-ink-3: var(--c-ink);
+  --c-line: var(--c-line-strong);
+  --card-shadow: none;
+  --card-outline: 2px solid var(--c-ink);
+  --border-w: 2px;
+}
+:root[data-scale="big"]{ font-size: 118%; }
