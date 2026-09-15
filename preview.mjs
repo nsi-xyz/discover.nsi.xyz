@@ -17,11 +17,6 @@ const MIME = {
   '.txt': 'text/plain; charset=utf-8'
 };
 
-/* Équivalent local des règles `_redirects` de Cloudflare Pages :
-   la version Gemini est publiée depuis son dossier de build. */
-const REDIRECTS = [
-  [/^\/gemini\/$/, '/gemini/dist/index.html']
-];
 
 createServer(async (request, response) => {
   if (!['GET', 'HEAD'].includes(request.method)) {
@@ -32,9 +27,6 @@ createServer(async (request, response) => {
   try { pathname = decodeURIComponent(new URL(request.url, 'http://localhost').pathname); }
   catch { response.writeHead(400); return response.end('Requête invalide.'); }
 
-  for (const [re, to] of REDIRECTS) {
-    if (re.test(pathname)) { pathname = pathname.replace(re, to); break; }
-  }
   if (pathname.endsWith('/')) pathname += 'index.html';
 
   const file = join(ROOT, normalize(pathname).replace(/^(\.\.[/\\])+/, ''));
