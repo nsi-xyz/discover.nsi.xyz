@@ -20,8 +20,7 @@ const MIME = {
 /* Équivalent local des règles `_redirects` de Cloudflare Pages :
    la version Gemini est publiée depuis son dossier de build. */
 const REDIRECTS = [
-  [/^\/gemini\/$/, '/gemini/dist/index.html'],
-  [/^\/gemini\/(?!dist\/)(.*)$/, '/gemini/dist/$1']
+  [/^\/gemini\/$/, '/gemini/dist/index.html']
 ];
 
 createServer(async (request, response) => {
