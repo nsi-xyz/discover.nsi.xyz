@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>discover.nsi.xyz — page de test local</title>
+<meta name="robots" content="noindex">
+<style>
+  :root{ color-scheme:light dark; --bg:#f4f6fb; --ink:#0c1524; --muted:#44506b; --line:#d5dcea; --accent:#1450d6 }
+  @media (prefers-color-scheme:dark){ :root{ --bg:#0b1020; --ink:#eef2ff; --muted:#a9b4cc; --line:#26304a; --accent:#7fb0ff } }
+  *{box-sizing:border-box} body{margin:0;min-height:100vh;display:grid;place-items:center;padding:2rem;
+    background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}
+  main{width:min(100%,46rem)}
+  h1{font-size:clamp(1.8rem,5vw,2.6rem);letter-spacing:-.03em;margin:0 0 .4rem}
+  p.lede{color:var(--muted);margin:0 0 2rem}
+  ul{list-style:none;padding:0;margin:0;display:grid;gap:.6rem}
+  a.card{display:flex;justify-content:space-between;gap:1rem;align-items:baseline;
+    padding:.9rem 1.1rem;border:1px solid var(--line);border-radius:12px;text-decoration:none;color:inherit}
+  a.card:hover{border-color:var(--accent)}
+  a.card b{font-weight:700} a.card span{font-size:.8rem;color:var(--muted);font-variant-numeric:tabular-nums}
+  .note{margin-top:2rem;font-size:.8rem;color:var(--muted);border-top:1px solid var(--line);padding-top:1rem}
+  code{font-family:ui-monospace,monospace;font-size:.85em}
+</style>
+</head>
+<body>
+<main>
+  <h1>discover.nsi.xyz</h1>
+  <p class="lede">Page de test local — les quatre points d'entrée du dépôt.</p>
+  <ul>
+    <li><a class="card" href="dist/"><b>Astra</b> <span>13 € · 8 M jetons · 37 min</span></a></li>
+    <li><a class="card" href="deepseek/"><b>DeepSeek</b> <span>0,13 € · 42 M jetons · 42 min</span></a></li>
+    <li><a class="card" href="gemini/"><b>Gemini</b> <span>0 € · 50 k jetons · 4 min</span></a></li>
+    <li><a class="card" href="gemini/dist/"><b>Gemini</b> <span>build statique direct</span></a></li>
+  </ul>
+  <p class="note">Le site publié sur <code>discover.nsi.xyz</code> est la version <b>Astra</b> : c'est le dossier
+  <code>dist/</code> (répertoire de publication). Cette page de test porte <code>noindex</code>.</p>
+</main>
+</body>
+</html>
