@@ -10,7 +10,7 @@ consultables depuis le pied de page de chacune.
 
 | Version | Modèle | Prompteur | Coût | Jetons | Durée | Emplacement |
 |---|---|---|---|---|---|---|
-| **Astra** | GPT 6 | @ClovisReye | 13 € | 8 M | 37 min | racine (`dist/`) |
+| **Astra** | GPT 6 | @ClovisReye | 13 € | 8 M | 37 min | **racine = page d'accueil** |
 | DeepSeek | DeepSeek 4.1 Flash | @nsi_xyz | 0,13 € | 42 M | 42 min | `deepseek/` |
 | Gemini | Gemini 3.8 Flash | @nsi_xyz | 0 € | 50 k | 4 min | `gemini/` (sources) |
 
@@ -22,10 +22,10 @@ consultables depuis le pied de page de chacune.
 ## Arborescence
 
 ```
-dist/            site Astra publié : index.html, styles.css, app.js (100 % statique)
+index.html       page d'accueil = version Astra (styles.css + app.js à la racine)
 deepseek/        version DeepSeek, autonome (index.html + styles/ + scripts/ + assets/)
 gemini/          sources Angular de la version Gemini (à compiler, voir plus bas)
-preview.mjs      serveur local du site Astra  →  npm run dev  →  127.0.0.1:4173
+preview.mjs      aperçu local complet  →  npm run dev  →  127.0.0.1:4173
 CNAME            discover.nsi.xyz
 .nojekyll        empêche Jekyll d'ignorer les dossiers commençant par un souligné
 ```
@@ -33,7 +33,7 @@ CNAME            discover.nsi.xyz
 ## Déploiement Cloudflare (100 % statique)
 
 - **Build command** : *(aucune)*
-- **Output directory** : `dist`
+- **Output directory** : la **racine** du dépôt (Astra est la page d'accueil)
 - **Domaine** : `discover.nsi.xyz` (fichier `CNAME` fourni)
 
 Aucun Worker, aucune fonction serveur : le site Astra est du HTML/CSS/JS pur.
@@ -70,8 +70,8 @@ côté JavaScript.
 ## Vérifier en local
 
 ```bash
-npm run dev                  # site Astra sur http://127.0.0.1:4173/
-python3 -m http.server 8000  # ou tout serveur statique à la racine du dépôt
+npm run dev   # aperçu complet sur http://127.0.0.1:4173/
 ```
 
-Puis `http://127.0.0.1:8000/dist/`, `…/deepseek/`, `…/gemini/`.
+- `http://127.0.0.1:4173/` → **Astra**, la page d'accueil
+- `http://127.0.0.1:4173/deepseek/` et `…/gemini/` → les autres versions
