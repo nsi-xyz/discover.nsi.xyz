@@ -1,0 +1,26 @@
+Mission : Conçois une landing page web innovante pour la spécialité NSI (Numérique et Sciences Informatiques) au lycée (url cible : discover.nsi.xyz). L'objectif du contenu est d'expliquer brièvement son histoire, ses ancêtres, le programme officiel, les projets concrets et les débouchés post-bac. Le texte doit être accrocheur mais suffisamment concis pour laisser respirer l'interface (aucune ressource de cours à intégrer).
+
+Le cœur de l'expérience (Concept UI/UX) :
+Ce site est avant tout une démonstration pédagogique magistrale de l'impact du web design. Je veux que tu intègres un sélecteur élégant permettant à l'utilisateur de métamorphoser instantanément l'esthétique globale de la page.
+Tu dois créer 9 interprétations visuelles complètes et distinctes pour le même contenu :
+
+Flat Design
+Material Design
+Skeuomorphisme
+Neumorphisme
+Glassmorphisme
+Brutalisme
+Minimalisme
+Maximalisme
+Typographique
+
+Critères de qualité (Carte blanche technique) :
+Je te laisse une totale liberté sur l'architecture technique (HTML/CSS/JS) et la manière de coder ces transitions. Cependant, le résultat final doit avoir le niveau de finition d'un directeur artistique :
+
+Une hiérarchie visuelle parfaitement maîtrisée pour chaque style.
+
+Des contrastes chromatiques qui garantissent une lisibilité et une accessibilité optimales (même pour les styles les plus excentriques).
+
+Une ergonomie irréprochable et 100% responsive.
+
+Surprends-moi dans ta façon d'interpréter ces 9 paradigmes et de structurer l'expérience !

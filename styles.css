@@ -62,7 +62,7 @@
 .xnav__name::before{content:"";flex:none;display:inline-block;width:.55rem;height:.55rem;border-radius:50%;
   margin-right:.45rem;vertical-align:.06em;background:var(--x-accent,var(--accent))}
 .xnav__cost{font-family:var(--mono, monospace);font-size:.72rem;color:var(--muted);white-space:nowrap}
-.xnav__self{white-space:nowrap}
+.xnav__self{white-space:normal}
 @media (max-width:560px){.xnav__grid>li{flex-basis:100%}.xnav__item{flex-wrap:wrap}.xnav__cost,.xnav__self{white-space:normal}}
 .xnav__self{font-size:.72rem;color:var(--muted);font-family:var(--mono, monospace)}
 .xnav__credit{display:block;margin-top:1rem;font-size:.72rem;line-height:1.6;

@@ -1,6 +1,7 @@
 /* Assemble le site publié dans worker/site :
-   Astra à la racine, DeepSeek et Gemini dans leurs sous-dossiers.
-   Le même dossier alimente le Worker (domaine discover.nsi.xyz) et Pages. */
+   Astra à la racine, DeepSeek, Fable et Gemini dans leurs sous-dossiers,
+   la page « prompt » à part. Le même dossier alimente le Worker
+   (domaine discover.nsi.xyz) et Pages. */
 import { cp, mkdir, rm, readdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -18,6 +19,12 @@ for (const f of ['index.html', 'styles.css', 'app.js', '.nojekyll', '_redirects'
 }
 /* DeepSeek : dossier autonome */
 await cp(join(ROOT, 'deepseek'), join(OUT, 'deepseek'), { recursive: true });
+
+/* Fable : dossier autonome */
+await cp(join(ROOT, 'fable'), join(OUT, 'fable'), { recursive: true });
+
+/* Page « le prompt » (texte brut + copie en un clic) */
+await cp(join(ROOT, 'prompt'), join(OUT, 'prompt'), { recursive: true });
 
 /* Gemini : uniquement le build statique publié */
 const gem = join(ROOT, 'gemini');

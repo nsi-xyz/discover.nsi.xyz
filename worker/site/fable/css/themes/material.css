@@ -1,0 +1,73 @@
+/* 2 — MATERIAL DESIGN (2014, Material 3 en 2021)
+   Surfaces tonales, élévation par ombre, coins arrondis, boutons en pilule, FAB. */
+[data-style="material"] {
+  --bg: #fef7ff;
+  --bg-2: #f3edf7;
+  --surface: #fffbfe;
+  --text: #1d1b20;
+  --muted: #49454f;
+  --accent: #6750a4;
+  --accent-ink: #ffffff;
+  --accent-2: #7d5260;
+  --border: #e7e0ec;
+  --radius: 12px;
+  --radius-lg: 20px;
+  --shadow: 0 1px 2px rgba(0,0,0,.18), 0 1px 3px 1px rgba(0,0,0,.08);
+  --shadow-lg: 0 4px 8px 3px rgba(0,0,0,.12), 0 1px 3px rgba(0,0,0,.24);
+  --font-body: "Roboto", system-ui, sans-serif;
+  --font-display: "Roboto", system-ui, sans-serif;
+  --display-weight: 500;
+  --display-tracking: 0;
+  --lh: 1.55;
+}
+
+/* Top app bar */
+[data-style="material"] .site-head { background: var(--accent); color: #fff; border: 0; box-shadow: var(--shadow-lg); }
+[data-style="material"] .brand { color: #fff; }
+[data-style="material"] .brand-mark { background: #eaddff; color: #21005d; border-radius: 50%; }
+[data-style="material"] .brand-dot { color: #eaddff; }
+[data-style="material"] .site-nav a { color: #eaddff; }
+[data-style="material"] .site-nav a:hover { color: #fff; }
+[data-style="material"] .lab-toggle { background: #eaddff; color: #21005d; border: 0; box-shadow: var(--shadow); }
+[data-style="material"] .lab-toggle-dot { background: #6750a4; }
+
+[data-style="material"] .eyebrow { font-family: var(--font-body); letter-spacing: .1em; font-weight: 500; }
+[data-style="material"] .hero-title { font-weight: 400; letter-spacing: -0.01em; }
+[data-style="material"] .hero-title .accent-line { font-weight: 700; }
+
+/* Boutons en pilule + effet d'état (overlay) */
+[data-style="material"] .btn { border-radius: var(--radius-pill); padding: .75rem 1.5rem; font-weight: 500; letter-spacing: .01em; position: relative; overflow: hidden; }
+[data-style="material"] .btn::after { content: ""; position: absolute; inset: 0; background: currentColor; opacity: 0; transition: opacity .2s; }
+[data-style="material"] .btn:hover::after { opacity: .08; }
+[data-style="material"] .btn:active::after { opacity: .16; }
+[data-style="material"] .btn-primary { box-shadow: var(--shadow); }
+[data-style="material"] .btn-primary:hover { filter: none; box-shadow: var(--shadow-lg); }
+[data-style="material"] .btn-ghost { border-color: #79747e; color: var(--accent); }
+[data-style="material"] .btn-ghost:hover { background: transparent; }
+
+/* Cartes : surface tonale, élévation 1, élévation 3 au survol */
+[data-style="material"] .card, [data-style="material"] .fact { background: var(--bg-2); border: 0; transition: box-shadow .25s var(--ease), transform .25s var(--ease); }
+[data-style="material"] .card:hover { box-shadow: var(--shadow-lg); }
+[data-style="material"] .fact dd { font-weight: 400; color: var(--accent); }
+[data-style="material"] .pill { background: #eaddff; color: #21005d; }
+[data-style="material"] .exam { background: #eaddff; color: #21005d; }
+[data-style="material"] .project-tag { background: #e8def8; color: #1d192b; padding: .3rem .75rem; border-radius: 8px; letter-spacing: .02em; font-family: var(--font-body); text-transform: none; font-size: .8rem; }
+
+/* Timeline : année dans un badge circulaire relié par un rail */
+[data-style="material"] .tl-item { border: 0; position: relative; padding-left: .25rem; }
+[data-style="material"] .tl-year { display: grid; place-items: center; width: 4.25rem; height: 2.5rem; border-radius: var(--radius-pill); background: #eaddff; color: #21005d; font-family: var(--font-body); font-size: .9rem; padding: 0; position: relative; z-index: 1; }
+[data-style="material"] .tl-item.is-key .tl-year { background: var(--accent); color: #fff; }
+[data-style="material"] .tl-item::before { content: ""; position: absolute; left: calc(2.125rem + .25rem - 1px); top: 0; bottom: 0; width: 2px; background: var(--border); }
+[data-style="material"] .tl-item:first-child::before { top: 50%; }
+[data-style="material"] .tl-item:last-child::before { bottom: 50%; }
+[data-style="material"] .tl-item.is-key h3::after { content: none; }
+
+[data-style="material"] .hero-note { border-color: var(--accent-2); }
+[data-style="material"] .cta { background: var(--bg-2); border-radius: 28px; }
+
+/* Dock = bottom sheet flottant ; touches en "chips" */
+[data-style="material"] .lab-inner { border: 0; border-radius: 28px; box-shadow: var(--shadow-lg); }
+[data-style="material"] .key { border-radius: var(--radius-pill); border: 1px solid #79747e; background: transparent; padding-inline: .8rem; }
+[data-style="material"] .key:hover { transform: none; background: rgba(103,80,164,.08); }
+[data-style="material"] .key[aria-checked="true"] { background: #e8def8; color: #1d192b; border-color: transparent; }
+[data-style="material"] .key[aria-checked="true"] .key-num::before { content: "✓ "; }

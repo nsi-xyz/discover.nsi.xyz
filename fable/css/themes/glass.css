@@ -1,0 +1,67 @@
+/* 5 — GLASSMORPHISME (2020)
+   Panneaux de verre dépoli au-dessus de taches de couleur en mouvement. */
+[data-style="glass"] {
+  --bg: #0b1230;
+  --bg-2: rgba(255,255,255,.06);
+  --surface: rgba(255,255,255,.10);
+  --text: #f4f6ff;
+  --muted: #c4cbe6;
+  --accent: #8fd3ff;
+  --accent-ink: #061024;
+  --accent-2: #ffb86b;
+  --border: rgba(255,255,255,.22);
+  --radius: 14px;
+  --radius-lg: 22px;
+  --shadow: 0 8px 32px rgba(0,0,0,.35);
+  --shadow-lg: 0 16px 48px rgba(0,0,0,.5);
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-display: "Inter", system-ui, sans-serif;
+  --display-weight: 700;
+  --display-tracking: -0.03em;
+  color-scheme: dark;
+}
+[data-style="glass"] body { background: radial-gradient(1200px 800px at 80% -10%, #172457 0%, transparent 60%), var(--bg); }
+[data-style="glass"] .blob { display: block; position: absolute; border-radius: 50%; filter: blur(90px); opacity: .42; will-change: transform; }
+[data-style="glass"] .b1 { width: 48vw; height: 48vw; left: -10vw; top: -10vh; background: #6d3cff; animation: drift 26s ease-in-out infinite alternate; }
+[data-style="glass"] .b2 { width: 40vw; height: 40vw; right: -8vw; top: 30vh; background: #00c2ff; animation: drift 32s ease-in-out infinite alternate-reverse; }
+[data-style="glass"] .b3 { width: 36vw; height: 36vw; left: 30vw; bottom: -12vh; background: #ff5da2; animation: drift 38s ease-in-out infinite alternate; }
+@keyframes drift { from { transform: translate(0,0) scale(1); } to { transform: translate(8vw, 6vh) scale(1.15); } }
+
+[data-style="glass"] .site-head, [data-style="glass"] .card, [data-style="glass"] .fact, [data-style="glass"] .exam, [data-style="glass"] .lab-inner, [data-style="glass"] .hero-note, [data-style="glass"] .cta {
+  background: var(--surface);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  backdrop-filter: blur(18px) saturate(1.4);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,.25);
+}
+[data-style="glass"] .site-head { border-width: 0 0 1px; box-shadow: none; background: rgba(11,18,48,.55); }
+[data-style="glass"] .fact, [data-style="glass"] .card { background: rgba(14,22,58,.42); }
+[data-style="glass"] .brand { color: #fff; }
+[data-style="glass"] .brand-mark { background: linear-gradient(135deg, #8fd3ff, #6d3cff); color: #061024; }
+[data-style="glass"] .site-nav a:hover { color: #fff; }
+[data-style="glass"] .lab-toggle { background: rgba(255,255,255,.1); border-color: var(--border); }
+
+[data-style="glass"] .hero-title { color: #fff; }
+[data-style="glass"] .hero-title .accent-line { background: linear-gradient(90deg, #8fd3ff, #ff8fd0); -webkit-background-clip: text; background-clip: text; color: transparent; }
+[data-style="glass"] .btn-primary { background: linear-gradient(135deg, #a6e0ff, #7db8ff); color: #061024; border-color: rgba(255,255,255,.4); }
+[data-style="glass"] .btn-ghost { color: #fff; border-color: var(--border); background: rgba(255,255,255,.06); backdrop-filter: blur(10px); }
+[data-style="glass"] .btn-ghost:hover { background: rgba(255,255,255,.14); }
+[data-style="glass"] .fact dd { color: #fff; }
+[data-style="glass"] .hero-note { padding: 1rem 1.25rem; border-radius: var(--radius); border-left: 1px solid var(--border); }
+[data-style="glass"] kbd { background: rgba(255,255,255,.12); border-color: var(--border); color: #fff; }
+
+[data-style="glass"] .tl-item { border-color: rgba(255,255,255,.14); }
+[data-style="glass"] .tl-item.is-key .tl-year, [data-style="glass"] .tl-item.is-key h3::after { color: var(--accent-2); }
+[data-style="glass"] .pill { background: rgba(255,255,255,.14); color: #fff; }
+[data-style="glass"] .exam { color: var(--text); background: linear-gradient(135deg, rgba(143,211,255,.22), rgba(255,93,162,.18)); }
+[data-style="glass"] .exam h3 { color: #fff; }
+[data-style="glass"] .project-tag { color: var(--accent-2); }
+[data-style="glass"] .card { transition: transform .3s var(--ease), background .3s; }
+[data-style="glass"] .card:hover { background: rgba(255,255,255,.12); transform: translateY(-3px); }
+[data-style="glass"] .cta { border-radius: var(--radius-lg); }
+[data-style="glass"] .site-foot { border-color: rgba(255,255,255,.14); }
+
+[data-style="glass"] .key { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.16); color: #fff; }
+[data-style="glass"] .key:hover { background: rgba(255,255,255,.14); }
+[data-style="glass"] .key[aria-checked="true"] { background: linear-gradient(135deg, #a6e0ff, #7db8ff); color: #061024; border-color: transparent; }
+[data-style="glass"] :focus-visible { outline-color: #fff; }

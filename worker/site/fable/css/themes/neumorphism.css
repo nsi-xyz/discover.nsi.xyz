@@ -1,0 +1,71 @@
+/* 4 — NEUMORPHISME (2019)
+   Tout est moulé dans la même matière : double ombre claire/foncée, relief doux.
+   Contraste renforcé sur le texte pour compenser la faiblesse connue du style. */
+[data-style="neumorphism"] {
+  --bg: #e0e5ec;
+  --bg-2: #e0e5ec;
+  --surface: #e0e5ec;
+  --text: #2a3446;
+  --muted: #4f5a70;
+  --accent: #2f52c7;
+  --accent-ink: #ffffff;
+  --accent-2: #c2437a;
+  --border: transparent;
+  --radius: 14px;
+  --radius-lg: 26px;
+  --neu-dark: #b4bcc8;
+  --neu-light: #ffffff;
+  --shadow: 9px 9px 18px var(--neu-dark), -9px -9px 18px var(--neu-light);
+  --shadow-lg: 14px 14px 28px var(--neu-dark), -14px -14px 28px var(--neu-light);
+  --shadow-in: inset 5px 5px 10px var(--neu-dark), inset -5px -5px 10px var(--neu-light);
+  --font-body: "Nunito", system-ui, sans-serif;
+  --font-display: "Nunito", system-ui, sans-serif;
+  --display-weight: 800;
+  --display-tracking: -0.02em;
+  --lh: 1.65;
+}
+[data-style="neumorphism"] .site-head { border: 0; background: var(--bg); box-shadow: 0 8px 18px -10px var(--neu-dark); }
+[data-style="neumorphism"] .brand-mark { border-radius: 12px; box-shadow: 4px 4px 8px var(--neu-dark), -4px -4px 8px var(--neu-light); }
+[data-style="neumorphism"] .lab-toggle { border: 0; box-shadow: 5px 5px 10px var(--neu-dark), -5px -5px 10px var(--neu-light); }
+[data-style="neumorphism"] .lab-toggle[aria-expanded="true"] { box-shadow: var(--shadow-in); }
+
+[data-style="neumorphism"] .eyebrow { display: inline-block; padding: .35rem .9rem; border-radius: var(--radius-pill); box-shadow: var(--shadow-in); font-family: var(--font-body); text-transform: none; letter-spacing: 0; font-size: .85rem; }
+[data-style="neumorphism"] .hero-title { text-shadow: 2px 2px 4px var(--neu-dark), -2px -2px 4px var(--neu-light); }
+[data-style="neumorphism"] .hero-title .accent-line { text-shadow: none; }
+
+[data-style="neumorphism"] .btn { border: 0; border-radius: var(--radius); box-shadow: 6px 6px 12px var(--neu-dark), -6px -6px 12px var(--neu-light); }
+[data-style="neumorphism"] .btn:hover { transform: translateY(-1px); }
+[data-style="neumorphism"] .btn:active { box-shadow: var(--shadow-in); transform: none; }
+[data-style="neumorphism"] .btn-primary { background: linear-gradient(145deg, #3a62e0, #2a48b0); }
+[data-style="neumorphism"] .btn-primary:hover { filter: none; }
+[data-style="neumorphism"] .btn-ghost { background: var(--bg); color: var(--text); }
+[data-style="neumorphism"] .btn-ghost:hover { background: var(--bg); }
+
+[data-style="neumorphism"] .card, [data-style="neumorphism"] .fact { border: 0; }
+[data-style="neumorphism"] .fact { border-radius: 18px; }
+[data-style="neumorphism"] .fact dd { color: var(--accent); }
+[data-style="neumorphism"] .hero-note { border: 0; padding: 1rem 1.25rem; border-radius: var(--radius); box-shadow: var(--shadow-in); }
+[data-style="neumorphism"] kbd { border: 0; box-shadow: 3px 3px 6px var(--neu-dark), -3px -3px 6px var(--neu-light); background: var(--bg); }
+
+/* Timeline : bille extrudée sur un rail creusé */
+[data-style="neumorphism"] .timeline { position: relative; padding-left: 0; }
+[data-style="neumorphism"] .tl-item { border: 0; align-items: start; }
+[data-style="neumorphism"] .tl-year { display: grid; place-items: center; width: 4.4rem; height: 2.6rem; padding: 0; border-radius: var(--radius-pill); font-family: var(--font-body); font-size: .95rem; box-shadow: 5px 5px 10px var(--neu-dark), -5px -5px 10px var(--neu-light); }
+[data-style="neumorphism"] .tl-item.is-key .tl-year { background: linear-gradient(145deg, #3a62e0, #2a48b0); color: #fff; }
+[data-style="neumorphism"] .tl-item.is-key h3::after { color: var(--accent); }
+[data-style="neumorphism"] .tl-body { padding: 1rem 1.25rem; border-radius: var(--radius); box-shadow: var(--shadow-in); }
+
+[data-style="neumorphism"] .pill { box-shadow: var(--shadow-in); }
+[data-style="neumorphism"] .topics li::before { box-shadow: 2px 2px 4px var(--neu-dark), -2px -2px 4px var(--neu-light); }
+[data-style="neumorphism"] .exam { background: var(--bg); color: var(--text); box-shadow: var(--shadow-in); border-radius: var(--radius-lg); }
+[data-style="neumorphism"] .exam h3 { color: var(--accent); }
+[data-style="neumorphism"] .project-tag { padding: .3rem .7rem; border-radius: var(--radius-pill); box-shadow: var(--shadow-in); font-size: .7rem; }
+
+[data-style="neumorphism"] .cta { border-radius: var(--radius-lg); box-shadow: var(--shadow); }
+[data-style="neumorphism"] .site-foot { border: 0; }
+
+[data-style="neumorphism"] .lab-inner { border: 0; box-shadow: var(--shadow-lg); border-radius: 22px; }
+[data-style="neumorphism"] .key { border: 0; border-radius: 12px; box-shadow: 4px 4px 8px var(--neu-dark), -4px -4px 8px var(--neu-light); }
+[data-style="neumorphism"] .key:hover { transform: translateY(-1px); }
+[data-style="neumorphism"] .key[aria-checked="true"] { background: var(--bg); color: var(--accent); box-shadow: var(--shadow-in); }
+[data-style="neumorphism"] .key[aria-checked="true"] .key-num { opacity: 1; }

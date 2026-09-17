@@ -1,4 +1,6 @@
 # Aucune redirection nécessaire : chaque version est servie depuis son dossier.
 #   /            → Astra   (index.html, styles.css, app.js)
 #   /deepseek/   → version DeepSeek
+#   /fable/      → version Fable 5.1
 #   /gemini/     → version Gemini (build statique à la racine de son dossier)
+#   /prompt/     → le prompt original du challenge (à copier ou télécharger)

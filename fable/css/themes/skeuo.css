@@ -1,0 +1,104 @@
+/* 3 — SKEUOMORPHISME (2007)
+   Cuir cousu, papier, bois, boutons bombés : l'écran fait semblant d'être un objet. */
+[data-style="skeuo"] {
+  --bg: #6b4a2b;
+  --bg-2: #efe4cc;
+  --surface: #f8f1e1;
+  --text: #2b2117;
+  --muted: #5c4b3a;
+  --accent: #8a4a12;
+  --accent-ink: #fff8ea;
+  --accent-2: #b8862b;
+  --border: #cdb98f;
+  --radius: 8px;
+  --radius-lg: 10px;
+  --shadow: 0 1px 0 rgba(255,255,255,.8) inset, 0 2px 6px rgba(0,0,0,.25);
+  --shadow-lg: 0 10px 30px rgba(0,0,0,.45), 0 2px 4px rgba(0,0,0,.3);
+  --font-body: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-display: "Fraunces", Georgia, serif;
+  --display-weight: 700;
+  --display-tracking: -0.01em;
+  --lh: 1.65;
+}
+[data-style="skeuo"] body, [data-style="skeuo"] { font-variation-settings: "opsz" 14; }
+[data-style="skeuo"] h1, [data-style="skeuo"] h2, [data-style="skeuo"] h3 { font-variation-settings: "opsz" 96; }
+
+/* Bois : planches verticales */
+[data-style="skeuo"] body {
+  background:
+    repeating-linear-gradient(90deg, rgba(0,0,0,.08) 0 2px, transparent 2px 180px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,.04) 0 1px, transparent 1px 23px),
+    linear-gradient(90deg, #6b4a2b, #7d5834 30%, #5f3f22 60%, #7a5432);
+}
+
+/* Cuir cousu pour la barre */
+[data-style="skeuo"] .site-head {
+  background: radial-gradient(ellipse at 30% 0%, #6a3d1f, #4a2913 70%);
+  color: #f2e4c8; border-bottom: 0;
+  box-shadow: 0 3px 8px rgba(0,0,0,.5), 0 -1px 0 rgba(255,255,255,.15) inset;
+  position: sticky;
+}
+[data-style="skeuo"] .site-head::after { content: ""; position: absolute; inset: 6px 8px; border: 2px dashed rgba(242,228,200,.45); border-radius: 6px; pointer-events: none; }
+[data-style="skeuo"] .brand, [data-style="skeuo"] .site-nav a { color: #f2e4c8; text-shadow: 0 -1px 0 rgba(0,0,0,.6); }
+[data-style="skeuo"] .site-nav a:hover { color: #fff; }
+[data-style="skeuo"] .brand-mark { background: linear-gradient(#e9c77a, #b8862b); color: #3a2510; box-shadow: 0 1px 0 rgba(255,255,255,.5) inset, 0 2px 3px rgba(0,0,0,.5); border-radius: 6px; }
+[data-style="skeuo"] .brand-dot { color: #e9c77a; }
+[data-style="skeuo"] .lab-toggle { background: linear-gradient(#fbf3de, #dcc89a); color: #3a2510; border: 1px solid #8a6a3a; box-shadow: 0 1px 0 rgba(255,255,255,.7) inset, 0 2px 3px rgba(0,0,0,.4); position: relative; z-index: 1; }
+
+/* Le contenu repose sur une feuille de papier */
+[data-style="skeuo"] main {
+  width: min(100% - 2 * var(--gutter), 76rem); margin: 2rem auto 0;
+  background: linear-gradient(#f8f1e1, #f3e9d2);
+  box-shadow: var(--shadow-lg), 0 0 0 1px rgba(0,0,0,.25);
+  border-radius: 4px; position: relative;
+}
+[data-style="skeuo"] main::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent 0 27px, rgba(120,90,50,.07) 27px 28px); pointer-events: none; border-radius: inherit; }
+[data-style="skeuo"] .section, [data-style="skeuo"] .hero, [data-style="skeuo"] .cta { position: relative; width: min(100% - 2 * var(--gutter), var(--container)); }
+[data-style="skeuo"] .hero { padding-top: clamp(3rem, 6vw, 5rem); }
+[data-style="skeuo"] .eyebrow { color: var(--accent); font-family: var(--font-body); font-style: italic; text-transform: none; letter-spacing: 0; font-size: 1rem; }
+[data-style="skeuo"] .hero-title .accent-line { font-style: italic; font-weight: 300; }
+[data-style="skeuo"] h2 { border-bottom: 2px solid var(--accent-2); padding-bottom: .25em; }
+
+/* Boutons bombés */
+[data-style="skeuo"] .btn { border-radius: 7px; border: 1px solid #5c3411; text-shadow: 0 -1px 0 rgba(0,0,0,.4); }
+[data-style="skeuo"] .btn-primary { background: linear-gradient(#b76a2d, #8a4a12 50%, #7a3f0e 51%, #955520); box-shadow: 0 1px 0 rgba(255,255,255,.35) inset, 0 -1px 0 rgba(0,0,0,.3) inset, 0 3px 5px rgba(0,0,0,.4); }
+[data-style="skeuo"] .btn-primary:hover { filter: brightness(1.1); }
+[data-style="skeuo"] .btn-primary:active { box-shadow: 0 2px 4px rgba(0,0,0,.5) inset; transform: translateY(1px); }
+[data-style="skeuo"] .btn-ghost { background: linear-gradient(#fbf3de, #dcc89a); color: #3a2510; text-shadow: 0 1px 0 rgba(255,255,255,.6); border-color: #8a6a3a; box-shadow: 0 1px 0 rgba(255,255,255,.7) inset, 0 2px 3px rgba(0,0,0,.3); }
+[data-style="skeuo"] .btn-ghost:hover { background: linear-gradient(#fff9ea, #e6d4a8); }
+
+/* Fiches cartonnées, chacune posée légèrement de travers */
+[data-style="skeuo"] .card, [data-style="skeuo"] .fact {
+  background: linear-gradient(#fffdf6, #f5ecd6);
+  border: 1px solid #c9b58a;
+  box-shadow: 0 1px 0 rgba(255,255,255,.9) inset, 0 6px 12px -4px rgba(0,0,0,.35);
+}
+[data-style="skeuo"] .project:nth-child(odd) { transform: rotate(-.6deg); }
+[data-style="skeuo"] .project:nth-child(even) { transform: rotate(.5deg); }
+[data-style="skeuo"] .project { transition: transform .3s var(--ease); }
+[data-style="skeuo"] .project:hover { transform: rotate(0) translateY(-2px); }
+[data-style="skeuo"] .project-tag { background: #d33; color: #fff; padding: .2rem .6rem; border-radius: 3px; transform: rotate(-3deg); box-shadow: 0 1px 2px rgba(0,0,0,.4); font-family: "Inter", sans-serif; }
+[data-style="skeuo"] .fact dd { color: var(--accent); }
+
+/* Étiquettes en laiton pour les années */
+[data-style="skeuo"] .tl-item { border-color: #cdb98f; border-style: dashed; }
+[data-style="skeuo"] .tl-year { display: inline-grid; place-items: center; width: 4.25rem; height: 2.2rem; padding: 0; border-radius: 4px; background: linear-gradient(#f0d48a, #b8862b); color: #3a2510; font-family: var(--font-display); font-size: .95rem; box-shadow: 0 1px 0 rgba(255,255,255,.6) inset, 0 2px 3px rgba(0,0,0,.4); text-shadow: 0 1px 0 rgba(255,255,255,.4); }
+[data-style="skeuo"] .tl-item.is-key .tl-year { background: linear-gradient(#e8a5a5, #b23a3a); color: #fff; text-shadow: 0 -1px 0 rgba(0,0,0,.4); }
+[data-style="skeuo"] .tl-item.is-key h3::after { color: #b23a3a; }
+
+[data-style="skeuo"] .pill { background: linear-gradient(#f0d48a, #c9a24a); color: #3a2510; border: 1px solid #8a6a3a; box-shadow: 0 1px 0 rgba(255,255,255,.6) inset; }
+[data-style="skeuo"] .exam { background: radial-gradient(ellipse at 30% 0%, #6a3d1f, #4a2913 70%); color: #f2e4c8; box-shadow: 0 -1px 0 rgba(255,255,255,.15) inset, 0 4px 10px rgba(0,0,0,.4); position: relative; }
+[data-style="skeuo"] .exam::after { content: ""; position: absolute; inset: 6px; border: 2px dashed rgba(242,228,200,.4); border-radius: 6px; pointer-events: none; }
+[data-style="skeuo"] .hero-note { background: #fff9c4; border: 1px solid #e0d27a; border-left: 4px solid #e0c23a; padding: .75rem 1rem; box-shadow: 0 3px 6px rgba(0,0,0,.2); color: #4a4020; transform: rotate(-.5deg); }
+[data-style="skeuo"] kbd { background: linear-gradient(#fff, #ddd); border-color: #999; color: #222; }
+
+[data-style="skeuo"] .cta { border-top: 2px solid var(--accent-2); }
+[data-style="skeuo"] .site-foot { border: 0; color: #f2e4c8; text-shadow: 0 -1px 0 rgba(0,0,0,.5); }
+[data-style="skeuo"] .site-foot .live-attr { color: #f0d48a; }
+
+/* Dock = clavier physique */
+[data-style="skeuo"] .lab-inner { background: radial-gradient(ellipse at 30% 0%, #6a3d1f, #4a2913 70%); color: #f2e4c8; border: 1px solid #2c170a; box-shadow: var(--shadow-lg), 0 1px 0 rgba(255,255,255,.15) inset; }
+[data-style="skeuo"] .lab-desc, [data-style="skeuo"] .lab-era { color: #d8c7a6; }
+[data-style="skeuo"] .key { background: linear-gradient(#fbf3de, #d9c48f); color: #3a2510; border: 1px solid #5c3411; border-radius: 6px; box-shadow: 0 1px 0 rgba(255,255,255,.7) inset, 0 3px 0 #8a6a3a, 0 4px 4px rgba(0,0,0,.5); }
+[data-style="skeuo"] .key:hover { transform: none; filter: brightness(1.05); }
+[data-style="skeuo"] .key[aria-checked="true"] { background: linear-gradient(#c9a24a, #a67c25); color: #2b1b08; transform: translateY(2px); box-shadow: 0 1px 0 rgba(255,255,255,.3) inset, 0 1px 0 #6b4a1a, 0 2px 3px rgba(0,0,0,.5) inset; border-color: #5c3411; }

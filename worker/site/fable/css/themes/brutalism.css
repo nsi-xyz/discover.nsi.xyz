@@ -1,0 +1,85 @@
+/* 6 — BRUTALISME (2014)
+   Bordures noires épaisses, ombres dures, capitales, monospace : la structure à nu. */
+[data-style="brutalism"] {
+  --bg: #fff8dc;
+  --bg-2: #ffe600;
+  --surface: #ffffff;
+  --text: #000000;
+  --muted: #262626;
+  --accent: #0000ee;
+  --accent-ink: #ffffff;
+  --accent-2: #ff3b3b;
+  --border: #000000;
+  --border-w: 3px;
+  --radius: 0;
+  --radius-lg: 0;
+  --radius-pill: 0;
+  --shadow: 6px 6px 0 #000;
+  --shadow-lg: 10px 10px 0 #000;
+  --font-body: "JetBrains Mono", "Courier New", monospace;
+  --font-display: "Archivo Black", Impact, "Arial Black", sans-serif;
+  --display-weight: 400;
+  --display-tracking: 0;
+  --display-transform: uppercase;
+  --lh: 1.5;
+  --body-size: clamp(.95rem, .9rem + .2vw, 1.05rem);
+}
+[data-style="brutalism"] a { color: var(--accent); text-decoration-thickness: 3px; }
+[data-style="brutalism"] .site-head { background: var(--bg-2); border-bottom: 4px solid #000; }
+[data-style="brutalism"] .brand-mark { border: 3px solid #000; background: #fff; color: #000; }
+[data-style="brutalism"] .brand-dot { color: var(--accent-2); }
+[data-style="brutalism"] .site-nav a { color: #000; text-transform: uppercase; font-weight: 700; text-decoration: underline; text-decoration-thickness: 3px; }
+[data-style="brutalism"] .lab-toggle { border: 3px solid #000; box-shadow: 4px 4px 0 #000; text-transform: uppercase; }
+[data-style="brutalism"] .lab-toggle:active { transform: translate(2px,2px); box-shadow: 2px 2px 0 #000; }
+
+[data-style="brutalism"] .eyebrow { color: #000; background: #000; color: #fff; display: inline-block; padding: .2rem .5rem; }
+[data-style="brutalism"] .hero-title { font-size: clamp(2.6rem, 2rem + 6vw, 7rem); line-height: .95; }
+[data-style="brutalism"] .hero-title .accent-line { color: var(--accent); text-shadow: 6px 6px 0 var(--accent-2); }
+[data-style="brutalism"] .lead { color: #000; border: 3px solid #000; padding: 1rem; background: #fff; }
+[data-style="brutalism"] .lead em { background: var(--bg-2); font-style: normal; padding: 0 .2em; }
+
+[data-style="brutalism"] .btn { border: 3px solid #000; box-shadow: var(--shadow); text-transform: uppercase; font-weight: 700; }
+[data-style="brutalism"] .btn:hover { transform: translate(-2px,-2px); box-shadow: 8px 8px 0 #000; filter: none; }
+[data-style="brutalism"] .btn:active { transform: translate(3px,3px); box-shadow: 3px 3px 0 #000; }
+[data-style="brutalism"] .btn-ghost { background: #fff; }
+[data-style="brutalism"] .btn-ghost:hover { background: var(--bg-2); }
+
+[data-style="brutalism"] .card, [data-style="brutalism"] .fact { border: 3px solid #000; box-shadow: var(--shadow); }
+[data-style="brutalism"] .fact dt { color: #000; font-weight: 700; }
+[data-style="brutalism"] .fact:nth-child(2) { background: var(--bg-2); }
+[data-style="brutalism"] .fact:nth-child(4) { background: var(--accent); color: #fff; }
+[data-style="brutalism"] .fact:nth-child(4) dt { color: #fff; }
+[data-style="brutalism"] .hero-note { border: 3px dashed #000; padding: .75rem 1rem; color: #000; }
+[data-style="brutalism"] kbd { border: 2px solid #000; border-bottom-width: 4px; border-radius: 0; }
+
+[data-style="brutalism"] .section-head h2 { background: #000; color: #fff; display: inline; padding: 0 .2em; box-decoration-break: clone; -webkit-box-decoration-break: clone; line-height: 1.25; }
+[data-style="brutalism"] .section-head h2 { margin-bottom: .75rem; }
+[data-style="brutalism"] .section-intro { color: #000; margin-top: 1rem; }
+[data-style="brutalism"] .section { border-top: 4px solid #000; }
+
+[data-style="brutalism"] .tl-item { border-top: 3px solid #000; }
+[data-style="brutalism"] .tl-year { color: #000; background: var(--bg-2); border: 3px solid #000; padding: .1rem .4rem; height: fit-content; text-align: center; }
+[data-style="brutalism"] .tl-item.is-key .tl-year { background: var(--accent-2); color: #fff; }
+[data-style="brutalism"] .tl-item.is-key h3::after { content: " !!!"; color: var(--accent-2); }
+[data-style="brutalism"] .tl-body p { color: #000; }
+
+[data-style="brutalism"] .pill { border: 3px solid #000; background: var(--bg-2); }
+[data-style="brutalism"] .topics li::before { border-radius: 0; background: #000; }
+[data-style="brutalism"] .exam { background: var(--accent-2); color: #000; border: 3px solid #000; box-shadow: var(--shadow); }
+[data-style="brutalism"] .project-tag { background: #000; color: #fff; padding: .15rem .5rem; }
+[data-style="brutalism"] .project p, [data-style="brutalism"] .path p, [data-style="brutalism"] .paths-note { color: #000; }
+[data-style="brutalism"] .project:nth-child(2n) { background: var(--bg-2); }
+[data-style="brutalism"] .path:nth-child(3) { background: var(--accent); color: #fff; }
+[data-style="brutalism"] .path:nth-child(3) p { color: #fff; }
+
+[data-style="brutalism"] .cta { border: 4px solid #000; background: #fff; box-shadow: var(--shadow-lg); margin-block: var(--space); padding-block: 3rem; }
+[data-style="brutalism"] .cta p { color: #000; }
+[data-style="brutalism"] .site-foot { border-top: 4px solid #000; background: #000; color: #fff; }
+[data-style="brutalism"] .site-foot .live-attr { color: var(--bg-2); }
+
+[data-style="brutalism"] .lab-inner { border: 3px solid #000; box-shadow: var(--shadow); background: #fff; }
+[data-style="brutalism"] .key { border: 3px solid #000; background: #fff; box-shadow: 3px 3px 0 #000; }
+[data-style="brutalism"] .key:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 #000; }
+[data-style="brutalism"] .key[aria-checked="true"] { background: #000; color: #fff; transform: translate(2px,2px); box-shadow: 1px 1px 0 #000; }
+[data-style="brutalism"] .lab-desc { color: #000; }
+[data-style="brutalism"] :focus-visible { outline: 4px solid var(--accent-2); outline-offset: 2px; border-radius: 0; }

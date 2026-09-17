@@ -1,0 +1,90 @@
+/* 7 — MINIMALISME (années 1960, web ~2010)
+   Retirer jusqu'à l'essentiel : un noir, un blanc, une seule couleur, beaucoup d'air. */
+[data-style="minimalism"] {
+  --bg: #ffffff;
+  --bg-2: #ffffff;
+  --surface: #ffffff;
+  --text: #111111;
+  --muted: #5a5a5a;
+  --accent: #111111;
+  --accent-ink: #ffffff;
+  --accent-2: #111111;
+  --border: #e6e6e6;
+  --radius: 0;
+  --radius-lg: 0;
+  --radius-pill: 999px;
+  --shadow: none;
+  --shadow-lg: none;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-display: "Inter", system-ui, sans-serif;
+  --display-weight: 500;
+  --display-tracking: -0.04em;
+  --space: clamp(6rem, 12vw, 11rem);
+  --gap: 2.5rem;
+  --lh: 1.7;
+  --container: 64rem;
+}
+[data-style="minimalism"] a { color: var(--text); }
+[data-style="minimalism"] .site-head { border: 0; padding-block: 1.25rem; }
+[data-style="minimalism"] .brand { font-weight: 500; gap: .35rem; }
+[data-style="minimalism"] .brand-mark { background: transparent; color: var(--text); width: auto; height: auto; font-size: 1rem; font-weight: 500; }
+[data-style="minimalism"] .brand-mark::after { content: " /"; color: #bbb; }
+[data-style="minimalism"] .brand-text { color: var(--muted); }
+[data-style="minimalism"] .brand-dot { color: var(--muted); }
+[data-style="minimalism"] .site-nav a { font-weight: 400; }
+[data-style="minimalism"] .lab-toggle { border: 0; background: transparent; font-weight: 400; padding: .5rem 0; }
+[data-style="minimalism"] .lab-toggle-dot { background: #111; width: .45rem; height: .45rem; }
+
+[data-style="minimalism"] .eyebrow { font-family: var(--font-body); text-transform: none; letter-spacing: 0; color: var(--muted); font-weight: 400; font-size: .9rem; }
+[data-style="minimalism"] .hero { padding-top: clamp(4rem, 12vw, 9rem); }
+[data-style="minimalism"] .hero-title { font-weight: 400; font-size: clamp(2.5rem, 2rem + 5vw, 6rem); letter-spacing: -0.045em; line-height: 1.02; max-width: 14ch; }
+[data-style="minimalism"] .hero-title .accent-line { color: var(--text); font-weight: 500; }
+[data-style="minimalism"] .lead { font-size: clamp(1.05rem, 1rem + .35vw, 1.25rem); font-weight: 400; }
+[data-style="minimalism"] .lead em { font-style: normal; text-decoration: underline; text-underline-offset: .2em; text-decoration-thickness: 1px; }
+
+[data-style="minimalism"] .btn { border-radius: 0; padding: .9rem 1.6rem; font-weight: 500; }
+[data-style="minimalism"] .btn-primary { background: #111; }
+[data-style="minimalism"] .btn-primary:hover { filter: none; background: #333; }
+[data-style="minimalism"] .btn-ghost { border: 0; padding-inline: .25rem; text-decoration: underline; text-underline-offset: .3em; text-decoration-thickness: 1px; }
+[data-style="minimalism"] .btn-ghost:hover { background: transparent; text-decoration-thickness: 2px; }
+
+[data-style="minimalism"] .facts { gap: 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+[data-style="minimalism"] .fact { border: 0; border-right: 1px solid var(--border); padding: 1.25rem 1.25rem 1.25rem 0; margin-right: 1.25rem; }
+[data-style="minimalism"] .fact:last-child { border-right: 0; }
+[data-style="minimalism"] .fact dt { text-transform: none; letter-spacing: 0; font-size: .85rem; }
+[data-style="minimalism"] .fact dd { font-weight: 400; font-size: 1.75rem; }
+[data-style="minimalism"] .hero-note { border: 0; padding: 0; margin-top: 3rem; }
+[data-style="minimalism"] kbd { border: 1px solid #ccc; border-bottom-width: 1px; background: transparent; }
+
+[data-style="minimalism"] .section-head h2 { font-weight: 400; font-size: clamp(1.75rem, 1.3rem + 2.2vw, 3rem); }
+[data-style="minimalism"] .card, [data-style="minimalism"] .fact, [data-style="minimalism"] .exam { border: 0; border-top: 1px solid var(--text); border-radius: 0; padding-inline: 0; background: transparent; }
+[data-style="minimalism"] .exam { color: var(--text); padding-bottom: 0; }
+[data-style="minimalism"] .exam p { color: var(--muted); }
+[data-style="minimalism"] .year-head { border: 0; }
+[data-style="minimalism"] .pill { background: transparent; border: 1px solid var(--border); font-weight: 400; }
+[data-style="minimalism"] .topics li::before { width: 1rem; height: 1px; top: .85em; border-radius: 0; }
+[data-style="minimalism"] .project-tag { font-family: var(--font-body); text-transform: none; letter-spacing: 0; color: var(--muted); font-weight: 400; }
+[data-style="minimalism"] .project h3, [data-style="minimalism"] .path h3 { font-weight: 500; }
+
+[data-style="minimalism"] .tl-item { grid-template-columns: 6rem 1fr; padding: 1.75rem 0; }
+[data-style="minimalism"] .tl-year { font-family: var(--font-body); font-weight: 400; color: var(--muted); }
+[data-style="minimalism"] .tl-item.is-key .tl-year { color: var(--text); font-weight: 500; }
+[data-style="minimalism"] .tl-item.is-key h3::after { content: none; }
+[data-style="minimalism"] .tl-item.is-key h3 { text-decoration: underline; text-underline-offset: .2em; text-decoration-thickness: 1px; }
+[data-style="minimalism"] .tl-item:last-child { border-bottom: 1px solid var(--text); }
+[data-style="minimalism"] .tl-item:first-child { border-top: 1px solid var(--text); }
+
+[data-style="minimalism"] .cta { text-align: left; border-top: 1px solid var(--text); }
+[data-style="minimalism"] .cta p { margin-inline: 0; }
+[data-style="minimalism"] .site-foot { border: 0; text-align: left; padding-inline: var(--gutter); }
+[data-style="minimalism"] .live-attr { color: var(--text); }
+
+[data-style="minimalism"] .lab-inner { border: 0; border-top: 1px solid var(--text); border-radius: 0; padding-inline: 0; background: rgba(255,255,255,.96); }
+[data-style="minimalism"] .key { border: 0; background: transparent; padding-inline: .6rem; }
+[data-style="minimalism"] .key .key-num { display: none; }
+[data-style="minimalism"] .key .key-name { font-weight: 400; font-size: .85rem; color: var(--muted); }
+[data-style="minimalism"] .key:hover { transform: none; }
+[data-style="minimalism"] .key:hover .key-name { color: var(--text); }
+[data-style="minimalism"] .key[aria-checked="true"] { background: transparent; }
+[data-style="minimalism"] .key[aria-checked="true"] .key-name { color: var(--text); font-weight: 500; text-decoration: underline; text-underline-offset: .35em; }
+[data-style="minimalism"] .lab-title { font-weight: 400; }

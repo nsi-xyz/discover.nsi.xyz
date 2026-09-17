@@ -1,0 +1,112 @@
+/* 9 — TYPOGRAPHIQUE (Bauhaus / Tschichold, 1928)
+   Pas de boîtes, pas de couleur : tailles, graisses, italiques et filets construisent tout. */
+[data-style="typo"] {
+  --bg: #ffffff;
+  --bg-2: #ffffff;
+  --surface: transparent;
+  --text: #141414;
+  --muted: #3d3d3d;
+  --accent: #141414;
+  --accent-ink: #ffffff;
+  --accent-2: #141414;
+  --border: #141414;
+  --radius: 0;
+  --radius-lg: 0;
+  --radius-pill: 0;
+  --shadow: none;
+  --shadow-lg: none;
+  --font-body: "Fraunces", Georgia, serif;
+  --font-display: "Fraunces", Georgia, serif;
+  --display-weight: 900;
+  --display-tracking: -0.04em;
+  --lh: 1.55;
+  --body-size: clamp(1.05rem, 1rem + .3vw, 1.2rem);
+  --container: 68rem;
+}
+[data-style="typo"] body { font-variation-settings: "opsz" 14; }
+[data-style="typo"] h1, [data-style="typo"] h2 { font-variation-settings: "opsz" 144; }
+[data-style="typo"] a { color: var(--text); }
+
+[data-style="typo"] .site-head { border-bottom: 2px solid var(--text); background: #fff; font-family: var(--font-body); }
+[data-style="typo"] .brand-mark { background: transparent; color: var(--text); width: auto; height: auto; font-family: var(--font-display); font-size: 1.5rem; font-weight: 900; letter-spacing: -0.05em; }
+[data-style="typo"] .brand-text { font-style: italic; font-weight: 300; }
+[data-style="typo"] .brand-dot { color: var(--text); }
+[data-style="typo"] .site-nav a { font-style: italic; color: var(--text); }
+[data-style="typo"] .site-nav a:hover { text-decoration: underline; }
+[data-style="typo"] .lab-toggle { border: 0; border-bottom: 2px solid var(--text); background: transparent; border-radius: 0; font-style: italic; font-weight: 400; padding-inline: 0; }
+[data-style="typo"] .lab-toggle-dot { display: none; }
+
+[data-style="typo"] .eyebrow { font-family: var(--font-body); font-style: italic; text-transform: none; letter-spacing: 0; font-size: 1.1rem; font-weight: 300; color: var(--text); }
+[data-style="typo"] .eyebrow::before { content: "— "; }
+[data-style="typo"] .hero { padding-top: clamp(3rem, 7vw, 5rem); }
+[data-style="typo"] .hero-title { font-size: clamp(3rem, 2rem + 9vw, 10rem); line-height: .9; letter-spacing: -0.05em; max-width: none; margin-bottom: .3em; }
+[data-style="typo"] .hero-title .line:nth-child(1) { font-weight: 300; }
+[data-style="typo"] .hero-title .accent-line { color: var(--text); font-style: italic; font-weight: 700; padding-left: 1.2em; }
+[data-style="typo"] .hero-title .line:nth-child(3) { font-weight: 900; text-align: right; }
+[data-style="typo"] .lead { font-size: clamp(1.3rem, 1.1rem + 1vw, 1.8rem); font-weight: 300; line-height: 1.35; max-width: 34ch; color: var(--text); border-top: 2px solid var(--text); padding-top: 1rem; }
+[data-style="typo"] .lead em { font-weight: 700; }
+
+[data-style="typo"] .btn { border: 0; border-radius: 0; padding: 0; background: transparent; color: var(--text); font-style: italic; font-weight: 700; font-size: 1.2rem; text-decoration: underline; text-underline-offset: .2em; text-decoration-thickness: 2px; }
+[data-style="typo"] .btn-primary { background: transparent; color: var(--text); }
+[data-style="typo"] .btn-primary:hover, [data-style="typo"] .btn-ghost:hover { filter: none; background: transparent; text-decoration-thickness: 4px; }
+[data-style="typo"] .btn::before { content: "→ "; font-style: normal; }
+[data-style="typo"] .hero-actions { gap: 2rem; }
+
+[data-style="typo"] .facts { max-width: none; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 0; border-top: 2px solid var(--text); border-bottom: 1px solid var(--text); }
+[data-style="typo"] .fact { border: 0; padding: 1rem 1rem 1rem 0; }
+[data-style="typo"] .fact dt { font-style: italic; text-transform: none; letter-spacing: 0; font-size: .95rem; color: var(--text); }
+[data-style="typo"] .fact dd { font-size: clamp(2rem, 1.5rem + 2vw, 3.25rem); font-weight: 900; font-variation-settings: "opsz" 144; letter-spacing: -0.04em; }
+[data-style="typo"] .hero-note { border: 0; padding: 0; font-style: italic; max-width: 44ch; }
+[data-style="typo"] kbd { font-family: var(--font-body); font-style: normal; font-weight: 700; border: 1px solid var(--text); border-bottom-width: 1px; background: transparent; }
+
+[data-style="typo"] .section { border-top: 2px solid var(--text); }
+[data-style="typo"] .section-head { max-width: none; display: grid; grid-template-columns: 3fr 2fr; gap: 1rem 3rem; align-items: end; }
+[data-style="typo"] .section-head .eyebrow { grid-column: 1 / -1; margin: 0; }
+[data-style="typo"] .section-head h2 { font-size: clamp(2.2rem, 1.5rem + 4vw, 4.5rem); line-height: .95; margin: 0; }
+[data-style="typo"] .section-intro { font-size: 1.1em; font-weight: 300; margin: 0; color: var(--text); }
+@media (max-width: 720px) { [data-style="typo"] .section-head { grid-template-columns: 1fr; } }
+
+[data-style="typo"] .card, [data-style="typo"] .exam, [data-style="typo"] .fact { border: 0; background: transparent; padding: 0; border-radius: 0; }
+[data-style="typo"] .year { border-top: 1px solid var(--text); padding-top: 1rem; }
+[data-style="typo"] .year-head h3 { font-size: clamp(2rem, 1.5rem + 2vw, 3rem); font-weight: 900; letter-spacing: -0.04em; }
+[data-style="typo"] .pill { background: transparent; font-style: italic; font-weight: 400; padding: 0; }
+[data-style="typo"] .topics { gap: .4rem; }
+[data-style="typo"] .topics li { padding-inline-start: 0; border-bottom: 1px dotted #999; padding-bottom: .4rem; }
+[data-style="typo"] .topics li::before { content: none; }
+[data-style="typo"] .exam { margin-top: 3rem; border-top: 1px solid var(--text); padding-top: 1rem; color: var(--text); display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; }
+[data-style="typo"] .exam h3 { font-style: italic; font-weight: 400; font-size: 1.6rem; }
+@media (max-width: 720px) { [data-style="typo"] .exam { grid-template-columns: 1fr; gap: .5rem; } }
+
+[data-style="typo"] .timeline { max-width: none; }
+[data-style="typo"] .tl-item { grid-template-columns: minmax(7rem, 1fr) 3fr; border-top: 1px solid var(--text); padding: 1.5rem 0; }
+[data-style="typo"] .tl-year { font-family: var(--font-display); font-size: clamp(2rem, 1.5rem + 2.5vw, 3.5rem); font-weight: 300; font-variation-settings: "opsz" 144; letter-spacing: -0.04em; color: var(--text); line-height: 1; padding: 0; }
+[data-style="typo"] .tl-item.is-key .tl-year { font-weight: 900; font-style: italic; }
+[data-style="typo"] .tl-item.is-key h3::after { content: none; }
+[data-style="typo"] .tl-item.is-key h3 { font-style: italic; }
+[data-style="typo"] .tl-body h3 { font-size: 1.5rem; }
+[data-style="typo"] .tl-body p { color: var(--text); font-weight: 300; }
+
+[data-style="typo"] .projects, [data-style="typo"] .paths { gap: 0; border-top: 1px solid var(--text); }
+[data-style="typo"] .project, [data-style="typo"] .path { padding: 1.25rem 1.5rem 1.25rem 0; border-bottom: 1px solid var(--text); }
+[data-style="typo"] .project-tag { font-family: var(--font-body); font-style: italic; font-weight: 400; text-transform: none; letter-spacing: 0; color: var(--text); font-size: .95rem; }
+[data-style="typo"] .project-tag::before { content: "("; } [data-style="typo"] .project-tag::after { content: ")"; }
+[data-style="typo"] .project h3 { font-size: 1.5rem; font-weight: 700; }
+[data-style="typo"] .project p, [data-style="typo"] .path p, [data-style="typo"] .paths-note { color: var(--text); font-weight: 300; }
+[data-style="typo"] .path h3 { font-size: 1.6rem; font-style: italic; font-weight: 400; }
+[data-style="typo"] .paths-note { font-style: italic; }
+
+[data-style="typo"] .cta { text-align: left; border-top: 2px solid var(--text); }
+[data-style="typo"] .cta h2 { font-size: clamp(2.2rem, 1.5rem + 4vw, 4.5rem); font-weight: 300; font-style: italic; }
+[data-style="typo"] .cta p { margin-inline: 0; color: var(--text); font-weight: 300; }
+[data-style="typo"] .site-foot { border-top: 2px solid var(--text); font-style: italic; text-align: left; padding-inline: var(--gutter); }
+[data-style="typo"] .live-attr { font-style: normal; }
+
+[data-style="typo"] .lab-inner { border: 0; border-top: 2px solid var(--text); border-radius: 0; background: #fff; padding-inline: 0; }
+[data-style="typo"] .key { border: 0; background: transparent; padding-inline: .5rem; font-family: var(--font-body); }
+[data-style="typo"] .key-num { font-family: var(--font-body); font-weight: 300; font-style: italic; }
+[data-style="typo"] .key-name { font-weight: 400; }
+[data-style="typo"] .key:hover { transform: none; text-decoration: underline; }
+[data-style="typo"] .key[aria-checked="true"] { background: transparent; color: var(--text); }
+[data-style="typo"] .key[aria-checked="true"] .key-name { font-weight: 900; font-style: italic; text-decoration: underline; text-underline-offset: .3em; }
+[data-style="typo"] .lab-title strong { font-style: italic; font-weight: 700; }
+[data-style="typo"] .lab-desc { color: var(--text); font-weight: 300; }
