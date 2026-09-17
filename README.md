@@ -49,9 +49,13 @@ Reconstruire la version Gemini après une modification de `gemini/source/` :
 ```bash
 cd gemini/source
 npm install
-npm run build
+npm run build -- --base-href /gemini/     # le --base-href est indispensable
 cp dist/app/browser/{index.html,index.csr.html,main-*.js,styles-*.css,favicon.ico} ..
 ```
+
+> **Piège** : sans `--base-href /gemini/`, Angular génère `<base href="/">` et le
+> JS/CSS de la version sont demandés à la racine du site (`/main-*.js`), où le
+> Worker ne les trouve pas : la page perd styles et interactivité.
 
 ## Liens entre les versions
 
