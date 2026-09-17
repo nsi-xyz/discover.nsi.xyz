@@ -22,7 +22,7 @@ jobs:
         with:
           node-version: 22
 
-      # Assemble worker/site : Astra à la racine, DeepSeek et Gemini en sous-dossiers.
+      # Assemble worker/site : Astra à la racine, DeepSeek, Fable, Gemini et prompt.
       - name: Assembler le site
         run: node scripts/build-site.mjs
 
@@ -33,6 +33,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: '4'
           command: deploy --config worker/wrangler.json
 
       # Même contenu publié aussi sur Cloudflare Pages (environnement de préversion).
@@ -41,4 +42,5 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: '4'
           command: pages deploy worker/site --project-name=discover-nsi-xyz --branch=main
