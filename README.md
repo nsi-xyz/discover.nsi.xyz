@@ -1,7 +1,7 @@
-# discover.nsi.xyz — un contenu, cinq versions
+# discover.nsi.xyz — un contenu, six versions
 
 Page de découverte de la spécialité **NSI** (Numérique et Sciences Informatiques)
-au lycée, déclinée par **cinq modèles**, chacune réinterprétant le même contenu en
+au lycée, déclinée par **six modèles**, chacune réinterprétant le même contenu en
 **neuf directions artistiques** : Flat, Material, skeuomorphisme, neumorphisme,
 glassmorphisme, brutalisme, minimalisme, maximalisme et typographique.
 
@@ -15,10 +15,11 @@ consultables depuis le pied de page de chacune.
 | Fable | Fable 5.1 | @dabogratinib | 6,30 $ | 2,2 M | 30 min | `fable/` |
 | Gemini | Gemini 3.8 Flash | @nsi_xyz | forfait < 0,10 € | n.c. | 6 min | `gemini/` (site statique) |
 | GLM | GLM 5.3 Flash | @nsi_xyz | 0,12 € | 1 M | 12 min | `glm/` |
+| MUSE | MUSE 1.3 Contributor | @nsi_xyz | 0,007 € | 200 k | 4 min | `muse/` |
 
 > Idée : [@nsi_xyz](https://twitter.com/nsi_xyz), prompté sur Gemini 3.8 Flash,
-> DeepSeek 4.1 Flash et GLM 5.3 Flash par @nsi_xyz, sur Astra (GPT 6) par
-> @ClovisReye, sur Fable 5.1 par @dabogratinib.
+> DeepSeek 4.1 Flash, GLM 5.3 Flash et MUSE 1.3 Contributor par @nsi_xyz, sur
+> Astra (GPT 6) par @ClovisReye, sur Fable 5.1 par @dabogratinib.
 
 Chacune de ces versions a reçu **exactement le même prompt, en un seul envoi,
 sans aucune modification**. Il est publié tel quel dans `prompt/` (page
@@ -34,8 +35,9 @@ deepseek/        version DeepSeek, autonome (index.html + styles/ + scripts/ + a
 fable/           version Fable 5.1, autonome (index.html + css/ + js/)
 gemini/          version Gemini 3.8 Flash, autonome (index.html + css/ + js/ + assets/)
 glm/             version GLM 5.3 Flash, autonome (index.html + css/ + js/)
+muse/            version MUSE 1.3 Contributor, autonome (index.html + styles.css + app.js)
 prompt/          le prompt original du challenge (page « copier » + le-prompt.txt)
-scripts/build-site.mjs  assemble worker/site (Astra + deepseek + fable + gemini + glm + prompt)
+scripts/build-site.mjs  assemble worker/site (Astra + deepseek + fable + gemini + glm + muse + prompt)
 preview.mjs      aperçu local complet  →  npm run dev  →  127.0.0.1:4173
 .nojekyll        empêche Jekyll d'ignorer les dossiers commençant par un souligné
 ```
@@ -51,10 +53,10 @@ il suffit de déposer les fichiers de la version dans son dossier.
 
 ## Liens entre les versions
 
-Chaque version affiche dans son pied de page un bandeau **« Un contenu, cinq
-versions »** : son propre coût, puis un lien vers les quatre autres versions et
+Chaque version affiche dans son pied de page un bandeau **« Un contenu, six
+versions »** : son propre coût, puis un lien vers les cinq autres versions et
 vers la page `prompt/`. Les liens sont **absolus** (`/`, `/deepseek/`,
-`/fable/`, `/gemini/`, `/glm/`, `/prompt/`) : ils fonctionnent à l'identique servis depuis
+`/fable/`, `/gemini/`, `/glm/`, `/muse/`, `/prompt/`) : ils fonctionnent à l'identique servis depuis
 la racine du dépôt en local (`npm run dev`) comme en production.
 
 ## Ajouter une version plus tard
@@ -77,5 +79,5 @@ npm run dev   # aperçu complet sur http://127.0.0.1:4173/
 ```
 
 - `http://127.0.0.1:4173/` → **Astra**, la page d'accueil
-- `http://127.0.0.1:4173/deepseek/`, `…/fable/`, `…/gemini/` et `…/glm/` → les autres versions
+- `http://127.0.0.1:4173/deepseek/`, `…/fable/`, `…/gemini/`, `…/glm/` et `…/muse/` → les autres versions
 - `http://127.0.0.1:4173/prompt/` → le prompt original, à copier ou télécharger

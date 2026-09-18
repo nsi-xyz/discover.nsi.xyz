@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="glass">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NSI — Numérique & Sciences Informatiques | discover.nsi.xyz</title>
+<meta name="description" content="NSI au lycée : histoire, programme officiel, projets concrets et débouchés. Une page, 9 visions du web design.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600;800&family=Roboto:wght@400;500;700&family=JetBrains+Mono:wght@400;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Archivo+Black&family=DM+Serif+Display&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%236C4DFF'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='monospace' font-weight='bold'>&lt;/&gt;</text></svg>">
+</head>
+<body>
+<a class="skip" href="#contenu">Aller au contenu</a>
+<div class="bg-decor" aria-hidden="true"><i class="orb o1"></i><i class="orb o2"></i><i class="orb o3"></i><i class="grain"></i><span class="giant-word">NSI_</span></div>
+
+<header class="topbar" id="top">
+  <a class="brand" href="#top" aria-label="NSI accueil">
+    <span class="brand-badge">&lt;/&gt;</span>
+    <span class="brand-txt">discover<strong>.nsi.xyz</strong><em>La spé qui code le monde</em></span>
+  </a>
+  <nav class="nav" aria-label="Navigation principale">
+    <a href="#histoire">Histoire</a>
+    <a href="#programme">Programme</a>
+    <a href="#projets">Projets</a>
+    <a href="#debouches">Débouchés</a>
+    <a href="#faq" class="nav-cta">Choisir NSI →</a>
+  </nav>
+  <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</header>
+
+<!-- Sélecteur de style : le cœur de l'expérience -->
+<div class="style-dock" role="region" aria-label="Sélecteur d'esthétique">
+  <div class="dock-head">
+    <span class="dock-dot"></span>
+    <p><strong>Démo magistrale de web design</strong><span id="themeLabel">Glassmorphisme — 5/9</span></p>
+    <div class="dock-actions">
+      <button id="prevTheme" aria-label="Style précédent">←</button>
+      <button id="nextTheme" aria-label="Style suivant">→</button>
+      <button id="shuffle" class="shuffle" aria-label="Style aléatoire">⤨ Surprends-moi</button>
+    </div>
+  </div>
+  <div class="swatches" role="tablist" aria-label="9 paradigmes visuels">
+    <button role="tab" data-set-theme="flat" aria-selected="false"><i style="--sw:#FF5A5A"></i>Flat<small>01 · à plat</small></button>
+    <button role="tab" data-set-theme="material" aria-selected="false"><i style="--sw:#3F51B5"></i>Material<small>02 · relief</small></button>
+    <button role="tab" data-set-theme="skeuo" aria-selected="false"><i style="--sw:#8B5E34"></i>Skeuo<small>03 · réel</small></button>
+    <button role="tab" data-set-theme="neu" aria-selected="false"><i style="--sw:#A3B1C6"></i>Neumo<small>04 · doux</small></button>
+    <button role="tab" data-set-theme="glass" aria-selected="true"><i style="--sw:#6C4DFF"></i>Glass<small>05 · verre</small></button>
+    <button role="tab" data-set-theme="brutal" aria-selected="false"><i style="--sw:#FFD500"></i>Brutal<small>06 · brut</small></button>
+    <button role="tab" data-set-theme="minimal" aria-selected="false"><i style="--sw:#111111"></i>Minimal<small>07 · épure</small></button>
+    <button role="tab" data-set-theme="maximal" aria-selected="false"><i style="--sw:#FF2E9A"></i>Maximal<small>08 · tout</small></button>
+    <button role="tab" data-set-theme="typo" aria-selected="false"><i style="--sw:#000000"></i>Typo<small>09 · lettre</small></button>
+  </div>
+  <p class="dock-hint">Astuce clavier : <kbd>1</kbd>–<kbd>9</kbd> pour métamorphoser · le contenu reste identique, seul le regard change.</p>
+</div>
+
+<main id="contenu">
+  <!-- HERO -->
+  <section class="hero">
+    <p class="eyebrow"><span class="pulse"></span> Spécialité Première & Terminale · 4h + 6h / semaine · Épreuve de 3h30 (coeff. 16)</p>
+    <h1>Tu n'utilises pas<br><span class="hl">le numérique.</span><br>Tu vas le <span class="it">comprendre.</span></h1>
+    <p class="lede">NSI — Numérique et Sciences Informatiques. Créée en 2019, la spé des esprits logiques et créatifs : on y code en Python, on y démonte les algorithmes, les réseaux, les données et l'IA. Sans jargon, sans cours ennuyeux : juste la puissance de comprendre la machine.</p>
+    <div class="hero-cta">
+      <a class="btn primary" href="#programme">Voir le programme officiel</a>
+      <a class="btn ghost" href="#projets">Voir ce qu'on y construit ↓</a>
+    </div>
+    <dl class="stats">
+      <div><dt>2019</dt><dd>naissance de la spé (réforme du bac)</dd></div>
+      <div><dt>Python</dt><dd>langage roi, zéro prérequis</dd></div>
+      <div><dt>×3</dt><dd>débouchés : BUT, prépa MP2I, ingé</dd></div>
+      <div><dt>100%</dt><dd>projets concrets, pas de par-cœur</dd></div>
+    </dl>
+    <div class="hero-card" aria-hidden="true">
+      <div class="code-win">
+        <span></span><span></span><span></span>
+        <code>terminale — tri_fusion.py</code>
+      </div>
+<pre>def tri_fusion(L):
+    if len(L) &lt;= 1: return L
+    m = len(L)//2
+    g = tri_fusion(L[:m])
+    d = tri_fusion(L[m:])
+    return fusion(g, d)  # O(n log n) ♥</pre>
+      <p class="code-cap">← Ceci est un vrai code de Terminale. En 2 ans, tu sauras l'écrire, le prouver et le hacker.</p>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><span>PYTHON · ALGORITHMIQUE · RÉSEAUX · DONNÉES · IA · CYBER · PYTHON · ALGORITHMIQUE · RÉSEAUX · DONNÉES · IA · CYBER ·&nbsp;</span><span>PYTHON · ALGORITHMIQUE · RÉSEAUX · DONNÉES · IA · CYBER · PYTHON · ALGORITHMIQUE · RÉSEAUX · DONNÉES · IA · CYBER ·&nbsp;</span></div>
+
+  <!-- HISTOIRE -->
+  <section id="histoire" class="block">
+    <p class="kicker">01 — D'où vient NSI ?</p>
+    <h2>Une jeune spé,<br>des ancêtres <em>légendaires.</em></h2>
+    <p class="sub">NSI naît en 2019 avec la réforme Blanquer. Elle remplace ISN et ICN et assume enfin l'informatique comme science — pas comme simple outil. Son ADN ? 180 ans d'idées folles.</p>
+    <ol class="timeline">
+      <li><b>1843 · Ada Lovelace</b><span>écrit le premier algorithme, pour une machine qui n'existe pas encore. Visionnaire.</span><i>ancêtre n°1</i></li>
+      <li><b>1936 · Alan Turing</b><span>invente l'ordinateur... sur papier. Puis casse Enigma et sauve des millions de vies.</span><i>ancêtre n°2</i></li>
+      <li><b>1945 · Grace Hopper</b><span>crée le premier compilateur. « C'est plus facile de demander pardon que la permission. »</span><i>ancêtre n°3</i></li>
+      <li><b>1968 · Dijkstra</b><span>structure la programmation. Son alogorithme de plus court chemin tourne encore dans ton GPS.</span><i>ancêtre n°4</i></li>
+      <li><b>1989 · Tim Berners-Lee</b><span>invente le Web au CERN. Cette page que tu lis ? C'est son idée, poussée à l'extrême.</span><i>ancêtre n°5</i></li>
+      <li class="now"><b>2019 → aujourd'hui · NSI</b><span>4h en Première, 6h en Terminale. Python, SQL, réseaux, IA : tu marches sur leurs épaules.</span><i>toi, ici</i></li>
+    </ol>
+  </section>
+
+  <!-- PROGRAMME -->
+  <section id="programme" class="block alt">
+    <p class="kicker">02 — Le programme officiel</p>
+    <h2>Pas de par-cœur.<br>Que des <em>super-pouvoirs.</em></h2>
+    <p class="sub">Le Bulletin officiel découpe NSI en grands blocs. En Première on pose les fondations, en Terminale on passe en mode ingénieur. Concis, exigeant, jouissif.</p>
+    <div class="grid prog">
+      <article><h3>◈ Données</h3><p>Binaire, hexadécimal, images, sons, compression. Puis <strong>bases SQL</strong> en Terminale : modéliser et requêter comme un pro.</p><span class="tag">Prem → Term</span></article>
+      <article><h3>⬢ Algorithmes</h3><p>Tri, recherche dichotomique, gloutons. Puis <strong>récursivité, diviser-pour-régner</strong> et preuve de correction.</p><span class="tag">cœur du bac</span></article>
+      <article><h3>⟨/⟩ Langages</h3><p><strong>Python</strong> à fond : fonctions, listes, objets. Puis paradigmes, récursivité et mise au point systématique.</p><span class="tag">4h → 6h / sem</span></article>
+      <article><h3>⬣ Machines</h3><p>Architecture von Neumann, OS Linux, commandes. Puis <strong>processus, réseaux, protocoles TCP/IP</strong> et cybersécurité.</p><span class="tag">hardware + net</span></article>
+      <article><h3>◐ Interfaces</h3><p>HTML/CSS/JS et <strong>IHM</strong> : cette page est un TP grandeur nature. Accessibilité et design inclus.</p><span class="tag">web</span></article>
+      <article class="eval"><h3>★ Évaluation</h3><p>Contrôle continu + <strong>épreuve écrite 3h30 (coeff 16)</strong> en Terminale. Et surtout : un <strong>projet fil rouge</strong> qui claque dans Parcoursup.</p><span class="tag inverted">coeff. 16</span></article>
+    </div>
+  </section>
+
+  <!-- PROJETS -->
+  <section id="projets" class="block">
+    <p class="kicker">03 — Projets concrets</p>
+    <h2>En NSI, on ne révise pas.<br>On <em>fabrique.</em></h2>
+    <p class="sub">Zéro ressource de cours ici — juste un aperçu de ce que les élèves livrent vraiment pendant l'année.</p>
+    <div class="grid projects">
+      <article><span class="pj-n">P.01</span><h3>Jeu d'arcade en Python</h3><p>Pygame, boucles de jeu, collisions, scores. Ton premier vrai moteur, codé à la main.</p><span class="stack">Python · Pygame · Git</span></article>
+      <article><span class="pj-n">P.02</span><h3>Site web vivant</h3><p>Comme celui-ci : HTML/CSS/JS, responsive, accessibilité. Le web n'aura plus de secret.</p><span class="stack">HTML · CSS · JS</span></article>
+      <article><span class="pj-n">P.03</span><h3>Détective des données</h3><p>CSV de 100 000 lignes, graphiques, corrélations. Tu racontes des histoires avec des données.</p><span class="stack">CSV · SQL · dataviz</span></article>
+      <article><span class="pj-n">P.04</span><h3>Mini-IA & images</h3><p>Filtres, reconnaissance de chiffres, k-plus proches voisins. L'IA démystifiée, sans magie.</p><span class="stack">IA · matrices · algo</span></article>
+      <article><span class="pj-n">P.05</span><h3>Réseau & cyber</h3><p>Simuler TCP/IP, sniffer des paquets, chiffrer avec César puis RSA. Deviens imprévisible.</p><span class="stack">réseaux · crypto</span></article>
+      <article><span class="pj-n">P.06</span><h3>Objet connecté</h3><p>Capteurs, micro:bit, serveur maison. Quand le code touche le monde réel.</p><span class="stack">IoT · Linux · shell</span></article>
+    </div>
+  </section>
+
+  <!-- DÉBOUCHÉS -->
+  <section id="debouches" class="block alt">
+    <p class="kicker">04 — Après le bac</p>
+    <h2>NSI ouvre <em>toutes</em> les portes.</h2>
+    <p class="sub">La seule spé qui marie logique mathématique et créativité concrète. Les jurys Parcoursup l'adorent — surtout avec Maths ou Physique en doublette.</p>
+    <div class="grid avenues">
+      <article><h3>BUT Informatique</h3><p>3 ans, projets, alternance. La voie royale vers dev, admin sys, data.</p><b>selectivité : ●●●○</b></article>
+      <article><h3>Prépa MP2I / MPI</h3><p>Maths-Physique-Informatique. Pour viser X, ENS, Centrale.</p><b>selectivité : ●●●●</b></article>
+      <article><h3>Licence + Master</h3><p>Info, MIASHS, data, IA, cybersécurité. La voie recherche.</p><b>selectivité : ●●○○</b></article>
+      <article><h3>Écoles d'ingénieurs</h3><p>Post-bac (EPITA, Epitech, INSA...) ou post-prépa. Le sésame.</p><b>selectivité : ●●●○</b></article>
+      <article><h3>BTS SIO / CIEL</h3><p>2 ans ultra-concrets : dev, réseau, support. Insertion directe.</p><b>selectivité : ●●○○</b></article>
+      <article class="jobs"><h3>Métiers visés</h3><p>Dev · Data scientist · Pentester cyber · Designer d'IA · Devops · Indé / freelance</p><b>salaire junior : 32–45 k€</b></article>
+    </div>
+    <div class="cta-band">
+      <p><strong>Maths + NSI</strong>, c'est le combo gagnant. <strong>NSI + SES / Arts ?</strong> Parcours créatifs et rares, très recherchés.</p>
+      <a class="btn primary" href="#top">↑ Rejouer avec un autre style</a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="block">
+    <p class="kicker">05 — On te dit tout</p>
+    <h2>Questions <em>express.</em></h2>
+    <div class="faq">
+      <details open><summary>Faut-il déjà savoir coder ?</summary><p>Non. Zéro prérequis. La curiosité et la rigueur suffisent — Python s'apprend de zéro dès septembre.</p></details>
+      <details><summary>NSI, c'est que pour les matheux ?</summary><p>Les maths aident (logique, fonctions), mais les profils créatifs et littéraires y excellent aussi, surtout en web et données.</p></details>
+      <details><summary>Quelle doublette choisir ?</summary><p>Maths + NSI pour l'ingénierie, Physique + NSI pour la robotique, SES + NSI pour la data-éco. Tout marche si tu aimes résoudre.</p></details>
+      <details><summary>Et le matériel ?</summary><p>Un simple portable suffit. Tout est gratuit et open source : Python, VS Code, Linux, Git.</p></details>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="xnav">
+    <p class="xnav__exergue">Un contenu, six versions · celle-ci : <b>MUSE</b> — 0,007 €, 200 k jetons, 4 min</p>
+    <ul class="xnav__grid">
+      <li><a class="xnav__item" href="/" style="--x-accent:#2563EB"><span class="xnav__name">Astra</span><span class="xnav__cost">13 € · 8 M jetons · 37 min</span></a></li>
+      <li><a class="xnav__item" href="/deepseek/" style="--x-accent:#0B8A6A"><span class="xnav__name">DeepSeek</span><span class="xnav__cost">0,13 € · 21 M jetons · 42 min</span></a></li>
+      <li><a class="xnav__item" href="/fable/" style="--x-accent:#7C3AED"><span class="xnav__name">Fable</span><span class="xnav__cost">6,30 $ · 2,2 M jetons · 30 min</span></a></li>
+      <li><a class="xnav__item" href="/gemini/" style="--x-accent:#C2410C"><span class="xnav__name">Gemini</span><span class="xnav__cost">forfait &lt; 0,10 € · jetons n.c. · 6 min</span></a></li>
+      <li><a class="xnav__item" href="/glm/" style="--x-accent:#0891B2"><span class="xnav__name">GLM</span><span class="xnav__cost">0,12 € · 1 M jetons · 12 min</span></a></li>
+      <li class="xnav__item" aria-current="page" style="--x-accent:#6C4DFF"><span class="xnav__name">MUSE</span><span class="xnav__self">cette version — 0,007 € · 200 k jetons · 4 min</span></li>
+    </ul>
+    <span class="xnav__credit">Idée : <a href="https://x.com/nsi_xyz" target="_blank" rel="noopener">@nsi_xyz</a> · prompté sur Gemini 3.8 Flash, DeepSeek 4.1 Flash, GLM 5.3 Flash et MUSE 1.3 Contributor par <a href="https://x.com/nsi_xyz" target="_blank" rel="noopener">@nsi_xyz</a>, sur Astra (GPT 6) par <a href="https://x.com/ClovisReye" target="_blank" rel="noopener">@ClovisReye</a>, sur Fable 5.1 par <a href="https://x.com/dabogratinib" target="_blank" rel="noopener">@dabogratinib</a> — <a href="/prompt/">le prompt du challenge, à soumettre tel quel ↗</a></span>
+  </div>
+  <p><strong>discover.nsi.xyz</strong> — landing pédagogique · même contenu, 9 esthétiques · Histoire, programme, projets, débouchés.</p>
+  <p class="foot-sub">Conçu comme une démonstration de design · 100% responsive · contraste AA · <span id="footTheme">Glassmorphisme</span> actif · <a href="#top">haut de page ↑</a></p>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="app.js"></script>
+</body>
+</html>

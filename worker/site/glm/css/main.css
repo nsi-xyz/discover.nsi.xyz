@@ -515,10 +515,10 @@ main { position: relative; max-width: var(--maxw); margin: 0 auto; padding: 0 cl
   color: var(--ink, #111);
 }
 .xnav__grid {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  align-items: stretch;
-  gap: .4rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .4rem 1.75rem;
   max-width: 76rem;
   margin: .9rem 0 0;
   padding: 0;
@@ -526,33 +526,27 @@ main { position: relative; max-width: var(--maxw); margin: 0 auto; padding: 0 cl
 }
 .xnav__grid > li {
   display: flex;
+  flex: 0 0 auto;
   min-width: 0;
+  max-width: 100%;
 }
 .xnav__item {
-  display: flex;
-  flex: 1 1 auto;
+  display: inline-flex;
   flex-wrap: wrap;
-  align-content: center;
   align-items: baseline;
-  justify-content: space-between;
-  gap: .25rem .8rem;
+  gap: .1rem .5rem;
   min-width: 0;
-  box-sizing: border-box;
-  height: auto;
-  padding: .65rem .85rem;
+  max-width: 100%;
+  padding: 0;
   text-decoration: none;
   color: inherit;
-  border-radius: var(--radius, 12px);
-  border: 1px solid color-mix(in srgb, var(--line, currentColor) 100%, transparent);
-  transition: background-color .2s ease;
 }
-.xnav__item:hover {
-  background: color-mix(in srgb, var(--accent, #3450f5) 12%, transparent);
+.xnav__item:hover .xnav__name {
+  text-decoration: underline;
+  text-underline-offset: .15em;
 }
-.xnav__item[aria-current="page"] {
-  background: color-mix(in srgb, var(--accent, #3450f5) 16%, transparent);
-  border-color: var(--accent, #3450f5);
-  cursor: default;
+.xnav__item[aria-current="page"] .xnav__name {
+  color: var(--accent, #3450f5);
 }
 .xnav__name {
   font-weight: 700;
@@ -605,12 +599,6 @@ main { position: relative; max-width: var(--maxw); margin: 0 auto; padding: 0 cl
 .xnav__exergue b {
   color: var(--accent, #3450f5);
 }
-@media (max-width: 1000px) {
-  .xnav__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-}
-@media (max-width: 620px) {
-  .xnav__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-@media (max-width: 400px) {
-  .xnav__grid { grid-template-columns: 1fr; }
+@media (max-width: 560px) {
+  .xnav__grid { gap: .3rem 1.1rem; }
 }
