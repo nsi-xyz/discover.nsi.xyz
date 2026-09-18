@@ -1,0 +1,1184 @@
+/**
+ * base.css
+ * Fondations architecturales, variables racines, grille de mise en page,
+ * composants interactifs communs et structure de l'interface.
+ */
+
+/* ==========================================================================
+   1. RESET MODERNE ET BOX-SIZING
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  font-size: 16px;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  position: relative;
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+img, svg, video {
+  display: block;
+  max-width: 100%;
+}
+
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* Accessibilité : Skip link pour les lecteurs d'écran */
+.skip-to-content {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  padding: 0.5rem 1rem;
+  background: #000;
+  color: #fff;
+  z-index: 10000;
+  border-radius: 4px;
+  transition: top 0.2s ease;
+}
+.skip-to-content:focus {
+  top: 1rem;
+}
+
+/* ==========================================================================
+   2. CONTENEURS ET GRILLE UNIFIÉE
+   ========================================================================== */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section-block {
+  padding: 5rem 0;
+  position: relative;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 3.5rem auto;
+}
+
+.section-tag {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+  border-radius: 4px;
+}
+
+.section-title {
+  font-size: clamp(1.85rem, 3.5vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  opacity: 0.85;
+}
+
+/* ==========================================================================
+   3. HEADER ET NAVIGATION PRINCIPALE
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  width: 100%;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4.25rem;
+  gap: 1.5rem;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 800;
+  font-size: 1.2rem;
+  letter-spacing: -0.02em;
+}
+
+.brand-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  font-weight: 900;
+  font-size: 0.85rem;
+  border-radius: 6px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: opacity 0.2s ease, color 0.2s ease;
+  position: relative;
+}
+.nav-link:hover {
+  opacity: 1;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Boutons d'action compacts utilisateur */
+.btn-compact {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem;
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-mobile-toggle {
+  display: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+}
+
+/* ==========================================================================
+   4. HERO SECTION
+   ========================================================================== */
+.hero-section {
+  padding: 5rem 0 6rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.hero-title {
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+}
+
+.hero-description {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  max-width: 620px;
+}
+
+.hero-badges-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.hero-badge-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 20px;
+}
+
+.hero-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.hero-preview-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.terminal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(128,128,128,0.2);
+}
+
+.terminal-dots {
+  display: flex;
+  gap: 6px;
+}
+.terminal-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.dot-red { background: #ff5f56; }
+.dot-yellow { background: #ffbd2e; }
+.dot-green { background: #27c93f; }
+
+.terminal-body {
+  padding: 1.25rem;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   5. TIMELINE HISTOIRE & ANCÊTRES
+   ========================================================================== */
+.history-timeline {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  position: relative;
+}
+
+.history-card {
+  padding: 1.75rem;
+  border-radius: 8px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.history-card-year {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.history-card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.history-card-desc {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  opacity: 0.85;
+}
+
+/* ==========================================================================
+   6. LES 4 PILIERS DU PROGRAMME
+   ========================================================================== */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.pillar-card {
+  padding: 2.25rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease;
+}
+
+.pillar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.pillar-num {
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+
+.pillar-icon-box {
+  width: 2.75rem;
+  height: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.pillar-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.pillar-desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+.pillar-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.pillar-tag-item {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+}
+
+/* ==========================================================================
+   7. L'ÉPREUVE DU BACCALAURÉAT
+   ========================================================================== */
+.bac-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.bac-card {
+  padding: 2.25rem;
+  border-radius: 10px;
+}
+
+.bac-card-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.bac-details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 1.25rem 0;
+}
+
+.bac-detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.92rem;
+}
+
+.bac-check-icon {
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+/* ==========================================================================
+   8. PROJETS CONCRETS
+   ========================================================================== */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+.project-card {
+  padding: 1.75rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+.project-card-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+}
+
+.project-card-desc {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  opacity: 0.85;
+  margin-bottom: 1.25rem;
+}
+
+.project-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: auto;
+}
+
+.project-stack-item {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  font-family: monospace;
+}
+
+/* ==========================================================================
+   9. DÉBOUCHÉS POST-BAC
+   ========================================================================== */
+.careers-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.career-card {
+  padding: 1.75rem;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.career-icon-box {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.career-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.career-desc {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  opacity: 0.85;
+}
+
+/* ==========================================================================
+   10. MODULES INTERACTIFS PÉDAGOGIQUES
+   ========================================================================== */
+.interactive-container {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.interactive-panel {
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.panel-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.panel-desc {
+  font-size: 0.9rem;
+  opacity: 0.85;
+  margin-bottom: 1.5rem;
+}
+
+/* Visualiseur Binaire */
+.binary-controls-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.binary-input {
+  width: 90px;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.bits-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.bit-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 0.25rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.bit-digit {
+  font-size: 1.5rem;
+  font-weight: 800;
+  font-family: monospace;
+  line-height: 1;
+  margin: 0.3rem 0;
+}
+
+.bit-weight {
+  font-size: 0.75rem;
+  opacity: 0.75;
+}
+
+.bit-val {
+  font-size: 0.7rem;
+  font-family: monospace;
+  opacity: 0.85;
+}
+
+.binary-readout-row {
+  display: flex;
+  justify-content: space-around;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 0.9rem;
+}
+
+/* Simulateur de Tri par Sélection */
+.sort-visualizer-box {
+  margin-top: 1.5rem;
+}
+
+.sort-array-display {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 140px;
+  padding: 1rem;
+  gap: 0.5rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.sort-bar-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  position: relative;
+  transition: transform 0.2s ease;
+}
+
+.bar-fill {
+  width: 100%;
+  border-radius: 4px 4px 0 0;
+  min-height: 8px;
+  transition: height 0.3s ease, background-color 0.3s ease;
+}
+
+.bar-value {
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-top: 0.3rem;
+  font-family: monospace;
+}
+
+.bar-idx {
+  font-size: 0.65rem;
+  opacity: 0.6;
+}
+
+.sort-controls {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.sort-status-text {
+  font-size: 0.85rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+}
+
+/* Simulateur Note Bac */
+.bac-calc-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.calc-input-group label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.calc-input-group input {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.bac-results-card {
+  padding: 1.25rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.bac-res-num {
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.bac-mention {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* Mini-Quiz Form */
+.quiz-question-block {
+  margin-bottom: 1.25rem;
+}
+
+.quiz-q-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.quiz-option-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  cursor: pointer;
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+}
+
+.quiz-result-box {
+  display: none;
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  border-radius: 8px;
+}
+
+/* ==========================================================================
+   11. THEME DOCK FLOTTANT (SÉLECTEUR ÉLÉGANT)
+   ========================================================================== */
+.theme-dock-wrapper {
+  position: fixed;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  max-width: 95vw;
+}
+
+.theme-dock {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  gap: 0.4rem;
+  border-radius: 50px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dock-controls-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-right: 0.75rem;
+  border-right: 1px solid rgba(128,128,128,0.25);
+}
+
+.dock-active-title {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.theme-pills-list {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.theme-pills-list::-webkit-scrollbar {
+  display: none;
+}
+
+.theme-pill-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 24px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pill-number {
+  font-size: 0.65rem;
+  opacity: 0.7;
+}
+
+.pill-swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.pill-swatch-flat { background: #2563eb; }
+.pill-swatch-material { background: #6200ee; }
+.pill-swatch-skeuo { background: #555555; }
+.pill-swatch-neumorph { background: #a3b1c6; }
+.pill-swatch-glass { background: #06b6d4; }
+.pill-swatch-brutal { background: #fff500; border: 1px solid #000; }
+.pill-swatch-minimal { background: #111111; }
+.pill-swatch-maximal { background: #ec4899; }
+.pill-swatch-editorial { background: #991b1b; }
+
+.dock-controls-right {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding-left: 0.75rem;
+  border-left: 1px solid rgba(128,128,128,0.25);
+}
+
+.dock-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.65rem;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   12. DESIGN INSPECTOR DRAWER (VOLET PÉDAGOGIQUE)
+   ========================================================================== */
+.inspector-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(4px);
+  z-index: 1100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.inspector-backdrop.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.design-inspector-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 480px;
+  z-index: 1200;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+.design-inspector-drawer.is-open {
+  transform: translateX(0);
+}
+
+.inspector-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(128,128,128,0.2);
+}
+
+.inspector-badge {
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+}
+
+.inspector-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.inspector-section-label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.7;
+  margin-bottom: 0.4rem;
+}
+
+.inspector-quote {
+  font-style: italic;
+  padding: 1rem;
+  border-left: 3px solid;
+  border-radius: 0 6px 6px 0;
+  font-size: 0.95rem;
+}
+
+.inspector-css-box {
+  padding: 0.85rem;
+  border-radius: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  word-break: break-all;
+}
+
+/* ==========================================================================
+   13. TOAST NOTIFICATION
+   ========================================================================== */
+.theme-toast {
+  position: fixed;
+  top: 5rem;
+  right: 1.5rem;
+  z-index: 1500;
+  padding: 0.85rem 1.25rem;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  transform: translateY(-20px) scale(0.95);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+}
+.theme-toast.is-visible {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+.toast-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.toast-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.toast-title {
+  font-size: 0.9rem;
+}
+.toast-badge {
+  font-size: 0.7rem;
+  opacity: 0.75;
+}
+.toast-sub {
+  font-size: 0.78rem;
+  opacity: 0.85;
+}
+
+/* ==========================================================================
+   14. FOOTER
+   ========================================================================== */
+.site-footer {
+  padding: 4rem 0 7rem 0;
+  border-top: 1px solid rgba(128,128,128,0.2);
+  font-size: 0.9rem;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+/* ==========================================================================
+   15. RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .history-timeline {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .careers-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .interactive-container {
+    grid-template-columns: 1fr;
+  }
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: inherit;
+    flex-direction: column;
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(128,128,128,0.2);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  }
+  .nav-links.is-open {
+    display: flex;
+  }
+  .btn-mobile-toggle {
+    display: flex;
+  }
+  .history-timeline,
+  .pillars-grid,
+  .bac-grid,
+  .projects-grid,
+  .careers-grid {
+    grid-template-columns: 1fr;
+  }
+  .bits-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .theme-dock {
+    max-width: 96vw;
+    padding: 0.35rem 0.5rem;
+  }
+  .dock-active-title {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   16. BANDEAU INTER-VERSIONS (coût, crédits, liens croisés)
+   ========================================================================== */
+.xnav {
+  flex: 1 0 100%;
+  width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
+  margin-bottom: clamp(1.4rem, 3vw, 2.4rem);
+  padding-bottom: clamp(1.4rem, 3vw, 2.2rem);
+  border-bottom: 1px solid color-mix(in srgb, var(--text-muted, #555) 32%, transparent);
+  font-family: var(--font-display, inherit);
+  color: var(--text-main, #111);
+}
+.xnav__grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: .4rem;
+  max-width: 62rem;
+  margin: .9rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.xnav__grid > li {
+  display: flex;
+  flex: 1 1 15rem;
+  min-width: 0;
+}
+.xnav__item {
+  display: flex;
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: .25rem .8rem;
+  min-width: 0;
+  box-sizing: border-box;
+  height: auto;
+  padding: .65rem .85rem;
+  text-decoration: none;
+  color: inherit;
+  border-radius: var(--border-radius, 12px);
+  border: 1px solid color-mix(in srgb, var(--border-color, currentColor) 80%, transparent);
+  transition: background-color .2s ease;
+}
+.xnav__item:hover {
+  background: color-mix(in srgb, var(--primary, #2563eb) 12%, transparent);
+}
+.xnav__item[aria-current="page"] {
+  background: color-mix(in srgb, var(--primary, #2563eb) 16%, transparent);
+  border-color: var(--primary, #2563eb);
+  cursor: default;
+}
+.xnav__name {
+  font-weight: 700;
+  font-size: .9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.xnav__name::before {
+  content: "";
+  flex: none;
+  display: inline-block;
+  width: .55rem;
+  height: .55rem;
+  border-radius: 50%;
+  margin-right: .45rem;
+  vertical-align: .06em;
+  background: var(--x-accent, var(--primary, #2563eb));
+}
+.xnav__cost {
+  font-family: ui-monospace, monospace;
+  font-size: .72rem;
+  color: var(--text-muted, #555);
+  white-space: nowrap;
+}
+.xnav__self {
+  white-space: normal;
+  font-size: .72rem;
+  color: var(--text-muted, #555);
+  font-family: ui-monospace, monospace;
+}
+.xnav__credit {
+  display: block;
+  margin-top: 1rem;
+  font-size: .72rem;
+  line-height: 1.6;
+  color: var(--text-muted, #555);
+  max-width: 74rem;
+}
+.xnav__credit a {
+  color: inherit;
+}
+.xnav__exergue {
+  font-size: .72rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--text-muted, #555);
+  margin: 0;
+}
+.xnav__exergue b {
+  color: var(--primary, #2563eb);
+}
+@media (max-width: 560px) {
+  .xnav__grid > li { flex-basis: 100%; }
+  .xnav__item { flex-wrap: wrap; }
+  .xnav__cost, .xnav__self { white-space: normal; }
+}

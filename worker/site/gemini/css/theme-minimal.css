@@ -1,0 +1,205 @@
+/**
+ * theme-minimal.css
+ * Paradigme 7 : Minimalisme (Fonctionnalisme suisse / Dieter Rams)
+ * Caractéristiques : Espace négatif monumental, palette stricte monochrome
+ * (noir/blanc/gris pierre), filets fins de 1px, zéro artifice superflu, sérénité.
+ */
+
+[data-theme="minimal"] {
+  --bg-page: #ffffff;
+  --bg-surface: #ffffff;
+  --bg-surface-alt: #f9f9f9;
+  --text-main: #111111;
+  --text-muted: #767676;
+  
+  --border-color: #e5e5e5;
+  --border-color-dark: #111111;
+  --border-radius: 0px;
+  
+  --font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  --font-display: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+}
+
+[data-theme="minimal"] body {
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  font-family: var(--font-family);
+  letter-spacing: -0.01em;
+}
+
+/* Header Minimal */
+[data-theme="minimal"] .site-header {
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--border-color);
+}
+[data-theme="minimal"] .brand-badge {
+  background-color: #111111;
+  color: #ffffff;
+  border-radius: 0;
+}
+[data-theme="minimal"] .nav-link {
+  color: var(--text-muted);
+}
+[data-theme="minimal"] .nav-link:hover {
+  color: var(--text-main);
+}
+
+/* Boutons d'action Minimal : rigueur et sobriété */
+[data-theme="minimal"] .btn-compact,
+[data-theme="minimal"] .btn-cta-primary,
+[data-theme="minimal"] .btn-cta-secondary,
+[data-theme="minimal"] .sort-controls button,
+[data-theme="minimal"] .btn-quiz-submit {
+  padding: 0.625rem 1.25rem;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  border-radius: 0;
+  border: 1px solid #111111;
+  transition: all 0.2s ease;
+}
+
+[data-theme="minimal"] .btn-cta-primary,
+[data-theme="minimal"] .btn-quiz-submit,
+[data-theme="minimal"] .sort-controls button#sort-step-btn {
+  background-color: #111111;
+  color: #ffffff;
+}
+[data-theme="minimal"] .btn-cta-primary:hover,
+[data-theme="minimal"] .btn-quiz-submit:hover,
+[data-theme="minimal"] .sort-controls button#sort-step-btn:hover {
+  background-color: #333333;
+}
+
+[data-theme="minimal"] .btn-cta-secondary,
+[data-theme="minimal"] .sort-controls button#sort-reset-btn {
+  background-color: #ffffff;
+  color: #111111;
+}
+[data-theme="minimal"] .btn-cta-secondary:hover,
+[data-theme="minimal"] .sort-controls button#sort-reset-btn:hover {
+  background-color: #f5f5f5;
+}
+
+/* Cartes minimales : lignes fines et respiration */
+[data-theme="minimal"] .history-card,
+[data-theme="minimal"] .pillar-card,
+[data-theme="minimal"] .bac-card,
+[data-theme="minimal"] .project-card,
+[data-theme="minimal"] .career-card,
+[data-theme="minimal"] .interactive-panel,
+[data-theme="minimal"] .hero-preview-card {
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+[data-theme="minimal"] .section-tag {
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  border-radius: 0;
+}
+
+[data-theme="minimal"] .pillar-num {
+  background-color: transparent;
+  border: 1px solid #111111;
+  color: #111111;
+  border-radius: 0;
+}
+
+[data-theme="minimal"] .pillar-icon-box {
+  background-color: #f5f5f5;
+  color: #111111;
+  border-radius: 0;
+}
+
+[data-theme="minimal"] .pillar-tag-item {
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  border-radius: 0;
+}
+
+/* Terminal Minimal */
+[data-theme="minimal"] .hero-preview-card {
+  background-color: #fafafa;
+  color: #111111;
+  border: 1px solid var(--border-color);
+}
+[data-theme="minimal"] .terminal-header {
+  background-color: #f0f0f0;
+  border-bottom: 1px solid var(--border-color);
+}
+[data-theme="minimal"] .terminal-dot {
+  background: #ccc;
+}
+
+/* Binaire Minimal */
+[data-theme="minimal"] .bit-box {
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 0;
+}
+[data-theme="minimal"] .bit-box.bit-on {
+  background-color: #111111;
+  color: #ffffff;
+  border-color: #111111;
+}
+[data-theme="minimal"] .binary-input {
+  background-color: #ffffff;
+  border: 1px solid #111111;
+  border-radius: 0;
+  color: #111111;
+}
+[data-theme="minimal"] .binary-readout-row {
+  background-color: #f9f9f9;
+  border: 1px solid var(--border-color);
+}
+
+/* Tri par sélection Minimal */
+[data-theme="minimal"] .sort-array-display {
+  background-color: #fcfcfc;
+  border: 1px solid var(--border-color);
+}
+[data-theme="minimal"] .bar-fill {
+  background-color: #111111;
+  border-radius: 0;
+}
+[data-theme="minimal"] .sort-bar-item.is-current-i .bar-fill {
+  background-color: #777777;
+}
+
+/* Theme Dock Minimal */
+[data-theme="minimal"] .theme-dock {
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  border-radius: 0;
+}
+[data-theme="minimal"] .theme-pill-btn {
+  background-color: transparent;
+  color: var(--text-muted);
+  border-radius: 0;
+}
+[data-theme="minimal"] .theme-pill-btn.is-active {
+  background-color: #111111;
+  color: #ffffff;
+}
+
+/* Inspector Drawer Minimal */
+[data-theme="minimal"] .design-inspector-drawer {
+  background-color: #ffffff;
+  border-left: 1px solid var(--border-color);
+}
+[data-theme="minimal"] .inspector-quote {
+  background-color: #f9f9f9;
+  border-left-color: #111111;
+}
+[data-theme="minimal"] .inspector-css-box {
+  background-color: #f5f5f5;
+  color: #111111;
+  border: 1px solid var(--border-color);
+}

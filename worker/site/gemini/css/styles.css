@@ -1,0 +1,115 @@
+/**
+ * styles.css
+ * Point d'entrée des feuilles de styles :
+ * - Polices web Google Fonts (Inter, Roboto, Poppins, Outfit, Space Grotesk, Syne, Playfair Display, Cinzel, JetBrains Mono)
+ * - Import des fondations base.css et des 9 thèmes
+ * - Transitions View Transitions API
+ * - Accessibilité clavier et contraste
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;0,900;1,600&family=Poppins:wght@400;600;700;800&family=Roboto:wght@400;500;700;900&family=Space+Grotesk:wght@500;700&family=Syne:wght@700;800&display=swap');
+
+@import './base.css';
+@import './theme-flat.css';
+@import './theme-material.css';
+@import './theme-skeuo.css';
+@import './theme-neumorph.css';
+@import './theme-glass.css';
+@import './theme-brutal.css';
+@import './theme-minimal.css';
+@import './theme-maximal.css';
+@import './theme-editorial.css';
+
+/* ==========================================================================
+   VIEW TRANSITIONS API (Animation cinématographique de métamorphose)
+   ========================================================================== */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.4s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+::view-transition-old(root) {
+  animation-name: fade-scale-out;
+}
+
+::view-transition-new(root) {
+  animation-name: fade-scale-in;
+}
+
+@keyframes fade-scale-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0px);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.98);
+    filter: blur(4px);
+  }
+}
+
+@keyframes fade-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(1.02);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0px);
+  }
+}
+
+/* Fallback transitions pour navigateurs sans View Transitions API */
+body {
+  transition: 
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* ==========================================================================
+   ACCESSIBILITÉ CLAVIER (WCAG FOCUS VISIBLE)
+   ========================================================================== */
+:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 3px;
+}
+
+[data-theme="brutal"] :focus-visible {
+  outline: 3px solid #000000;
+  outline-offset: 2px;
+}
+
+[data-theme="editorial"] :focus-visible {
+  outline: 2px solid #991b1b;
+  outline-offset: 2px;
+}
+
+[data-theme="glass"] :focus-visible {
+  outline: 2px solid #06b6d4;
+  outline-offset: 3px;
+}
+
+/* Animation douce pour les éléments au défilement */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-on-scroll.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

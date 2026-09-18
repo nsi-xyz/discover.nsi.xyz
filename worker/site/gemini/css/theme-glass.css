@@ -1,0 +1,214 @@
+/**
+ * theme-glass.css
+ * Paradigme 5 : Glassmorphisme (macOS Big Sur, Windows 11 Fluent Acrylic)
+ * Caractéristiques : Dépoli givré (backdrop-filter: blur(24px)), translucidité,
+ * orbes colorés en fond dynamique, bordures cristallines de 1px, reflets néon.
+ */
+
+[data-theme="glass"] {
+  --bg-page: #0f1123;
+  --bg-surface: rgba(255, 255, 255, 0.07);
+  --bg-surface-hover: rgba(255, 255, 255, 0.12);
+  --text-main: #f8fafc;
+  --text-muted: #cbd5e1;
+  
+  --glass-border: 1px solid rgba(255, 255, 255, 0.18);
+  --glass-blur: blur(24px);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  
+  --accent-cyan: #06b6d4;
+  --accent-violet: #8b5cf6;
+  --accent-pink: #ec4899;
+  
+  --border-radius: 18px;
+  --font-family: 'Outfit', -apple-system, system-ui, sans-serif;
+}
+
+[data-theme="glass"] body {
+  background-color: var(--bg-page);
+  background-image: 
+    radial-gradient(circle at 15% 20%, rgba(139, 92, 246, 0.35) 0%, transparent 45%),
+    radial-gradient(circle at 85% 30%, rgba(6, 182, 212, 0.3) 0%, transparent 45%),
+    radial-gradient(circle at 50% 75%, rgba(236, 72, 153, 0.25) 0%, transparent 50%);
+  background-attachment: fixed;
+  color: var(--text-main);
+  font-family: var(--font-family);
+}
+
+/* Header Glass */
+[data-theme="glass"] .site-header {
+  background: rgba(15, 17, 35, 0.7);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-bottom: var(--glass-border);
+}
+[data-theme="glass"] .brand-badge {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.7), rgba(6, 182, 212, 0.7));
+  backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+  box-shadow: 0 0 16px rgba(139, 92, 246, 0.4);
+  border-radius: 10px;
+}
+
+/* Boutons de verre cristallin */
+[data-theme="glass"] .btn-compact,
+[data-theme="glass"] .btn-cta-primary,
+[data-theme="glass"] .btn-cta-secondary,
+[data-theme="glass"] .sort-controls button,
+[data-theme="glass"] .btn-quiz-submit {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+  color: #ffffff;
+  border-radius: 30px;
+  font-weight: 600;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  transition: all 0.25s ease;
+}
+
+[data-theme="glass"] .btn-cta-primary,
+[data-theme="glass"] .btn-quiz-submit,
+[data-theme="glass"] .sort-controls button#sort-step-btn {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.6), rgba(6, 182, 212, 0.6));
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+}
+
+[data-theme="glass"] .btn-compact:hover,
+[data-theme="glass"] .btn-cta-primary:hover,
+[data-theme="glass"] .btn-cta-secondary:hover,
+[data-theme="glass"] .sort-controls button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 25px rgba(6, 182, 212, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Cartes en verre dépoli */
+[data-theme="glass"] .history-card,
+[data-theme="glass"] .pillar-card,
+[data-theme="glass"] .bac-card,
+[data-theme="glass"] .project-card,
+[data-theme="glass"] .career-card,
+[data-theme="glass"] .interactive-panel,
+[data-theme="glass"] .hero-preview-card {
+  background: var(--bg-surface);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+  border-radius: var(--border-radius);
+  box-shadow: var(--glass-shadow);
+  transition: background 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+}
+
+[data-theme="glass"] .history-card:hover,
+[data-theme="glass"] .pillar-card:hover,
+[data-theme="glass"] .project-card:hover,
+[data-theme="glass"] .career-card:hover {
+  background: var(--bg-surface-hover);
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-4px);
+}
+
+[data-theme="glass"] .section-tag {
+  background: rgba(6, 182, 212, 0.15);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid rgba(6, 182, 212, 0.4);
+  color: var(--accent-cyan);
+  border-radius: 20px;
+}
+
+[data-theme="glass"] .pillar-num {
+  background: rgba(139, 92, 246, 0.3);
+  border: 1px solid rgba(139, 92, 246, 0.5);
+  color: #fff;
+  border-radius: 8px;
+}
+
+[data-theme="glass"] .pillar-icon-box {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.4), rgba(6, 182, 212, 0.4));
+  border: var(--glass-border);
+  border-radius: 14px;
+}
+
+[data-theme="glass"] .pillar-tag-item {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+}
+
+/* Terminal Glass */
+[data-theme="glass"] .hero-preview-card {
+  background: rgba(15, 17, 35, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Binaire Glass */
+[data-theme="glass"] .bit-box {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+}
+[data-theme="glass"] .bit-box.bit-on {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.5), rgba(6, 182, 212, 0.5));
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 16px rgba(6, 182, 212, 0.5);
+}
+[data-theme="glass"] .binary-input {
+  background: rgba(255, 255, 255, 0.08);
+  border: var(--glass-border);
+  color: #fff;
+}
+[data-theme="glass"] .binary-readout-row {
+  background: rgba(0, 0, 0, 0.25);
+  border: var(--glass-border);
+}
+
+/* Tri par sélection Glass */
+[data-theme="glass"] .sort-array-display {
+  background: rgba(0, 0, 0, 0.3);
+  border: var(--glass-border);
+}
+[data-theme="glass"] .bar-fill {
+  background: linear-gradient(180deg, var(--accent-cyan), var(--accent-violet));
+  box-shadow: 0 0 12px rgba(6, 182, 212, 0.5);
+}
+
+/* Theme Dock Glass */
+[data-theme="glass"] .theme-dock {
+  background: rgba(20, 24, 48, 0.65);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+[data-theme="glass"] .theme-pill-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e2e8f0;
+}
+[data-theme="glass"] .theme-pill-btn.is-active {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.6), rgba(6, 182, 212, 0.6));
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 14px rgba(6, 182, 212, 0.5);
+  color: #ffffff;
+}
+
+/* Inspector Drawer Glass */
+[data-theme="glass"] .design-inspector-drawer {
+  background: rgba(15, 17, 35, 0.85);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border-left: var(--glass-border);
+}
+[data-theme="glass"] .inspector-quote {
+  background: rgba(255, 255, 255, 0.05);
+  border-left-color: var(--accent-cyan);
+}
+[data-theme="glass"] .inspector-css-box {
+  background: rgba(0, 0, 0, 0.4);
+  border: var(--glass-border);
+  color: var(--accent-cyan);
+}

@@ -1,0 +1,225 @@
+/**
+ * theme-neumorph.css
+ * Paradigme 4 : Neumorphisme (Soft UI / Dribbble 2020)
+ * Caractéristiques : Surfaces continues monochromes, double ombre opposée
+ * (lumière blanche + ombre douce portée), boutons avec transition en inset,
+ * rayons de courbure doux (20-24px), zéro bordure agressive.
+ */
+
+[data-theme="neumorph"] {
+  --bg-page: #e0e5ec;
+  --bg-surface: #e0e5ec;
+  --text-main: #334155;
+  --text-muted: #64748b;
+  
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+  
+  --neu-flat: 8px 8px 16px #bec3c9, -8px -8px 16px #ffffff;
+  --neu-sm: 4px 4px 8px #bec3c9, -4px -4px 8px #ffffff;
+  --neu-pressed: inset 5px 5px 10px #bec3c9, inset -5px -5px 10px #ffffff;
+  --neu-pressed-deep: inset 7px 7px 14px #b8bec5, inset -7px -7px 14px #ffffff;
+  
+  --border-radius: 20px;
+  --font-family: 'Poppins', -apple-system, system-ui, sans-serif;
+}
+
+[data-theme="neumorph"] body {
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  font-family: var(--font-family);
+}
+
+/* Header Neumorphique */
+[data-theme="neumorph"] .site-header {
+  background-color: var(--bg-page);
+  box-shadow: 0 4px 12px rgba(190, 195, 201, 0.5);
+}
+[data-theme="neumorph"] .brand-badge {
+  background-color: var(--bg-page);
+  color: var(--primary);
+  box-shadow: var(--neu-sm);
+  border-radius: 12px;
+}
+
+/* Boutons Neumorphiques : relief doux et enfoncement tactile inset */
+[data-theme="neumorph"] .btn-compact,
+[data-theme="neumorph"] .btn-cta-primary,
+[data-theme="neumorph"] .btn-cta-secondary,
+[data-theme="neumorph"] .sort-controls button,
+[data-theme="neumorph"] .btn-quiz-submit {
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  font-weight: 700;
+  border-radius: 16px;
+  border: none;
+  box-shadow: var(--neu-sm);
+  transition: all 0.2s ease;
+}
+
+[data-theme="neumorph"] .btn-cta-primary,
+[data-theme="neumorph"] .btn-quiz-submit,
+[data-theme="neumorph"] .sort-controls button#sort-step-btn {
+  color: var(--primary);
+  font-weight: 800;
+}
+
+[data-theme="neumorph"] .btn-compact:hover,
+[data-theme="neumorph"] .btn-cta-primary:hover,
+[data-theme="neumorph"] .btn-cta-secondary:hover,
+[data-theme="neumorph"] .sort-controls button:hover {
+  box-shadow: 6px 6px 12px #bec3c9, -6px -6px 12px #ffffff;
+}
+
+[data-theme="neumorph"] .btn-compact:active,
+[data-theme="neumorph"] .btn-cta-primary:active,
+[data-theme="neumorph"] .btn-cta-secondary:active,
+[data-theme="neumorph"] .sort-controls button:active,
+[data-theme="neumorph"] .btn-quiz-submit:active {
+  box-shadow: var(--neu-pressed) !important;
+}
+
+/* Cartes & Surfaces sculptées */
+[data-theme="neumorph"] .history-card,
+[data-theme="neumorph"] .pillar-card,
+[data-theme="neumorph"] .bac-card,
+[data-theme="neumorph"] .project-card,
+[data-theme="neumorph"] .career-card,
+[data-theme="neumorph"] .interactive-panel,
+[data-theme="neumorph"] .hero-preview-card {
+  background-color: var(--bg-surface);
+  border-radius: var(--border-radius);
+  box-shadow: var(--neu-flat);
+  border: none;
+}
+
+[data-theme="neumorph"] .section-tag {
+  background-color: var(--bg-page);
+  color: var(--primary);
+  box-shadow: var(--neu-sm);
+  border-radius: 20px;
+}
+
+[data-theme="neumorph"] .pillar-num {
+  background-color: var(--bg-page);
+  color: var(--primary);
+  box-shadow: var(--neu-pressed);
+  border-radius: 10px;
+}
+
+[data-theme="neumorph"] .pillar-icon-box {
+  background-color: var(--bg-page);
+  color: var(--primary);
+  box-shadow: var(--neu-sm);
+  border-radius: 16px;
+}
+
+[data-theme="neumorph"] .pillar-tag-item {
+  background-color: var(--bg-page);
+  box-shadow: var(--neu-sm);
+  border-radius: 12px;
+  color: var(--text-muted);
+}
+
+/* Terminal Neumorphique */
+[data-theme="neumorph"] .hero-preview-card {
+  background-color: var(--bg-page);
+  box-shadow: var(--neu-flat);
+  color: var(--text-main);
+}
+[data-theme="neumorph"] .terminal-header {
+  border-bottom: 1px solid rgba(190, 195, 201, 0.4);
+}
+[data-theme="neumorph"] .terminal-body {
+  box-shadow: var(--neu-pressed);
+  margin: 1rem;
+  border-radius: 14px;
+}
+
+/* Binaire Neumorphique */
+[data-theme="neumorph"] .bit-box {
+  background-color: var(--bg-page);
+  box-shadow: var(--neu-sm);
+  border-radius: 14px;
+  color: var(--text-main);
+}
+[data-theme="neumorph"] .bit-box.bit-on {
+  box-shadow: var(--neu-pressed);
+  color: var(--primary);
+  font-weight: 800;
+}
+[data-theme="neumorph"] .binary-input {
+  background-color: var(--bg-page);
+  box-shadow: var(--neu-pressed);
+  color: var(--primary);
+  border-radius: 12px;
+}
+[data-theme="neumorph"] .binary-readout-row {
+  background-color: var(--bg-page);
+  box-shadow: var(--neu-pressed);
+  border-radius: 12px;
+}
+
+/* Tri par sélection */
+[data-theme="neumorph"] .sort-array-display {
+  background-color: var(--bg-page);
+  box-shadow: var(--neu-pressed);
+  border-radius: 16px;
+}
+[data-theme="neumorph"] .bar-fill {
+  background: linear-gradient(180deg, #60a5fa 0%, var(--primary) 100%);
+  border-radius: 8px 8px 0 0;
+  box-shadow: 2px 0 4px rgba(0,0,0,0.1);
+}
+[data-theme="neumorph"] .sort-status-text {
+  background-color: var(--bg-page);
+  box-shadow: var(--neu-sm);
+  border-radius: 12px;
+}
+
+/* Bac Simulator */
+[data-theme="neumorph"] .calc-input-group input {
+  background-color: var(--bg-page);
+  box-shadow: var(--neu-pressed);
+  border-radius: 12px;
+  color: var(--primary);
+}
+[data-theme="neumorph"] .bac-results-card {
+  background-color: var(--bg-page);
+  box-shadow: var(--neu-sm);
+  border-radius: 16px;
+}
+
+/* Theme Dock Neumorph */
+[data-theme="neumorph"] .theme-dock {
+  background-color: var(--bg-page);
+  box-shadow: 10px 10px 20px #bec3c9, -10px -10px 20px #ffffff;
+}
+[data-theme="neumorph"] .theme-pill-btn {
+  background-color: var(--bg-page);
+  box-shadow: 3px 3px 6px #bec3c9, -3px -3px 6px #ffffff;
+  color: var(--text-muted);
+}
+[data-theme="neumorph"] .theme-pill-btn.is-active {
+  box-shadow: var(--neu-pressed);
+  color: var(--primary);
+  font-weight: 800;
+}
+
+/* Inspector Drawer Neumorph */
+[data-theme="neumorph"] .design-inspector-drawer {
+  background-color: var(--bg-page);
+  box-shadow: -10px 0 24px #bec3c9;
+}
+[data-theme="neumorph"] .inspector-quote {
+  background-color: var(--bg-page);
+  box-shadow: var(--neu-pressed);
+  border-left: 4px solid var(--primary);
+  border-radius: 12px;
+}
+[data-theme="neumorph"] .inspector-css-box {
+  background-color: var(--bg-page);
+  box-shadow: var(--neu-pressed);
+  color: var(--primary);
+  border-radius: 12px;
+}

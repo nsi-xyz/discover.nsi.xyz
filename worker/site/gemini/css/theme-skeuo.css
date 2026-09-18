@@ -1,0 +1,233 @@
+/**
+ * theme-skeuo.css
+ * Paradigme 3 : Skeuomorphisme (Ère Steve Jobs / Apple 2007-2012)
+ * Caractéristiques : Textures physiques brossées, biseaux 3D, reflets spéculaires,
+ * boutons poussoirs physiques, voyants LED lumineux, typographie embossée.
+ */
+
+[data-theme="skeuo"] {
+  --bg-page: #23272d;
+  --bg-surface: linear-gradient(180deg, #3a3f47 0%, #2a2e35 100%);
+  --bg-surface-inset: #1a1d22;
+  --text-main: #e8ecf0;
+  --text-muted: #9aa0a6;
+  
+  --chrome-border: 1px solid #4d535e;
+  --bevel-top: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  --bevel-bottom: 0 4px 12px rgba(0, 0, 0, 0.45);
+  --btn-gradient: linear-gradient(180deg, #f0f2f5 0%, #d8dce2 50%, #c2c7cf 51%, #acb2bb 100%);
+  --btn-active-gradient: linear-gradient(180deg, #8a919c 0%, #a4abb5 100%);
+  
+  --led-green: #00ff66;
+  --led-amber: #ffaa00;
+  
+  --border-radius: 8px;
+  --font-family: -apple-system, 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+[data-theme="skeuo"] body {
+  background-color: var(--bg-page);
+  background-image: 
+    radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 0),
+    radial-gradient(rgba(255, 255, 255, 0.04) 1px, #23272d 1px);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+  color: var(--text-main);
+  font-family: var(--font-family);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Header Skeuomorphique : barre d'aluminium usiné */
+[data-theme="skeuo"] .site-header {
+  background: linear-gradient(180deg, #3f454f 0%, #2a2f38 100%);
+  border-bottom: 1px solid #181b20;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 3px 8px rgba(0, 0, 0, 0.5);
+}
+[data-theme="skeuo"] .brand-badge {
+  background: linear-gradient(180deg, #3498db 0%, #2980b9 50%, #1a5276 100%);
+  color: #ffffff;
+  border-radius: 6px;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.6), 0 2px 5px rgba(0, 0, 0, 0.5);
+  border: 1px solid #154360;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* Boutons physiques 3D avec biseau lustré */
+[data-theme="skeuo"] .btn-compact,
+[data-theme="skeuo"] .btn-cta-primary,
+[data-theme="skeuo"] .btn-cta-secondary,
+[data-theme="skeuo"] .sort-controls button,
+[data-theme="skeuo"] .btn-quiz-submit {
+  background: var(--btn-gradient);
+  color: #2c3e50;
+  font-weight: 700;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+  border: 1px solid #7f8c8d;
+  border-bottom-color: #566573;
+  border-radius: 6px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 2px 5px rgba(0, 0, 0, 0.4);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  position: relative;
+}
+
+[data-theme="skeuo"] .btn-cta-primary,
+[data-theme="skeuo"] .btn-quiz-submit,
+[data-theme="skeuo"] .sort-controls button#sort-step-btn {
+  background: linear-gradient(180deg, #4aa3df 0%, #2980b9 50%, #1f618d 51%, #1a5276 100%);
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.6);
+  border: 1px solid #1b4f72;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 3px 6px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="skeuo"] .btn-compact:active,
+[data-theme="skeuo"] .btn-cta-primary:active,
+[data-theme="skeuo"] .btn-cta-secondary:active,
+[data-theme="skeuo"] .sort-controls button:active,
+[data-theme="skeuo"] .btn-quiz-submit:active {
+  transform: translateY(2px);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Cartes Skeuomorphiques : plaques métalliques rivetées */
+[data-theme="skeuo"] .history-card,
+[data-theme="skeuo"] .pillar-card,
+[data-theme="skeuo"] .bac-card,
+[data-theme="skeuo"] .project-card,
+[data-theme="skeuo"] .career-card,
+[data-theme="skeuo"] .interactive-panel,
+[data-theme="skeuo"] .hero-preview-card {
+  background: var(--bg-surface);
+  border: var(--chrome-border);
+  border-radius: var(--border-radius);
+  box-shadow: var(--bevel-top), var(--bevel-bottom);
+  position: relative;
+}
+
+/* Rivets en métal aux 4 coins */
+[data-theme="skeuo"] .pillar-card::before,
+[data-theme="skeuo"] .interactive-panel::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #a6b0be 0%, #4a515e 100%);
+  box-shadow: inset 0 1px 1px #fff, 0 1px 2px #000;
+}
+
+[data-theme="skeuo"] .section-tag {
+  background: linear-gradient(180deg, #333842 0%, #20242b 100%);
+  color: var(--led-amber);
+  border: 1px solid #474f5d;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.8), 0 0 6px rgba(255, 170, 0, 0.3);
+  text-shadow: 0 0 4px var(--led-amber);
+}
+
+[data-theme="skeuo"] .pillar-num {
+  background: #1a1d22;
+  color: var(--led-green);
+  border: 1px solid #333a44;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.9), 0 0 8px rgba(0, 255, 102, 0.4);
+  text-shadow: 0 0 4px var(--led-green);
+}
+
+[data-theme="skeuo"] .pillar-icon-box {
+  background: linear-gradient(180deg, #56606f 0%, #363d47 100%);
+  border: 1px solid #6b7787;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 2px 5px rgba(0,0,0,0.5);
+  color: #fff;
+}
+
+/* Terminal & Console */
+[data-theme="skeuo"] .hero-preview-card {
+  background: #111317;
+  border: 2px solid #3a414d;
+  box-shadow: inset 0 2px 10px #000, 0 8px 20px rgba(0,0,0,0.7);
+}
+[data-theme="skeuo"] .terminal-header {
+  background: linear-gradient(180deg, #363c46 0%, #242931 100%);
+  border-bottom: 1px solid #111317;
+}
+
+/* Binaire Skeuomorphique : Interrupteurs à bascule / Diodes */
+[data-theme="skeuo"] .bit-box {
+  background: linear-gradient(180deg, #3a3f47 0%, #24272e 100%);
+  border: 1px solid #4a515c;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 2px 4px rgba(0,0,0,0.6);
+}
+[data-theme="skeuo"] .bit-box.bit-on {
+  background: linear-gradient(180deg, #1e4620 0%, #0d280e 100%);
+  border-color: #27ae60;
+  box-shadow: inset 0 1px 2px rgba(255,255,255,0.4), 0 0 10px rgba(0, 255, 102, 0.5);
+  color: #a3ffb8;
+}
+[data-theme="skeuo"] .bit-digit {
+  text-shadow: 0 0 6px currentColor;
+}
+[data-theme="skeuo"] .binary-input {
+  background: #15181c;
+  border: 1px solid #3d4450;
+  color: #00ff66;
+  box-shadow: inset 0 2px 6px #000;
+  text-shadow: 0 0 6px rgba(0, 255, 102, 0.6);
+}
+[data-theme="skeuo"] .binary-readout-row {
+  background: #15181c;
+  border: 1px solid #333a44;
+  box-shadow: inset 0 2px 4px #000;
+}
+
+/* Tri par sélection Skeuo */
+[data-theme="skeuo"] .sort-array-display {
+  background: #16181d;
+  box-shadow: inset 0 3px 8px #000;
+  border: 1px solid #333a45;
+}
+[data-theme="skeuo"] .bar-fill {
+  background: linear-gradient(180deg, #5dade2 0%, #2980b9 50%, #1b4f72 100%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 0 6px rgba(41, 128, 185, 0.5);
+}
+[data-theme="skeuo"] .sort-bar-item.is-sorted .bar-fill {
+  background: linear-gradient(180deg, #58d68d 0%, #27ae60 50%, #196f3d 100%);
+  box-shadow: 0 0 8px rgba(39, 174, 96, 0.7);
+}
+
+/* Theme Dock Skeuo : Console en métal poli */
+[data-theme="skeuo"] .theme-dock {
+  background: linear-gradient(180deg, #444b56 0%, #272c35 100%);
+  border: 1px solid #5a6473;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 8px 24px rgba(0,0,0,0.7);
+}
+[data-theme="skeuo"] .theme-pill-btn {
+  background: linear-gradient(180deg, #373d47 0%, #22262d 100%);
+  border: 1px solid #4a5260;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.15), 0 1px 3px rgba(0,0,0,0.5);
+  color: #b0b7c3;
+}
+[data-theme="skeuo"] .theme-pill-btn.is-active {
+  background: linear-gradient(180deg, #2471a3 0%, #154360 100%);
+  border-color: #5dade2;
+  box-shadow: inset 0 1px 2px rgba(255,255,255,0.4), 0 0 8px rgba(52, 152, 219, 0.6);
+  color: #ffffff;
+}
+
+/* Inspector Drawer Skeuo */
+[data-theme="skeuo"] .design-inspector-drawer {
+  background: linear-gradient(180deg, #2d323b 0%, #1f2329 100%);
+  border-left: 2px solid #4f5765;
+  box-shadow: -6px 0 20px rgba(0,0,0,0.8);
+}
+[data-theme="skeuo"] .inspector-quote {
+  background: #171a1f;
+  border-left-color: #3498db;
+  box-shadow: inset 0 1px 3px #000;
+}
+[data-theme="skeuo"] .inspector-css-box {
+  background: #121418;
+  border: 1px solid #383f4b;
+  color: #00ff66;
+  box-shadow: inset 0 2px 6px #000;
+}

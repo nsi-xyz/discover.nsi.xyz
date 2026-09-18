@@ -2,5 +2,6 @@
 #   /            → Astra   (index.html, styles.css, app.js)
 #   /deepseek/   → version DeepSeek
 #   /fable/      → version Fable 5.1
-#   /gemini/     → version Gemini (build statique à la racine de son dossier)
+#   /gemini/     → version Gemini 3.8 Flash (site statique)
+#   /glm/        → version GLM 5.3 Flash
 #   /prompt/     → le prompt original du challenge (à copier ou télécharger)

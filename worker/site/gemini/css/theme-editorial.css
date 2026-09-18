@@ -1,0 +1,245 @@
+/**
+ * theme-editorial.css
+ * Paradigme 9 : Typographique (Éditorial / Gazette littéraire & presse d'art)
+ * Caractéristiques : Sérifs majestueuses, lettrine monumentale, filets doubles,
+ * palette d'imprimeur (papier vergé ivoire #fcf9f2, encre noire, rouge vermillon).
+ */
+
+[data-theme="editorial"] {
+  --bg-page: #fcf9f2;
+  --bg-surface: #ffffff;
+  --bg-surface-alt: #f4efe4;
+  --text-main: #141414;
+  --text-muted: #525252;
+  
+  --ink-black: #141414;
+  --ink-red: #991b1b;
+  --paper-line: #dcd6c8;
+  
+  --border-double: 3px double #141414;
+  --border-single: 1px solid #141414;
+  --border-radius: 0px;
+  
+  --font-family: 'Playfair Display', Georgia, Cambria, 'Times New Roman', serif;
+  --font-display: 'Playfair Display', Georgia, serif;
+}
+
+[data-theme="editorial"] body {
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  font-family: var(--font-family);
+  background-image: 
+    repeating-linear-gradient(0deg, rgba(20, 20, 20, 0.03) 0, rgba(20, 20, 20, 0.03) 1px, transparent 1px, transparent 24px);
+}
+
+/* Lettrine monumentale sur le paragraphe d'ouverture du hero */
+[data-theme="editorial"] .hero-description::first-letter {
+  font-size: 3.8em;
+  float: left;
+  line-height: 0.8;
+  padding-right: 0.15em;
+  padding-top: 0.1em;
+  color: var(--ink-red);
+  font-weight: 900;
+  font-family: 'Cinzel', serif;
+}
+
+/* Header Éditorial façon frontispice de gazette */
+[data-theme="editorial"] .site-header {
+  background-color: var(--bg-page);
+  border-top: var(--border-single);
+  border-bottom: var(--border-double);
+}
+[data-theme="editorial"] .brand-logo {
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+[data-theme="editorial"] .brand-badge {
+  background-color: var(--ink-red);
+  color: #fff;
+  border-radius: 0;
+  font-family: 'Cinzel', serif;
+}
+[data-theme="editorial"] .nav-link {
+  font-style: italic;
+  font-size: 0.95rem;
+}
+[data-theme="editorial"] .nav-link:hover {
+  color: var(--ink-red);
+  text-decoration: underline;
+}
+
+/* Boutons typographiques */
+[data-theme="editorial"] .btn-compact,
+[data-theme="editorial"] .btn-cta-primary,
+[data-theme="editorial"] .btn-cta-secondary,
+[data-theme="editorial"] .sort-controls button,
+[data-theme="editorial"] .btn-quiz-submit {
+  font-family: 'Playfair Display', serif;
+  padding: 0.625rem 1.25rem;
+  font-size: 0.85rem;
+  font-style: italic;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  border-radius: 0;
+  border: var(--border-single);
+  transition: all 0.2s ease;
+}
+
+[data-theme="editorial"] .btn-cta-primary,
+[data-theme="editorial"] .btn-quiz-submit,
+[data-theme="editorial"] .sort-controls button#sort-step-btn {
+  background-color: var(--ink-red);
+  color: #ffffff;
+  border-color: var(--ink-red);
+}
+[data-theme="editorial"] .btn-cta-primary:hover,
+[data-theme="editorial"] .btn-quiz-submit:hover,
+[data-theme="editorial"] .sort-controls button#sort-step-btn:hover {
+  background-color: #7f1d1d;
+}
+
+[data-theme="editorial"] .btn-cta-secondary,
+[data-theme="editorial"] .sort-controls button#sort-reset-btn {
+  background-color: transparent;
+  color: var(--ink-black);
+}
+[data-theme="editorial"] .btn-cta-secondary:hover,
+[data-theme="editorial"] .sort-controls button#sort-reset-btn:hover {
+  background-color: var(--bg-surface-alt);
+}
+
+/* Cartes façon colonnes de presse et encadrés d'imprimerie */
+[data-theme="editorial"] .history-card,
+[data-theme="editorial"] .pillar-card,
+[data-theme="editorial"] .bac-card,
+[data-theme="editorial"] .project-card,
+[data-theme="editorial"] .career-card,
+[data-theme="editorial"] .interactive-panel,
+[data-theme="editorial"] .hero-preview-card {
+  background-color: #ffffff;
+  border-top: var(--border-double);
+  border-bottom: var(--border-single);
+  border-left: 1px solid var(--paper-line);
+  border-right: 1px solid var(--paper-line);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+[data-theme="editorial"] .section-title,
+[data-theme="editorial"] .hero-title {
+  font-family: 'Cinzel', 'Playfair Display', serif;
+  letter-spacing: -0.01em;
+}
+
+[data-theme="editorial"] .section-tag {
+  background-color: transparent;
+  border-bottom: 2px solid var(--ink-red);
+  color: var(--ink-red);
+  border-radius: 0;
+  font-style: italic;
+  font-weight: 700;
+}
+
+[data-theme="editorial"] .pillar-num {
+  background-color: transparent;
+  border-bottom: 1px solid var(--ink-black);
+  color: var(--ink-red);
+  font-family: 'Cinzel', serif;
+  font-weight: 900;
+  border-radius: 0;
+}
+
+[data-theme="editorial"] .pillar-icon-box {
+  background-color: var(--bg-surface-alt);
+  color: var(--ink-black);
+  border-radius: 0;
+  border: var(--border-single);
+}
+
+[data-theme="editorial"] .pillar-tag-item {
+  background-color: var(--bg-surface-alt);
+  border: 1px solid var(--paper-line);
+  color: var(--text-muted);
+  font-style: italic;
+  border-radius: 0;
+}
+
+/* Terminal Éditorial */
+[data-theme="editorial"] .hero-preview-card {
+  background-color: #1a1816;
+  color: #f5f0e6;
+  border-top: 3px double #dcd6c8;
+}
+[data-theme="editorial"] .terminal-header {
+  background-color: #2c2824;
+  border-bottom: 1px solid #3d3731;
+}
+
+/* Binaire Éditorial */
+[data-theme="editorial"] .bit-box {
+  background-color: #ffffff;
+  border: 1px solid var(--paper-line);
+  border-radius: 0;
+}
+[data-theme="editorial"] .bit-box.bit-on {
+  background-color: var(--bg-surface-alt);
+  border: 1px solid var(--ink-red);
+  color: var(--ink-red);
+}
+[data-theme="editorial"] .binary-input {
+  background-color: #ffffff;
+  border: var(--border-single);
+  border-radius: 0;
+  font-family: 'Playfair Display', serif;
+}
+
+/* Tri par sélection Éditorial */
+[data-theme="editorial"] .sort-array-display {
+  background-color: #ffffff;
+  border: var(--border-single);
+}
+[data-theme="editorial"] .bar-fill {
+  background-color: var(--ink-black);
+  border-radius: 0;
+}
+[data-theme="editorial"] .sort-bar-item.is-sorted .bar-fill {
+  background-color: var(--ink-red);
+}
+
+/* Theme Dock Éditorial */
+[data-theme="editorial"] .theme-dock {
+  background-color: var(--bg-page);
+  border: var(--border-double);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  border-radius: 0;
+}
+[data-theme="editorial"] .theme-pill-btn {
+  background-color: transparent;
+  color: var(--text-muted);
+  font-style: italic;
+  border-radius: 0;
+}
+[data-theme="editorial"] .theme-pill-btn.is-active {
+  background-color: var(--ink-red);
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* Inspector Drawer Éditorial */
+[data-theme="editorial"] .design-inspector-drawer {
+  background-color: var(--bg-page);
+  border-left: var(--border-double);
+}
+[data-theme="editorial"] .inspector-quote {
+  background-color: #ffffff;
+  border-left: 3px solid var(--ink-red);
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+}
+[data-theme="editorial"] .inspector-css-box {
+  background-color: #ffffff;
+  border: 1px solid var(--paper-line);
+  color: var(--ink-black);
+}

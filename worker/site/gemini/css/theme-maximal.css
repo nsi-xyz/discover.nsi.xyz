@@ -1,0 +1,196 @@
+/**
+ * theme-maximal.css
+ * Paradigme 8 : Maximalisme (Pop Memphis Milano, Y2K Revival, Acid Graphics)
+ * Caractéristiques : Dégradés psychédéliques, superpositions vibrantes,
+ * stickers d'interface décoratifs, micro-animations, énergie créative débridée.
+ */
+
+[data-theme="maximal"] {
+  --bg-page: #180828;
+  --bg-surface: rgba(36, 16, 58, 0.9);
+  --text-main: #ffffff;
+  --text-muted: #f0abfc;
+  
+  --pop-pink: #ec4899;
+  --pop-purple: #a855f7;
+  --pop-cyan: #06b6d4;
+  --pop-yellow: #facc15;
+  --pop-orange: #f97316;
+  --pop-lime: #84cc16;
+  
+  --border-radius: 16px;
+  --font-family: 'Syne', system-ui, -apple-system, sans-serif;
+  --font-display: 'Syne', system-ui, -apple-system, sans-serif;
+}
+
+[data-theme="maximal"] body {
+  background-color: var(--bg-page);
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(236, 72, 153, 0.4) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(168, 85, 247, 0.4) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.25) 0%, transparent 50%),
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.02) 0, rgba(255, 255, 255, 0.02) 2px, transparent 0, transparent 8px);
+  color: var(--text-main);
+  font-family: var(--font-family);
+}
+
+/* Header Maximaliste */
+[data-theme="maximal"] .site-header {
+  background: linear-gradient(90deg, #3b0764, #701a75, #831843);
+  border-bottom: 3px solid var(--pop-yellow);
+  box-shadow: 0 4px 20px rgba(236, 72, 153, 0.4);
+}
+[data-theme="maximal"] .brand-badge {
+  background: linear-gradient(135deg, var(--pop-yellow), var(--pop-pink));
+  color: #000;
+  font-weight: 900;
+  transform: rotate(-3deg);
+  box-shadow: 3px 3px 0px var(--pop-cyan);
+}
+
+/* Boutons d'action explosifs */
+[data-theme="maximal"] .btn-compact,
+[data-theme="maximal"] .btn-cta-primary,
+[data-theme="maximal"] .btn-cta-secondary,
+[data-theme="maximal"] .sort-controls button,
+[data-theme="maximal"] .btn-quiz-submit {
+  background: linear-gradient(90deg, var(--pop-pink), var(--pop-purple), var(--pop-cyan));
+  background-size: 200% auto;
+  color: #ffffff;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 30px;
+  border: 2px solid #ffffff;
+  box-shadow: 4px 4px 0px var(--pop-yellow);
+  transition: all 0.25s ease;
+}
+
+[data-theme="maximal"] .btn-compact:hover,
+[data-theme="maximal"] .btn-cta-primary:hover,
+[data-theme="maximal"] .btn-cta-secondary:hover,
+[data-theme="maximal"] .sort-controls button:hover {
+  transform: scale(1.05) rotate(1deg);
+  box-shadow: 6px 6px 0px var(--pop-cyan);
+  filter: brightness(1.15);
+}
+
+/* Cartes Maximalistes */
+[data-theme="maximal"] .history-card,
+[data-theme="maximal"] .pillar-card,
+[data-theme="maximal"] .bac-card,
+[data-theme="maximal"] .project-card,
+[data-theme="maximal"] .career-card,
+[data-theme="maximal"] .interactive-panel,
+[data-theme="maximal"] .hero-preview-card {
+  background-color: var(--bg-surface);
+  border: 2px solid transparent;
+  border-image: linear-gradient(135deg, var(--pop-pink), var(--pop-cyan), var(--pop-yellow)) 1;
+  box-shadow: 8px 8px 0px rgba(236, 72, 153, 0.5);
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+[data-theme="maximal"] .history-card:hover,
+[data-theme="maximal"] .pillar-card:hover,
+[data-theme="maximal"] .project-card:hover,
+[data-theme="maximal"] .career-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 12px 12px 0px var(--pop-cyan);
+}
+
+[data-theme="maximal"] .section-tag {
+  background: linear-gradient(90deg, var(--pop-yellow), var(--pop-orange));
+  color: #000000;
+  font-weight: 900;
+  transform: rotate(-1deg);
+  box-shadow: 2px 2px 0px #fff;
+}
+
+[data-theme="maximal"] .pillar-num {
+  background: linear-gradient(135deg, var(--pop-pink), var(--pop-purple));
+  color: #fff;
+  border-radius: 8px;
+}
+
+[data-theme="maximal"] .pillar-icon-box {
+  background: linear-gradient(135deg, var(--pop-cyan), var(--pop-lime));
+  color: #000;
+  border-radius: 12px;
+}
+
+[data-theme="maximal"] .pillar-tag-item {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid var(--pop-pink);
+  border-radius: 20px;
+}
+
+/* Terminal Maximal */
+[data-theme="maximal"] .hero-preview-card {
+  background-color: #120320;
+  box-shadow: 10px 10px 0px var(--pop-yellow);
+}
+[data-theme="maximal"] .terminal-header {
+  background: linear-gradient(90deg, var(--pop-purple), var(--pop-pink));
+}
+
+/* Binaire Maximal */
+[data-theme="maximal"] .bit-box {
+  background-color: #27103d;
+  border: 2px solid var(--pop-purple);
+  box-shadow: 3px 3px 0px var(--pop-pink);
+}
+[data-theme="maximal"] .bit-box.bit-on {
+  background: linear-gradient(135deg, var(--pop-pink), var(--pop-yellow));
+  color: #000;
+  font-weight: 900;
+  box-shadow: 3px 3px 0px var(--pop-cyan);
+}
+[data-theme="maximal"] .binary-input {
+  background-color: #27103d;
+  border: 2px solid var(--pop-yellow);
+  color: var(--pop-yellow);
+}
+
+/* Tri par sélection Maximal */
+[data-theme="maximal"] .sort-array-display {
+  background-color: #200833;
+  border: 2px solid var(--pop-cyan);
+}
+[data-theme="maximal"] .bar-fill {
+  background: linear-gradient(180deg, var(--pop-yellow), var(--pop-pink));
+  box-shadow: 0 0 10px var(--pop-pink);
+}
+
+/* Theme Dock Maximal */
+[data-theme="maximal"] .theme-dock {
+  background: linear-gradient(90deg, #3b0764, #831843);
+  border: 2px solid var(--pop-yellow);
+  box-shadow: 0 8px 30px rgba(236, 72, 153, 0.6);
+}
+[data-theme="maximal"] .theme-pill-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
+[data-theme="maximal"] .theme-pill-btn.is-active {
+  background: linear-gradient(135deg, var(--pop-yellow), var(--pop-pink));
+  color: #000;
+  box-shadow: 2px 2px 0px var(--pop-cyan);
+  font-weight: 900;
+}
+
+/* Inspector Drawer Maximal */
+[data-theme="maximal"] .design-inspector-drawer {
+  background-color: #1a082b;
+  border-left: 3px solid var(--pop-pink);
+}
+[data-theme="maximal"] .inspector-quote {
+  background: linear-gradient(90deg, rgba(236, 72, 153, 0.2), rgba(168, 85, 247, 0.2));
+  border-left: 4px solid var(--pop-yellow);
+}
+[data-theme="maximal"] .inspector-css-box {
+  background-color: #0c0214;
+  border: 1px solid var(--pop-cyan);
+  color: var(--pop-yellow);
+}

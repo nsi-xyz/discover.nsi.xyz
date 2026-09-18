@@ -1,0 +1,244 @@
+/**
+ * theme-brutal.css
+ * Paradigme 6 : Néo-Brutalisme (Gumroad, Figma, BrutalistWebsites)
+ * Caractéristiques : Bordures noires épaisses (3-4px), ombres portées nettes dures
+ * sans aucun flou (hard shadow 5px 5px 0 #000), contrastes ultra-vifs, badges inclinés.
+ */
+
+[data-theme="brutal"] {
+  --bg-page: #fbf7ee;
+  --bg-surface: #ffffff;
+  --text-main: #000000;
+  --text-muted: #1e293b;
+  
+  --brutal-black: #000000;
+  --brutal-yellow: #fff500;
+  --brutal-pink: #ff66c4;
+  --brutal-cyan: #00f0ff;
+  --brutal-green: #00f59b;
+  --brutal-blue: #2b4fff;
+  
+  --brutal-border: 3px solid #000000;
+  --brutal-border-thick: 4px solid #000000;
+  --brutal-shadow: 5px 5px 0px #000000;
+  --brutal-shadow-lg: 8px 8px 0px #000000;
+  --brutal-shadow-sm: 3px 3px 0px #000000;
+  
+  --border-radius: 0px;
+  --font-family: 'Space Grotesk', system-ui, -apple-system, monospace, sans-serif;
+  --font-display: 'Space Grotesk', system-ui, monospace, sans-serif;
+}
+
+[data-theme="brutal"] body {
+  background-color: var(--bg-page);
+  background-image: 
+    linear-gradient(#00000010 1px, transparent 1px),
+    linear-gradient(90deg, #00000010 1px, transparent 1px);
+  background-size: 32px 32px;
+  color: var(--text-main);
+  font-family: var(--font-family);
+}
+
+/* Header Brutaliste */
+[data-theme="brutal"] .site-header {
+  background-color: var(--brutal-yellow);
+  border-bottom: var(--brutal-border-thick);
+}
+[data-theme="brutal"] .brand-badge {
+  background-color: var(--brutal-pink);
+  color: #000;
+  border: var(--brutal-border);
+  box-shadow: var(--brutal-shadow-sm);
+  border-radius: 0;
+  font-weight: 900;
+}
+
+/* Boutons Néo-Brutalistes qui écrasent leur ombre */
+[data-theme="brutal"] .btn-compact,
+[data-theme="brutal"] .btn-cta-primary,
+[data-theme="brutal"] .btn-cta-secondary,
+[data-theme="brutal"] .sort-controls button,
+[data-theme="brutal"] .btn-quiz-submit {
+  background-color: var(--brutal-yellow);
+  color: #000000;
+  border: var(--brutal-border);
+  box-shadow: var(--brutal-shadow);
+  border-radius: 0;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+[data-theme="brutal"] .btn-cta-primary,
+[data-theme="brutal"] .btn-quiz-submit,
+[data-theme="brutal"] .sort-controls button#sort-step-btn {
+  background-color: var(--brutal-green);
+}
+
+[data-theme="brutal"] .btn-compact:hover,
+[data-theme="brutal"] .btn-cta-primary:hover,
+[data-theme="brutal"] .btn-cta-secondary:hover,
+[data-theme="brutal"] .sort-controls button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0px #000000;
+}
+
+[data-theme="brutal"] .btn-compact:active,
+[data-theme="brutal"] .btn-cta-primary:active,
+[data-theme="brutal"] .btn-cta-secondary:active,
+[data-theme="brutal"] .sort-controls button:active,
+[data-theme="brutal"] .btn-quiz-submit:active {
+  transform: translate(3px, 3px);
+  box-shadow: 2px 2px 0px #000000 !important;
+}
+
+/* Cartes Brutalistes */
+[data-theme="brutal"] .history-card,
+[data-theme="brutal"] .pillar-card,
+[data-theme="brutal"] .bac-card,
+[data-theme="brutal"] .project-card,
+[data-theme="brutal"] .career-card,
+[data-theme="brutal"] .interactive-panel,
+[data-theme="brutal"] .hero-preview-card {
+  background-color: var(--bg-surface);
+  border: var(--brutal-border-thick);
+  border-radius: 0;
+  box-shadow: var(--brutal-shadow-lg);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+[data-theme="brutal"] .history-card:nth-child(1) { background-color: #fff9d6; }
+[data-theme="brutal"] .history-card:nth-child(2) { background-color: #e0f7ff; }
+[data-theme="brutal"] .history-card:nth-child(3) { background-color: #ffe8f5; }
+[data-theme="brutal"] .history-card:nth-child(4) { background-color: #e8ffea; }
+
+[data-theme="brutal"] .history-card:hover,
+[data-theme="brutal"] .pillar-card:hover,
+[data-theme="brutal"] .project-card:hover,
+[data-theme="brutal"] .career-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 11px 11px 0px #000000;
+}
+
+[data-theme="brutal"] .section-tag {
+  background-color: var(--brutal-pink);
+  color: #000;
+  border: var(--brutal-border);
+  box-shadow: var(--brutal-shadow-sm);
+  border-radius: 0;
+  transform: rotate(-2deg);
+}
+
+[data-theme="brutal"] .pillar-num {
+  background-color: #000;
+  color: var(--brutal-yellow);
+  border-radius: 0;
+}
+
+[data-theme="brutal"] .pillar-icon-box {
+  background-color: var(--brutal-cyan);
+  border: var(--brutal-border);
+  box-shadow: var(--brutal-shadow-sm);
+  border-radius: 0;
+}
+
+[data-theme="brutal"] .pillar-tag-item {
+  background-color: var(--brutal-yellow);
+  border: 2px solid #000;
+  border-radius: 0;
+  color: #000;
+  font-weight: 700;
+}
+
+/* Terminal Brutal */
+[data-theme="brutal"] .hero-preview-card {
+  background-color: #000;
+  color: #00ff66;
+  border: var(--brutal-border-thick);
+  box-shadow: var(--brutal-shadow-lg);
+}
+[data-theme="brutal"] .terminal-header {
+  background-color: var(--brutal-pink);
+  border-bottom: var(--brutal-border);
+  color: #000;
+}
+
+/* Binaire Brutal */
+[data-theme="brutal"] .bit-box {
+  background-color: #ffffff;
+  border: var(--brutal-border);
+  box-shadow: var(--brutal-shadow-sm);
+  border-radius: 0;
+}
+[data-theme="brutal"] .bit-box.bit-on {
+  background-color: var(--brutal-yellow);
+  box-shadow: 2px 2px 0px #000;
+}
+[data-theme="brutal"] .binary-input {
+  background-color: #ffffff;
+  border: var(--brutal-border);
+  box-shadow: var(--brutal-shadow-sm);
+  border-radius: 0;
+  color: #000;
+}
+[data-theme="brutal"] .binary-readout-row {
+  background-color: var(--brutal-cyan);
+  border: var(--brutal-border);
+  color: #000;
+  font-weight: 800;
+}
+
+/* Tri par sélection Brutal */
+[data-theme="brutal"] .sort-array-display {
+  background-color: #ffffff;
+  border: var(--brutal-border);
+}
+[data-theme="brutal"] .bar-fill {
+  background-color: var(--brutal-blue);
+  border: 2px solid #000;
+  border-radius: 0;
+}
+[data-theme="brutal"] .sort-bar-item.is-current-i .bar-fill {
+  background-color: var(--brutal-pink);
+}
+[data-theme="brutal"] .sort-bar-item.is-sorted .bar-fill {
+  background-color: var(--brutal-green);
+}
+
+/* Theme Dock Brutal */
+[data-theme="brutal"] .theme-dock {
+  background-color: var(--brutal-yellow);
+  border: var(--brutal-border-thick);
+  box-shadow: var(--brutal-shadow-lg);
+  border-radius: 0;
+}
+[data-theme="brutal"] .theme-pill-btn {
+  background-color: #ffffff;
+  border: 2px solid #000;
+  box-shadow: 2px 2px 0px #000;
+  border-radius: 0;
+  color: #000;
+}
+[data-theme="brutal"] .theme-pill-btn.is-active {
+  background-color: var(--brutal-pink);
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0px #000;
+}
+
+/* Inspector Drawer Brutal */
+[data-theme="brutal"] .design-inspector-drawer {
+  background-color: #ffffff;
+  border-left: var(--brutal-border-thick);
+  box-shadow: -8px 0px 0px #000;
+}
+[data-theme="brutal"] .inspector-quote {
+  background-color: var(--brutal-yellow);
+  border: var(--brutal-border);
+  box-shadow: var(--brutal-shadow-sm);
+}
+[data-theme="brutal"] .inspector-css-box {
+  background-color: #000;
+  color: var(--brutal-green);
+  border: var(--brutal-border);
+}

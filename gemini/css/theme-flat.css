@@ -1,0 +1,269 @@
+/**
+ * theme-flat.css
+ * Paradigme 1 : Flat Design pur
+ * Caractéristiques : ZÉRO OMBRE, aplats de teintes franches saturées,
+ * boutons d'action compacts (py-2.5 px-4 text-[11px] uppercase), géométrie franche.
+ */
+
+[data-theme="flat"] {
+  --bg-page: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-surface-alt: #f1f5f9;
+  --bg-surface-contrast: #0f172a;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --text-inverse: #ffffff;
+  
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-light: #dbeafe;
+  --primary-dark: #1e40af;
+  
+  --accent-emerald: #059669;
+  --accent-coral: #e11d48;
+  --accent-amber: #d97706;
+  --accent-purple: #7c3aed;
+
+  --border-color: #e2e8f0;
+  --border-radius: 4px;
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+[data-theme="flat"] body {
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  font-family: var(--font-family);
+}
+
+/* Règle d'or Flat Design : AUCUNE OMBRE */
+[data-theme="flat"] *,
+[data-theme="flat"] *::before,
+[data-theme="flat"] *::after {
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+/* Header */
+[data-theme="flat"] .site-header {
+  background-color: var(--bg-surface);
+  border-bottom: 2px solid var(--border-color);
+}
+[data-theme="flat"] .brand-badge {
+  background-color: var(--primary);
+  color: #fff;
+  border-radius: 3px;
+}
+[data-theme="flat"] .nav-link:hover {
+  color: var(--primary);
+}
+
+/* Boutons d'action compacts conformes à la règle utilisateur */
+[data-theme="flat"] .btn-compact,
+[data-theme="flat"] .btn-cta-primary,
+[data-theme="flat"] .btn-cta-secondary,
+[data-theme="flat"] .sort-controls button,
+[data-theme="flat"] .btn-quiz-submit {
+  padding: 0.625rem 1rem !important;
+  font-size: 11px !important;
+  text-transform: uppercase !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.05em !important;
+  border-radius: var(--border-radius) !important;
+  border: none !important;
+  transition: background-color 0.15s ease, color 0.15s ease !important;
+}
+
+[data-theme="flat"] .btn-cta-primary,
+[data-theme="flat"] .btn-quiz-submit,
+[data-theme="flat"] .sort-controls button#sort-step-btn {
+  background-color: var(--primary);
+  color: #ffffff;
+}
+[data-theme="flat"] .btn-cta-primary:hover,
+[data-theme="flat"] .btn-quiz-submit:hover,
+[data-theme="flat"] .sort-controls button#sort-step-btn:hover {
+  background-color: var(--primary-hover);
+}
+
+[data-theme="flat"] .btn-cta-secondary,
+[data-theme="flat"] .sort-controls button#sort-reset-btn {
+  background-color: var(--bg-surface-alt);
+  color: var(--text-main);
+  border: 1px solid var(--border-color) !important;
+}
+[data-theme="flat"] .btn-cta-secondary:hover,
+[data-theme="flat"] .sort-controls button#sort-reset-btn:hover {
+  background-color: #e2e8f0;
+}
+
+/* Badges & tags */
+[data-theme="flat"] .section-tag {
+  background-color: var(--primary-light);
+  color: var(--primary-dark);
+}
+[data-theme="flat"] .hero-badge-item {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+}
+
+/* Cartes : aplats nets et bordures fines sans dégradés */
+[data-theme="flat"] .history-card,
+[data-theme="flat"] .pillar-card,
+[data-theme="flat"] .bac-card,
+[data-theme="flat"] .project-card,
+[data-theme="flat"] .career-card,
+[data-theme="flat"] .interactive-panel,
+[data-theme="flat"] .hero-preview-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+}
+
+[data-theme="flat"] .history-card-year {
+  color: var(--primary);
+}
+
+[data-theme="flat"] .pillar-num {
+  background-color: var(--primary);
+  color: #fff;
+}
+[data-theme="flat"] .pillar-icon-box {
+  background-color: var(--primary-light);
+  color: var(--primary);
+}
+[data-theme="flat"] .pillar-tag-item {
+  background-color: var(--bg-surface-alt);
+  color: var(--text-muted);
+}
+
+[data-theme="flat"] .project-badge {
+  color: var(--accent-coral);
+}
+[data-theme="flat"] .project-stack-item {
+  background-color: var(--bg-surface-alt);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+}
+
+/* Terminal NSI Flat */
+[data-theme="flat"] .hero-preview-card {
+  background-color: #0f172a;
+  color: #f8fafc;
+}
+[data-theme="flat"] .terminal-header {
+  background-color: #1e293b;
+}
+
+/* Binaire Flat */
+[data-theme="flat"] .bit-box {
+  background-color: var(--bg-surface-alt);
+  border: 2px solid var(--border-color);
+}
+[data-theme="flat"] .bit-box.bit-on {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: #ffffff;
+}
+[data-theme="flat"] .binary-input {
+  background-color: var(--bg-surface);
+  border: 2px solid var(--border-color);
+  color: var(--text-main);
+}
+[data-theme="flat"] .binary-readout-row {
+  background-color: var(--bg-surface-alt);
+  border: 1px solid var(--border-color);
+}
+
+/* Tri par sélection */
+[data-theme="flat"] .sort-array-display {
+  background-color: var(--bg-surface-alt);
+  border: 1px solid var(--border-color);
+}
+[data-theme="flat"] .bar-fill {
+  background-color: var(--primary);
+}
+[data-theme="flat"] .sort-bar-item.is-current-i .bar-fill {
+  background-color: var(--accent-coral);
+}
+[data-theme="flat"] .sort-bar-item.is-current-j .bar-fill {
+  background-color: var(--accent-amber);
+}
+[data-theme="flat"] .sort-bar-item.is-min .bar-fill {
+  background-color: var(--accent-purple);
+}
+[data-theme="flat"] .sort-bar-item.is-sorted .bar-fill {
+  background-color: var(--accent-emerald);
+}
+[data-theme="flat"] .sort-status-text {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+}
+
+/* Bac Simulator */
+[data-theme="flat"] .calc-input-group input {
+  background-color: var(--bg-surface-alt);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+}
+[data-theme="flat"] .bac-results-card {
+  background-color: var(--bg-surface-alt);
+  border: 1px solid var(--border-color);
+}
+[data-theme="flat"] .bac-mention.mb-tb { background-color: #dcfce7; color: #15803d; }
+[data-theme="flat"] .bac-mention.mb-b { background-color: #dbeafe; color: #1d4ed8; }
+[data-theme="flat"] .bac-mention.mb-ab { background-color: #fef9c3; color: #a16207; }
+[data-theme="flat"] .bac-mention.mb-admis { background-color: #f3f4f6; color: #374151; }
+[data-theme="flat"] .bac-mention.mb-ajourne { background-color: #fee2e2; color: #b91c1c; }
+
+/* Quiz */
+[data-theme="flat"] .quiz-option-label {
+  background-color: var(--bg-surface-alt);
+  border: 1px solid var(--border-color);
+}
+[data-theme="flat"] .quiz-result-box {
+  background-color: var(--primary-light);
+  border-left: 4px solid var(--primary);
+}
+
+/* Theme Dock Flat */
+[data-theme="flat"] .theme-dock {
+  background-color: var(--bg-surface);
+  border: 2px solid var(--border-color);
+}
+[data-theme="flat"] .theme-pill-btn {
+  background-color: var(--bg-surface-alt);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+}
+[data-theme="flat"] .theme-pill-btn.is-active {
+  background-color: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+}
+[data-theme="flat"] .dock-action-btn {
+  background-color: var(--bg-surface-alt);
+  border: 1px solid var(--border-color);
+}
+
+/* Inspector Drawer Flat */
+[data-theme="flat"] .design-inspector-drawer {
+  background-color: var(--bg-surface);
+  border-left: 2px solid var(--border-color);
+}
+[data-theme="flat"] .inspector-quote {
+  background-color: var(--bg-surface-alt);
+  border-left-color: var(--primary);
+}
+[data-theme="flat"] .inspector-css-box {
+  background-color: var(--bg-surface-alt);
+  border: 1px solid var(--border-color);
+}
+
+/* Toast */
+[data-theme="flat"] .theme-toast {
+  background-color: var(--bg-surface-contrast);
+  color: #fff;
+  border: 1px solid #334155;
+}

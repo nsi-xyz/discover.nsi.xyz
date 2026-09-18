@@ -1,7 +1,7 @@
-# discover.nsi.xyz — un contenu, quatre versions
+# discover.nsi.xyz — un contenu, cinq versions
 
 Page de découverte de la spécialité **NSI** (Numérique et Sciences Informatiques)
-au lycée, déclinée par **quatre modèles**, chacune réinterprétant le même contenu en
+au lycée, déclinée par **cinq modèles**, chacune réinterprétant le même contenu en
 **neuf directions artistiques** : Flat, Material, skeuomorphisme, neumorphisme,
 glassmorphisme, brutalisme, minimalisme, maximalisme et typographique.
 
@@ -11,13 +11,14 @@ consultables depuis le pied de page de chacune.
 | Version | Modèle | Prompteur | Coût | Jetons | Durée | Emplacement |
 |---|---|---|---|---|---|---|
 | **Astra** | GPT 6 | @ClovisReye | 13 € | 8 M | 37 min | **racine = page d'accueil** |
-| DeepSeek | DeepSeek 4.1 Flash | @nsi_xyz | 0,13 € | 42 M | 42 min | `deepseek/` |
+| DeepSeek | DeepSeek 4.1 Flash | @nsi_xyz | 0,13 € | 21 M | 42 min | `deepseek/` |
 | Fable | Fable 5.1 | @dabogratinib | 6,30 $ | 2,2 M | 30 min | `fable/` |
-| Gemini | Gemini 3.8 Flash | @nsi_xyz | 0 € | 50 k | 4 min | `gemini/` (build + sources) |
+| Gemini | Gemini 3.8 Flash | @nsi_xyz | forfait < 0,10 € | n.c. | 6 min | `gemini/` (site statique) |
+| GLM | GLM 5.3 Flash | @nsi_xyz | 0,12 € | 1 M | 12 min | `glm/` |
 
-> Idée : [@nsi_xyz](https://twitter.com/nsi_xyz), prompté sur Gemini 3.8 Flash et
-> DeepSeek 4.1 Flash par @nsi_xyz, sur Astra (GPT 6) par @ClovisReye, sur
-> Fable 5.1 par @dabogratinib.
+> Idée : [@nsi_xyz](https://twitter.com/nsi_xyz), prompté sur Gemini 3.8 Flash,
+> DeepSeek 4.1 Flash et GLM 5.3 Flash par @nsi_xyz, sur Astra (GPT 6) par
+> @ClovisReye, sur Fable 5.1 par @dabogratinib.
 
 Chacune de ces versions a reçu **exactement le même prompt, en un seul envoi,
 sans aucune modification**. Il est publié tel quel dans `prompt/` (page
@@ -31,9 +32,10 @@ sans aucune modification**. Il est publié tel quel dans `prompt/` (page
 index.html       page d'accueil = version Astra (styles.css + app.js à la racine)
 deepseek/        version DeepSeek, autonome (index.html + styles/ + scripts/ + assets/)
 fable/           version Fable 5.1, autonome (index.html + css/ + js/)
-gemini/          version Gemini : build statique + sources Angular dans gemini/source/
+gemini/          version Gemini 3.8 Flash, autonome (index.html + css/ + js/ + assets/)
+glm/             version GLM 5.3 Flash, autonome (index.html + css/ + js/)
 prompt/          le prompt original du challenge (page « copier » + le-prompt.txt)
-scripts/build-site.mjs  assemble worker/site (Astra + deepseek + fable + gemini + prompt)
+scripts/build-site.mjs  assemble worker/site (Astra + deepseek + fable + gemini + glm + prompt)
 preview.mjs      aperçu local complet  →  npm run dev  →  127.0.0.1:4173
 .nojekyll        empêche Jekyll d'ignorer les dossiers commençant par un souligné
 ```
@@ -44,25 +46,15 @@ Le déploiement est automatisé par `.github/workflows/deploy-cloudflare-pages.y
 `node scripts/build-site.mjs` assemble `worker/site/`, puis le Worker Cloudflare
 (domaine `discover.nsi.xyz`) et un projet Pages publient ce dossier.
 
-Reconstruire la version Gemini après une modification de `gemini/source/` :
-
-```bash
-cd gemini/source
-npm install
-npm run build -- --base-href /gemini/     # le --base-href est indispensable
-cp dist/app/browser/{index.html,index.csr.html,main-*.js,styles-*.css,favicon.ico} ..
-```
-
-> **Piège** : sans `--base-href /gemini/`, Angular génère `<base href="/">` et le
-> JS/CSS de la version sont demandés à la racine du site (`/main-*.js`), où le
-> Worker ne les trouve pas : la page perd styles et interactivité.
+Toutes les versions sont désormais **statiques** : aucun build n'est nécessaire,
+il suffit de déposer les fichiers de la version dans son dossier.
 
 ## Liens entre les versions
 
-Chaque version affiche dans son pied de page un bandeau **« Un contenu, quatre
-versions »** : son propre coût, puis un lien vers les trois autres versions et
+Chaque version affiche dans son pied de page un bandeau **« Un contenu, cinq
+versions »** : son propre coût, puis un lien vers les quatre autres versions et
 vers la page `prompt/`. Les liens sont **absolus** (`/`, `/deepseek/`,
-`/fable/`, `/gemini/`, `/prompt/`) : ils fonctionnent à l'identique servis depuis
+`/fable/`, `/gemini/`, `/glm/`, `/prompt/`) : ils fonctionnent à l'identique servis depuis
 la racine du dépôt en local (`npm run dev`) comme en production.
 
 ## Ajouter une version plus tard
@@ -85,5 +77,5 @@ npm run dev   # aperçu complet sur http://127.0.0.1:4173/
 ```
 
 - `http://127.0.0.1:4173/` → **Astra**, la page d'accueil
-- `http://127.0.0.1:4173/deepseek/`, `…/fable/` et `…/gemini/` → les autres versions
+- `http://127.0.0.1:4173/deepseek/`, `…/fable/`, `…/gemini/` et `…/glm/` → les autres versions
 - `http://127.0.0.1:4173/prompt/` → le prompt original, à copier ou télécharger

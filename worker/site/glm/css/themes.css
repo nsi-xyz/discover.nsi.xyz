@@ -1,0 +1,180 @@
+/* ============================================================
+   NSI — discover.nsi.xyz
+   Directions artistiques 1 à 5 via html[data-theme="…"]
+   Chaque bloc écrase les variables structurelles de main.css
+   ============================================================ */
+
+/* ---------- 1 · FLAT DESIGN — couleurs franches, zéro ombre ---------- */
+[data-theme="flat"] {
+  --ff-display: 'Space Grotesk', sans-serif;
+  --ff-body: 'Inter', sans-serif;
+  --bg: #f6f7fb;
+  --bg-card: #ffffff;
+  --ink: #191d29;
+  --ink-soft: #5b6270;
+  --accent: #3450f5;
+  --accent-ink: #ffffff;
+  --line: #e3e6ee;
+  --radius: 10px;
+  --card-border: none;
+  --card-shadow: 0 1px 0 rgba(20,25,40,.05);
+  --card-hover: translateY(-3px);
+  --card-hover-shadow: 0 6px 16px rgba(20,25,40,.10);
+  --btn-shadow: 0 3px 0 #2237b8;
+  --dock-bg: #ffffff;
+  --dock-border: none;
+  --dock-shadow: 0 6px 24px rgba(20,25,40,.14);
+}
+
+/* ---------- 2 · MATERIAL DESIGN — élévation, blur, violet Material 3 ---------- */
+[data-theme="material"] {
+  --ff-display: 'Space Grotesk', sans-serif;
+  --ff-body: 'Inter', sans-serif;
+  --bg: #f2f4f8;
+  --bg-card: #ffffff;
+  --ink: #1c1f26;
+  --ink-soft: #5f6470;
+  --accent: #6750a4;
+  --accent-ink: #ffffff;
+  --line: #e0e3ea;
+  --radius: 16px;
+  --card-border: 1px solid #eceef3;
+  --card-shadow: 0 1px 3px rgba(0,0,0,.10), 0 1px 2px rgba(0,0,0,.08);
+  --card-hover: translateY(-2px);
+  --card-hover-shadow: 0 4px 10px rgba(0,0,0,.14);
+  --btn-shadow: 0 2px 6px rgba(103,80,164,.4);
+  --brand-node-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 20%, transparent);
+  --topbar-bg: color-mix(in srgb, #ffffff 85%, transparent);
+  --topbar-border: none;
+  --topbar-blur: blur(10px);
+  --topbar-shadow: 0 1px 0 rgba(0,0,0,.06);
+  --dock-bg: color-mix(in srgb, #ffffff 88%, transparent);
+  --dock-border: none;
+  --dock-blur: blur(12px);
+  --dock-shadow: 0 8px 28px rgba(0,0,0,.18);
+  --module-num-size: .8rem;
+}
+
+/* ---------- 3 · SKEUOMORPHISME — cuir, laiton, encre dorée ---------- */
+[data-theme="skeuo"] {
+  --ff-display: 'Playfair Display', serif;
+  --ff-body: 'Libre Caslon Text', serif;
+  --fs-hero: clamp(2.4rem, 6vw, 4.6rem);
+  --bg: #2a2018;
+  --bg-card: #3a2d21;
+  --ink: #efe3cc;
+  --ink-soft: #b7a488;
+  --accent: #d9a441;
+  --accent-ink: #2a2018;
+  --line: #57452f;
+  --radius: 6px;
+  --letter-tight: 0;
+  --body-bg-image:
+    radial-gradient(ellipse at 50% 0%, rgba(255,220,150,.07), transparent 60%),
+    repeating-linear-gradient(45deg, rgba(0,0,0,.06) 0 2px, transparent 2px 4px);
+  --card-border: 1px solid #57452f;
+  --card-shadow: inset 0 1px 0 rgba(255,235,190,.08), 0 6px 18px rgba(0,0,0,.45);
+  --card-hover: translateY(-3px);
+  --card-hover-shadow: inset 0 1px 0 rgba(255,235,190,.1), 0 10px 26px rgba(0,0,0,.55);
+  --btn-shadow: 0 3px 0 #8a6420, inset 0 1px 0 rgba(255,240,200,.35);
+  --brand-node-shadow: 0 0 0 3px rgba(217,164,65,.25);
+  --topbar-bg: linear-gradient(180deg, #332818, #2a2018);
+  --topbar-border: 1px solid #57452f;
+  --topbar-shadow: 0 4px 14px rgba(0,0,0,.4);
+  --dock-bg: linear-gradient(180deg, #3d3021, #332818);
+  --dock-border: 1px solid #6a5436;
+  --dock-shadow: 0 10px 30px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,235,190,.12);
+  --tl-family: 'Playfair Display', serif;
+}
+
+[data-theme="skeuo"] .topbar,
+[data-theme="skeuo"] .dock {
+  background-image: none;
+  background-color: #33281a;
+}
+[data-theme="skeuo"] .dock { background: linear-gradient(180deg, #3d3021, #332818); }
+[data-theme="skeuo"] .topbar { background: linear-gradient(180deg, #332818, #2a2018); }
+[data-theme="skeuo"] .module-alt { background: linear-gradient(180deg, #4a3a25, #3a2d21); color: var(--ink); }
+[data-theme="skeuo"] .module-alt .card-text { color: var(--ink-soft); }
+[data-theme="skeuo"] .module-alt .module-num { color: var(--accent); border-color: var(--accent); }
+[data-theme="skeuo"] .outcome-glyph { background: linear-gradient(180deg, #5a4629, #46361f); color: var(--accent); border: 1px solid #6a5436; }
+[data-theme="skeuo"] .chip { background: linear-gradient(180deg, #463726, #3a2d21); }
+[data-theme="skeuo"] .chip.c3 { background: linear-gradient(180deg, #e9b95b, #c99230); color: #2a2018; }
+[data-theme="skeuo"] .btn.primary { background: linear-gradient(180deg, #e9b95b, #c99230); text-shadow: 0 1px 0 rgba(255,240,200,.4); }
+
+/* ---------- 4 · NEUMORPHISME — soft UI monochrome ---------- */
+[data-theme="neu"] {
+  --ff-display: 'Space Grotesk', sans-serif;
+  --ff-body: 'Inter', sans-serif;
+  --bg: #e4e9f2;
+  --bg-card: #e4e9f2;
+  --ink: #2c3444;
+  --ink-soft: #6c7689;
+  --accent: #4a6cf7;
+  --accent-ink: #ffffff;
+  --line: #e4e9f2;
+  --radius: 18px;
+  --card-border: none;
+  --card-shadow: 9px 9px 18px #c6ccd9, -9px -9px 18px #ffffff;
+  --card-hover: translateY(-3px);
+  --card-hover-shadow: 12px 12px 22px #c0c7d5, -12px -12px 22px #ffffff;
+  --btn-shadow: 6px 6px 12px #c6ccd9, -6px -6px 12px #ffffff;
+  --topbar-bg: #e4e9f2;
+  --topbar-border: none;
+  --topbar-shadow: 0 6px 14px rgba(163,177,198,.35);
+  --dock-bg: #e4e9f2;
+  --dock-border: none;
+  --dock-shadow: 10px 10px 22px #c6ccd9, -10px -10px 22px #ffffff;
+  --module-num-size: .85rem;
+  --outcome-align: center;
+}
+
+[data-theme="neu"] .btn.ghost {
+  border-color: transparent;
+  background: var(--bg);
+  box-shadow: inset 3px 3px 6px #c6ccd9, inset -3px -3px 6px #ffffff;
+}
+[data-theme="neu"] .chip { background: var(--bg); border: none; }
+[data-theme="neu"] .module-alt { color: #fff; }
+[data-theme="neu"] .module-alt .card-text { color: rgba(255,255,255,.85); }
+
+/* ---------- 5 · GLASSMORPHISME — dégradé vibrant + verre dépoli ---------- */
+[data-theme="glass"] {
+  --ff-display: 'Space Grotesk', sans-serif;
+  --ff-body: 'Inter', sans-serif;
+  --bg: #171332;
+  --bg-card: rgba(255,255,255,.06);
+  --ink: #f4f2ff;
+  --ink-soft: #b9b3e0;
+  --accent: #9d8fff;
+  --accent-ink: #ffffff;
+  --line: rgba(255,255,255,.18);
+  --radius: 20px;
+  --body-bg-image:
+    radial-gradient(40rem 40rem at 85% -10%, rgba(124,108,255,.4), transparent 60%),
+    radial-gradient(35rem 35rem at -10% 30%, rgba(255,94,168,.32), transparent 60%),
+    radial-gradient(30rem 30rem at 60% 110%, rgba(64,201,255,.3), transparent 60%);
+  --body-overlay: repeating-linear-gradient(0deg, transparent 0 3px, rgba(255,255,255,.012) 3px 4px);
+  --card-border: 1px solid rgba(255,255,255,.16);
+  --card-shadow: 0 8px 32px rgba(10,5,40,.35), inset 0 1px 0 rgba(255,255,255,.12);
+  --card-hover: translateY(-4px);
+  --card-hover-shadow: 0 14px 40px rgba(10,5,40,.5), inset 0 1px 0 rgba(255,255,255,.18);
+  --btn-shadow: 0 6px 20px rgba(124,108,255,.5);
+  --topbar-bg: rgba(23,19,50,.55);
+  --topbar-border: 1px solid rgba(255,255,255,.1);
+  --topbar-blur: blur(14px);
+  --dock-bg: rgba(255,255,255,.08);
+  --dock-border: 1px solid rgba(255,255,255,.2);
+  --dock-blur: blur(18px);
+  --dock-shadow: 0 12px 34px rgba(5,2,25,.5);
+}
+
+[data-theme="glass"] .chip {
+  background: rgba(255,255,255,.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+[data-theme="glass"] .chip.c3 { background: rgba(124,108,255,.75); border: none; }
+[data-theme="glass"] .module-alt { background: rgba(124,108,255,.22); }
+[data-theme="glass"] .module-alt .card-text { color: #d9d4ff; }
+[data-theme="glass"] .outcome-glyph { background: rgba(255,255,255,.1); color: #fff; border: 1px solid rgba(255,255,255,.2); }

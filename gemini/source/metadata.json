@@ -1,6 +1,0 @@
-{
-  "name": "NSI - Numérique et Sciences Informatiques",
-  "description": "Landing page innovante pour la spécialité NSI au lycée avec métamorphose en 9 paradigmes de web design.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}

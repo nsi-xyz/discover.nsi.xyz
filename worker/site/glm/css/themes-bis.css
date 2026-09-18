@@ -1,0 +1,251 @@
+/* ============================================================
+   NSI — discover.nsi.xyz
+   Directions artistiques 6 à 9 : brutal, minimal, maxi, typo
+   ============================================================ */
+
+/* ---------- 6 · BRUTALISME — béton, noir, bleu électrique, ombres dures ---------- */
+[data-theme="brutal"] {
+  --ff-display: 'Archivo Black', sans-serif;
+  --ff-body: 'Space Grotesk', sans-serif;
+  --fs-hero: clamp(2.6rem, 7vw, 5.6rem);
+  --bg: #f2f0e9;
+  --bg-card: #f2f0e9;
+  --ink: #111111;
+  --ink-soft: #333333;
+  --accent: #1d00ff;
+  --accent-ink: #ffffff;
+  --line: #111111;
+  --radius: 0px;
+  --h3-weight: 800;
+  --card-border: 3px solid #111;
+  --card-shadow: 6px 6px 0 #111;
+  --card-hover: translate(-3px, -3px);
+  --card-hover-shadow: 9px 9px 0 var(--accent);
+  --btn-shadow: 5px 5px 0 #111;
+  --topbar-bg: #f2f0e9;
+  --topbar-border: 3px solid #111;
+  --dock-bg: #f2f0e9;
+  --dock-border: 3px solid #111;
+  --dock-shadow: 6px 6px 0 #111;
+  --footer-border: 3px solid #111;
+  --text-line-height: 1.55;
+}
+
+[data-theme="brutal"] .hero-kicker,
+[data-theme="brutal"] .finale-kicker {
+  background: var(--accent); color: #fff; display: inline-block;
+  padding: .3rem .7rem; transform: rotate(-1deg);
+}
+[data-theme="brutal"] .chip { border: 3px solid #111; box-shadow: 4px 4px 0 #111; border-radius: 0; }
+[data-theme="brutal"] .chip.c3 { background: var(--accent); color: #fff; }
+[data-theme="brutal"] .module-alt { background: var(--accent); color: #fff; }
+[data-theme="brutal"] .module-alt .card-text { color: rgba(255,255,255,.9); }
+[data-theme="brutal"] .module-alt .module-num { color: #fff; border-color: #fff; }
+[data-theme="brutal"] .outcome-glyph { background: var(--ink); color: #f2f0e9; border-radius: 0; }
+[data-theme="brutal"] .btn.ghost { border: 3px solid #111; }
+[data-theme="brutal"] .dock-label { border: 2px solid #111; border-radius: 0; background: #f2f0e9; }
+[data-theme="brutal"] .brandmark-node { border-radius: 0; }
+[data-theme="brutal"] .dock { border-radius: 0; }
+[data-theme="brutal"] .dock-btn { border-radius: 0; }
+
+/* ---------- 7 · MINIMALISME — blanc, air, filets d'encre ---------- */
+[data-theme="minimal"] {
+  --ff-display: 'Fraunces', serif;
+  --ff-body: 'Inter', sans-serif;
+  --fs-hero: clamp(2.5rem, 6.5vw, 5.4rem);
+  --bg: #ffffff;
+  --bg-card: #ffffff;
+  --ink: #101418;
+  --ink-soft: #757b85;
+  --accent: #101418;
+  --accent-ink: #ffffff;
+  --line: #e8e8e6;
+  --radius: 0px;
+  --gap: 2rem;
+  --card-border: none;
+  --card-shadow: none;
+  --card-hover: none;
+  --card-hover-shadow: none;
+  --topbar-bg: rgba(255,255,255,.92);
+  --topbar-border: none;
+  --topbar-blur: blur(8px);
+  --dock-bg: #ffffff;
+  --dock-border: 1px solid #e8e8e6;
+  --dock-shadow: 0 8px 30px rgba(0,0,0,.07);
+  --module-num-size: .7rem;
+  --module-num-weight: 400;
+  --text-line-height: 1.75;
+}
+
+[data-theme="minimal"] .hero-visual { display: none; }
+[data-theme="minimal"] .hero-content { flex: 1 1 100%; }
+[data-theme="minimal"] .grid { gap: 0; }
+[data-theme="minimal"] .card,
+[data-theme="minimal"] .tl-item,
+[data-theme="minimal"] .module { border: none; border-bottom: 1px solid var(--line); border-radius: 0; }
+[data-theme="minimal"] .timeline { gap: 0; }
+[data-theme="minimal"] .tl-year { font-family: var(--ff-mono); font-weight: 400; font-size: .8rem; letter-spacing: .12em; }
+[data-theme="minimal"] .module-alt { background: #fff; color: var(--ink); }
+[data-theme="minimal"] .module-alt .card-text { color: var(--ink-soft); }
+[data-theme="minimal"] .module-alt .module-num { color: var(--ink); border-color: var(--ink); }
+[data-theme="minimal"] .outcome-glyph { background: transparent; color: var(--ink); border: 1px solid var(--line); border-radius: 50%; }
+[data-theme="minimal"] .hero-title .accent { font-style: italic; }
+[data-theme="minimal"] .section-index { border-color: var(--line); color: var(--ink-soft); font-weight: 400; }
+[data-theme="minimal"] .btn.primary { background: var(--ink); box-shadow: none; }
+[data-theme="minimal"] .chip { display: none; }
+
+/* ---------- 8 · MAXIMALISME — Memphis, motifs, couleurs saturées ---------- */
+[data-theme="maxi"] {
+  --ff-display: 'Fraunces', serif;
+  --ff-body: 'Space Grotesk', sans-serif;
+  --fs-hero: clamp(2.6rem, 7vw, 5.8rem);
+  --bg: #fff3e2;
+  --bg-card: #ffffff;
+  --ink: #1f1300;
+  --ink-soft: #5c4a2f;
+  --accent: #ff4d8d;
+  --accent-ink: #1f1300;
+  --line: #1f1300;
+  --radius: 16px;
+  --body-bg-image:
+    radial-gradient(circle at 12% 8%, rgba(255,77,141,.25) 0 12px, transparent 13px),
+    radial-gradient(circle at 88% 4%, rgba(30,200,190,.3) 0 16px, transparent 17px),
+    radial-gradient(circle at 78% 92%, rgba(255,193,7,.35) 0 20px, transparent 21px),
+    repeating-linear-gradient(-45deg, rgba(31,19,0,.05) 0 10px, transparent 10px 26px);
+  --card-border: 3px solid #1f1300;
+  --card-shadow: 8px 8px 0 #1f1300;
+  --card-hover: translate(-4px, -4px) rotate(-.6deg);
+  --card-hover-shadow: 12px 12px 0 #ff4d8d;
+  --btn-shadow: 5px 5px 0 #1f1300;
+  --topbar-bg: #ffd166;
+  --topbar-border: 3px solid #1f1300;
+  --dock-bg: #ffffff;
+  --dock-border: 3px solid #1f1300;
+  --dock-shadow: 6px 6px 0 #1f1300;
+}
+
+[data-theme="maxi"] .hero-title .accent {
+  background: linear-gradient(90deg, #ff4d8d, #ff9a3d, #20c9b7, #7c6cff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+[data-theme="maxi"] .hero-kicker,
+[data-theme="maxi"] .finale-kicker {
+  background: #20c9b7; color: #1f1300; display: inline-block;
+  padding: .35rem .8rem; border: 2px solid #1f1300;
+  box-shadow: 4px 4px 0 #1f1300; transform: rotate(-1.5deg);
+}
+[data-theme="maxi"] .section-index {
+  background: #7c6cff; color: #fff; border: 2px solid #1f1300; transform: rotate(3deg);
+}
+[data-theme="maxi"] .chip { border: 3px solid #1f1300; box-shadow: 4px 4px 0 #1f1300; }
+[data-theme="maxi"] .chip.c3 { background: #20c9b7; color: #1f1300; }
+[data-theme="maxi"] .chip.c1 { background: #ff9a3d; }
+[data-theme="maxi"] .chip.c2 { background: #ff4d8d; }
+[data-theme="maxi"] .chip.c4 { background: #7c6cff; color: #fff; }
+[data-theme="maxi"] .chip.c5 { background: #ffd166; }
+[data-theme="maxi"] .card:nth-child(3n) { background: #e9f8f4; }
+[data-theme="maxi"] .module:nth-child(2) { background: #ffe3ec; }
+[data-theme="maxi"] .module:nth-child(4) { background: #e9f8f4; }
+[data-theme="maxi"] .module-alt { background: #7c6cff; color: #fff; }
+[data-theme="maxi"] .module-alt .card-text { color: #e6e2ff; }
+[data-theme="maxi"] .outcome-glyph { background: #ff9a3d; color: #1f1300; border: 2px solid #1f1300; }
+[data-theme="maxi"] .outcome:nth-child(even) .outcome-glyph { background: #20c9b7; }
+[data-theme="maxi"] .tl-year {
+  background: #ffd166; display: inline-block; padding: .15rem .5rem;
+  border: 2px solid #1f1300; transform: rotate(-2deg);
+}
+[data-theme="maxi"] .finale-title .accent {
+  background: linear-gradient(90deg, #ff4d8d, #20c9b7);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+/* ---------- 9 · TYPOGRAPHIQUE — la typo EST l'interface ---------- */
+[data-theme="typo"] {
+  --ff-display: 'Anton', sans-serif;
+  --ff-body: 'Inter', sans-serif;
+  --fs-hero: clamp(3.2rem, 9.5vw, 8rem);
+  --fs-h2: clamp(1.9rem, 4.5vw, 3.4rem);
+  --fs-h3: 1rem;
+  --bg: #f4f1ea;
+  --bg-card: transparent;
+  --ink: #16130d;
+  --ink-soft: #6b6558;
+  --accent: #e63b12;
+  --accent-ink: #ffffff;
+  --line: rgba(22,19,13,.2);
+  --radius: 0px;
+  --pad-card: 1.4rem 0 0 0;
+  --gap: 0;
+  --heading-transform: uppercase;
+  --h3-weight: 700;
+  --card-border: none;
+  --card-shadow: none;
+  --card-hover: none;
+  --card-hover-shadow: none;
+  --topbar-bg: rgba(244,241,234,.92);
+  --topbar-border: none;
+  --topbar-blur: blur(8px);
+  --dock-bg: #16130d;
+  --dock-border: none;
+  --dock-shadow: 0 10px 30px rgba(0,0,0,.25);
+  --dock-name-display: none;
+  --section-head-layout: column;
+  --tl-layout: grid;
+  --letter-tight: -0.02em;
+  --text-line-height: 1.6;
+  --title-underline: none;
+  --hero-layout: column;
+}
+
+[data-theme="typo"] .hero-content { max-width: 100%; }
+[data-theme="typo"] .hero-visual { display: none; }
+[data-theme="typo"] .hero-lede {
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  font-weight: 300;
+  max-width: 44em;
+  border-left: 4px solid var(--accent);
+  padding-left: 1.2rem;
+}
+[data-theme="typo"] .hero-hint { display: none; }
+[data-theme="typo"] .section-head { border-top: 4px solid var(--ink); padding-top: 1rem; }
+[data-theme="typo"] .section-index {
+  border: none; background: var(--ink); color: var(--bg);
+  font-family: var(--ff-display); font-size: .9rem; padding: .2rem .5rem;
+}
+[data-theme="typo"] .section-tagline { font-family: 'JetBrains Mono', monospace; font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; }
+[data-theme="typo"] .card,
+[data-theme="typo"] .tl-item,
+[data-theme="typo"] .module { border: none; border-top: 3px solid var(--ink); border-radius: 0; }
+[data-theme="typo"] .card-title {
+  font-size: clamp(1.3rem, 2.6vw, 2rem);
+  text-transform: uppercase;
+  line-height: 1.05;
+  transition: color .2s ease;
+}
+[data-theme="typo"] .card:hover .card-title { color: var(--accent); }
+[data-theme="typo"] .tl-year { font-family: var(--ff-display); font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1; color: var(--ink); }
+[data-theme="typo"] .module-num {
+  border: none; background: var(--ink); color: var(--bg);
+  font-family: var(--ff-display); width: auto; height: auto; padding: .15rem .5rem; margin-bottom: .8rem;
+}
+[data-theme="typo"] .module-alt { background: transparent; color: var(--ink); border-top-color: var(--accent); }
+[data-theme="typo"] .module-alt .card-text { color: var(--ink-soft); }
+[data-theme="typo"] .module-alt .module-num { background: var(--accent); color: #fff; }
+[data-theme="typo"] .outcome { border-top-width: 6px; }
+[data-theme="typo"] .outcome-glyph {
+  background: transparent; color: var(--accent);
+  font-family: var(--ff-display); font-size: 1.4rem; border: none; padding: 0;
+  width: auto; height: auto; margin-bottom: .4rem;
+}
+[data-theme="typo"] .btn { text-transform: uppercase; letter-spacing: .06em; border-radius: 0; }
+[data-theme="typo"] .btn.primary { background: var(--accent); box-shadow: none; }
+[data-theme="typo"] .btn.ghost { border-color: var(--ink); }
+[data-theme="typo"] .chip { display: none; }
+[data-theme="typo"] .finale-title { font-size: clamp(2.2rem, 6vw, 4.6rem); }
+[data-theme="typo"] .dock { border-radius: 0; }
+[data-theme="typo"] .dock-btn { color: #b5ae9d; border-radius: 0; }
+[data-theme="typo"] .dock-btn.active { background: var(--accent); color: #fff; }
+[data-theme="typo"] .dock-label { color: #8a8474; }
+[data-theme="typo"] .footer { text-transform: uppercase; letter-spacing: .08em; }
