@@ -1,6 +1,6 @@
 /* Assemble le site publié dans worker/site :
-   Astra à la racine, DeepSeek, Fable, Gemini, GLM et MUSE dans leurs sous-dossiers,
-   la page « prompt » à part. Le même dossier alimente le Worker
+   Astra à la racine, DeepSeek, Fable, Gemini, GLM, MiMo et MUSE dans leurs
+   sous-dossiers, la page « prompt » à part. Le même dossier alimente le Worker
    (domaine discover.nsi.xyz) et Pages. */
 import { cp, rm, readdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
@@ -27,6 +27,9 @@ await cp(join(ROOT, 'gemini'), join(OUT, 'gemini'), { recursive: true });
 
 /* GLM : dossier autonome */
 await cp(join(ROOT, 'glm'), join(OUT, 'glm'), { recursive: true });
+
+/* MiMo : dossier autonome */
+await cp(join(ROOT, 'mimo'), join(OUT, 'mimo'), { recursive: true });
 
 /* MUSE : dossier autonome */
 await cp(join(ROOT, 'muse'), join(OUT, 'muse'), { recursive: true });

@@ -1,0 +1,173 @@
+/* ═══════════════════════════════════════════════
+   06 · BRUTALISME
+   Brut de construction : bordures épaisses, ombres
+   portées sans flou, jaune de signalisation, vérité
+   de la structure.
+   ═══════════════════════════════════════════════ */
+
+html[data-theme="brut"], [data-theme-scope="brut"].sc {
+  /* couleurs — papier, encre, jaune de chantier */
+  --bg: #f5f1e6;
+  --bg-2: #ede8da;
+  --surface: #ffffff;
+  --surface-2: #fff8cc;
+  --text: #111111;
+  --muted: #45423b;
+  --primary: #111111;
+  --on-primary: #fffdf6;
+  --accent: #d42b12;
+  --line: #111111;
+  --line-w: 3px;
+
+  /* ombres dures, sans flou */
+  --shadow-1: 4px 4px 0 #111111;
+  --shadow-2: 8px 8px 0 #111111;
+  --card-shadow: 6px 6px 0 #111111;
+  --card-shadow-hover: 10px 10px 0 #111111;
+  --card-lift: translate(-3px, -3px);
+  --card-strip: #ffe600;
+  --card-img: none;
+
+  /* formes : aucune */
+  --r: 0px;
+  --r-sm: 0px;
+  --r-lg: 0px;
+
+  /* typographie */
+  --f-body: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --f-display: "Archivo Black", Impact, "Arial Black", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --h-weight: 400;
+  --h-transform: uppercase;
+  --h-tracking: -0.015em;
+  --h-shadow: 3px 3px 0 #d42b12;
+  --em-c: #d42b12;
+  --fs-hero: clamp(2.8rem, 7.4vw, 5.2rem);
+  --fs-h2: clamp(2.1rem, 4.8vw, 3.4rem);
+  --fs-h3: clamp(1.15rem, 1.7vw, 1.4rem);
+
+  /* boutons : encre + ombre rouge */
+  --btn-bg: #111111;
+  --btn-bg-hover: #ffe600;
+  --btn-fg: #fffdf6;
+  --btn-img: none;
+  --btn-radius: 0px;
+  --btn-border: #111111;
+  --btn-shadow: 5px 5px 0 #d42b12;
+  --btn-shadow-hover: 7px 7px 0 #111111;
+  --btn-shadow-press: 2px 2px 0 #d42b12;
+
+  /* cartes & chips */
+  --card-bg: #ffffff;
+  --chip-bg: #ffe600;
+  --chip-fg: #111111;
+  --chip-border: #111111;
+  --chip-w: 2px;
+
+  /* liens & focus */
+  --link-c: #111111;
+  --link-deco: underline;
+  --focus: #d42b12;
+
+  /* kicker = étiquette noire */
+  --kicker-bg: #111111;
+  --kicker-fg: #ffe600;
+
+  /* fond — trame diagonale de chantier */
+  --pattern: repeating-linear-gradient(45deg, rgba(17, 17, 17, .045) 0 9px, transparent 9px 18px);
+  --pattern-size: auto;
+
+  /* code */
+  --code-bg: #111111;
+  --code-fg: #fffdf6;
+  --code-kw: #ff5c47;
+  --code-str: #ffe600;
+  --code-com: #8a8778;
+
+  /* rythme + CTA */
+  --sec-pad: clamp(58px, 7vw, 100px);
+  --card-pad: clamp(20px, 2.4vw, 28px);
+  --cta-bg: #111111;
+  --cta-fg: #fffdf6;
+  --cta-kicker-bg: #ffe600;
+}
+
+/* Sur le bandeau noir, l'étiquette devient jaune sur noir → texte clair hérité */
+html[data-theme="brut"] .cta-band .kicker { color: #111111; }
+
+/* Bouton fantôme : contour épais */
+html[data-theme="brut"] .btn-ghost {
+  border-width: 3px;
+  background: transparent;
+}
+html[data-theme="brut"] .btn-ghost:hover {
+  background: #ffe600;
+  border-color: #111111;
+  color: #111111;
+}
+
+/* Le survol du bouton primaire inverse les couleurs */
+html[data-theme="brut"] .btn:hover {
+  color: #111111;
+}
+
+/* Nav en capitales */
+html[data-theme="brut"] .nav a {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: .82rem;
+  letter-spacing: .05em;
+}
+
+/* Archivo Black n'a pas d'italique : on évite la synthèse */
+html[data-theme="brut"] .hero-title em { font-style: normal; }
+
+/* Titres de cartes soulignés à la règle */
+html[data-theme="brut"] .card-title,
+html[data-theme="brut"] .path-title {
+  border-bottom: 3px solid #111111;
+  padding-bottom: 8px;
+}
+[data-theme-scope="brut"].sc .pv-title {
+  border-bottom: 3px solid #111111;
+  padding-bottom: 7px;
+}
+
+/* Années de la frise : plaques jaunes */
+html[data-theme="brut"] .tl-year {
+  background: #ffe600;
+  border: 3px solid #111111;
+  color: #111111;
+  padding: 3px 9px;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* Panneaux : ombre portée franche */
+html[data-theme="brut"] .ancestors,
+html[data-theme="brut"] .bac,
+html[data-theme="brut"] .premiere {
+  box-shadow: 6px 6px 0 #111111;
+}
+
+/* Étiquettes de section : tag fort */
+html[data-theme="brut"] .tag {
+  background: #111111;
+  color: #ffe600;
+  border-color: #111111;
+}
+
+/* CTA : boutons inversés jaunes */
+html[data-theme="brut"] .btn-invert {
+  background: #ffe600;
+  color: #111111;
+  box-shadow: 5px 5px 0 #d42b12;
+}
+html[data-theme="brut"] .btn-invert:hover {
+  background: #ffffff;
+  box-shadow: 7px 7px 0 #ffffff;
+}
+html[data-theme="brut"] .btn-invert-ghost:hover {
+  background: #ffe600;
+  color: #111111;
+}

@@ -1,0 +1,166 @@
+/* ═══════════════════════════════════════════════
+   09 · TYPOGRAPHIE
+   Le texte est l'image : titres monumentaux,
+   chiffres en display, filets de réglure, un seul
+   rouge de signalement.
+   ═══════════════════════════════════════════════ */
+
+html[data-theme="type"], [data-theme-scope="type"].sc {
+  /* couleurs — encre et papier */
+  --bg: #fafaf8;
+  --bg-2: #f0f0ec;
+  --surface: #ffffff;
+  --surface-2: #f0f0ec;
+  --text: #0b0b0b;
+  --muted: #565656;
+  --primary: #0b0b0b;
+  --on-primary: #ffffff;
+  --accent: #d91e18;
+  --line: #1a1a1a;
+  --line-w: 1px;
+
+  /* pas d'ombre : que des filets */
+  --shadow-1: none;
+  --shadow-2: none;
+  --card-shadow: none;
+  --card-shadow-hover: none;
+  --card-lift: none;
+  --card-strip: transparent;
+  --card-img: none;
+
+  /* formes : vives */
+  --r: 0px;
+  --r-sm: 0px;
+  --r-lg: 0px;
+
+  /* typographie — le sujet */
+  --f-body: "Inter", system-ui, sans-serif;
+  --f-display: "Archivo Black", Impact, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --h-weight: 400;
+  --h-transform: uppercase;
+  --h-tracking: -0.03em;
+  --h-shadow: none;
+  --em-c: #d91e18;
+  --fs-hero: clamp(3rem, 9vw, 6rem);
+  --fs-h2: clamp(2.3rem, 5.8vw, 4rem);
+  --fs-h3: clamp(1.15rem, 1.7vw, 1.4rem);
+
+  /* boutons : blocs d'encre, mono espacé */
+  --btn-bg: #0b0b0b;
+  --btn-bg-hover: #333333;
+  --btn-fg: #ffffff;
+  --btn-img: none;
+  --btn-radius: 0px;
+  --btn-border: transparent;
+  --btn-shadow: none;
+  --btn-shadow-hover: none;
+  --btn-shadow-press: none;
+
+  /* cartes & chips */
+  --card-bg: #ffffff;
+  --chip-bg: transparent;
+  --chip-fg: #0b0b0b;
+  --chip-border: #0b0b0b;
+  --chip-w: 1px;
+
+  /* liens & focus */
+  --link-c: #0b0b0b;
+  --link-deco: underline;
+  --focus: #d91e18;
+
+  /* kicker = étiquette noire, mono */
+  --kicker-bg: #0b0b0b;
+  --kicker-fg: #ff6b54;
+
+  /* fond — réglure horizontale */
+  --pattern: repeating-linear-gradient(180deg, transparent 0 31px, rgba(11, 11, 11, .055) 31px 32px);
+  --pattern-size: auto;
+
+  /* code */
+  --code-bg: #0b0b0b;
+  --code-fg: #edede7;
+  --code-kw: #ffffff;
+  --code-str: #ff6b54;
+  --code-com: #8a8a80;
+
+  /* rythme + CTA */
+  --sec-pad: clamp(72px, 9vw, 130px);
+  --card-pad: clamp(22px, 2.8vw, 32px);
+  --cta-bg: #0b0b0b;
+  --cta-fg: #fafaf8;
+  --cta-kicker-bg: #d91e18;
+  --cta-kicker-fg: #ffffff;
+}
+
+/* La réglure suit les bandes alternées */
+html[data-theme="type"] .band { background-image: var(--pattern); }
+
+/* Boutons : capitales monospace */
+html[data-theme="type"] .btn {
+  font-family: var(--f-mono);
+  font-size: .82rem;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+[data-theme-scope="type"].sc .pv-btn {
+  font-family: var(--f-mono);
+  font-size: .74rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+[data-theme-scope="type"].sc .pv-link { text-decoration-thickness: 2px; }
+
+/* Nav monospace en capitales */
+html[data-theme="type"] .nav a {
+  font-family: var(--f-mono);
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+/* Titres : socle typographique épais */
+html[data-theme="type"] .section-title {
+  border-bottom: 5px solid var(--text);
+  padding-bottom: .22em;
+}
+html[data-theme="type"] .cta-title {
+  border-bottom: 5px solid var(--cta-fg);
+  padding-bottom: .22em;
+}
+
+/* La frise devient une liste de numéros géants */
+html[data-theme="type"] .tl-year {
+  font-family: var(--f-display);
+  font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+  font-weight: 400;
+  color: var(--text);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+/* Index de cartes en display */
+html[data-theme="type"] .card-index,
+html[data-theme="type"] .path-index {
+  font-family: var(--f-display);
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  letter-spacing: -0.04em;
+  color: var(--text);
+}
+
+/* Chips en monospace */
+html[data-theme="type"] .chip,
+html[data-theme="type"] .tag {
+  font-family: var(--f-mono);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-size: .78rem;
+}
+html[data-theme="type"] .tag { font-size: .68rem; }
+
+/* Héros : un filet rouge sous le titre, comme une légende */
+html[data-theme="type"] .hero-title {
+  border-bottom: 5px solid var(--accent);
+  padding-bottom: .18em;
+}
+html[data-theme="type"] .hero-title em { font-style: normal; }

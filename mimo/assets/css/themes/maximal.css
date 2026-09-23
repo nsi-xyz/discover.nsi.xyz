@@ -1,0 +1,153 @@
+/* ═══════════════════════════════════════════════
+   08 · MAXIMALISME
+   Plus c'est plus : pois saturés, ombres portées
+   colorées, cartes de travers, bandes criardes —
+   sans jamais sacrifier le contraste.
+   ═══════════════════════════════════════════════ */
+
+html[data-theme="maximal"], [data-theme-scope="maximal"].sc {
+  /* couleurs — fête foraine */
+  --bg: #ffd23f;
+  --bg-2: #a8e6cf;
+  --surface: #ffffff;
+  --surface-2: #fff6d6;
+  --text: #14100c;
+  --muted: #3f3428;
+  --primary: #14100c;
+  --on-primary: #ffd23f;
+  --accent: #c1121f;
+  --line: #14100c;
+  --line-w: 3px;
+
+  /* ombres portées colorées */
+  --shadow-1: 5px 5px 0 #14100c;
+  --shadow-2: 9px 9px 0 #14100c;
+  --card-shadow: 7px 7px 0 #14100c;
+  --card-shadow-hover: 11px 11px 0 #14100c;
+  --card-lift: translate(-3px, -3px);
+  --card-strip: linear-gradient(90deg, #c1121f 0 33.3%, #ffd23f 33.3% 66.6%, #4cc9c0 66.6% 100%);
+  --card-img: none;
+
+  /* formes — pilules partout */
+  --r: 16px;
+  --r-sm: 999px;
+  --r-lg: 28px;
+
+  /* typographie */
+  --f-body: "Space Grotesk", system-ui, sans-serif;
+  --f-display: "Archivo Black", Impact, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --h-weight: 400;
+  --h-transform: none;
+  --h-tracking: -0.02em;
+  --h-shadow: none;
+  --em-c: #c1121f;
+  --fs-hero: clamp(2.9rem, 7.6vw, 5.4rem);
+  --fs-h2: clamp(2.1rem, 4.8vw, 3.4rem);
+  --fs-h3: clamp(1.16rem, 1.7vw, 1.4rem);
+
+  /* boutons : pastilles noires, ombre rouge */
+  --btn-bg: #14100c;
+  --btn-bg-hover: #c1121f;
+  --btn-fg: #ffd23f;
+  --btn-img: none;
+  --btn-radius: 999px;
+  --btn-border: transparent;
+  --btn-shadow: 5px 5px 0 #c1121f;
+  --btn-shadow-hover: 7px 7px 0 #c1121f;
+  --btn-shadow-press: 2px 2px 0 #c1121f;
+
+  /* cartes & chips */
+  --card-bg: #ffffff;
+  --chip-bg: #ffffff;
+  --chip-fg: #14100c;
+  --chip-border: #14100c;
+  --chip-w: 2px;
+
+  /* liens & focus */
+  --link-c: #14100c;
+  --link-deco: underline;
+  --focus: #c1121f;
+
+  /* kicker = étiquette noire */
+  --kicker-bg: #14100c;
+  --kicker-fg: #ffd23f;
+
+  /* fond — pois noirs */
+  --pattern: radial-gradient(rgba(20, 16, 12, .18) 2.2px, transparent 2.6px);
+  --pattern-size: 22px 22px;
+
+  /* code */
+  --code-bg: #14100c;
+  --code-fg: #ffe9a8;
+  --code-kw: #ff6b6b;
+  --code-str: #4cc9c0;
+  --code-com: #9c9384;
+
+  /* rythme + CTA */
+  --sec-pad: clamp(66px, 8vw, 116px);
+  --card-pad: clamp(22px, 2.6vw, 30px);
+  --cta-bg: #ffd23f;
+  --cta-fg: #14100c;
+  --cta-kicker-bg: #14100c;
+  --cta-kicker-fg: #ffd23f;
+}
+
+/* Sur la bande jaune, le kicker noir hérite du texte : on reprend la main */
+html[data-theme="maximal"] .cta-band .kicker { color: #ffd23f; }
+
+/* Pois aussi sur les bandes alternées */
+html[data-theme="maximal"] .band { background-image: var(--pattern); background-size: var(--pattern-size); }
+
+/* Cartes de travers — la règle `rotate` ne casse pas les révélations */
+html[data-theme="maximal"] .grid > *:nth-child(odd) { rotate: -.7deg; }
+html[data-theme="maximal"] .grid > *:nth-child(even) { rotate: .7deg; }
+
+/* Aperçu du maximalisme : seul son univers penche (jamais les autres) */
+[data-theme-scope="maximal"].sc.pv { rotate: -1deg; }
+[data-theme-scope="maximal"].sc.pv:hover { rotate: 0deg; }
+
+/* Titre de héros : serif italique en éclat */
+html[data-theme="maximal"] .hero-title em {
+  font-family: "DM Serif Display", Georgia, serif;
+  font-style: italic;
+  text-transform: none;
+  color: #c1121f;
+}
+
+/* Années de la frise : pastilles turquoise */
+html[data-theme="maximal"] .tl-year {
+  background: #4cc9c0;
+  border: 3px solid #14100c;
+  color: #14100c;
+  padding: 2px 10px;
+  text-align: center;
+  line-height: 1.3;
+}
+
+/* Panneaux gariés de couleur */
+html[data-theme="maximal"] .ancestors { border-top: 14px solid #c1121f; }
+html[data-theme="maximal"] .bac { border-top: 14px solid #4cc9c0; }
+html[data-theme="maximal"] .premiere { border-top: 14px solid #ff7a59; }
+
+/* Chips bien bordées */
+html[data-theme="maximal"] .tag { border-width: 2px; }
+
+/* Le bandeau final : jaune, textes noirs, boutons pilules */
+html[data-theme="maximal"] .btn-invert {
+  background: #14100c;
+  color: #ffd23f;
+  box-shadow: 5px 5px 0 #c1121f;
+}
+html[data-theme="maximal"] .btn-invert:hover {
+  background: #c1121f;
+  color: #ffffff;
+  box-shadow: 7px 7px 0 #14100c;
+}
+html[data-theme="maximal"] .btn-invert-ghost {
+  border-width: 3px;
+}
+html[data-theme="maximal"] .btn-invert-ghost:hover {
+  background: #14100c;
+  color: #ffd23f;
+}

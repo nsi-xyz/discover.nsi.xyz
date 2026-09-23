@@ -1,0 +1,136 @@
+/* ═══════════════════════════════════════════════
+   04 · NEUMORPHISME
+   Tout est sculpté dans la même matière : double
+   ombre claire/sombre, volumes doux, état enfoncé.
+   ═══════════════════════════════════════════════ */
+
+html[data-theme="neu"], [data-theme-scope="neu"].sc {
+  /* couleurs — plastique gris-bleu */
+  --bg: #e4e9f0;
+  --bg-2: #dfe4ec;
+  --surface: #e7ecf3;
+  --surface-2: #edf1f7;
+  --text: #2e3542;
+  --muted: #59616f;
+  --primary: #2f4bdd;
+  --on-primary: #ffffff;
+  --accent: #9a3412;
+  --line: #d5dce7;
+  --line-w: 1px;
+
+  /* double ombre : lumière en haut à gauche */
+  --shadow-1: -4px -4px 10px #ffffff, 4px 4px 10px rgba(163, 177, 198, .55);
+  --shadow-2: -7px -7px 16px #ffffff, 7px 7px 16px rgba(163, 177, 198, .6);
+  --card-shadow: -8px -8px 18px #ffffff, 8px 8px 18px rgba(163, 177, 198, .60);
+  --card-shadow-hover: -11px -11px 24px #ffffff, 11px 11px 24px rgba(160, 175, 197, .72);
+  --card-lift: translateY(-2px);
+  --card-strip: transparent;
+  --card-img: none;
+
+  /* formes — volumes très arrondis */
+  --r: 24px;
+  --r-sm: 16px;
+  --r-lg: 34px;
+
+  /* typographie */
+  --f-body: "Quicksand", system-ui, sans-serif;
+  --f-display: "Quicksand", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --h-weight: 700;
+  --h-transform: none;
+  --h-tracking: -0.01em;
+  --h-shadow: none;
+  --em-c: #2f4bdd;
+  --fs-hero: clamp(2.6rem, 6.8vw, 4.8rem);
+  --fs-h2: clamp(1.95rem, 4.2vw, 3rem);
+  --fs-h3: clamp(1.12rem, 1.5vw, 1.3rem);
+
+  /* boutons : relief puis enfoncement */
+  --btn-bg: #2f4bdd;
+  --btn-bg-hover: #2740c4;
+  --btn-fg: #ffffff;
+  --btn-img: none;
+  --btn-radius: 999px;
+  --btn-border: transparent;
+  --btn-shadow: -4px -4px 10px #ffffff, 4px 4px 10px rgba(160, 175, 197, .65);
+  --btn-shadow-hover: -5px -5px 12px #ffffff, 5px 5px 12px rgba(160, 175, 197, .78);
+  --btn-shadow-press: inset 4px 4px 8px rgba(160, 175, 197, .8), inset -4px -4px 8px #ffffff;
+
+  /* cartes & chips */
+  --card-bg: #e7ecf3;
+  --chip-bg: #e7ecf3;
+  --chip-fg: #2e3542;
+  --chip-border: transparent;
+  --chip-w: 1px;
+
+  /* liens & focus */
+  --link-c: #2f4bdd;
+  --link-deco: underline;
+  --focus: #2f4bdd;
+
+  /* kicker en gélule sculptée */
+  --kicker-bg: #e7ecf3;
+  --kicker-fg: #2f4bdd;
+
+  /* fond */
+  --pattern: none;
+  --pattern-size: auto;
+
+  /* code — écran encastré */
+  --code-bg: #131a2c;
+  --code-fg: #dce4f7;
+  --code-kw: #ff8fb1;
+  --code-str: #97edc8;
+  --code-com: #7d88ad;
+
+  /* rythme + CTA */
+  --sec-pad: clamp(66px, 8vw, 116px);
+  --card-pad: clamp(24px, 2.8vw, 32px);
+  --cta-bg: #2f4bdd;
+  --cta-fg: #ffffff;
+  --cta-kicker-bg: rgba(255, 255, 255, .2);
+}
+
+/* Le rail garde ses boutons sculptés (jetons) — signatures : */
+
+/* Kicker en relief */
+html[data-theme="neu"] .kicker {
+  box-shadow: -3px -3px 7px #ffffff, 3px 3px 7px rgba(163, 177, 198, .55);
+  border-radius: 999px;
+}
+
+/* Chips en relief doux */
+html[data-theme="neu"] .chip {
+  box-shadow: -3px -3px 7px #ffffff, 3px 3px 7px rgba(163, 177, 198, .55);
+}
+html[data-theme="neu"] .tag {
+  box-shadow: -3px -3px 7px #ffffff, 3px 3px 7px rgba(163, 177, 198, .5);
+}
+
+/* Bouton fantôme : volume creusé plutôt que contour */
+html[data-theme="neu"] .btn-ghost {
+  background-color: #e7ecf3;
+  border-color: transparent;
+  box-shadow: -4px -4px 10px #ffffff, 4px 4px 10px rgba(163, 177, 198, .55);
+}
+html[data-theme="neu"] .btn-ghost:hover {
+  background-color: #edf1f7;
+  box-shadow: -5px -5px 12px #ffffff, 5px 5px 12px rgba(163, 177, 198, .65);
+}
+html[data-theme="neu"] .btn-ghost:active {
+  box-shadow: inset 4px 4px 8px rgba(160, 175, 197, .75), inset -4px -4px 8px #ffffff;
+}
+
+/* Listes de données encastrées */
+html[data-theme="neu"] .bac-list li {
+  border-color: transparent;
+  box-shadow: inset 3px 3px 7px rgba(163, 177, 198, .55), inset -3px -3px 7px #ffffff;
+}
+
+/* Cartes d'aperçu du laboratoire : même sculpture */
+[data-theme-scope="neu"].sc.pv {
+  box-shadow: -8px -8px 18px #ffffff, 8px 8px 18px rgba(163, 177, 198, .6);
+}
+[data-theme-scope="neu"].sc.pv:hover {
+  box-shadow: -11px -11px 24px #ffffff, 11px 11px 24px rgba(160, 175, 197, .72);
+}

@@ -1,0 +1,108 @@
+/* ═══════════════════════════════════════════════
+   01 · FLAT DESIGN
+   Aplats francs, aucune ombre, formes simples,
+   palette primaire assumée. La lisibilité d'abord.
+   ═══════════════════════════════════════════════ */
+
+html[data-theme="flat"], [data-theme-scope="flat"].sc {
+  /* couleurs */
+  --bg: #f2f4f9;
+  --bg-2: #e9edf7;
+  --surface: #ffffff;
+  --surface-2: #eef2fb;
+  --text: #16203c;
+  --muted: #57617d;
+  --primary: #2f6bff;
+  --on-primary: #ffffff;
+  --accent: #ff4d6d;
+  --line: #e2e8f6;
+  --line-w: 1px;
+
+  /* profondeur : aucune */
+  --shadow-1: none;
+  --shadow-2: none;
+  --card-shadow: none;
+  --card-shadow-hover: none;
+  --card-lift: none;
+  --card-strip: linear-gradient(90deg, #2f6bff 0 55%, #ff4d6d 55% 100%);
+  --card-img: none;
+
+  /* formes */
+  --r: 14px;
+  --r-sm: 10px;
+  --r-lg: 24px;
+
+  /* typographie */
+  --f-body: "Poppins", system-ui, sans-serif;
+  --f-display: "Poppins", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --h-weight: 700;
+  --h-transform: none;
+  --h-tracking: -0.02em;
+  --h-shadow: none;
+  --em-c: var(--accent);
+  --fs-hero: clamp(2.7rem, 7vw, 4.9rem);
+  --fs-h2: clamp(2rem, 4.4vw, 3.1rem);
+  --fs-h3: clamp(1.14rem, 1.6vw, 1.32rem);
+
+  /* boutons : pastilles pleines */
+  --btn-bg: #2f6bff;
+  --btn-bg-hover: #1f55d6;
+  --btn-fg: #ffffff;
+  --btn-img: none;
+  --btn-radius: 12px;
+  --btn-border: transparent;
+  --btn-shadow: none;
+  --btn-shadow-hover: none;
+  --btn-shadow-press: none;
+
+  /* cartes & chips */
+  --card-bg: #ffffff;
+  --chip-bg: #e8edfb;
+  --chip-fg: #23304f;
+  --chip-border: transparent;
+  --chip-w: 1px;
+
+  /* liens & focus */
+  --link-c: #2f6bff;
+  --link-deco: none;
+  --focus: #2f6bff;
+
+  /* kicker */
+  --kicker-bg: transparent;
+  --kicker-fg: #ff4d6d;
+
+  /* fond */
+  --pattern: none;
+  --pattern-size: auto;
+
+  /* code */
+  --code-bg: #101733;
+  --code-fg: #dfe6ff;
+  --code-kw: #ff7ab2;
+  --code-str: #9ef0c0;
+  --code-com: #7f8bb5;
+
+  /* rythme + CTA */
+  --sec-pad: clamp(64px, 8vw, 112px);
+  --card-pad: clamp(20px, 2.4vw, 28px);
+  --cta-bg: #2f6bff;
+  --cta-fg: #ffffff;
+  --cta-kicker-bg: rgba(255, 255, 255, .18);
+}
+
+/* Signature flat : cartes sans contour — la couleur seule sépare les blocs. */
+html[data-theme="flat"] .card,
+html[data-theme="flat"] .path,
+html[data-theme="flat"] .bac,
+html[data-theme="flat"] .ancestors,
+html[data-theme="flat"] .premiere {
+  border-color: transparent;
+}
+[data-theme-scope="flat"].sc.pv { border-color: transparent; }
+
+/* Boutons primaires sans contour non plus */
+html[data-theme="flat"] .btn-primary,
+html[data-theme="flat"] .bac .btn {
+  border-color: transparent;
+}

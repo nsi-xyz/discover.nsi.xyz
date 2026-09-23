@@ -1,0 +1,127 @@
+/* ═══════════════════════════════════════════════
+   03 · SKEUOMORPHISME
+   Le numérique imite la matière : papier ligné,
+   lin, biseaux, brillance laquée, tampons d'encre.
+   ═══════════════════════════════════════════════ */
+
+html[data-theme="skeuo"], [data-theme-scope="skeuo"].sc {
+  /* couleurs — bureau, papier, encre */
+  --bg: #e4dac6;
+  --bg-2: #dbcfb6;
+  --surface: #fbf7ec;
+  --surface-2: #f2ecdc;
+  --text: #33291d;
+  --muted: #6e6152;
+  --primary: #1f62c4;
+  --on-primary: #ffffff;
+  --accent: #a5352a;
+  --line: #c9bb9f;
+  --line-w: 1px;
+
+  /* profondeur — ombres douces de bureau */
+  --shadow-1: 0 1px 2px rgba(61, 45, 25, .22), 0 3px 8px -4px rgba(61, 45, 25, .30);
+  --shadow-2: 0 10px 24px -12px rgba(61, 45, 25, .45);
+  --card-shadow: 0 1px 1px rgba(45, 32, 16, .18), 0 8px 16px -8px rgba(45, 32, 16, .35),
+                 inset 0 1px 0 #ffffff, inset 0 -1px 0 rgba(45, 32, 16, .10);
+  --card-shadow-hover: 0 2px 2px rgba(45, 32, 16, .20), 0 14px 26px -10px rgba(45, 32, 16, .45),
+                       inset 0 1px 0 #ffffff, inset 0 -1px 0 rgba(45, 32, 16, .10);
+  --card-lift: translateY(-2px);
+  --card-strip: transparent;
+  --card-img: repeating-linear-gradient(0deg, rgba(120, 95, 60, .045) 0 3px, transparent 3px 7px);
+
+  /* formes — angles discrets */
+  --r: 7px;
+  --r-sm: 5px;
+  --r-lg: 12px;
+
+  /* typographie — classiques du bureau */
+  --f-body: system-ui, -apple-system, "Segoe UI", Helvetica, sans-serif;
+  --f-display: Georgia, "Times New Roman", serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --h-weight: 700;
+  --h-transform: none;
+  --h-tracking: -0.01em;
+  --h-shadow: 0 1px 0 rgba(255, 255, 255, .9);
+  --em-c: #a5352a;
+  --fs-hero: clamp(2.6rem, 6.6vw, 4.6rem);
+  --fs-h2: clamp(1.95rem, 4.2vw, 3rem);
+  --fs-h3: clamp(1.12rem, 1.5vw, 1.3rem);
+
+  /* boutons laqués */
+  --btn-bg: #1f62c4;
+  --btn-bg-hover: #1a55ae;
+  --btn-fg: #ffffff;
+  --btn-img: linear-gradient(180deg, rgba(255, 255, 255, .40), rgba(255, 255, 255, .07) 46%,
+                                    rgba(0, 0, 0, .12) 52%, rgba(0, 0, 0, .18));
+  --btn-radius: 7px;
+  --btn-border: #14468f;
+  --btn-shadow: inset 0 1px 0 rgba(255, 255, 255, .55), 0 2px 4px rgba(35, 25, 10, .35);
+  --btn-shadow-hover: inset 0 1px 0 rgba(255, 255, 255, .65), 0 4px 8px rgba(35, 25, 10, .42);
+  --btn-shadow-press: inset 0 3px 6px rgba(0, 0, 0, .45);
+
+  /* cartes & chips — papier */
+  --card-bg: #fbf7ec;
+  --chip-bg: #f0e8d6;
+  --chip-fg: #4a3e2e;
+  --chip-border: #c9bb9f;
+  --chip-w: 1px;
+
+  /* liens & focus */
+  --link-c: #1f5fbf;
+  --link-deco: underline;
+  --focus: #a5352a;
+
+  /* kicker = tampon d'encre */
+  --kicker-bg: #f7e6e2;
+  --kicker-fg: #a5352a;
+
+  /* fond — tissage de lin */
+  --pattern: repeating-linear-gradient(45deg, rgba(255, 255, 255, .35) 0 2px, transparent 2px 5px),
+             repeating-linear-gradient(-45deg, rgba(120, 95, 60, .06) 0 2px, transparent 2px 5px);
+  --pattern-size: auto;
+
+  /* code — terminal ambré sur bois */
+  --code-bg: #2c2418;
+  --code-fg: #f0e6d2;
+  --code-kw: #ffb65c;
+  --code-str: #b7e39a;
+  --code-com: #9c8e76;
+
+  /* rythme + CTA — cuir */
+  --sec-pad: clamp(60px, 7.5vw, 104px);
+  --card-pad: clamp(20px, 2.4vw, 28px);
+  --cta-bg: #7b3f1d;
+  --cta-fg: #fff6e8;
+  --cta-kicker-bg: rgba(255, 255, 255, .16);
+}
+
+/* Le motif de lin suit aussi les bandes alternées */
+html[data-theme="skeuo"] .band { background-image: var(--pattern); }
+
+/* Papier réglé sur le CTA aussi (sur le cuir, non : on garde le veau) */
+
+/* En-tête = plaque de bureau vernie */
+html[data-theme="skeuo"] .site-header {
+  box-shadow: 0 3px 8px -3px rgba(45, 32, 16, .35);
+}
+
+/* L'écran devient un appareil posé sur le bureau */
+html[data-theme="skeuo"] .code-card {
+  border-radius: 10px;
+  border-color: #241c12;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 14px 26px -12px rgba(45, 32, 16, .55);
+}
+
+/* Panneaux : bord pointillé façon couture */
+html[data-theme="skeuo"] .ancestors,
+html[data-theme="skeuo"] .bac,
+html[data-theme="skeuo"] .premiere {
+  border-style: dashed;
+  border-width: 2px;
+}
+
+/* Titres encrés sur papier */
+html[data-theme="skeuo"] .section-title,
+html[data-theme="skeuo"] .hero-title {
+  text-shadow: 0 1px 0 rgba(255, 255, 255, .95);
+}

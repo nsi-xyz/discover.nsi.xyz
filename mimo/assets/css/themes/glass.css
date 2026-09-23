@@ -1,0 +1,147 @@
+/* ═══════════════════════════════════════════════
+   05 · GLASSMORPHISME
+   Nuit aurore, surfaces dépolies translucides,
+   bordures lumineuses, halo coloré sous chaque panneau.
+   ═══════════════════════════════════════════════ */
+
+html[data-theme="glass"], [data-theme-scope="glass"].sc {
+  /* couleurs — nuit profonde */
+  --bg: #0b1020;
+  --bg-2: rgba(255, 255, 255, .05);
+  --surface: rgba(255, 255, 255, .07);
+  --surface-2: rgba(255, 255, 255, .12);
+  --text: #eef2ff;
+  --muted: #a9b3d1;
+  --primary: #66d9ff;
+  --on-primary: #06121c;
+  --accent: #ff7ad9;
+  --line: rgba(255, 255, 255, .18);
+  --line-w: 1px;
+
+  /* profondeur nocturne */
+  --shadow-1: 0 8px 32px -14px rgba(0, 0, 0, .65);
+  --shadow-2: 0 24px 60px -26px rgba(0, 0, 0, .8);
+  --card-shadow: 0 12px 40px -18px rgba(0, 0, 0, .7);
+  --card-shadow-hover: 0 22px 54px -22px rgba(0, 0, 0, .85);
+  --card-lift: translateY(-4px);
+  --card-strip: linear-gradient(90deg, rgba(102, 217, 255, .95) 0 50%, rgba(255, 122, 217, .95) 50% 100%);
+  --card-img: none;
+
+  /* formes */
+  --r: 20px;
+  --r-sm: 14px;
+  --r-lg: 30px;
+
+  /* typographie */
+  --f-body: "Space Grotesk", system-ui, sans-serif;
+  --f-display: "Space Grotesk", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --h-weight: 700;
+  --h-transform: none;
+  --h-tracking: -0.02em;
+  --h-shadow: none;
+  --em-c: #ff7ad9;
+  --fs-hero: clamp(2.7rem, 7vw, 5rem);
+  --fs-h2: clamp(2rem, 4.4vw, 3.2rem);
+  --fs-h3: clamp(1.14rem, 1.6vw, 1.32rem);
+
+  /* boutons néon */
+  --btn-bg: #66d9ff;
+  --btn-bg-hover: #8ce4ff;
+  --btn-fg: #06121c;
+  --btn-img: none;
+  --btn-radius: 999px;
+  --btn-border: transparent;
+  --btn-shadow: 0 10px 26px -12px rgba(102, 217, 255, .65);
+  --btn-shadow-hover: 0 14px 32px -10px rgba(102, 217, 255, .8);
+  --btn-shadow-press: inset 0 3px 6px rgba(6, 18, 28, .4);
+
+  /* cartes & chips */
+  --card-bg: rgba(255, 255, 255, .07);
+  --chip-bg: rgba(255, 255, 255, .1);
+  --chip-fg: #eef2ff;
+  --chip-border: rgba(255, 255, 255, .24);
+  --chip-w: 1px;
+
+  /* liens & focus */
+  --link-c: #66d9ff;
+  --link-deco: underline;
+  --focus: #66d9ff;
+
+  /* kicker */
+  --kicker-bg: rgba(255, 255, 255, .1);
+  --kicker-fg: #66d9ff;
+
+  /* fond — aurore */
+  --pattern: radial-gradient(900px 620px at 10% -8%, rgba(102, 217, 255, .26), transparent 62%),
+             radial-gradient(820px 700px at 92% 8%, rgba(255, 122, 217, .22), transparent 64%),
+             radial-gradient(1100px 820px at 55% 105%, rgba(126, 88, 255, .30), transparent 62%);
+  --pattern-size: auto;
+
+  /* code */
+  --code-bg: rgba(6, 10, 24, .78);
+  --code-fg: #dce6ff;
+  --code-kw: #ff8fc8;
+  --code-str: #8cf2c6;
+  --code-com: #7c89b8;
+
+  /* rythme + CTA */
+  --sec-pad: clamp(68px, 8.4vw, 120px);
+  --card-pad: clamp(22px, 2.6vw, 30px);
+  --cta-bg: rgba(102, 217, 255, .14);
+  --cta-fg: #eef2ff;
+  --cta-kicker-bg: rgba(255, 255, 255, .14);
+}
+
+/* ── Verre dépoli : backdrop-filter sur toutes les surfaces ── */
+html[data-theme="glass"] .site-header,
+html[data-theme="glass"] .dock,
+html[data-theme="glass"] .card,
+html[data-theme="glass"] .path,
+html[data-theme="glass"] .bac,
+html[data-theme="glass"] .ancestors,
+html[data-theme="glass"] .premiere,
+html[data-theme="glass"] .chip,
+html[data-theme="glass"] .tag,
+html[data-theme="glass"] .hud,
+html[data-theme="glass"] .bac-list li,
+html[data-theme="glass"] .code-card,
+html[data-theme="glass"] .menu-toggle,
+html[data-theme="glass"] .nav a:hover,
+[data-theme-scope="glass"].sc {
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+}
+
+/* Chaque aperçu du laboratoire est une vitre dans son univers */
+[data-theme-scope="glass"].sc { border-color: rgba(255, 255, 255, .28); }
+
+/* L'aurore dérive lentement sur la page entière */
+html[data-theme="glass"] body {
+  animation: glass-drift 26s ease-in-out infinite alternate;
+}
+@keyframes glass-drift {
+  to { background-position: 6% 4%, -6% 8%, 4% -6%; }
+}
+
+/* Bandes alternées : voile translucide plutôt que aplat */
+html[data-theme="glass"] .band {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08);
+}
+
+/* Le pied de page laisse voir l'aurore */
+html[data-theme="glass"] .site-footer { background: transparent; }
+
+/* Timeline : points lumineux */
+html[data-theme="glass"] .tl-mark {
+  box-shadow: 0 0 0 5px var(--bg), 0 0 18px rgba(102, 217, 255, .75);
+}
+
+/* Sur la bande CTA, le bouton fantôme redevient lisible en verre */
+html[data-theme="glass"] .btn-invert {
+  background: rgba(255, 255, 255, .12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #eef2ff;
+}
+html[data-theme="glass"] .btn-invert:hover { background: rgba(255, 255, 255, .2); }

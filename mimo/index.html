@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="fr" data-theme="flat">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NSI — Numérique et Sciences Informatiques · discover.nsi.xyz</title>
+<meta name="description" content="La spécialité NSI au lycée : histoire et ancêtres, programme officiel, projets concrets et débouchés après le bac — à travers 9 interprétations de web design.">
+<meta name="theme-color" content="#f2f4f9" id="metaTheme">
+<meta name="color-scheme" content="light" id="metaScheme">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+<!-- Applique le thème avant le premier rendu (pas de flash) -->
+<script>
+(function () {
+  try {
+    var t = localStorage.getItem('nsi-theme');
+    if (t && /^[a-z]{3,10}$/.test(t)) document.documentElement.dataset.theme = t;
+  } catch (e) {}
+  document.documentElement.classList.add('js');
+  // Filet de sécurité : si app.js ne se charge pas, tout reste visible.
+  setTimeout(function () {
+    if (window.__nsiBooted) return;
+    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-in'); });
+  }, 1800);
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;600;700&family=Quicksand:wght@500;600;700&family=Roboto:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap">
+
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/themes/flat.css">
+<link rel="stylesheet" href="assets/css/themes/material.css">
+<link rel="stylesheet" href="assets/css/themes/skeuo.css">
+<link rel="stylesheet" href="assets/css/themes/neumorph.css">
+<link rel="stylesheet" href="assets/css/themes/glass.css">
+<link rel="stylesheet" href="assets/css/themes/brutal.css">
+<link rel="stylesheet" href="assets/css/themes/minimal.css">
+<link rel="stylesheet" href="assets/css/themes/maximal.css">
+<link rel="stylesheet" href="assets/css/themes/type.css">
+<script defer src="assets/js/app.js"></script>
+</head>
+
+<body>
+<a class="skip" href="#contenu">Aller au contenu</a>
+<div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a class="brand" href="#top" aria-label="NSI — retour en haut">
+      <span class="brand-mark">nsi</span><span class="brand-dot" aria-hidden="true">.</span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Navigation principale">
+      <a href="#labo">Laboratoire</a>
+      <a href="#histoire">Histoire</a>
+      <a href="#programme">Programme</a>
+      <a href="#projets">Projets</a>
+      <a href="#apres">Après</a>
+    </nav>
+
+    <div class="header-right">
+      <span class="hud" aria-live="polite" title="Esthétique active">
+        <span class="hud-dot" aria-hidden="true"></span>
+        <span class="hud-label">Mode</span>
+        <strong id="hudName">Flat Design</strong>
+      </span>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="nav" aria-label="Ouvrir le menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="contenu">
+
+  <!-- ══════════════ HERO ══════════════ -->
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="kicker">Spécialité · Première &amp; Terminale</p>
+        <h1 class="hero-title">Passe de l’autre<br><em>côté de l’écran.</em></h1>
+        <p class="lead hero-lead">Derrière chaque appli, chaque jeu, chaque service que tu utilises&nbsp;: un programme. La NSI t’apprend à le comprendre — puis à l’écrire. Décomposer, modéliser, coder, tester, débuguer&nbsp;: deux années pour passer de consommateur à créateur.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#programme">Voir le programme</a>
+          <a class="btn btn-ghost" href="#labo">Changer de perspective</a>
+        </div>
+        <ul class="hero-stats">
+          <li><strong>4&nbsp;h</strong><span>par semaine en Première</span></li>
+          <li><strong>6&nbsp;h</strong><span>par semaine en Terminale</span></li>
+          <li><strong>2</strong><span>épreuves&nbsp;: écrite + pratique</span></li>
+          <li><strong>2019</strong><span>année de naissance</span></li>
+        </ul>
+      </div>
+
+      <div class="hero-visual">
+        <div class="code-card">
+          <div class="code-bar" aria-hidden="true">
+            <i></i><i></i><i></i>
+            <span class="code-name">hello_futur.py</span>
+          </div>
+<pre class="code-body"><code><span class="c-c"># la NSI, c'est aussi ça&nbsp;:</span>
+<span class="c-kw">def</span> <span class="c-fn">futur</span>(idee):
+    <span class="c-kw">if</span> idee.est_bonne:
+        idee.coder()
+        idee.partager()
+    <span class="c-kw">else</span>:
+        <span class="c-kw">return</span> <span class="c-fn">futur</span>(idee.reformulee())
+
+<span class="c-fn">print</span>(<span class="c-str">"Hello, futur."</span>)</code></pre>
+          <p class="code-caption"><span class="code-caret" aria-hidden="true">▌</span> récursivité · fichier exécuté sans erreur</p>
+        </div>
+        <p class="hero-note">Et oui&nbsp;: ce site change aussi de peau. Neuf fois.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ LABORATOIRE ══════════════ -->
+  <section class="section band" id="labo">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="kicker">01 / Le laboratoire UI/UX</p>
+        <h2 class="section-title">Un contenu.<br>Neuf regards.</h2>
+        <p class="lead">La forme n’est pas un habillage&nbsp;: elle change le message. Choisis un paradigme graphique — toute la page se métamorphose, du bouton au fil du temps. Le texte, lui, ne bouge pas d’un iota.</p>
+      </header>
+
+      <div class="lab-grid" role="group" aria-label="Les neuf interprétations visuelles">
+        <button class="pv sc reveal" data-theme-scope="flat" data-apply="flat" aria-pressed="true">
+          <span class="pv-kicker">Paradigme 01</span>
+          <span class="pv-title">Flat Design</span>
+          <span class="pv-text">Aplats francs, ombres bannies&nbsp;: la lisibilité avant le décor.</span>
+          <span class="pv-row"><span class="pv-btn">Appliquer</span><span class="pv-link">En savoir plus</span></span>
+        </button>
+
+        <button class="pv sc reveal" data-theme-scope="material" data-apply="material" aria-pressed="false">
+          <span class="pv-kicker">Paradigme 02</span>
+          <span class="pv-title">Material Design</span>
+          <span class="pv-text">Élévation, ondes de réaction, grilles de 4&nbsp;dp&nbsp;: le système de Google.</span>
+          <span class="pv-row"><span class="pv-btn">Appliquer</span><span class="pv-link">En savoir plus</span></span>
+        </button>
+
+        <button class="pv sc reveal" data-theme-scope="skeuo" data-apply="skeuo" aria-pressed="false">
+          <span class="pv-kicker">Paradigme 03</span>
+          <span class="pv-title">Skeuomorphisme</span>
+          <span class="pv-text">Le numérique imite la matière&nbsp;: papier, cuir, relief, brillance.</span>
+          <span class="pv-row"><span class="pv-btn">Appliquer</span><span class="pv-link">En savoir plus</span></span>
+        </button>
+
+        <button class="pv sc reveal" data-theme-scope="neu" data-apply="neu" aria-pressed="false">
+          <span class="pv-kicker">Paradigme 04</span>
+          <span class="pv-title">Neumorphisme</span>
+          <span class="pv-text">Un plastique doux, taillé dans la même matière que le fond.</span>
+          <span class="pv-row"><span class="pv-btn">Appliquer</span><span class="pv-link">En savoir plus</span></span>
+        </button>
+
+        <button class="pv sc reveal" data-theme-scope="glass" data-apply="glass" aria-pressed="false">
+          <span class="pv-kicker">Paradigme 05</span>
+          <span class="pv-title">Glassmorphisme</span>
+          <span class="pv-text">Verre dépoli et transparence&nbsp;: une profondeur feutrée.</span>
+          <span class="pv-row"><span class="pv-btn">Appliquer</span><span class="pv-link">En savoir plus</span></span>
+        </button>
+
+        <button class="pv sc reveal" data-theme-scope="brut" data-apply="brut" aria-pressed="false">
+          <span class="pv-kicker">Paradigme 06</span>
+          <span class="pv-title">Brutalisme</span>
+          <span class="pv-text">Brut de construction&nbsp;: bordures épaisses, ombres portées, vérité des marges.</span>
+          <span class="pv-row"><span class="pv-btn">Appliquer</span><span class="pv-link">En savoir plus</span></span>
+        </button>
+
+        <button class="pv sc reveal" data-theme-scope="minimal" data-apply="minimal" aria-pressed="false">
+          <span class="pv-kicker">Paradigme 07</span>
+          <span class="pv-title">Minimalisme</span>
+          <span class="pv-text">Tout ce qui est essentiel, rien d’autre&nbsp;: l’espace comme luxe.</span>
+          <span class="pv-row"><span class="pv-btn">Appliquer</span><span class="pv-link">En savoir plus</span></span>
+        </button>
+
+        <button class="pv sc reveal" data-theme-scope="maximal" data-apply="maximal" aria-pressed="false">
+          <span class="pv-kicker">Paradigme 08</span>
+          <span class="pv-title">Maximalisme</span>
+          <span class="pv-text">Plus c’est plus&nbsp;: motifs, couleurs, densité assumée.</span>
+          <span class="pv-row"><span class="pv-btn">Appliquer</span><span class="pv-link">En savoir plus</span></span>
+        </button>
+
+        <button class="pv sc reveal" data-theme-scope="type" data-apply="type" aria-pressed="false">
+          <span class="pv-kicker">Paradigme 09</span>
+          <span class="pv-title">Typographie</span>
+          <span class="pv-text">Quand le texte devient image&nbsp;: hiérarchie, contraste, cadence.</span>
+          <span class="pv-row"><span class="pv-btn">Appliquer</span><span class="pv-link">En savoir plus</span></span>
+        </button>
+      </div>
+
+      <p class="lab-note">Chaque carte affiche <em>exactement</em> le même squelette&nbsp;: seul le paradigme change. Ton choix est mémorisé sur cet appareil — le rail flottant fait la même chose, en permanence.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════ HISTOIRE ══════════════ -->
+  <section class="section" id="histoire">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="kicker">02 / Histoire &amp; ancêtres</p>
+        <h2 class="section-title">Une spécialité jeune.<br>Une science vieille<br>de deux siècles.</h2>
+        <p class="lead">L’informatique n’a pas commencé avec le smartphone. Voici les idées qui l’ont rendue possible — et les enseignements qui ont ouvert la voie au lycée.</p>
+      </header>
+
+      <ol class="timeline">
+        <li class="tl-item reveal">
+          <span class="tl-mark" aria-hidden="true"></span>
+          <span class="tl-year">1843</span>
+          <div class="tl-body">
+            <h3 class="tl-title">Ada Lovelace écrit le premier programme</h3>
+            <p>Sur la machine analytique de Babbage, elle imagine un algorithme pour une machine qui n’existe pas encore. Première programmeuse — bien avant le premier ordinateur.</p>
+            <span class="tag">Précurseurs</span>
+          </div>
+        </li>
+        <li class="tl-item reveal">
+          <span class="tl-mark" aria-hidden="true"></span>
+          <span class="tl-year">1936</span>
+          <div class="tl-body">
+            <h3 class="tl-title">Turing invente le calculateur universel</h3>
+            <p>Sur le papier, Alan Turing formalise une machine capable de simuler n’importe quel programme. L’informatique naît d’abord comme mathématiques.</p>
+            <span class="tag">Théorie</span>
+          </div>
+        </li>
+        <li class="tl-item reveal">
+          <span class="tl-mark" aria-hidden="true"></span>
+          <span class="tl-year">1945</span>
+          <div class="tl-body">
+            <h3 class="tl-title">Von Neumann dessine l’ordinateur moderne</h3>
+            <p>Mémoire, unité arithmétique et logique, programme stocké&nbsp;: l’architecture qu’on t’apprend à ouvrir en NSI équipe encore ton téléphone.</p>
+            <span class="tag">Architecture</span>
+          </div>
+        </li>
+        <li class="tl-item reveal">
+          <span class="tl-mark" aria-hidden="true"></span>
+          <span class="tl-year">1969</span>
+          <div class="tl-body">
+            <h3 class="tl-title">Les machines apprennent à se parler</h3>
+            <p>ARPANET relie quatre universités américaines. Le protocole qui en sort devient TCP/IP, la colonne vertébrale d’Internet.</p>
+            <span class="tag">Réseaux</span>
+          </div>
+        </li>
+        <li class="tl-item reveal">
+          <span class="tl-mark" aria-hidden="true"></span>
+          <span class="tl-year">1991</span>
+          <div class="tl-body">
+            <h3 class="tl-title">Le Web ouvre ses portes</h3>
+            <p>Tim Berners-Lee publie le premier site du World Wide Web&nbsp;: hyperliens, navigateur… et la page que tu lis existe enfin.</p>
+            <span class="tag">Web</span>
+          </div>
+        </li>
+        <li class="tl-item reveal">
+          <span class="tl-mark" aria-hidden="true"></span>
+          <span class="tl-year">2012</span>
+          <div class="tl-body">
+            <h3 class="tl-title">ISN ouvre la voie</h3>
+            <p>«&nbsp;Informatique et sciences du numérique&nbsp;» devient une spécialité de Terminale S. L’informatique entre — enfin — dans la salle de classe.</p>
+            <span class="tag">Ancêtre n°1</span>
+          </div>
+        </li>
+        <li class="tl-item reveal">
+          <span class="tl-mark" aria-hidden="true"></span>
+          <span class="tl-year">2013</span>
+          <div class="tl-body">
+            <h3 class="tl-title">ICN ajoute la création</h3>
+            <p>«&nbsp;Informatique et création numérique&nbsp;» s’installe en Seconde, puis en Première (2016)&nbsp;: programmer pour produire, pas seulement pour calculer.</p>
+            <span class="tag">Ancêtre n°2</span>
+          </div>
+        </li>
+        <li class="tl-item reveal">
+          <span class="tl-mark" aria-hidden="true"></span>
+          <span class="tl-year">2019</span>
+          <div class="tl-body">
+            <h3 class="tl-title">La NSI existe</h3>
+            <p>Le 22 janvier 2019, la spécialité Numérique et Sciences Informatiques est créée&nbsp;; elle ouvre en Première l’année suivante, en Terminale en 2020.</p>
+            <span class="tag">Naissance</span>
+          </div>
+        </li>
+        <li class="tl-item reveal">
+          <span class="tl-mark" aria-hidden="true"></span>
+          <span class="tl-year">2022</span>
+          <div class="tl-body">
+            <h3 class="tl-title">Premier bac NSI</h3>
+            <p>Épreuve écrite, puis épreuve pratique&nbsp;: les premiers bacheliers passent le cap. La spécialité a désormais sa propre voie — et son propre examen.</p>
+            <span class="tag">Aujourd’hui</span>
+          </div>
+        </li>
+      </ol>
+
+      <aside class="ancestors reveal">
+        <h3 class="ancestors-title">L’arbre généalogique</h3>
+        <p class="ancestors-text">NSI n’est pas tombée du ciel&nbsp;: elle synthétise vingt ans d’essais au lycée et une tradition plus ancienne.</p>
+        <ul class="chip-row">
+          <li class="chip">Collège → <strong>SNT</strong> (2016)</li>
+          <li class="chip">Seconde → <strong>ICN</strong> (2013)</li>
+          <li class="chip">Terminale S → <strong>ISN</strong> (2012)</li>
+          <li class="chip">Prépa → <strong>MP2I</strong> &amp; algorithmique</li>
+          <li class="chip chip-strong">2019 → <strong>NSI</strong></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ══════════════ PROGRAMME ══════════════ -->
+  <section class="section band" id="programme">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="kicker">03 / Le programme officiel</p>
+        <h2 class="section-title">Ce qu’on y apprend,<br>vraiment.</h2>
+        <p class="lead">Pas besoin de savoir coder avant d’entrer&nbsp;: le programme part de zéro et va loin. Six thèmes en Première, six en Terminale — et des ressources officielles pour ne jamais être seul.</p>
+      </header>
+
+      <div class="grid grid-3">
+        <article class="card reveal">
+          <span class="card-index">01</span>
+          <h3 class="card-title">Histoire de l’informatique</h3>
+          <p class="card-text">Des précurseurs aux réseaux&nbsp;: situer les idées qui ont tout changé, et comprendre qu’aucune n’était évidente.</p>
+          <span class="tag">Culture</span>
+        </article>
+        <article class="card reveal">
+          <span class="card-index">02</span>
+          <h3 class="card-title">Structures de données</h3>
+          <p class="card-text">Listes, piles, files, dictionnaires, arbres, graphes&nbsp;: organiser l’information pour que les algorithmes aillent vite.</p>
+          <span class="tag">Abstraction</span>
+        </article>
+        <article class="card reveal">
+          <span class="card-index">03</span>
+          <h3 class="card-title">Bases de données</h3>
+          <p class="card-text">Modèle relationnel, SQL, normalisation&nbsp;: poser des données propres et les interroger sans les casser.</p>
+          <span class="tag">Données</span>
+        </article>
+        <article class="card reveal">
+          <span class="card-index">04</span>
+          <h3 class="card-title">Architectures, systèmes &amp; réseaux</h3>
+          <p class="card-text">De la puce au paquet&nbsp;: circuits, processus, routage, sécurisation des communications. On ouvre la boîte noire.</p>
+          <span class="tag">Systèmes</span>
+        </article>
+        <article class="card reveal">
+          <span class="card-index">05</span>
+          <h3 class="card-title">Langages &amp; programmation</h3>
+          <p class="card-text">Python, récursivité, programmation objet, paradigmes, calculabilité&nbsp;: écrire des programmes qui tiennent debout.</p>
+          <span class="tag">Code</span>
+        </article>
+        <article class="card reveal">
+          <span class="card-index">06</span>
+          <h3 class="card-title">Algorithmique</h3>
+          <p class="card-text">Dichotomie, gloutons, diviser pour régner, plus court chemin, k plus proches voisins&nbsp;: la boîte à outils de la démarche.</p>
+          <span class="tag">Méthode</span>
+        </article>
+      </div>
+
+      <div class="premiere reveal">
+        <h3 class="premiere-title">En Première, les six portes d’entrée&nbsp;:</h3>
+        <ul class="chip-row">
+          <li class="chip">Représentation des données</li>
+          <li class="chip">Traitement des données</li>
+          <li class="chip">Interactions homme-machine sur le Web</li>
+          <li class="chip">Architectures matérielles &amp; systèmes d’exploitation</li>
+          <li class="chip">Langages et programmation</li>
+          <li class="chip">Algorithmique</li>
+        </ul>
+      </div>
+
+      <aside class="bac reveal">
+        <div class="bac-head">
+          <p class="kicker">L’évaluation</p>
+          <h3 class="bac-title">Le bac, concrètement</h3>
+        </div>
+        <ul class="bac-list">
+          <li><strong>4&nbsp;h</strong><span>par semaine en Première</span></li>
+          <li><strong>6&nbsp;h</strong><span>par semaine en Terminale</span></li>
+          <li><strong>1&nbsp;h&nbsp;30</strong><span>d’épreuve écrite</span></li>
+          <li><strong>Pratique</strong><span>une épreuve sur machine</span></li>
+        </ul>
+        <a class="btn btn-primary" href="https://eduscol.education.gouv.fr/5823/programmes-et-ressources-en-numerique-et-sciences-informatiques-voie-g" target="_blank" rel="noopener">Programme officiel (éduscol)&nbsp;↗</a>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ══════════════ PROJETS ══════════════ -->
+  <section class="section" id="projets">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="kicker">04 / Les projets</p>
+        <h2 class="section-title">Moins de «&nbsp;et si&nbsp;».<br>Plus de «&nbsp;c’est fait&nbsp;».</h2>
+        <p class="lead">Le projet est le fil rouge de la spécialité&nbsp;: seul ou en équipe, tu cherches, tu casses, tu corriges — et tu finis avec quelque chose qui marche, et que tu peux montrer.</p>
+      </header>
+
+      <div class="grid grid-4">
+        <article class="card card-project reveal">
+          <p class="card-kicker">Jouer</p>
+          <h3 class="card-title">Un jeu qui pense contre toi.</h3>
+          <p class="card-text">Graphe d’états, heuristiques, adversaire à la hauteur&nbsp;: ton Python devient un worthy opponent.</p>
+          <p class="card-tags">Python · Graphes · Recherche</p>
+        </article>
+        <article class="card card-project reveal">
+          <p class="card-kicker">Créer</p>
+          <h3 class="card-title">Un site qui vit.</h3>
+          <p class="card-text">Interface, serveur, base de données&nbsp;: de la maquette à la production, avec une vraie pile technique.</p>
+          <p class="card-tags">Web · SQL · JavaScript</p>
+        </article>
+        <article class="card card-project reveal">
+          <p class="card-kicker">Sentir</p>
+          <h3 class="card-title">Un robot qui perçoit le monde.</h3>
+          <p class="card-text">Capteurs, boucles de contrôle, microcontrôleurs&nbsp;: le code sort enfin de l’écran.</p>
+          <p class="card-tags">Capteurs · Robotique</p>
+        </article>
+        <article class="card card-project reveal">
+          <p class="card-kicker">Apprendre</p>
+          <h3 class="card-title">Un modèle qui apprend tout seul.</h3>
+          <p class="card-text">Jeu de données, k plus proches voisins, biais&nbsp;: l’IA sans magie noire, chiffres à l’appui.</p>
+          <p class="card-tags">Données · k-NN · IA</p>
+        </article>
+      </div>
+
+      <p class="section-note reveal">Les sujets dépendent des envies de la classe et du matériel du lycée — justement&nbsp;: c’est souvent toi qui proposes.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════ APRÈS ══════════════ -->
+  <section class="section band" id="apres">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="kicker">05 / Après le bac</p>
+        <h2 class="section-title">Une spécialité.<br>Des trajectoires.</h2>
+        <p class="lead">La NSI ne ferme aucune porte&nbsp;: elle en ouvre beaucoup. Quatre voies classiques — et ce qu’on en fait le lendemain.</p>
+      </header>
+
+      <div class="grid grid-4 paths">
+        <a class="path reveal" href="https://www.onisep.fr/ressources/univers-formation/formations/post-bac/but-informatique-parcours-integration-d-applications-et-management-du-systeme-d-information" target="_blank" rel="noopener">
+          <span class="path-index">01</span>
+          <h3 class="path-title">BUT informatique</h3>
+          <p class="path-text">Des bases solides, des projets concrets, l’alternance possible.</p>
+          <span class="path-meta">3 ans — Onisep ↗</span>
+        </a>
+        <a class="path reveal" href="https://www.onisep.fr/ressources/univers-formation/formations/post-bac/licence-mention-informatique" target="_blank" rel="noopener">
+          <span class="path-index">02</span>
+          <h3 class="path-title">Licence informatique</h3>
+          <p class="path-text">Les fondations scientifiques, puis le master — ou la recherche.</p>
+          <span class="path-meta">3 ans — Onisep ↗</span>
+        </a>
+        <a class="path reveal" href="https://www.onisep.fr/ressources/univers-formation/formations/post-bac/bts-services-informatiques-aux-organisations-option-b-solutions-logicielles-et-applications-metiers" target="_blank" rel="noopener">
+          <span class="path-index">03</span>
+          <h3 class="path-title">BTS SIO</h3>
+          <p class="path-text">Développement ou réseaux, cap sur la pratique et l’entreprise.</p>
+          <span class="path-meta">2 ans — Onisep ↗</span>
+        </a>
+        <a class="path reveal" href="https://www.onisep.fr/formation/apres-le-bac-les-etudes-superieures/les-principales-filieres-d-etudes-superieures/les-cpge-classes-preparatoires-aux-grandes-ecoles/les-prepas-scientifiques/la-prepa-mp2i-mathematiques-physique-ingenierie-et-informatique" target="_blank" rel="noopener">
+          <span class="path-index">04</span>
+          <h3 class="path-title">Prépa MP2I &amp; écoles</h3>
+          <p class="path-text">Prépa puis concours — mathématiques au programme, NSI bienvenue.</p>
+          <span class="path-meta">5 ans — Onisep ↗</span>
+        </a>
+      </div>
+
+      <div class="jobs reveal">
+        <h3 class="jobs-title">Et comme métier&nbsp;?</h3>
+        <ul class="chip-row">
+          <li class="chip">Développeur·se</li>
+          <li class="chip">Data scientist</li>
+          <li class="chip">Ingénieur·e cybersécurité</li>
+          <li class="chip">Architecte logiciel</li>
+          <li class="chip">Admin systèmes &amp; réseaux</li>
+          <li class="chip">Chercheur·se en IA</li>
+          <li class="chip">Product owner</li>
+        </ul>
+        <p class="jobs-note">…et écoles d’ingénieurs, écoles spécialisées du numérique, doubles diplômes, masters. La carte est plus grande que tu ne crois.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ CTA ══════════════ -->
+  <section class="cta-band">
+    <div class="wrap cta-inner reveal">
+      <p class="kicker">À suivre</p>
+      <h2 class="cta-title">Le prochain chapitre,<br>c’est toi.</h2>
+      <p class="cta-text">Parle-en à ton professeur principal ou à l’équipe NSI de ton lycée. Et d’ici là&nbsp;: change encore de perspective.</p>
+      <div class="hero-cta">
+        <a class="btn btn-invert" href="#labo">Retourner au laboratoire</a>
+        <a class="btn btn-invert-ghost" href="https://eduscol.education.gouv.fr/5823/programmes-et-ressources-en-numerique-et-sciences-informatiques-voie-g" target="_blank" rel="noopener">Programme officiel&nbsp;↗</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="xnav">
+      <p class="xnav__exergue">Un contenu, sept versions · celle-ci : <b>MiMo</b> — 0,07 €, 4 M jetons, 40 min</p>
+      <ul class="xnav__grid">
+        <li><a class="xnav__item" href="/" style="--x-accent:#2563EB"><span class="xnav__name">Astra</span><span class="xnav__cost">13 € · 8 M jetons · 37 min</span></a></li>
+        <li><a class="xnav__item" href="/deepseek/" style="--x-accent:#0B8A6A"><span class="xnav__name">DeepSeek</span><span class="xnav__cost">0,13 € · 21 M jetons · 42 min</span></a></li>
+        <li><a class="xnav__item" href="/fable/" style="--x-accent:#7C3AED"><span class="xnav__name">Fable</span><span class="xnav__cost">6,30 $ · 2,2 M jetons · 30 min</span></a></li>
+        <li><a class="xnav__item" href="/gemini/" style="--x-accent:#C2410C"><span class="xnav__name">Gemini</span><span class="xnav__cost">forfait &lt; 0,10 € · jetons n.c. · 6 min</span></a></li>
+        <li><a class="xnav__item" href="/glm/" style="--x-accent:#0891B2"><span class="xnav__name">GLM</span><span class="xnav__cost">0,12 € · 1 M jetons · 12 min</span></a></li>
+        <li class="xnav__item" aria-current="page" style="--x-accent:#FF6900"><span class="xnav__name">MiMo</span><span class="xnav__self">cette version — 0,07 € · 4 M jetons · 40 min</span></li>
+        <li><a class="xnav__item" href="/muse/" style="--x-accent:#6C4DFF"><span class="xnav__name">MUSE</span><span class="xnav__cost">0,007 € · 200 k jetons · 4 min</span></a></li>
+      </ul>
+      <span class="xnav__credit">Idée : <a href="https://x.com/nsi_xyz" target="_blank" rel="noopener">@nsi_xyz</a> · prompté sur Gemini 3.8 Flash, DeepSeek 4.1 Flash, GLM 5.3 Flash, MiMo V2.6 Flash et MUSE 1.3 Contributor par <a href="https://x.com/nsi_xyz" target="_blank" rel="noopener">@nsi_xyz</a>, sur Astra (GPT 6) par <a href="https://x.com/ClovisReye" target="_blank" rel="noopener">@ClovisReye</a>, sur Fable 5.1 par <a href="https://x.com/dabogratinib" target="_blank" rel="noopener">@dabogratinib</a> — <a href="/prompt/">le prompt du challenge, à soumettre tel quel ↗</a></span>
+    </div>
+  </div>
+  <div class="wrap footer-grid">
+    <div>
+      <p class="brand footer-brand"><span class="brand-mark">nsi</span><span class="brand-dot">.</span></p>
+      <p class="footer-tag">Comprendre aujourd’hui. Inventer demain.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Liens officiels">
+      <a href="https://eduscol.education.gouv.fr/5823/programmes-et-ressources-en-numerique-et-sciences-informatiques-voie-g" target="_blank" rel="noopener">Programme éduscol ↗</a>
+      <a href="https://www.onisep.fr/" target="_blank" rel="noopener">Onisep ↗</a>
+      <a href="#labo">Le laboratoire</a>
+      <a href="#top">Haut de page</a>
+    </nav>
+    <div class="footer-meta">
+      <p>discover.nsi.xyz</p>
+      <p>Démo UI/UX&nbsp;: 9 paradigmes, un seul contenu.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Rail flottant : le sélecteur d'esthétique, toujours accessible -->
+<div class="dock" id="dock" role="group" aria-label="Choisir l’esthétique de la page">
+  <p class="dock-title" aria-hidden="true">Esthétique</p>
+  <button class="dock-btn sc" data-theme-scope="flat" data-apply="flat" aria-pressed="true" aria-label="Appliquer le style Flat Design"><span class="dock-swatch" aria-hidden="true"></span><span class="dock-label">Flat</span></button>
+  <button class="dock-btn sc" data-theme-scope="material" data-apply="material" aria-pressed="false" aria-label="Appliquer le style Material Design"><span class="dock-swatch" aria-hidden="true"></span><span class="dock-label">Material</span></button>
+  <button class="dock-btn sc" data-theme-scope="skeuo" data-apply="skeuo" aria-pressed="false" aria-label="Appliquer le style Skeuomorphisme"><span class="dock-swatch" aria-hidden="true"></span><span class="dock-label">Skeuo</span></button>
+  <button class="dock-btn sc" data-theme-scope="neu" data-apply="neu" aria-pressed="false" aria-label="Appliquer le style Neumorphisme"><span class="dock-swatch" aria-hidden="true"></span><span class="dock-label">Neumorphe</span></button>
+  <button class="dock-btn sc" data-theme-scope="glass" data-apply="glass" aria-pressed="false" aria-label="Appliquer le style Glassmorphisme"><span class="dock-swatch" aria-hidden="true"></span><span class="dock-label">Glass</span></button>
+  <button class="dock-btn sc" data-theme-scope="brut" data-apply="brut" aria-pressed="false" aria-label="Appliquer le style Brutalisme"><span class="dock-swatch" aria-hidden="true"></span><span class="dock-label">Brut</span></button>
+  <button class="dock-btn sc" data-theme-scope="minimal" data-apply="minimal" aria-pressed="false" aria-label="Appliquer le style Minimalisme"><span class="dock-swatch" aria-hidden="true"></span><span class="dock-label">Minimal</span></button>
+  <button class="dock-btn sc" data-theme-scope="maximal" data-apply="maximal" aria-pressed="false" aria-label="Appliquer le style Maximalisme"><span class="dock-swatch" aria-hidden="true"></span><span class="dock-label">Maximal</span></button>
+  <button class="dock-btn sc" data-theme-scope="type" data-apply="type" aria-pressed="false" aria-label="Appliquer le style Typographie"><span class="dock-swatch" aria-hidden="true"></span><span class="dock-label">Typo</span></button>
+</div>
+
+</body>
+</html>
