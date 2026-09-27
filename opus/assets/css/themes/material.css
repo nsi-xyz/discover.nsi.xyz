@@ -1,0 +1,229 @@
+/* ==========================================================================
+   MATERIAL DESIGN (2014) — papier & encre, altitude, onde de choc.
+   ========================================================================== */
+[data-theme="material"] {
+  --h1-em: 6;
+  --indigo: #3F51B5;
+  --indigo-d: #303F9F;
+  --indigo-50: #E8EAF6;
+  --indigo-100: #C5CAE9;
+  --pink: #FF4081;
+  --pink-text: #C51162;
+
+  --bg: #F5F5F5;
+  --ink: #212121;
+  --ink-soft: #5C5C5C;
+  --surface: #FFFFFF;
+  --line: rgb(0 0 0 / .12);
+  --primary: var(--indigo);
+  --on-primary: #FFFFFF;
+  --focus: var(--pink-text);
+  --font-display: "Roboto", system-ui, sans-serif;
+  --font-body: "Roboto", system-ui, sans-serif;
+  --font-mono: "Roboto Mono", ui-monospace, monospace;
+  --radius: 4px;
+  --radius-btn: 4px;
+  --lh: 1.55;
+
+  --e1: 0 2px 1px -1px rgb(0 0 0 / .2), 0 1px 1px 0 rgb(0 0 0 / .14), 0 1px 3px 0 rgb(0 0 0 / .12);
+  --e2: 0 3px 1px -2px rgb(0 0 0 / .2), 0 2px 2px 0 rgb(0 0 0 / .14), 0 1px 5px 0 rgb(0 0 0 / .12);
+  --e4: 0 2px 4px -1px rgb(0 0 0 / .2), 0 4px 5px 0 rgb(0 0 0 / .14), 0 1px 10px 0 rgb(0 0 0 / .12);
+  --e6: 0 3px 5px -1px rgb(0 0 0 / .2), 0 6px 10px 0 rgb(0 0 0 / .14), 0 1px 18px 0 rgb(0 0 0 / .12);
+  --e8: 0 5px 5px -3px rgb(0 0 0 / .2), 0 8px 10px 1px rgb(0 0 0 / .14), 0 3px 14px 2px rgb(0 0 0 / .12);
+  --e12: 0 7px 8px -4px rgb(0 0 0 / .2), 0 12px 17px 2px rgb(0 0 0 / .14), 0 5px 22px 4px rgb(0 0 0 / .12);
+  --ease: cubic-bezier(.4, 0, .2, 1);
+
+  & h1, & h2 { font-weight: 400; letter-spacing: -.015em; }
+  & h3 { font-weight: 500; }
+
+  /* Barre d'application */
+  & .site-header { background: var(--indigo); color: #FFFFFF; box-shadow: var(--e4); }
+  & .brand__mark {
+    display: grid; place-items: center;
+    width: 40px; height: 40px;
+    background: #FFFFFF; color: var(--indigo);
+    border-radius: 50%; font-size: .85rem; font-weight: 700;
+  }
+  & .brand__name { font-weight: 500; font-size: 1.05rem; opacity: 1; }
+  & .nav__list { gap: 0; }
+  & .nav__link {
+    padding-inline: 1rem;
+    font-size: .875rem; font-weight: 500;
+    letter-spacing: .09em; text-transform: uppercase;
+    border-radius: 4px;
+  }
+  & .nav__link:hover { background: rgb(255 255 255 / .12); }
+  & .site-header { --focus: #FFFFFF; }
+
+  /* Boutons */
+  & .btn {
+    position: relative; overflow: hidden;
+    min-height: 44px; padding-inline: 1.25rem;
+    font-size: .875rem; font-weight: 500;
+    letter-spacing: .09em; text-transform: uppercase;
+    transition: box-shadow .28s var(--ease), background-color .2s;
+  }
+  & .btn--primary { box-shadow: var(--e2); }
+  & .btn--primary:hover { box-shadow: var(--e8); background: var(--indigo-d); }
+  & .btn--ghost { border: 1px solid rgb(0 0 0 / .24); color: var(--indigo); }
+  & .btn--ghost:hover { background: rgb(63 81 181 / .08); }
+
+  /* Hero : bande primaire + cartes blanches */
+  & .hero { background: var(--indigo); color: #FFFFFF; --ink-soft: #FFFFFF; --focus: #FFFFFF; }
+  & .hero .eyebrow { color: #FFFFFF; font-weight: 500; letter-spacing: .14em; }
+  & .hero__title { font-weight: 400; }
+  & .hero__line--3 { font-weight: 500; }
+  & .lead { opacity: .92; }
+  & .hero .btn--primary { background: #FFFFFF; color: var(--indigo); }
+  & .hero .btn--primary:hover { background: var(--indigo-50); }
+  & .hero .btn--ghost { border-color: rgb(255 255 255 / .7); color: #FFFFFF; }
+  & .hero .btn--ghost:hover { background: rgb(255 255 255 / .12); }
+
+  & .bits {
+    padding: 1.5rem;
+    background: #FFFFFF; color: var(--ink);
+    border-radius: 4px; box-shadow: var(--e12);
+    --ink-soft: #5C5C5C; --focus: var(--pink-text);
+  }
+  & .bits__headline { font-weight: 500; font-size: 1.25rem; }
+  & .bit {
+    position: relative; overflow: hidden;
+    background: var(--indigo-50); color: var(--indigo-d);
+    border-radius: 4px;
+    font-weight: 500;
+    transition: box-shadow .28s var(--ease), background-color .2s, color .2s;
+  }
+  & .bit[aria-pressed="true"] { background: var(--indigo); color: #FFFFFF; box-shadow: var(--e4); }
+  & .byte__char { color: var(--pink-text); font-weight: 500; }
+  & .bits__footer { padding-top: 1rem; border-top: 1px solid var(--line); }
+  & .bits__reset {
+    position: relative; overflow: hidden;
+    border: 0; border-radius: 4px;
+    color: var(--indigo); font-weight: 500;
+    letter-spacing: .09em; text-transform: uppercase; font-size: .8rem;
+  }
+  & .bits__reset:hover { background: rgb(63 81 181 / .08); }
+
+  & .facts {
+    gap: 0;
+    background: #FFFFFF; color: var(--ink);
+    border-radius: 4px; box-shadow: var(--e2);
+    --ink-soft: #5C5C5C;
+  }
+  & .fact { padding: 1.1rem 1.4rem; border-left: 1px solid var(--line); }
+  & .fact:first-child { border-left: 0; }
+  & .fact__value { font-weight: 500; }
+  @media (max-width: 900px) {
+    & .fact:nth-child(3) { border-left: 0; }
+    & .fact:nth-child(n+3) { border-top: 1px solid var(--line); }
+  }
+
+  & .eyebrow { color: var(--indigo); font-weight: 500; }
+
+  /* Histoire : stepper vertical */
+  & .timeline { max-width: 50rem; position: relative; }
+  & .event {
+    grid-template-columns: 64px minmax(0, 1fr);
+    gap: 1.25rem;
+    padding-block: 0 2rem;
+    border: 0;
+    position: relative;
+  }
+  & .event::before {
+    content: "";
+    position: absolute; left: 31px; top: 56px; bottom: 0;
+    width: 2px; background: var(--indigo-100);
+  }
+  & .event:last-child::before { display: none; }
+  & .event__year {
+    display: grid; place-items: center;
+    width: 64px; height: 64px;
+    background: var(--indigo); color: #FFFFFF;
+    border-radius: 50%;
+    font-size: .95rem; font-weight: 500;
+    box-shadow: var(--e2);
+  }
+  & .event[data-kind="science"] .event__year { background: var(--pink-text); }
+  & .event__body { padding-top: .6rem; }
+  & .event__tag { color: var(--ink-soft); font-weight: 500; }
+  & .event--key .event__body { padding: 1.1rem 1.25rem; background: #FFFFFF; border-radius: 4px; box-shadow: var(--e4); }
+  & .event--key .event__year { box-shadow: var(--e8); }
+  @media (max-width: 560px) {
+    & .event { grid-template-columns: 52px minmax(0, 1fr); gap: 1rem; }
+    & .event__year { width: 52px; height: 52px; font-size: .82rem; }
+    & .event::before { left: 25px; top: 52px; }
+  }
+
+  /* Programme : cartes à altitude */
+  & .domain {
+    position: relative; overflow: hidden;
+    background: #FFFFFF; border-radius: 4px;
+    box-shadow: var(--e1);
+    transition: box-shadow .28s var(--ease), transform .28s var(--ease);
+  }
+  & .domain:hover { box-shadow: var(--e8); transform: translateY(-2px); }
+  & .domain__title { font-weight: 400; font-size: 1.5rem; }
+  & .domain__years { gap: 0; }
+  & .domain__year { padding-block: .75rem; border-top: 1px solid var(--line); }
+  & .domain__year dt { color: var(--indigo); font-weight: 500; }
+  & .exam { background: var(--indigo-50); border-radius: 4px; }
+  & .exam__v { color: var(--indigo-d); font-weight: 500; }
+
+  /* Projets : cartes média */
+  & .project {
+    position: relative; overflow: hidden;
+    background: #FFFFFF; border-radius: 4px;
+    box-shadow: var(--e1);
+    transition: box-shadow .28s var(--ease);
+  }
+  & .project:hover { box-shadow: var(--e8); }
+  & .project__icon {
+    width: calc(100% + 3rem); height: 132px;
+    margin: -1.5rem -1.5rem 1.25rem;
+    padding: 38px;
+    background: var(--c, var(--indigo)); color: #FFFFFF;
+    stroke-width: 1.4;
+  }
+  & .project:nth-child(6n+2) { --c: #00796B; }
+  & .project:nth-child(6n+3) { --c: #7B1FA2; }
+  & .project:nth-child(6n+4) { --c: #1565C0; }
+  & .project:nth-child(6n+5) { --c: #D84315; }
+  & .project:nth-child(6n+6) { --c: #37474F; }
+  & .project__title { font-weight: 400; font-size: 1.4rem; }
+  & .tag { padding: .3rem .8rem; background: #E0E0E0; color: #212121; border-radius: 16px; font-weight: 500; }
+
+  /* Après le bac : listes Material */
+  & .futures__block { padding: .5rem 0 1rem; background: #FFFFFF; border-radius: 4px; box-shadow: var(--e1); }
+  & .futures__title { padding: 1rem 1.5rem 0; font-weight: 400; }
+  & .path { padding: .9rem 1.5rem; }
+  & .path__len { padding: .2rem .7rem; background: var(--indigo-50); color: var(--indigo-d); border-radius: 16px; font-weight: 500; }
+  & .jobs { padding: 0 1.5rem; }
+  & .job { border: 1px solid rgb(0 0 0 / .2); border-radius: 16px; font-weight: 400; }
+  & .combos { padding: 0 1.5rem; }
+
+  & .outro .inner { max-width: 760px; }
+  & .outro .btn--ghost { border-color: rgb(0 0 0 / .24); }
+
+  & .site-footer { background: #212121; color: #FFFFFF; --ink-soft: #BDBDBD; }
+
+  /* Bouton d'action flottant */
+  & .fab {
+    display: grid;
+    background: var(--pink); color: #FFFFFF;
+    box-shadow: var(--e6);
+    transition: box-shadow .28s var(--ease);
+  }
+  & .fab:hover { box-shadow: var(--e12); }
+
+  /* Onde (ripple) injectée par app.js */
+  & .ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: .28;
+    transform: scale(0);
+    pointer-events: none;
+    animation: md-ripple .6s var(--ease) forwards;
+  }
+}
+@keyframes md-ripple { to { transform: scale(1); opacity: 0; } }

@@ -1,5 +1,6 @@
 /* Aperçu local du dépôt complet, servi comme en production :
-   Astra à la racine, DeepSeek, Fable, Gemini, GLM, MiMo et MUSE dans leurs dossiers. */
+   Opus à la racine, et chaque version (Astra, DeepSeek, Fable, Gemini, GLM, MiMo,
+   MUSE, Opus) dans son dossier. */
 import { createServer } from 'node:http';
 import { readFile, stat } from 'node:fs/promises';
 import { join, extname, normalize } from 'node:path';

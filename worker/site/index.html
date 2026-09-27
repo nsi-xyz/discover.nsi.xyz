@@ -2,103 +2,483 @@
 <html lang="fr" data-theme="flat">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f5f5f0">
-  <meta name="description" content="Découvre la spécialité NSI au lycée : ses origines, son programme, ses projets et les études après le bac. Un même contenu, neuf façons de voir le Web.">
-  <title>NSI — Le futur s’écrit. Par toi.</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232947ed'/%3E%3Cpath d='M17 45V19h7l16 17V19h7v26h-7L24 28v17z' fill='white'/%3E%3C/svg%3E">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>NSI — Numérique et Sciences Informatiques</title>
+  <meta name="description" content="Découvre la spécialité NSI au lycée : son histoire, son programme, les projets réalisés en classe et les études qu'elle ouvre. Un seul contenu, neuf styles visuels.">
+  <meta name="theme-color" content="#2F5BEA">
+  <meta property="og:title" content="NSI — Numérique et Sciences Informatiques">
+  <meta property="og:description" content="La spécialité où l'on comprend les machines, puis où on les programme.">
+  <meta property="og:url" content="https://discover.nsi.xyz/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2314213D'/%3E%3Ctext x='16' y='21' font-family='monospace' font-size='12' font-weight='700' fill='%23FFD23F' text-anchor='middle'%3ENSI%3C/text%3E%3C/svg%3E">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <script src="app.js" defer></script>
+
+  <!-- Applique le style mémorisé avant le premier rendu (évite le flash) -->
+  <script>
+    (function () {
+      var ids = ["flat","material","skeuo","neu","glass","brutal","minimal","maximal","typo"];
+      var t = null;
+      try { t = new URLSearchParams(location.search).get("style"); } catch (e) {}
+      if (ids.indexOf(t) < 0) { try { t = localStorage.getItem("nsi-style"); } catch (e) {} }
+      if (ids.indexOf(t) < 0) t = "flat";
+      document.documentElement.setAttribute("data-theme", t);
+      // Police du style initial, demandée au plus tôt (les autres suivent à la demande)
+      var fonts = {
+        flat: "family=Rubik:wght@400;500;600;700;800",
+        material: "family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@500",
+        skeuo: "family=Alegreya:ital,wght@0,400;0,700;0,800;1,400&family=Kalam:wght@400;700",
+        neu: "family=Manrope:wght@400;600;700;800",
+        glass: "family=Sora:wght@300;400;500;600;700",
+        brutal: "family=Archivo+Black",
+        minimal: "family=Hanken+Grotesk:wght@300;400;500;600",
+        maximal: "family=Bungee&family=Work+Sans:wght@400;500;600;700;800&family=Permanent+Marker",
+        typo: "family=Anybody:wdth,wght@50..150,100..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400"
+      };
+      var l = document.createElement("link");
+      l.rel = "stylesheet";
+      l.href = "https://fonts.googleapis.com/css2?" + fonts[t] + "&display=swap";
+      l.setAttribute("data-font", t);
+      document.head.appendChild(l);
+    })();
+  </script>
+
+  <!-- Feuilles de la page : désactivées ensemble par le bouton « Sans CSS » -->
+  <link rel="stylesheet" href="assets/css/base.css" data-page-css>
+  <link rel="stylesheet" href="assets/css/themes/flat.css" data-page-css>
+  <link rel="stylesheet" href="assets/css/themes/material.css" data-page-css>
+  <link rel="stylesheet" href="assets/css/themes/skeuo.css" data-page-css>
+  <link rel="stylesheet" href="assets/css/themes/neu.css" data-page-css>
+  <link rel="stylesheet" href="assets/css/themes/glass.css" data-page-css>
+  <link rel="stylesheet" href="assets/css/themes/brutal.css" data-page-css>
+  <link rel="stylesheet" href="assets/css/themes/minimal.css" data-page-css>
+  <link rel="stylesheet" href="assets/css/themes/maximal.css" data-page-css>
+  <link rel="stylesheet" href="assets/css/themes/typo.css" data-page-css>
+  <!-- Le sélecteur de style garde toujours son apparence -->
+  <link rel="stylesheet" href="assets/css/stylekit.css">
+  <script src="assets/js/app.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#contenu">Aller au contenu</a>
-  <header class="site-header wrap">
-    <a class="brand" href="#" aria-label="NSI, accueil"><span class="brand-mark">n<span>:</span></span><span>nsi<span class="brand-dot">.</span><small>le champ des possibles</small></span></a>
-    <nav class="main-nav" aria-label="Navigation principale"><a href="#origines">Les origines</a><a href="#programme">Le programme</a><a href="#projets">Les projets</a><a href="#apres">Et après ?</a></nav>
-    <button class="header-style" data-open-picker><span class="palette-symbol" aria-hidden="true">◐</span> <span>Changer de style</span><span aria-hidden="true">↗</span></button>
-  </header>
-  <main id="contenu">
-    <section class="hero wrap" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <p class="eyebrow"><span class="eyebrow-line"></span> SPÉCIALITÉ AU LYCÉE · PREMIÈRE & TERMINALE</p>
-        <h1 id="hero-title">Le futur<br>s’écrit.<br><span>Par toi.</span></h1>
-        <p class="hero-description">Derrière chaque application, chaque jeu, chaque idée qui change le monde : de l’informatique.<br><strong>Et si tu passais de l’autre côté de l’écran ?</strong></p>
-        <a class="button primary" href="#programme">Découvrir la NSI <span aria-hidden="true">↗</span></a>
-        <div class="hero-facts"><span><b>4 h</b> / semaine en première</span><span><b>6 h</b> / semaine en terminale</span></div>
-      </div>
-      <div class="hero-art" aria-label="Composition graphique : des idées, du code et des possibilités">
-        <div class="art-coordinate" aria-hidden="true">IDÉE → ALGORITHME → CRÉATION</div>
-        <div class="visual-window">
-          <div class="window-bar"><span><i></i><i></i><i></i></span><span>hello_futur.py</span><span aria-hidden="true">↗</span></div>
-          <div class="visual-grid" aria-hidden="true"><div class="art-tile tile-blue"><span class="asterisk">✳</span></div><div class="art-tile tile-lime"><span class="orbit"></span><small>EXPLORER</small></div><div class="art-tile tile-orange"><span class="pixel-arrow">↗</span><small>CRÉER</small></div><div class="art-tile tile-paper"><span class="binary">01<br>10</span></div></div>
-          <div class="code-preview"><span class="code-line"><span class="line-number">01</span><span><b>print</b>(<em>"Hello, futur."</em>)</span></span><span class="code-output"><span aria-hidden="true">↳</span> Hello, futur.<span class="cursor" aria-hidden="true"></span></span></div>
-        </div>
-        <div class="art-sticker"><span>tout commence<br> par une idée.</span><span aria-hidden="true">↗</span></div>
-        <div class="art-caption"><span>NUMÉRIQUE & SCIENCES INFORMATIQUES</span><span>∞ POSSIBILITÉS</span></div>
-      </div>
-    </section>
-    <div class="design-note wrap"><div><span class="note-icon" aria-hidden="true">◈</span><p><strong>Le même fond. Neuf façons de le voir.</strong><span>Change le design. Observe ce que tu ressens.</span></p></div><button data-open-picker>Explorer les 9 styles <span aria-hidden="true">↓</span></button></div>
-    <section class="section origins wrap" id="origines" aria-labelledby="origins-title">
-      <div class="section-heading"><div><p class="eyebrow">01 / LES ORIGINES</p><h2 id="origins-title">Une jeune spécialité.<br><span>Une longue histoire.</span></h2></div><p>Des premières lignes de code au lycée à une science qui transforme le monde : la NSI n’est pas arrivée par hasard.</p></div>
-      <ol class="timeline">
-        <li><span class="timeline-year">1981</span><div class="timeline-point" aria-hidden="true"></div><h3>Les premières lignes</h3><p>L’option informatique s’expérimente au lycée. Une nouvelle culture prend forme.</p><span class="timeline-tag">LES PIONNIERS</span></li>
-        <li><span class="timeline-year">2012</span><div class="timeline-point" aria-hidden="true"></div><h3>ISN ouvre la voie</h3><p>« Informatique et sciences du numérique » devient une spécialité de terminale S.</p><span class="timeline-tag">LA SCIENCE</span></li>
-        <li><span class="timeline-year">2015</span><div class="timeline-point" aria-hidden="true"></div><h3>ICN fait créer</h3><p>« Informatique et création numérique » arrive en seconde, puis en première en 2016.</p><span class="timeline-tag">LA CRÉATION</span></li>
-        <li><span class="timeline-year">2019</span><div class="timeline-point" aria-hidden="true"></div><h3>Bienvenue en NSI</h3><p>La spécialité ouvre en première, puis en terminale en 2020. Une nouvelle aventure.</p><span class="timeline-tag">À TOI D’ÉCRIRE LA SUITE</span></li>
-      </ol>
-    </section>
-    <section class="program-band" id="programme" aria-labelledby="program-title"><div class="section wrap">
-      <div class="section-heading"><div><p class="eyebrow">02 / LE PROGRAMME</p><h2 id="program-title">Comprendre.<br><span>Pas juste cliquer.</span></h2></div><div><p>La NSI, c’est apprendre à penser les problèmes et à construire des solutions. Pas besoin de savoir coder pour commencer.</p><a class="text-link" href="https://eduscol.education.gouv.fr/5823/programmes-et-ressources-en-numerique-et-sciences-informatiques-voie-g" target="_blank" rel="noopener noreferrer">Le programme officiel <span aria-hidden="true">↗</span><span class="sr-only"> (nouvel onglet)</span></a></div></div>
-      <div class="program-grid">
-        <article class="program-card"><span class="card-icon" aria-hidden="true">&lt;/&gt;</span><span class="card-number">01</span><h3>Parler aux machines</h3><p>Python, fonctions, objets : transforme une idée en un programme qui fonctionne.</p><span class="card-tag">LANGAGES & PROGRAMMATION</span></article>
-        <article class="program-card"><span class="card-icon" aria-hidden="true">↳</span><span class="card-number">02</span><h3>Penser en algorithmes</h3><p>Décompose un problème. Cherche, trie, compare. Et trouve le chemin le plus malin.</p><span class="card-tag">ALGORITHMIQUE</span></article>
-        <article class="program-card"><span class="card-icon" aria-hidden="true">{ }</span><span class="card-number">03</span><h3>Donner du sens aux données</h3><p>Du binaire aux arbres, organise l’information et interroge des bases avec SQL.</p><span class="card-tag">DONNÉES & STRUCTURES</span></article>
-        <article class="program-card"><span class="card-icon" aria-hidden="true">↔</span><span class="card-number">04</span><h3>Passer derrière la page</h3><p>Interfaces, navigateur, serveur : découvre ce qui se passe quand tu cliques.</p><span class="card-tag">WEB & INTERACTIONS</span></article>
-        <article class="program-card"><span class="card-icon" aria-hidden="true">⌘</span><span class="card-number">05</span><h3>Relier les systèmes</h3><p>Ouvre la boîte noire : comment un ordinateur calcule, et comment les réseaux communiquent.</p><span class="card-tag">ARCHITECTURES & RÉSEAUX</span></article>
-        <article class="program-card"><span class="card-icon" aria-hidden="true">∞</span><span class="card-number">06</span><h3>Remonter à la source</h3><p>Des premières machines aux grands réseaux, rencontre les idées qui ont tout changé.</p><span class="card-tag">HISTOIRE DE L’INFORMATIQUE</span></article>
-      </div><p class="section-footnote">Les grands thèmes des deux années, réunis ici en six portes d’entrée.</p>
-    </div></section>
-    <section class="section projects wrap" id="projets" aria-labelledby="projects-title">
-      <div class="section-heading"><div><p class="eyebrow">03 / LES PROJETS</p><h2 id="projects-title">Moins de « et si ».<br><span>Plus de « c’est fait ».</span></h2></div><div class="project-stat"><b>25 %<span>minimum</span></b><p>du temps consacré aux projets.<br>Seul ou en équipe, tu passes à l’action.</p></div></div>
-      <div class="project-grid">
-        <article class="project-card"><div class="project-visual game-visual" aria-hidden="true"><div class="game-grid"><span>×</span><span>○</span><span>×</span><span></span><span>×</span><span>○</span><span>○</span><span></span><span>×</span></div><span class="visual-label">PLAYER_01</span></div><div class="project-copy"><span class="eyebrow">01 — JOUER</span><h3>Ton jeu. Tes règles.</h3><p>Imagine un jeu de stratégie et programme un adversaire à la hauteur.</p><span class="project-tags">PYTHON · LOGIQUE · ALGORITHMES</span></div></article>
-        <article class="project-card"><div class="project-visual web-visual" aria-hidden="true"><div class="mini-browser"><span class="mini-bar">● ● ●</span><div class="mini-layout"><b>Hello,<br>world<span>_</span></b><span class="mini-square">↗</span></div><span class="mini-footer">MON PREMIER SITE</span></div><span class="visual-label">LOCALHOST:8000</span></div><div class="project-copy"><span class="eyebrow">02 — CONNECTER</span><h3>Une idée qui prend le Web.</h3><p>Construis un site interactif, de son interface à sa base de données.</p><span class="project-tags">WEB · INTERACTIONS · DONNÉES</span></div></article>
-        <article class="project-card"><div class="project-visual robot-visual" aria-hidden="true"><div class="flow-diagram"><span>CAPTER</span><i>↓</i><span>DÉCIDER</span><i>↓</i><span class="flow-active">AGIR ↗</span></div><span class="visual-label">DU CODE AU MONDE RÉEL</span></div><div class="project-copy"><span class="eyebrow">03 — EXPÉRIMENTER</span><h3>Le code sort de l’écran.</h3><p>Programme un robot qui observe son environnement et réagit.</p><span class="project-tags">CAPTEURS · CODE · ROBOTIQUE</span></div></article>
-      </div><p class="section-footnote">Quelques pistes : les projets dépendent des envies de la classe et de l’équipement du lycée.</p>
-    </section>
-    <section class="after-band" id="apres" aria-labelledby="after-title"><div class="section wrap">
-      <div class="section-heading"><div><p class="eyebrow">04 / ET APRÈS LE BAC ?</p><h2 id="after-title">Une spécialité.<br><span>Des trajectoires.</span></h2></div><p>Développement, cybersécurité, intelligence artificielle, recherche… Les chemins se croisent. À toi de tracer le tien.</p></div>
-      <div class="pathways">
-        <a class="pathway" href="https://www.onisep.fr/ressources/univers-formation/formations/post-bac/but-informatique-parcours-integration-d-applications-et-management-du-systeme-d-information" target="_blank" rel="noopener noreferrer"><span class="path-number">01</span><h3>BUT informatique</h3><span class="path-description">Des bases solides. Des projets concrets.</span><span class="path-duration">3 ANS</span><span class="path-arrow" aria-hidden="true">↗</span><span class="sr-only"> — Onisep, nouvel onglet</span></a>
-        <a class="pathway" href="https://www.onisep.fr/ressources/univers-formation/formations/post-bac/licence-mention-informatique" target="_blank" rel="noopener noreferrer"><span class="path-number">02</span><h3>Licence informatique</h3><span class="path-description">Les fondations scientifiques, puis le master.</span><span class="path-duration">3 ANS</span><span class="path-arrow" aria-hidden="true">↗</span><span class="sr-only"> — Onisep, nouvel onglet</span></a>
-        <a class="pathway" href="https://www.onisep.fr/ressources/univers-formation/formations/post-bac/bts-services-informatiques-aux-organisations-option-b-solutions-logicielles-et-applications-metiers" target="_blank" rel="noopener noreferrer"><span class="path-number">03</span><h3>BTS SIO</h3><span class="path-description">Développement ou réseaux, cap sur la pratique.</span><span class="path-duration">2 ANS</span><span class="path-arrow" aria-hidden="true">↗</span><span class="sr-only"> — Onisep, option développement, nouvel onglet</span></a>
-        <a class="pathway" href="https://www.onisep.fr/formation/apres-le-bac-les-etudes-superieures/les-principales-filieres-d-etudes-superieures/les-cpge-classes-preparatoires-aux-grandes-ecoles/les-prepas-scientifiques/la-prepa-mp2i-mathematiques-physique-ingenierie-et-informatique" target="_blank" rel="noopener noreferrer"><span class="path-number">04</span><h3>Prépa MP2I & écoles</h3><span class="path-description">Prépa puis concours, ou école après le bac.</span><span class="path-duration">INGÉNIEUR EN 5 ANS</span><span class="path-arrow" aria-hidden="true">↗</span><span class="sr-only"> — Onisep, prépa MP2I, nouvel onglet</span></a>
-      </div><p class="section-footnote">Des pistes à explorer selon ton profil et les attendus des formations. Pour la MP2I, les mathématiques gardent une place centrale.</p>
-    </div></section>
-    <section class="closing wrap" aria-labelledby="closing-title"><p class="eyebrow">LA CURIOSITÉ EST UN BON POINT DE DÉPART.</p><h2 id="closing-title">Le prochain chapitre,<br><span>c’est toi.</span></h2><p>Parles-en à ton professeur principal ou à l’équipe NSI de ton lycée.</p><button class="button primary" data-open-picker>Et si tu changeais de perspective ? <span aria-hidden="true">↗</span></button></section>
-    <div class="sources wrap" id="sources"><details><summary>Les sources, en toute transparence <span aria-hidden="true">+</span></summary><div class="source-links"><p>Contenu vérifié en septembre 2026. Une synthèse de découverte, sans ressources de cours.</p><a href="https://eduscol.education.gouv.fr/5823/programmes-et-ressources-en-numerique-et-sciences-informatiques-voie-g" target="_blank" rel="noopener noreferrer">Éduscol · horaires et programmes officiels ↗</a><a href="https://www.education.gouv.fr/media/31304/download" target="_blank" rel="noopener noreferrer">Ministère · histoire de l’option informatique ↗</a><a href="https://www.education.gouv.fr/bo/11/Hebdo36/MENH1100464N.htm" target="_blank" rel="noopener noreferrer">Bulletin officiel · ISN en 2012 ↗</a><a href="https://www.education.gouv.fr/bo/15/Hebdo32/MENE1517955A.htm" target="_blank" rel="noopener noreferrer">Bulletin officiel · ICN en 2015 ↗</a><a href="https://www.education.gouv.fr/bo/16/Hebdo29/MENE1617209A.htm" target="_blank" rel="noopener noreferrer">Bulletin officiel · ICN dans le cycle terminal ↗</a><a href="https://www.education.gouv.fr/bo/19/Special1/MENE1901633A.htm" target="_blank" rel="noopener noreferrer">Bulletin officiel · NSI en première ↗</a><a href="https://www.education.gouv.fr/bo/19/Special8/MENE1921247A.htm" target="_blank" rel="noopener noreferrer">Bulletin officiel · NSI en terminale ↗</a><a href="https://www.onisep.fr/formation/les-principaux-domaines-de-formation/les-ecoles-d-ingenieurs/les-differentes-voies-d-acces-en-ecole-d-ingenieurs" target="_blank" rel="noopener noreferrer">Onisep · accès aux écoles d’ingénieurs ↗</a><p>Les liens d’orientation ci-dessus mènent aux fiches Onisep. Les sources s’ouvrent dans un nouvel onglet.</p></div></details></div>
-  </main>
-  <footer class="site-footer wrap">
-  <div class="xnav">
-    <p class="xnav__exergue">Un contenu, sept versions · celle-ci : <b>Astra</b> — 13 €, 8 M jetons, 37 min</p>
-    <ul class="xnav__grid">
-      <li class="xnav__item" aria-current="page" style="--x-accent:#2563EB"><span class="xnav__name">Astra</span><span class="xnav__self">cette version — 13 € · 8 M jetons · 37 min</span></li>
-      <li><a class="xnav__item" href="/deepseek/" style="--x-accent:#0B8A6A"><span class="xnav__name">DeepSeek</span><span class="xnav__cost">0,13 € · 21 M jetons · 42 min</span></a></li>
-      <li><a class="xnav__item" href="/fable/" style="--x-accent:#7C3AED"><span class="xnav__name">Fable</span><span class="xnav__cost">6,30 $ · 2,2 M jetons · 30 min</span></a></li>
-      <li><a class="xnav__item" href="/gemini/" style="--x-accent:#C2410C"><span class="xnav__name">Gemini</span><span class="xnav__cost">forfait &lt; 0,10 € · jetons n.c. · 6 min</span></a></li>
-      <li><a class="xnav__item" href="/glm/" style="--x-accent:#0891B2"><span class="xnav__name">GLM</span><span class="xnav__cost">0,12 € · 1 M jetons · 12 min</span></a></li>
-      <li><a class="xnav__item" href="/mimo/" style="--x-accent:#FF6900"><span class="xnav__name">MiMo</span><span class="xnav__cost">0,07 € · 4 M jetons · 40 min</span></a></li>
-      <li><a class="xnav__item" href="/muse/" style="--x-accent:#6C4DFF"><span class="xnav__name">MUSE</span><span class="xnav__cost">0,007 € · 200 k jetons · 4 min</span></a></li>
-    </ul>
-    <span class="xnav__credit">Idée : <a href="https://x.com/nsi_xyz" target="_blank" rel="noopener">@nsi_xyz</a> · prompté sur Gemini 3.8 Flash, DeepSeek 4.1 Flash, GLM 5.3 Flash, MiMo V2.6 Flash et MUSE 1.3 Contributor par <a href="https://x.com/nsi_xyz" target="_blank" rel="noopener">@nsi_xyz</a>, sur Astra (GPT 6) par <a href="https://x.com/ClovisReye" target="_blank" rel="noopener">@ClovisReye</a>, sur Fable 5.1 par <a href="https://x.com/dabogratinib" target="_blank" rel="noopener">@dabogratinib</a> — <a href="/prompt/">le prompt du challenge, à soumettre tel quel ↗</a></span>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+
+  <!-- Décors : cachés par défaut, révélés par certains styles uniquement -->
+  <div class="ticker" hidden aria-hidden="true">
+    <div class="ticker__track">
+      <span>Python ✶ SQL ✶ HTML ✶ CSS ✶ JavaScript ✶ Linux ✶ TCP/IP ✶ Graphes ✶ Arbres ✶ Récursivité ✶ Binaire ✶ Algorithmes ✶&nbsp;</span>
+      <span>Python ✶ SQL ✶ HTML ✶ CSS ✶ JavaScript ✶ Linux ✶ TCP/IP ✶ Graphes ✶ Arbres ✶ Récursivité ✶ Binaire ✶ Algorithmes ✶&nbsp;</span>
+    </div>
   </div>
-<a class="footer-logo" href="#">nsi.</a><p>Comprendre aujourd’hui. Inventer demain.</p><span>discover.nsi.xyz</span><a href="#sources">Sources officielles ↗</a></footer>
-  <aside class="style-dock" aria-label="Changer la direction artistique"><div class="dock-label"><span class="dock-spark" aria-hidden="true">✳</span><span>CHANGE<br>DE PERSPECTIVE</span></div><div class="dock-options" role="group" aria-label="Les neuf styles"></div><button class="dock-mobile" data-open-picker><span class="current-style">Flat Design</span><span aria-hidden="true">⌃</span></button><button class="next-style" aria-label="Passer au style suivant">↗</button></aside>
-  <dialog class="style-dialog" aria-labelledby="picker-title"><div class="picker-top"><p class="eyebrow">LE LABORATOIRE DU DESIGN</p><button class="close-dialog" aria-label="Fermer le sélecteur">×</button></div><h2 id="picker-title">Même contenu.<br><span>Autre regard.</span></h2><p class="picker-intro">La forme change notre perception. Choisis un univers et fais l’expérience.</p><div class="picker-options" role="group" aria-label="Choisir un style"></div><p class="picker-foot">Neuf interprétations. Une seule spécialité. <span aria-hidden="true">↗</span></p></dialog>
-  <p id="theme-announcement" class="sr-only" role="status" aria-live="polite"></p>
-  <noscript><style>.style-dock,.header-style,.design-note button,.closing button{display:none}</style><p class="noscript-notice">Active JavaScript pour explorer les neuf styles. Le contenu de la page reste disponible.</p></noscript>
+  <div class="backdrop" hidden aria-hidden="true">
+    <span class="shape shape--1"></span>
+    <span class="shape shape--2"></span>
+    <span class="shape shape--3"></span>
+    <span class="shape shape--4"></span>
+    <span class="shape shape--5"></span>
+  </div>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="#top" aria-label="NSI, retour en haut de page">
+        <span class="brand__mark" aria-hidden="true">NSI</span>
+        <span class="brand__name">discover.nsi.xyz</span>
+      </a>
+      <nav class="nav" aria-label="Sections de la page">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="#histoire">Histoire</a></li>
+          <li><a class="nav__link" href="#programme">Programme</a></li>
+          <li><a class="nav__link" href="#projets">Projets</a></li>
+          <li><a class="nav__link" href="#apres">Après le bac</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="inner hero__inner">
+        <div class="hero__text">
+          <p class="eyebrow">Spécialité de Première et de Terminale</p>
+          <h1 class="hero__title" id="hero-title">
+            <span class="hero__line hero__line--1">Ne subis pas</span>
+            <span class="hero__line hero__line--2">le&nbsp;numérique.</span>
+            <span class="hero__line hero__line--3">Écris-le.</span>
+          </h1>
+          <p class="lead">NSI, c'est la spécialité où l'on comprend comment fonctionnent les machines, les réseaux et les données, puis où l'on apprend à les programmer.</p>
+          <div class="actions">
+            <a class="btn btn--primary" href="#programme">Voir le programme</a>
+            <a class="btn btn--ghost" href="#projets">Découvrir les projets</a>
+          </div>
+        </div>
+
+        <figure class="bits" aria-labelledby="bits-caption">
+          <figcaption class="bits__caption" id="bits-caption">
+            <strong class="bits__headline">3 lettres, 24 bits.</strong>
+            <span class="bits__hint">Clique sur un bit : la lettre change.</span>
+          </figcaption>
+          <div class="bits__panel">
+            <div class="bits__bytes" id="bytes"><!-- généré par app.js --></div>
+            <div class="bits__footer">
+              <p class="bits__word">Mot&nbsp;: <output class="bits__output" id="bits-word">NSI</output></p>
+              <button class="bits__reset" type="button" id="bits-reset">Rétablir « NSI »</button>
+            </div>
+          </div>
+        </figure>
+
+        <dl class="facts">
+          <div class="fact"><dt class="fact__label">En Première</dt><dd class="fact__value">4 h / semaine</dd></div>
+          <div class="fact"><dt class="fact__label">En Terminale</dt><dd class="fact__value">6 h / semaine</dd></div>
+          <div class="fact"><dt class="fact__label">Au bac</dt><dd class="fact__value">Coefficient 16</dd></div>
+          <div class="fact"><dt class="fact__label">Langage</dt><dd class="fact__value">Python</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ============ HISTOIRE ============ -->
+    <section class="section history" id="histoire" aria-labelledby="histoire-title">
+      <div class="inner">
+        <header class="section__head">
+          <p class="eyebrow">Histoire</p>
+          <h2 class="section__title" id="histoire-title">Une spécialité jeune. Une très vieille idée.</h2>
+          <p class="section__intro">Des pionniers de la science aux options tentées puis supprimées au lycée&nbsp;: NSI a une longue lignée.</p>
+        </header>
+
+        <ol class="timeline">
+          <li class="event" data-kind="science">
+            <p class="event__year"><time datetime="1843">1843</time></p>
+            <div class="event__body">
+              <p class="event__tag">Science</p>
+              <h3 class="event__title">Ada Lovelace écrit le premier programme</h3>
+              <p class="event__text">Un algorithme pour une machine qui n'existe pas encore&nbsp;: la machine analytique de Babbage.</p>
+            </div>
+          </li>
+          <li class="event" data-kind="science">
+            <p class="event__year"><time datetime="1936">1936</time></p>
+            <div class="event__body">
+              <p class="event__tag">Science</p>
+              <h3 class="event__title">Alan Turing imagine la machine universelle</h3>
+              <p class="event__text">Un modèle mathématique de tous les ordinateurs, dix ans avant le premier.</p>
+            </div>
+          </li>
+          <li class="event" data-kind="science">
+            <p class="event__year"><time datetime="1962">1962</time></p>
+            <div class="event__body">
+              <p class="event__tag">Science</p>
+              <h3 class="event__title">Le mot « informatique » est inventé</h3>
+              <p class="event__text">Philippe Dreyfus fusionne «&nbsp;information&nbsp;» et «&nbsp;automatique&nbsp;».</p>
+            </div>
+          </li>
+          <li class="event" data-kind="ecole">
+            <p class="event__year"><time datetime="1970">1970</time></p>
+            <div class="event__body">
+              <p class="event__tag">École</p>
+              <h3 class="event__title">L'expérience des 58 lycées</h3>
+              <p class="event__text">Les premiers ordinateurs entrent dans des lycées français, avec des profs formés pour s'en servir.</p>
+            </div>
+          </li>
+          <li class="event" data-kind="ecole">
+            <p class="event__year"><time datetime="1981">1981</time></p>
+            <div class="event__body">
+              <p class="event__tag">École</p>
+              <h3 class="event__title">L'option informatique arrive au lycée</h3>
+              <p class="event__text">Supprimée en 1992, rétablie, puis supprimée à nouveau en 1998.</p>
+            </div>
+          </li>
+          <li class="event" data-kind="ecole">
+            <p class="event__year"><time datetime="1985">1985</time></p>
+            <div class="event__body">
+              <p class="event__tag">École</p>
+              <h3 class="event__title">Le plan Informatique pour tous</h3>
+              <p class="event__text">Plus de 100&nbsp;000 ordinateurs livrés aux établissements. Beaucoup finissent au placard, faute de formation.</p>
+            </div>
+          </li>
+          <li class="event" data-kind="ecole">
+            <p class="event__year"><time datetime="2012">2012</time></p>
+            <div class="event__body">
+              <p class="event__tag">École</p>
+              <h3 class="event__title">ISN en Terminale S</h3>
+              <p class="event__text">Informatique et sciences du numérique&nbsp;: la programmation revient au bac.</p>
+            </div>
+          </li>
+          <li class="event event--key" data-kind="ecole">
+            <p class="event__year"><time datetime="2019">2019</time></p>
+            <div class="event__body">
+              <p class="event__tag">École</p>
+              <h3 class="event__title">NSI devient une spécialité</h3>
+              <p class="event__text">Réforme du lycée&nbsp;: SNT pour tous en Seconde, NSI en Première. La Terminale suit en 2020.</p>
+            </div>
+          </li>
+          <li class="event" data-kind="ecole">
+            <p class="event__year"><time datetime="2020">2020</time></p>
+            <div class="event__body">
+              <p class="event__tag">École</p>
+              <h3 class="event__title">Des profs recrutés pour elle</h3>
+              <p class="event__text">Premier CAPES de NSI. L'agrégation d'informatique suit en 2022.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ PROGRAMME ============ -->
+    <section class="section program" id="programme" aria-labelledby="programme-title">
+      <div class="inner">
+        <header class="section__head">
+          <p class="eyebrow">Programme officiel</p>
+          <h2 class="section__title" id="programme-title">Six domaines, deux ans pour les maîtriser.</h2>
+          <p class="section__intro">De la théorie, beaucoup de pratique, et au moins un quart du temps réservé aux projets en équipe de 2 à 4.</p>
+        </header>
+
+        <ul class="domains">
+          <li class="domain">
+            <h3 class="domain__title">Données</h3>
+            <p class="domain__hook">Du bit au graphe.</p>
+            <dl class="domain__years">
+              <div class="domain__year"><dt>Première</dt><dd>Binaire, hexadécimal, entiers relatifs, flottants, texte (ASCII, Unicode), tableaux, dictionnaires.</dd></div>
+              <div class="domain__year"><dt>Terminale</dt><dd>Listes, piles, files, arbres, graphes.</dd></div>
+            </dl>
+          </li>
+          <li class="domain">
+            <h3 class="domain__title">Algorithmique</h3>
+            <p class="domain__hook">Résoudre, puis prouver que ça marche.</p>
+            <dl class="domain__years">
+              <div class="domain__year"><dt>Première</dt><dd>Tris, recherche dichotomique, algorithmes gloutons, k plus proches voisins.</dd></div>
+              <div class="domain__year"><dt>Terminale</dt><dd>Diviser pour régner, programmation dynamique, parcours de graphes, recherche textuelle.</dd></div>
+            </dl>
+          </li>
+          <li class="domain">
+            <h3 class="domain__title">Programmation</h3>
+            <p class="domain__hook">Python, et ce qu'il cache.</p>
+            <dl class="domain__years">
+              <div class="domain__year"><dt>Première</dt><dd>Variables, fonctions, spécifications, tests, mise au point.</dd></div>
+              <div class="domain__year"><dt>Terminale</dt><dd>Récursivité, programmation objet, modularité, calculabilité.</dd></div>
+            </dl>
+          </li>
+          <li class="domain">
+            <h3 class="domain__title">Web &amp; interfaces</h3>
+            <p class="domain__hook">Ce qui se passe quand tu cliques.</p>
+            <dl class="domain__years">
+              <div class="domain__year"><dt>Première</dt><dd>HTML, CSS, JavaScript, requêtes HTTP, formulaires, client et serveur.</dd></div>
+              <div class="domain__year"><dt>Terminale</dt><dd>Réinvesti dans les projets.</dd></div>
+            </dl>
+          </li>
+          <li class="domain">
+            <h3 class="domain__title">Machines &amp; réseaux</h3>
+            <p class="domain__hook">De la porte logique à Internet.</p>
+            <dl class="domain__years">
+              <div class="domain__year"><dt>Première</dt><dd>Modèle de von Neumann, portes logiques, Linux en ligne de commande, TCP/IP.</dd></div>
+              <div class="domain__year"><dt>Terminale</dt><dd>Systèmes sur puce, processus, routage, chiffrement et HTTPS.</dd></div>
+            </dl>
+          </li>
+          <li class="domain">
+            <h3 class="domain__title">Bases de données</h3>
+            <p class="domain__hook">Interroger des millions de lignes.</p>
+            <dl class="domain__years">
+              <div class="domain__year"><dt>Première</dt><dd>Données en tables&nbsp;: trier, chercher, fusionner.</dd></div>
+              <div class="domain__year"><dt>Terminale</dt><dd>Modèle relationnel, langage SQL, systèmes de gestion de bases.</dd></div>
+            </dl>
+          </li>
+        </ul>
+
+        <aside class="exam" aria-labelledby="exam-title">
+          <h3 class="exam__title" id="exam-title">Au bac</h3>
+          <ul class="exam__list">
+            <li class="exam__item"><span class="exam__k">Écrit</span> <span class="exam__v">3 h 30</span></li>
+            <li class="exam__item"><span class="exam__k">Pratique sur machine</span> <span class="exam__v">1 h</span></li>
+            <li class="exam__item"><span class="exam__k">Coefficient</span> <span class="exam__v">16</span></li>
+          </ul>
+          <p class="exam__note">Tu arrêtes NSI en fin de Première&nbsp;? Elle compte quand même, au contrôle continu (coefficient 8).</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ============ PROJETS ============ -->
+    <section class="section projects" id="projets" aria-labelledby="projets-title">
+      <div class="inner">
+        <header class="section__head">
+          <p class="eyebrow">Projets</p>
+          <h2 class="section__title" id="projets-title">Ici, on apprend en construisant.</h2>
+          <p class="section__intro">Quelques projets typiques de l'année. Les meilleurs concourent aux Trophées NSI, le concours national.</p>
+        </header>
+
+        <ul class="project-list">
+          <li class="project">
+            <svg class="project__icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="11" rx="3"/><path d="M7 10.5v4M5 12.5h4"/><circle cx="15.5" cy="11.5" r="1"/><circle cx="18" cy="14" r="1"/></svg>
+            <h3 class="project__title">Un jeu rétro en 8 bits</h3>
+            <p class="project__text">Sprites, collisions, score&nbsp;: un vrai jeu jouable, codé en Python avec Pyxel.</p>
+            <ul class="tags"><li class="tag">Boucles</li><li class="tag">Objets</li></ul>
+          </li>
+          <li class="project">
+            <svg class="project__icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/><path d="M12 15v2"/></svg>
+            <h3 class="project__title">Casser le code de César</h3>
+            <p class="project__text">Chiffrer, déchiffrer, attaquer. Puis comprendre pourquoi RSA, lui, résiste.</p>
+            <ul class="tags"><li class="tag">Arithmétique</li><li class="tag">Sécurité</li></ul>
+          </li>
+          <li class="project">
+            <svg class="project__icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="6" stroke-dasharray="2 2.4"/><circle cx="12" cy="12" r="1.6"/><circle cx="6" cy="5" r="1"/><circle cx="18" cy="7" r="1"/><circle cx="16" cy="16" r="1"/><circle cx="4" cy="15" r="1"/><circle cx="20" cy="19" r="1"/></svg>
+            <h3 class="project__title">Une IA qui devine un genre musical</h3>
+            <p class="project__text">Un classifieur des k plus proches voisins, entraîné sur de vraies données.</p>
+            <ul class="tags"><li class="tag">Données</li><li class="tag">IA</li></ul>
+          </li>
+          <li class="project">
+            <svg class="project__icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M9 13l-2 2 2 2M15 13l2 2-2 2"/></svg>
+            <h3 class="project__title">Le site de ton association</h3>
+            <p class="project__text">Des pages HTML, du style CSS et un formulaire qui envoie vraiment quelque chose.</p>
+            <ul class="tags"><li class="tag">Web</li><li class="tag">HTTP</li></ul>
+          </li>
+          <li class="project">
+            <svg class="project__icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="12" cy="11" r="2"/><circle cx="12" cy="19" r="2"/><path d="M7 6h10M6.7 7.2l3.6 2.6M17.3 7.2l-3.6 2.6M12 13v4"/></svg>
+            <h3 class="project__title">Le GPS du lycée</h3>
+            <p class="project__text">Les salles deviennent un graphe&nbsp;; ton algorithme trouve le chemin le plus court.</p>
+            <ul class="tags"><li class="tag">Graphes</li><li class="tag">Algorithmique</li></ul>
+          </li>
+          <li class="project">
+            <svg class="project__icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 9"/></svg>
+            <h3 class="project__title">Filtres photo maison</h3>
+            <p class="project__text">Une image n'est qu'un tableau de pixels. Noir et blanc, flou, détection des contours.</p>
+            <ul class="tags"><li class="tag">Tableaux</li><li class="tag">Images</li></ul>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ APRÈS LE BAC ============ -->
+    <section class="section futures" id="apres" aria-labelledby="apres-title">
+      <div class="inner">
+        <header class="section__head">
+          <p class="eyebrow">Après le bac</p>
+          <h2 class="section__title" id="apres-title">Des portes ouvertes, bien au-delà de l'informatique.</h2>
+          <p class="section__intro">NSI est conseillée, rarement exigée, pour les études du numérique. Avec les maths, elle ouvre presque tout.</p>
+        </header>
+
+        <div class="futures__grid">
+          <div class="futures__block futures__block--studies">
+            <h3 class="futures__title">Études</h3>
+            <ul class="paths">
+              <li class="path"><span class="path__name">BUT Informatique</span><span class="path__len">3 ans</span><span class="path__note">Développement, bases de données, réseaux, en IUT.</span></li>
+              <li class="path"><span class="path__name">BUT Réseaux &amp; Télécoms</span><span class="path__len">3 ans</span><span class="path__note">Infrastructures, cybersécurité, cloud.</span></li>
+              <li class="path"><span class="path__name">BTS SIO</span><span class="path__len">2 ans</span><span class="path__note">Services informatiques aux organisations. Très concret.</span></li>
+              <li class="path"><span class="path__name">Prépa MP2I</span><span class="path__len">2 ans</span><span class="path__note">La prépa créée en 2021 pour les passionnés de maths et d'info.</span></li>
+              <li class="path"><span class="path__name">Licence Informatique</span><span class="path__len">3 ans</span><span class="path__note">À l'université, puis un master&nbsp;: IA, sécurité, recherche.</span></li>
+              <li class="path"><span class="path__name">École d'ingénieurs post-bac</span><span class="path__len">5 ans</span><span class="path__note">Prépa intégrée, puis spécialisation dans le numérique.</span></li>
+            </ul>
+          </div>
+          <div class="futures__block futures__block--jobs">
+            <h3 class="futures__title">Métiers</h3>
+            <ul class="jobs">
+              <li class="job">Développeur·se</li>
+              <li class="job">Expert·e en cybersécurité</li>
+              <li class="job">Data scientist</li>
+              <li class="job">Ingénieur·e en IA</li>
+              <li class="job">Administrateur·rice réseau</li>
+              <li class="job">Développeur·se de jeux vidéo</li>
+              <li class="job">Designer d'interfaces</li>
+              <li class="job">Bio-informaticien·ne</li>
+              <li class="job">Chercheur·se</li>
+              <li class="job">Journaliste de données</li>
+            </ul>
+            <p class="combos"><span class="combos__label">Duos fréquents</span> NSI + Maths · NSI + Physique-Chimie · NSI + SES</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ OUTRO ============ -->
+    <section class="section outro" id="choisir" aria-labelledby="outro-title">
+      <div class="inner">
+        <h2 class="outro__title" id="outro-title">Et maintenant&nbsp;?</h2>
+        <p class="outro__text">Pose tes questions à un prof de NSI ou viens voir les projets aux portes ouvertes de ton lycée. En attendant, cette page a encore huit autres visages.</p>
+        <div class="actions actions--center">
+          <button class="btn btn--primary" type="button" data-action="next-style">Changer de style</button>
+          <a class="btn btn--ghost" href="#top">Revenir en haut</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="inner site-footer__inner">
+      <div class="xnav">
+        <p class="xnav__exergue">Un contenu, huit versions · celle-ci : <b>Opus</b> — 13 €, 25 M jetons, 1 h 21</p>
+        <ul class="xnav__grid">
+          <li><a class="xnav__item" href="/astra/" style="--x-accent:#2563EB"><span class="xnav__name">Astra</span><span class="xnav__cost">13 € · 8 M jetons · 37 min</span></a></li>
+          <li><a class="xnav__item" href="/deepseek/" style="--x-accent:#0B8A6A"><span class="xnav__name">DeepSeek</span><span class="xnav__cost">0,13 € · 21 M jetons · 42 min</span></a></li>
+          <li><a class="xnav__item" href="/fable/" style="--x-accent:#7C3AED"><span class="xnav__name">Fable</span><span class="xnav__cost">6,30 $ · 2,2 M jetons · 30 min</span></a></li>
+          <li><a class="xnav__item" href="/gemini/" style="--x-accent:#C2410C"><span class="xnav__name">Gemini</span><span class="xnav__cost">forfait &lt; 0,10 € · jetons n.c. · 6 min</span></a></li>
+          <li><a class="xnav__item" href="/glm/" style="--x-accent:#0891B2"><span class="xnav__name">GLM</span><span class="xnav__cost">0,12 € · 1 M jetons · 12 min</span></a></li>
+          <li><a class="xnav__item" href="/mimo/" style="--x-accent:#FF6900"><span class="xnav__name">MiMo</span><span class="xnav__cost">0,07 € · 4 M jetons · 40 min</span></a></li>
+          <li><a class="xnav__item" href="/muse/" style="--x-accent:#6C4DFF"><span class="xnav__name">MUSE</span><span class="xnav__cost">0,007 € · 200 k jetons · 4 min</span></a></li>
+          <li class="xnav__item" aria-current="page" style="--x-accent:#DC2626"><span class="xnav__name">Opus</span><span class="xnav__self">cette version — 13 € · 25 M jetons · 1 h 21</span></li>
+        </ul>
+        <span class="xnav__credit">Idée : <a href="https://x.com/nsi_xyz" target="_blank" rel="noopener">@nsi_xyz</a> · prompté sur Gemini 3.8 Flash, DeepSeek 4.1 Flash, GLM 5.3 Flash, MiMo V2.6 Flash et MUSE 1.3 Contributor par <a href="https://x.com/nsi_xyz" target="_blank" rel="noopener">@nsi_xyz</a>, sur Astra (GPT 6) par <a href="https://x.com/ClovisReye" target="_blank" rel="noopener">@ClovisReye</a>, sur Fable 5.1 et OPUS 5.5 par <a href="https://x.com/dabogratinib" target="_blank" rel="noopener">@dabogratinib</a> — <a href="/prompt/">le prompt du challenge, à soumettre tel quel ↗</a></span>
+      </div>
+      <p class="site-footer__lead"><strong>discover.nsi.xyz</strong> — un seul fichier HTML, neuf feuilles de style.</p>
+      <p class="site-footer__small">Sources&nbsp;: programmes de NSI, BO spécial n°&nbsp;1 du 22 janvier 2019 (Première) et n°&nbsp;8 du 25 juillet 2019 (Terminale).</p>
+    </div>
+  </footer>
+
+  <a class="fab" href="#top" hidden aria-label="Revenir en haut">
+    <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </a>
+
+  <!-- ============ SÉLECTEUR DE STYLE (apparence fixe) ============ -->
+  <div class="sk" id="stylekit">
+    <div class="sk-palette" id="sk-palette" hidden>
+      <div class="sk-palette__head">
+        <p class="sk-palette__title" id="sk-palette-title">Choisis une esthétique</p>
+        <button class="sk-chip" type="button" id="sk-tour" aria-pressed="false">
+          <span class="sk-chip__icon" aria-hidden="true"></span><span class="sk-chip__label">Défilé auto</span>
+        </button>
+      </div>
+      <div class="sk-grid" id="sk-grid" role="group" aria-labelledby="sk-palette-title"><!-- généré par app.js --></div>
+      <p class="sk-palette__keys">Raccourcis clavier&nbsp;: <kbd>1</kbd> à <kbd>9</kbd></p>
+    </div>
+
+    <div class="sk-bar" role="toolbar" aria-label="Style visuel de la page">
+      <button class="sk-btn sk-btn--icon" type="button" id="sk-prev" aria-label="Style précédent">
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
+      </button>
+      <button class="sk-current" type="button" id="sk-current" aria-expanded="false" aria-controls="sk-palette">
+        <span class="sk-current__swatch" id="sk-swatch" aria-hidden="true"></span>
+        <span class="sk-current__text">
+          <span class="sk-current__label">Style <span id="sk-count">1/9</span></span>
+          <span class="sk-current__name" id="sk-name">Flat Design</span>
+        </span>
+        <svg class="sk-current__chev" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15l6-6 6 6"/></svg>
+      </button>
+      <button class="sk-btn sk-btn--icon" type="button" id="sk-next" aria-label="Style suivant">
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+      </button>
+      <span class="sk-sep" aria-hidden="true"></span>
+      <button class="sk-btn" type="button" id="sk-info" aria-expanded="false" aria-controls="sk-sheet">Fiche</button>
+      <button class="sk-btn" type="button" id="sk-raw" aria-pressed="false">Sans CSS</button>
+    </div>
+    <p class="sk-hint" id="sk-hint" hidden>Même contenu, 9 styles. Essaie&nbsp;!</p>
+  </div>
+
+  <aside class="sk-sheet" id="sk-sheet" hidden aria-labelledby="sk-sheet-title">
+    <div class="sk-sheet__scroll">
+      <div class="sk-sheet__top">
+        <p class="sk-sheet__kicker" id="sk-sheet-kicker">Fiche style</p>
+        <button class="sk-btn sk-btn--icon" type="button" id="sk-sheet-close" aria-label="Fermer la fiche">
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+      <h2 class="sk-sheet__title" id="sk-sheet-title" tabindex="-1">Flat Design</h2>
+      <p class="sk-sheet__meta" id="sk-sheet-meta"></p>
+      <p class="sk-sheet__summary" id="sk-sheet-summary"></p>
+      <h3 class="sk-sheet__h">Principes</h3>
+      <ul class="sk-sheet__list" id="sk-sheet-principles"></ul>
+      <h3 class="sk-sheet__h">Les 24 bits, ici</h3>
+      <p class="sk-sheet__bits" id="sk-sheet-bits"></p>
+      <h3 class="sk-sheet__h">Dans le CSS</h3>
+      <pre class="sk-sheet__code"><code id="sk-sheet-code"></code></pre>
+      <h3 class="sk-sheet__h">Lisibilité</h3>
+      <p class="sk-sheet__a11y" id="sk-sheet-a11y"></p>
+    </div>
+  </aside>
+
+  <p class="sk-sr" id="sk-live" aria-live="polite"></p>
 </body>
 </html>

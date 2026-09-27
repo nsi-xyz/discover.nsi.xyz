@@ -1,9 +1,11 @@
 # Aucune redirection nécessaire : chaque version est servie depuis son dossier.
-#   /            → Astra   (index.html, styles.css, app.js)
+#   /            → version mise en avant (Opus : index.html + assets/)
+#   /astra/      → version Astra (GPT 6)
 #   /deepseek/   → version DeepSeek
 #   /fable/      → version Fable 5.1
 #   /gemini/     → version Gemini 3.8 Flash (site statique)
 #   /glm/        → version GLM 5.3 Flash
 #   /mimo/       → version MiMo V2.6 Flash
 #   /muse/       → version MUSE 1.3 Contributor
+#   /opus/       → version OPUS 5.5 (aussi servie à la racine)
 #   /prompt/     → le prompt original du challenge (à copier ou télécharger)
