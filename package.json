@@ -8,5 +8,8 @@
     "build": "node scripts/build-site.mjs",
     "dev": "node preview.mjs",
     "start": "node preview.mjs"
+  },
+  "engines": {
+    "node": ">=24"
   }
 }
