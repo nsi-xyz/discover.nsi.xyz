@@ -1,5 +1,6 @@
-/* Page « le prompt » : affiche le texte original et le copie en un clic.
-   Source unique : le-prompt.txt (le prompt à soumettre, sans son en-tête). */
+/* Page « le prompt » : affiche le texte de la version courante et le copie en un clic.
+   Source unique de la v2 : le-prompt.txt (le prompt à soumettre, sans son en-tête).
+   La v1 historique reste disponible dans le-prompt-v1.txt. */
 const out = document.getElementById('prompt');
 const copyBtn = document.getElementById('copy');
 const status = document.getElementById('status');

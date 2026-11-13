@@ -25,8 +25,15 @@ restent consultables depuis le pied de page de chacune.
 > @dabogratinib.
 
 Chacune de ces versions a reçu **exactement le même prompt, en un seul envoi,
-sans aucune modification**. Il est publié tel quel dans `prompt/` (page
-« copier en un clic » + fichier `.txt`), accessible depuis chaque pied de page.
+sans aucune modification** : la **v1**, publiée telle quelle dans `prompt/` (page
+« copier en un clic » + fichier `.txt`) et accessible depuis chaque pied de page.
+
+Le prompt est depuis passé en **v2** : `prompt/le-prompt.txt` ajoute une mise en
+contexte « benchmark », un cadre de livrable (un seul fichier `index.html` autonome,
+en français, 500 mots maximum, meta `prompt-version`) et une consigne d'équité
+(Internet autorisé pour se documenter sur la NSI, mais sans consulter le site
+existant discover.nsi.xyz ni reprendre une version existante). La v1 reste archivée
+dans `prompt/le-prompt-v1.txt`.
 
 ---
 
@@ -43,7 +50,7 @@ glm/             version GLM 5.3 Flash, autonome (index.html + css/ + js/)
 mimo/            version MiMo V2.6 Flash, autonome (index.html + assets/)
 muse/            version MUSE 1.3 Contributor, autonome (index.html + styles.css + app.js)
 opus/            version OPUS 5.5, autonome (index.html + assets/) — aussi servie à la racine
-prompt/          le prompt original du challenge (page « copier » + le-prompt.txt)
+prompt/          le prompt du challenge : v2 courante (le-prompt.txt), v1 historique (le-prompt-v1.txt), page « copier »
 scripts/build-site.mjs  assemble worker/site (racine = Opus + astra + deepseek + fable + gemini + glm + mimo + muse + opus + prompt)
 preview.mjs      aperçu local complet  →  npm run dev  →  127.0.0.1:4173
 .nojekyll        empêche Jekyll d'ignorer les dossiers commençant par un souligné
