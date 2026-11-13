@@ -29,11 +29,9 @@ sans aucune modification** : la **v1**, publiée telle quelle dans `prompt/` (pa
 « copier en un clic » + fichier `.txt`) et accessible depuis chaque pied de page.
 
 Le prompt est depuis passé en **v2** : `prompt/le-prompt.txt` ajoute une mise en
-contexte « benchmark », un cadre de livrable (un seul fichier `index.html` autonome,
-en français, 500 mots maximum, meta `prompt-version`) et une consigne d'équité
-(Internet autorisé pour se documenter sur la NSI, mais sans consulter le site
-existant discover.nsi.xyz ni reprendre une version existante). La v1 reste archivée
-dans `prompt/le-prompt-v1.txt`.
+contexte « benchmark » et une consigne d'équité (Internet autorisé pour se documenter
+sur la NSI, mais sans consulter le site existant discover.nsi.xyz ni reprendre une
+version existante). La v1 reste archivée dans `prompt/le-prompt-v1.txt`.
 
 ---
 

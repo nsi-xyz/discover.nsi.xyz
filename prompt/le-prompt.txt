@@ -25,12 +25,6 @@ Des contrastes chromatiques qui garantissent une lisibilité et une accessibilit
 
 Une ergonomie irréprochable et 100% responsive.
 
-Cadre du livrable (pour rendre les versions comparables) :
-Un seul fichier index.html autonome : HTML, CSS et JavaScript inclus, sans aucune ressource distante (ni CDN, ni police, ni image externe).
-Une interface et un contenu intégralement en français.
-Un texte visible concis : 500 mots maximum, hors libellés du sélecteur de styles.
-Dans le <head>, ajoute : <meta name="prompt-version" content="v2">.
-
 Surprends-moi dans ta façon d'interpréter ces 9 paradigmes et de structurer l'expérience !
 
 Équité du benchmark : tu peux utiliser Internet pour te documenter sur la NSI, mais ne consulte pas le site existant discover.nsi.xyz et ne fais pas de recherche web à propos de ce site ; n'utilise ni ses pages, ni son code source, ni une copie ou archive de ce site. Ne reprends ni le contenu ni le code d'une version existante du challenge.
