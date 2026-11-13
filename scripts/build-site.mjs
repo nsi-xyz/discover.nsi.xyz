@@ -18,7 +18,7 @@ const VERSIONS = ['astra', 'deepseek', 'fable', 'gemini', 'glm', 'mimo', 'muse',
 await rm(OUT, { recursive: true, force: true });
 
 /* Racine = page d'accueil (la version mise en avant) + fichiers du dépôt. */
-for (const f of ['index.html', 'assets', '.nojekyll', '_redirects']) {
+for (const f of ['index.html', 'assets', '.nojekyll', '_redirects', '_headers']) {
   if (existsSync(join(ROOT, f))) await cp(join(ROOT, f), join(OUT, f), { recursive: true });
 }
 

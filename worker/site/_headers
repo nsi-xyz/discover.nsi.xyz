@@ -1,0 +1,3 @@
+# Les prompts sont en UTF-8 : l'annoncer explicitement aux navigateurs.
+/prompt/*.txt
+  Content-Type: text/plain; charset=utf-8
